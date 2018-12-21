@@ -1030,7 +1030,7 @@
     <string name="alivc_speed_twice_times">2.0X</string>
     <string name="alivc_success">Success</string>
     <string name="alivc_volume">volume</string>
-    <string name="app_name">loadinglib</string>
+    <string name="app_name">oss-android-sdk</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="boxing_album_images_fmt">(%d)</string>

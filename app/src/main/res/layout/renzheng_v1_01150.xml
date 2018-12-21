@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,21 +14,20 @@
             android:id="@+id/back"
             android:layout_width="35dip"
             android:layout_height="35dip"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/back_01168"
-            />
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_01168" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="编辑认证资料"
-            android:textSize="20dip"
-            android:textColor="#000000"
             android:gravity="center"
-            />
+            android:text="编辑认证资料"
+            android:textColor="#000000"
+            android:textSize="20dip" />
     </RelativeLayout>
 
     <ScrollView
@@ -243,16 +242,13 @@
 
 
             <!--</LinearLayout>-->
-             <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_margin="5dp"
-                 android:textSize="12dp"
-                 android:textColor="@color/aliyun_red"
-                 android:text="注:上面图片认证通过后显示在app中。"/>
-
-
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="注:上面图片认证通过后显示在app中。"
+                android:textColor="@color/aliyun_red"
+                android:textSize="12dp" />
 
 
             <LinearLayout
@@ -285,28 +281,30 @@
                             android:layout_width="0.0dip"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dip"
                             android:layout_weight="1.0"
                             android:text="现场照片"
-                            android:layout_gravity="center_vertical"
                             android:textColor="#000000"
                             android:textSize="16.0sp" />
 
-                       <ImageView
-                           android:id="@+id/xczhaipianup"
-                           android:layout_width="80dp"
-                           android:layout_height="80dp"
-                           android:layout_weight="2.0"
-                           android:src="@drawable/icon_addpic_unfocused"/>
+                        <ImageView
+                            android:id="@+id/xczhaipianup"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="2.0"
+                            android:src="@drawable/icon_addpic_unfocused" />
 
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:textSize="12dp"
+                        android:text="注:现场拍照上传，仅用于平台认证审核，不显示在app中"
                         android:textColor="@color/aliyun_red"
-                        android:text="注:现场拍照上传，仅用于平台认证审核，不显示在app中"/>
+                        android:textSize="12dp" />
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1.0px"
@@ -317,7 +315,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="#ffffff"
-
                         android:orientation="horizontal">
 
                         <TextView
@@ -397,10 +394,12 @@
                             android:id="@+id/phonenum_text"
                             style="@style/EditUserinfos" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1.0px"
                         android:background="#ffeaeaea" />
+
                     <LinearLayout
                         android:id="@+id/ll_wxnum"
                         android:layout_width="match_parent"
@@ -523,8 +522,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#ffffff"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
 
@@ -678,7 +677,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="15dip"
-                    android:textColor="#FFFFFF"
                     android:background="@drawable/border_01162_txt_1"
                     android:gravity="center"
                     android:paddingBottom="5dip"
@@ -686,6 +684,7 @@
                     android:paddingRight="15dip"
                     android:paddingTop="5dip"
                     android:text="提交认证申请"
+                    android:textColor="#FFFFFF"
                     android:textSize="18dip" />
 
                 <LinearLayout

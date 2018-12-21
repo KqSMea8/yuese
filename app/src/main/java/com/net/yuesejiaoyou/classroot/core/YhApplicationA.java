@@ -102,7 +102,7 @@ public class YhApplicationA extends Application {
 //		QupaiHttpFinal.getInstance().initOkHttpFinal();
 //		initDownLoader();
 
-		VideoUploadUtil.init(getApplicationContext());
+		//VideoUploadUtil.init(getApplicationContext());
 		//---------------------158---------------------------
 
 		activityCallback = new ActivityLifecycleCallbacks() {

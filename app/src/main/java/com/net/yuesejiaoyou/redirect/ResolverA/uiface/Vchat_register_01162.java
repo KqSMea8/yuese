@@ -127,7 +127,7 @@ public class Vchat_register_01162 extends Activity implements View.OnClickListen
 				break;
 			case R.id.xieyi:
 				Intent intent=new Intent();
-				intent.setClass(Vchat_register_01162.this,Agreement_01162.class);
+				intent.setClass(Vchat_register_01162.this,AgreementActivity.class);
 				startActivity(intent);
 				break;
 		}

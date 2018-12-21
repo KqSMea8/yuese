@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f2f2f2" />
+
+    <LinearLayout
+        android:id="@+id/shipinliaotian"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FEFFFF">
+
+
+        <ImageView
+            android:id="@+id/shipinimg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/home2" />
+
+        <ImageView
+            android:id="@+id/guangchangimg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/discover1" />
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/xiaoxiimg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/message1" />
+
+            <ImageView
+                android:id="@+id/hd"
+                android:layout_width="10sp"
+                android:layout_height="10sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@id/xiaoxiimg"
+                android:src="@drawable/nim_new_message_notify"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/wodeimg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/myself1" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<resources>
+
+    <style name="AppTheme" mce_bogus="1" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!--<style name="AppLightTheme" mce_bogus="1" parent="@android:style/Theme.Holo.Light">-->
+        <!--<item name="android:windowAnimationStyle">@style/default_animation</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+
+        <!--<item name="android:windowTranslucentNavigation">false</item>-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+
+    <!--</style>-->
+
+
+</resources>

@@ -41,7 +41,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_speed_dot_orange.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_speed_dot_orange.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_speed_dot_orange.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_grow_fade_in_from_bottom.xml.flat",
@@ -49,7 +49,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_info_seekbar_bg_green.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_info_seekbar_bg_green.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_green.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_design_navigation_item_separator.xml.flat",
@@ -69,7 +69,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_brightness.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_brightness.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_brightness.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -105,7 +105,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_orange.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_orange.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_orange.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_btn_radio_material.xml.flat",
@@ -133,7 +133,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxhdpi-v4\\ic_launcher.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xxhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ucrop_activity_photobox.xml.flat",
@@ -145,7 +145,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_quality_list.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_quality_list.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_quality_list.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -181,19 +181,19 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_infobar_bg.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_infobar_bg.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_infobar_bg.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_design_ic_visibility_off.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\drawable-hdpi-v4\\design_ic_visibility_off.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_alivc_refresh_green.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xxhdpi-v4\\alivc_refresh_green.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_alivc_refresh_green.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xxhdpi-v4\\alivc_refresh_green.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_tooltip.xml.flat",
@@ -201,7 +201,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxhdpi-v4\\ic_launcher_round.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xxhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_media.xml.flat",
@@ -228,12 +228,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-hdpi-v4\\ucrop_ic_reset.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_tooltip_enter.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v26_abc_screen_toolbar.xml.flat",
@@ -245,7 +245,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_info_seekbar_thumb_red.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_red.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_red.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -265,11 +265,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_volume_img.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_volume_img.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_template_big_media_narrow.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_volume_img.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -305,7 +301,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-hdpi-v4\\ic_launcher_round.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-hdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -314,10 +310,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_design_fab_out.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\df5574ab2586028fbb3d84a569c11bf8\\res\\anim\\design_fab_out.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -333,11 +325,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_alivc_speed_text_color_blue.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\color\\alivc_speed_text_color_blue.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_switch_thumb.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v23\\abc_tint_switch_thumb.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_blue.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -408,10 +396,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11_abc_background_cache_hint_selector_material_dark.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_btn_colored_text_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v23\\abc_btn_colored_text_material.xml"
     },
@@ -461,7 +445,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_view_control.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_view_control.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_control.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -481,7 +465,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_playstate_play.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_playstate_play.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_playstate_play.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_select_dialog_multichoice_material.xml.flat",
@@ -517,11 +501,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_rate_dialog_bkg.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\rate_dialog_bkg.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\rate_dialog_bkg.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-hdpi-v4\\ic_launcher.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-hdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
@@ -541,7 +525,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_alivc_refresh_orange.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xxhdpi-v4\\alivc_refresh_orange.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xxhdpi-v4\\alivc_refresh_orange.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_ucrop_vector_loader_animated.xml.flat",
@@ -569,7 +553,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_guide_right.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_guide_right.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_guide_right.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_ucrop_ic_next.png.flat",
@@ -589,7 +573,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_titlebar_bg.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_titlebar_bg.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_titlebar_bg.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_item_background_holo_dark.xml.flat",
@@ -625,7 +609,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_replay.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_replay.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_replay.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -657,7 +641,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_view_speed_hide.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\anim\\view_speed_hide.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\anim\\view_speed_hide.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_material_dark.xml.flat",
@@ -669,19 +653,19 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_error.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_error.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_error.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_ucrop_vector_ic_crop.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable\\ucrop_vector_ic_crop.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5fab08a12328957b96cff1dfb272655c\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-sw600dp-v13_design_layout_snackbar.xml.flat",
@@ -693,7 +677,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_rr_bg_red.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_rr_bg_red.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_red.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -712,10 +696,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\color\\ucrop_scale_text_view_selector.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_media_action.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_media_action.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -725,7 +705,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxxhdpi-v4\\ic_launcher.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xxxhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -805,7 +785,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_rr_bg_white.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_rr_bg_white.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_white.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_ucrop_ic_scale.png.flat",
@@ -813,7 +793,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_red.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_red.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_red.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -837,7 +817,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_info_seekbar_thumb_orange.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_orange.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_orange.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_design_snackbar_background.xml.flat",
@@ -920,12 +900,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_background_cache_hint_selector_material_dark.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -948,10 +928,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_tint_switch_thumb.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color\\abc_tint_switch_thumb.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_tab_indicator_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_tab_indicator_material.xml"
     },
@@ -970,10 +946,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_template_big_media.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_ucrop_ic_scale.png.flat",
@@ -1029,7 +1001,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_info_seekbar_thumb_blue.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_blue.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_blue.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ic_boxing_checked.png.flat",
@@ -1081,7 +1053,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_rr_bg_orange.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_rr_bg_orange.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_orange.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_layout_boxing_app_bar.xml.flat",
@@ -1110,10 +1082,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_template_big_media_custom.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_custom.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_ucrop_ic_reset.png.flat",
@@ -1153,7 +1121,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_speed_dot_blue.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_speed_dot_blue.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_speed_dot_blue.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_abc_tint_switch_track.xml.flat",
@@ -1165,7 +1133,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_titlebar_back_nomal.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_titlebar_back_nomal.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_titlebar_back_nomal.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
@@ -1178,10 +1146,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_bar_view_list_nav_layout.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -1197,7 +1161,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_netchange.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_netchange.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_netchange.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_switch_thumb_material_dark.xml.flat",
@@ -1221,7 +1185,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_playstate_pause.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_playstate_pause.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_playstate_pause.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_design_ic_visibility_off.png.flat",
@@ -1273,11 +1237,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_gesture.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_gesture.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_gesture.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_screen_lock.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_screen_lock.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_screen_lock.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -1305,7 +1269,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_speed_dot_red.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_speed_dot_red.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_speed_dot_red.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_tooltip_frame_light.xml.flat",
@@ -1349,7 +1313,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_seek_rewind.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_seek_rewind.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_seek_rewind.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23_design_tint_password_toggle.xml.flat",
@@ -1376,10 +1340,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_template_big_media_narrow_custom.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_abc_tooltip_exit.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\anim\\abc_tooltip_exit.xml"
     },
@@ -1397,7 +1357,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ratetype_item.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\ratetype_item.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\ratetype_item.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -1405,7 +1365,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_alivc_speed_text_color_red.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\color\\alivc_speed_text_color_red.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_red.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -1457,7 +1417,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_view_speed_show.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\anim\\view_speed_show.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\anim\\view_speed_show.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_ucrop_ic_next.png.flat",
@@ -1489,7 +1449,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_loading_rotate.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\loading_rotate.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\loading_rotate.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
@@ -1565,7 +1525,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_titlebar_back_pressed.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_titlebar_back_pressed.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_titlebar_back_pressed.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_search_url_text.xml.flat",
@@ -1577,7 +1537,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_dialog_loading.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_dialog_loading.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_loading.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-anydpi-v21_design_ic_visibility.xml.flat",
@@ -1629,11 +1589,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xhdpi-v4\\ic_launcher.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_view_quality.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_view_quality.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_quality.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_ucrop_ic_crop.png.flat",
@@ -1645,7 +1605,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_rate_btn_nomal.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_rate_btn_nomal.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_nomal.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_action_menu_item_layout.xml.flat",
@@ -1717,7 +1677,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_menu_ic.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_menu_ic.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_menu_ic.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_ucrop_loader_circle_path.xml.flat",
@@ -1804,10 +1764,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v11_notification_media_cancel_action.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_media_cancel_action.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
@@ -1821,7 +1777,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_loading_10.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_loading_10.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_loading_10.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_big_media_custom.xml.flat",
@@ -1829,7 +1785,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_info_seekbar_bg_orange.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_info_seekbar_bg_orange.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_orange.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_layout_boxing_media_item.xml.flat",
@@ -1841,11 +1797,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-mdpi-v4\\ic_launcher_round.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-mdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_green.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_green.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_green.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_activity_boxing.xml.flat",
@@ -1853,7 +1809,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_view_guide.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_view_guide.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_guide.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_ucrop_ic_crop.png.flat",
@@ -1861,11 +1817,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_screen_unlock.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_screen_unlock.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_screen_unlock.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_alivc_speed_text_color_green.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\color\\alivc_speed_text_color_green.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_green.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -1885,7 +1841,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_info_seekbar_bg_blue.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_info_seekbar_bg_blue.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_blue.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -1897,7 +1853,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_volume_mute.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_volume_mute.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_volume_mute.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1905,7 +1861,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_speed_dot_green.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_speed_dot_green.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_speed_dot_green.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_design_bottom_sheet_slide_in.xml.flat",
@@ -1937,7 +1893,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxxhdpi-v4\\ic_launcher_round.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xxxhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ucrop_ic_cross.png.flat",
@@ -1945,7 +1901,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_alivc_refresh_red.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xxhdpi-v4\\alivc_refresh_red.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xxhdpi-v4\\alivc_refresh_red.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
@@ -1957,7 +1913,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_screen_mode_small.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_screen_mode_small.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_screen_mode_small.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -1973,7 +1929,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_info_seekbar_bg_red.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_info_seekbar_bg_red.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_red.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_list_selector_holo_dark.xml.flat",
@@ -1981,7 +1937,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_info_seekbar_thumb_green.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_green.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_info_seekbar_thumb_green.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_ucrop_ic_angle.png.flat",
@@ -2021,7 +1977,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_titlebar_back_selector.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_titlebar_back_selector.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_titlebar_back_selector.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_clear_material.xml.flat",
@@ -2105,7 +2061,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_dialog_error_bg.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_dialog_error_bg.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_dialog_error_bg.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_popup_menu_item_layout.xml.flat",
@@ -2113,11 +2069,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_alivc_view_speed.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\layout\\alivc_view_speed.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_speed.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_alivc_refresh_blue.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xxhdpi-v4\\alivc_refresh_blue.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xxhdpi-v4\\alivc_refresh_blue.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -2126,10 +2082,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_btn_colored_borderless_text_material.xml.flat",
@@ -2153,7 +2105,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_rr_bg_blue.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_rr_bg_blue.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_blue.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_ucrop_layout_scale_wheel.xml.flat",
@@ -2177,11 +2129,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xhdpi-v4\\ic_launcher_round.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-xhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_screen_mode_large.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_screen_mode_large.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_screen_mode_large.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_design_ic_visibility_off.png.flat",
@@ -2201,7 +2153,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_volume_unmute.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_volume_unmute.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_volume_unmute.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_layout_boxing_simple_media_item.xml.flat",
@@ -2209,11 +2161,11 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_rr_bg_green.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_rr_bg_green.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_green.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_guide_center.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_guide_center.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_guide_center.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_abc_screen_content_include.xml.flat",
@@ -2229,7 +2181,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_alivc_dialog_gesture_bg.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable\\alivc_dialog_gesture_bg.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_dialog_gesture_bg.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ucrop_ic_reset.png.flat",
@@ -2238,10 +2190,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_design_fab_in.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\df5574ab2586028fbb3d84a569c11bf8\\res\\anim\\design_fab_in.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_widget_empty_page.xml.flat",
@@ -2301,7 +2249,7 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_blue.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_blue.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_blue.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -2376,16 +2324,16 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5fab08a12328957b96cff1dfb272655c\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_abc_ic_search_api_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_guide_left.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_guide_left.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5fab08a12328957b96cff1dfb272655c\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_guide_left.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
@@ -2444,12 +2392,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ucrop_ic_scale.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-xxhdpi-v4\\ucrop_ic_scale.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-watch-v20_abc_alert_dialog_button_bar_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4_ucrop_ic_scale.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-xxhdpi-v4\\ucrop_ic_scale.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_design_password_eye.xml.flat",
@@ -2489,15 +2437,15 @@
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4_alivc_seek_forward.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\drawable-xhdpi-v4\\alivc_seek_forward.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_seek_forward.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-mdpi-v4\\ic_launcher.png"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\mipmap-mdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\color_alivc_speed_text_color_orange.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\AliyunVodPlayerView.aar\\97834a831c7ad4c8e2bee24440648ae0\\res\\color\\alivc_speed_text_color_orange.xml"
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_orange.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",

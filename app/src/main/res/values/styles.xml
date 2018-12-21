@@ -24,10 +24,24 @@
         <item name="android:isIndicator">true</item>
     </style>
 
-    <style name="AppTheme" parent="Base.AppTheme" type="text/css"><!-- Customize your theme here. --></style>
-    <!-- Base application theme. --><style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar" type="text/css"><item name="colorPrimary">#FF5C5C</item>
-    <item name="colorPrimaryDark">#FF5C5C</item>
-    <item name="colorAccent">#FF4081</item></style>
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar"><!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@drawable/bg</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar" type="text/css">
+        <item name="colorPrimary">#FF5C5C</item>
+        <item name="colorPrimaryDark">#FF5C5C</item>
+        <item name="colorAccent">#FF4081</item>
+    </style>
 
     <style name="progress_requst_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
@@ -45,41 +59,68 @@
     <style name="myProgressbarStyle" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/my_progressbar</item>
     </style>
+
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Base.ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark">
         <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
         <item name="colorControlNormal">?android:textColorPrimary</item>
     </style>
+
     <style name="Base.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat.Dark">
         <item name="android:colorForeground">@color/foreground_material_dark</item>
         <item name="android:colorBackground">@color/background_material_dark</item>
         <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorPrimaryDisableOnly">
+            @color/abc_primary_text_disable_only_material_dark
+        </item>
         <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
         <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
-        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light
+        </item>
         <item name="android:textColorHintInverse">@color/abc_hint_foreground_material_light</item>
         <item name="android:windowBackground">@color/background_material_dark</item>
         <item name="android:textColorHighlight">@color/highlighted_text_material_dark</item>
         <item name="android:textColorHint">@color/abc_hint_foreground_material_dark</item>
         <item name="android:colorForegroundInverse">@color/foreground_material_light</item>
         <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
-        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
-        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light
+        </item>
+        <item name="android:colorBackgroundCacheHint">
+            @color/abc_background_cache_hint_selector_material_dark
+        </item>
         <item name="isLightTheme">false</item>
         <item name="colorControlNormal">?android:textColorSecondary</item>
         <item name="colorControlHighlight">@color/ripple_material_dark</item>
         <item name="colorButtonNormal">@color/button_material_dark</item>
         <item name="colorSwitchThumbNormal">@color/switch_thumb_material_dark</item>
     </style>
+    <style name="EditUserinfos">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ff333333</item>
+        <item name="android:textColorHint">#ff999999</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawableRight">@drawable/list_arrow_gray</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
     <style name="Platform.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat">
-        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+        <item name="android:autoCompleteTextViewStyle">
+            @style/Widget.AppCompat.AutoCompleteTextView
+        </item>
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
         <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
         <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
         <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
     </style>
+
     <style name="Platform.ThemeOverlay.AppCompat" parent="" />
+
     <declare-styleable name="Flowlayout1">
         <attr name="lineSpacing1" format="dimension" />
         <attr name="tagSpacing1" format="dimension" />
@@ -100,11 +141,13 @@
     </style>
 
     <!-- ***************************************************************** -->
-    <style name="AliyunVideoUIStytle" >
+    <style name="AliyunVideoUIStytle">
         <item name="qusnap_background_color">@color/aliyun_color_bg</item>
         <item name="qusnap_tint_color">@color/aliyun_tint_color</item>
         <item name="qusnap_timeline_backgound_color">@color/aliyun_timeline_backgound_color</item>
-        <item name="qusnap_timeline_del_backgound_color">@color/aliyun_timeline_background_del_color</item>
+        <item name="qusnap_timeline_del_backgound_color">
+            @color/aliyun_timeline_background_del_color
+        </item>
         <item name="qusnap_back_icon">@mipmap/icon_back</item>
         <item name="qusnap_switch_light_icon">@drawable/snap_switch_light_selector</item>
         <item name="qusnap_switch_light_icon_disable">@mipmap/icon_light_dis</item>
@@ -158,13 +201,15 @@
         <item name="android:cacheColorHint">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">14dp</item>
     </style>
 
     <!--  腾讯云style start  -->
-    <style name="RtmproomActivityTheme" parent="Theme.AppCompat.NoActionBar"/>
-    <style name="RtmpRoomDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert"/>
+    <style name="RtmproomActivityTheme" parent="Theme.AppCompat.NoActionBar" />
+
+    <style name="RtmpRoomDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert" />
     <!-- 自定义loading dialog -->
     <style name="loading_dialog" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

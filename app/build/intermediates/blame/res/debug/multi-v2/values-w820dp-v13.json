@@ -4,15 +4,8 @@
             "outputFile": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
                     "from": {
-                        "startLines": "7",
-                        "startColumns": "4",
-                        "startOffsets": "310",
-                        "endColumns": "57",
-                        "endOffsets": "363"
-                    },
-                    "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",

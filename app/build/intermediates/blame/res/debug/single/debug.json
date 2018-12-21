@@ -248,10 +248,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_thumb.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v23\\abc_tint_switch_thumb.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_phone2.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\phone2.png"
     },
@@ -268,12 +264,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_dropbox.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\switch_thumb_material_dark.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_confirm.png.flat",
@@ -316,16 +312,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\pingxing.xml"
     },
     {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_logo.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_logo.png"
+    },
+    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ucrop_ic_rotate.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-xxxhdpi-v4\\ucrop_ic_rotate.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_uploadvideo.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_uploadvideo.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_logo.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_logo.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_light_on.png.flat",
@@ -356,12 +352,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\layout\\ucrop_aspect_ratio.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_filter_huaijiu.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\filter_huaijiu.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_more.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_more.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_filter_huaijiu.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\filter_huaijiu.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_resources_item_view.xml.flat",
@@ -428,10 +424,6 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_light_off.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_hint_foreground_material_light.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_shape_oval_gray.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\aliyun_svideo_shape_oval_gray.xml"
     },
@@ -444,12 +436,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\paint.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_googleplus.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_googleplus.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_check.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\check.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_googleplus.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_googleplus.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_video_btn.png.flat",
@@ -512,36 +504,36 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\yuaniaol.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_big_v_home_xiaoguo_love.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\big_v_home_xiaoguo_love.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_meibai.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\meibai.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_tab_backgroud_unselect.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\tab_backgroud_unselect.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_alter_select.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_alter_select.png"
     },
     {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_tab_backgroud_unselect.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\tab_backgroud_unselect.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_meibai.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\meibai.png"
+    },
+    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v23\\abc_tint_switch_track.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_email.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_email.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_quanxian1.png.flat",
@@ -616,10 +608,6 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\border_01162_2.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -628,8 +616,8 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\video_jiantou.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_dark.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_hint_foreground_material_dark.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_video_edit_play_selector.xml.flat",
@@ -836,24 +824,20 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_light_auto.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_light_auto.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_country_back_arrow.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_country_back_arrow.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_country_back_arrow.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_country_back_arrow.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_light_auto.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_light_auto.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-hdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_aliyun_svideo_time_view.xml.flat",
@@ -866,10 +850,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_filter_thumb_cool.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\filter_thumb_cool.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_selector_video_duration.xml.flat",
@@ -896,12 +876,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\drawable\\design_snackbar_background.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_banner.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\banner-1.4.9.aar\\489f69a754650bb49418bbddd1ac8f95\\res\\layout\\banner.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_mopi.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\mopi.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_banner.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\banner-1.4.9.aar\\489f69a754650bb49418bbddd1ac8f95\\res\\layout\\banner.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sanjiao.png.flat",
@@ -940,12 +920,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_complete_select.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_complete_select.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_fb_close.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\fb_close.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_complete_select.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_complete_select.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pop_report_01160.xml.flat",
@@ -1068,20 +1048,16 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_back_01168.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\back_01168.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_pk_start.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\pk_start.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_tuichudenglu_1152.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\tuichudenglu_1152.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_pk_start.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\pk_start.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxxhdpi-v4\\ic_launcher.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_back_01168.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\back_01168.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_text_material.xml.flat",
@@ -1184,16 +1160,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\video_shangzhezhao.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_tumblr.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_tumblr.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_evernote.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_evernote.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_loading_06.png.flat",
@@ -1336,12 +1312,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\arrow_g.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_v_homepage.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_new_v_homepage.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_video_chat_view_guke.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_video_chat_view_guke.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_v_homepage.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_new_v_homepage.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_star5.png.flat",
@@ -1384,12 +1360,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_seek_rewind.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_seek_rewind.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_item_selector.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\list_item_selector.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_seek_rewind.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_seek_rewind.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_qianbao.png.flat",
@@ -1404,12 +1380,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_noskin.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_dv_01160.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\search_dv_01160.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_twitter.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_twitter.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_dv_01160.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\search_dv_01160.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_ucrop_scale_text_view_selector.xml.flat",
@@ -1572,12 +1548,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\filter_langman.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_loading_3.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\loading_3.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_renren.png.flat",
@@ -1660,24 +1636,24 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\btn_camera_shutter.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_loading_10.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_loading_10.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_imv_preview_dialog_layout.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\imv_preview_dialog_layout.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_loading_10.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_loading_10.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_videofragment2_01066.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\videofragment2_01066.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
@@ -1712,12 +1688,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\booking.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_titlebar_back_nomal.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_titlebar_back_nomal.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_callback.png.flat",
@@ -1760,10 +1736,6 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\frag_calling.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_switch_thumb.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color\\abc_tint_switch_thumb.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_btn_colored_material.xml"
     },
@@ -1780,10 +1752,6 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\en1.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-hdpi-v4\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_theme_default_btn_edit_overlay_mirror_selector.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\aliyun_svideo_theme_default_btn_edit_overlay_mirror_selector.xml"
     },
@@ -1792,12 +1760,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\big_v_home_tab_on.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ucrop_ic_next.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-ldpi-v4\\ucrop_ic_next.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_nim_message_right_blue_bg_pressed.9.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-hdpi\\nim_message_right_blue_bg_pressed.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ucrop_ic_next.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-ldpi-v4\\ucrop_ic_next.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_screen_mode_small.png.flat",
@@ -1956,12 +1924,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\anim\\boxing_fade_in.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21_design_appbar_state_list_animator.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\animator-v21\\design_appbar_state_list_animator.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_home1.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\home1.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21_design_appbar_state_list_animator.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\animator-v21\\design_appbar_state_list_animator.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_time_backrun_select.png.flat",
@@ -2016,10 +1984,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-ldpi-v4\\ucrop_ic_angle.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_template_big_media_custom.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_custom.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_liveroom_online_pusher.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\layout_liveroom_online_pusher.xml"
     },
@@ -2036,12 +2000,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\po_seekbar.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border_radius_search.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\border_radius_search.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -2060,12 +2024,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_listvie_item_01066.xml.flat",
@@ -2112,20 +2076,20 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\caption.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_layout.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_layout.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_videopay_play.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\videopay_play.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -2140,12 +2104,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_next.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_qqquick.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\qqquick.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_qqquick.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\qqquick.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_meiyan.png.flat",
@@ -2162,10 +2126,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_rtmproom_roominfo_item.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\rtmproom_roominfo_item.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v11_abc_background_cache_hint_selector_material_dark.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
@@ -2324,24 +2284,24 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\vfragment_01066.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_loading_7.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\loading_7.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_qingchuhuancun_1152.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\qingchuhuancun_1152.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_loading_7.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\loading_7.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_beautyoff.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\beautyoff.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_parser_preview_cancel.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\parser_preview_cancel.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_nim_message_left_white_bg_pressed.9.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-hdpi\\nim_message_left_white_bg_pressed.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_parser_preview_cancel.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\parser_preview_cancel.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_spinner.xml.flat",
@@ -2416,12 +2376,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_dialog_netchange.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_wechat.png.flat",
@@ -2500,12 +2460,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_music_view.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_boxing_camera_white.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_boxing_camera_white.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_loadingbanner.png.flat",
@@ -2528,12 +2488,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\theme_default_btn_edit_overlay_transform_selector.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ucrop_ic_crop.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-ldpi-v4\\ucrop_ic_crop.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_linkedin.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_linkedin.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4_ucrop_ic_crop.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-ldpi-v4\\ucrop_ic_crop.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -2608,20 +2568,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\heimingdan.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_media_cancel_action.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_media_cancel_action.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_collage_layout_filters_bar_close_normal.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\ic_collage_layout_filters_bar_close_normal.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_doupopview_01066.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\doupopview_01066.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_doupopview_01066.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\doupopview_01066.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",
@@ -2648,12 +2604,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_action_bar.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_imageonly.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\imageonly.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_rating_empty_bg.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\rating_empty_bg.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_imageonly.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\imageonly.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_btn_checkable.xml.flat",
@@ -2692,16 +2648,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\banner-1.4.9.aar\\489f69a754650bb49418bbddd1ac8f95\\res\\drawable\\gray_radius.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_boxing_recycleview_header.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\layout\\layout_boxing_recycleview_header.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_frame.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_frame.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_template_big_media.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_boxing_recycleview_header.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\layout\\layout_boxing_recycleview_header.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -2724,12 +2676,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_item_qupai_gallery_media.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_ucrop_loader_circle_scale.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\anim\\ucrop_loader_circle_scale.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_back_new.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-hdpi\\back_new.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_ucrop_loader_circle_scale.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\anim\\ucrop_loader_circle_scale.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_guide_left.png.flat",
@@ -2748,12 +2700,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\wx.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_pay_ali_icon.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\pay_ali_icon.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_bg_parser_preview_cancel_rect.xml.flat",
@@ -2794,10 +2746,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_timeline_overlay.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\layout_timeline_overlay.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-mdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -2872,12 +2820,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_ratio_dis.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_music_seekbar_drawable.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\aliyun_svideo_music_seekbar_drawable.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rtmproom_create_room_seletor.xml.flat",
@@ -3120,12 +3068,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_in.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\anim\\design_snackbar_in.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_light_dis.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_light_dis.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_in.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\anim\\design_snackbar_in.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_video_edit_time_fast_selector.xml.flat",
@@ -3256,12 +3204,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_agora_rtc.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_agora_rtc.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_aliyun_svideo_icon_import_delete.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\aliyun_svideo_icon_import_delete.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_agora_rtc.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_agora_rtc.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_focusitem.xml.flat",
@@ -3276,12 +3224,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_gifton.gif.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-mdpi\\gifton.gif"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -3306,10 +3254,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
@@ -3476,16 +3420,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_alter_dis.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\layout-v21\\notification_template_custom_big.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_loading_10.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-ldpi\\loading_10.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_filter_qingxin.png.flat",
@@ -3544,12 +3488,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_time_slow_normal.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_alivc_speed_text_color_green.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_green.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_home_mask.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\home_mask.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_alivc_speed_text_color_green.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\color\\alivc_speed_text_color_green.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_zhoustar1_01162.xml.flat",
@@ -3564,12 +3508,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_more.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\more.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_nim_message_left_white_bg.9.png.flat",
@@ -3604,12 +3548,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_default.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_alivc_view_guide.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_guide.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_more1.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\more1.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_alivc_view_guide.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\alivc_view_guide.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_sharegetmoney.png.flat",
@@ -3636,20 +3580,20 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\fragment1_01066.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_out_top.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_clear_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_ic_clear_material.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_clear_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_out_top.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -3674,10 +3618,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_radio.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_view_list_nav_layout.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_aliyun_svideo_icon_record.png.flat",
@@ -3708,12 +3648,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_color_tab_content.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\layout_color_tab_content.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
@@ -3728,16 +3668,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\filter_press.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_pause.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_pause.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_country_sharesdk_icon.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_country_sharesdk_icon.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_alivc_view_control.xml.flat",
@@ -3752,12 +3692,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alivc_dialog_gesture_bg.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_dialog_gesture_bg.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fb_loginpop_01162.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\fb_loginpop_01162.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alivc_dialog_gesture_bg.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_dialog_gesture_bg.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_navigation_empty_icon.xml.flat",
@@ -3804,12 +3744,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\vfragment2_01066.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_infobar_bg.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_infobar_bg.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ic_boxing_check_black.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\drawable-hdpi-v4\\ic_boxing_check_black.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_infobar_bg.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_infobar_bg.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_video_heart.png.flat",
@@ -3876,32 +3816,32 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_wechatmoments.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_orange.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_orange.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_tick_mark_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_import_item_qupai_gallery_media.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\import_item_qupai_gallery_media.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_rate_btn_focused_orange.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_orange.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alivc_rr_bg_red.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_rr_bg_red.xml"
     },
     {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_import_item_qupai_gallery_media.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\import_item_qupai_gallery_media.xml"
+    },
+    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hint_dialog_pressed_bg.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\hint_dialog_pressed_bg.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_instagram.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_instagram.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_mytag_item_01162.xml.flat",
@@ -4036,20 +3976,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\beijing.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_fab_in.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\df5574ab2586028fbb3d84a569c11bf8\\res\\anim\\design_fab_in.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_qupai_paster_caption.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\qupai_paster_caption.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_level6_01165.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\level6_01165.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fensi_01152.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\fensi_01152.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_level6_01165.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\level6_01165.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -4132,12 +4068,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_import_activity_media.xml.flat",
@@ -4192,6 +4128,10 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_mic_normal.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\mic_normal.png"
+    },
+    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\drawable-mdpi-v4\\design_ic_visibility.png"
     },
@@ -4200,20 +4140,16 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_mic_normal.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\mic_normal.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_aliyun_svideo_theme_default_btn_edit_overlay_transform_selector.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\aliyun_svideo_theme_default_btn_edit_overlay_transform_selector.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_facebook.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_facebook.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_loading_09.png.flat",
@@ -4304,12 +4240,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_action_bar_profile.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_boxing_bottom_sheet.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\layout\\activity_boxing_bottom_sheet.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_arrow_g_01168.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\arrow_g_01168.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_boxing_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\layout\\activity_boxing_bottom_sheet.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_callback.png.flat",
@@ -4332,12 +4268,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\drawable\\shape_boxing_unchecked.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_zhubozhongxin_1152.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\zhubozhongxin_1152.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_complete_dis.png.flat",
@@ -4428,10 +4364,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_rate_btn_focused_blue.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
     },
@@ -4442,6 +4374,10 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_dropdown_lv_head.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\dropdown_lv_head.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -4484,10 +4420,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-xhdpi-v4\\ucrop_ic_next.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxhdpi-v4\\ic_launcher_round.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-xhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -4500,12 +4432,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\big_v_home_video_red.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_country_search_icon.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_country_search_icon.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_delete_select.png.flat",
@@ -4536,12 +4468,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_light_on.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_spinner_textfield_background_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_spinner_textfield_background_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_phonerecord.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\activity_phonerecord.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_spinner_textfield_background_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_alivc_refresh_red.png.flat",
@@ -4570,10 +4502,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_template_big_media_narrow_custom.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_beauty_select.png.flat",
@@ -4664,12 +4592,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-hdpi\\caht_input_bg.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_shape_effect_category_unselected.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\shape_effect_category_unselected.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_tab_backgroud.xml.flat",
@@ -4716,12 +4644,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\loading.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alivc_info_seekbar_bg_green.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_green.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_renzheng_phone_01150.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\renzheng_phone_01150.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alivc_info_seekbar_bg_green.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable\\alivc_info_seekbar_bg_green.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_live_room.xml.flat",
@@ -4796,12 +4724,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\level5_01165.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_design_error.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\color\\design_error.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_sweep_right.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_sweep_right.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_design_error.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\color\\design_error.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_time_backrun_normal.png.flat",
@@ -4832,12 +4760,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\yuyue_man_01160.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_aliyun_svideo_progress_dialog.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_progress_dialog.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_online_dotsunselect.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-ldpi\\online_dotsunselect.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_aliyun_svideo_progress_dialog.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_progress_dialog.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_boxing_fade_out.xml.flat",
@@ -4952,12 +4880,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5fab08a12328957b96cff1dfb272655c\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_sweep_left.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_sweep_left.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_sweep_left.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_sweep_left.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_delete.png.flat",
@@ -4982,10 +4910,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ucrop_ic_cross.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-xxhdpi-v4\\ucrop_ic_cross.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_template_big_media_narrow.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_menu_overflow_material.xml.flat",
@@ -5040,12 +4964,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-ldpi\\loading_03.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_giftoff.gif.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-mdpi\\giftoff.gif"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_aliyun_svideo_activity_action_bar.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_activity_action_bar.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_giftoff.gif.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-mdpi\\giftoff.gif"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_view_speed_hide.xml.flat",
@@ -5112,12 +5036,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\layout\\ucrop_layout_scale_wheel.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_aliyun_svideo_item_qupai_trim_video_thumbnail.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_item_qupai_trim_video_thumbnail.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
@@ -5212,10 +5136,6 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-mdpi-v4\\ic_launcher.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_quanxian_android_icon_xc.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\quanxian_android_icon_xc.png"
     },
@@ -5246,10 +5166,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-v21\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxxhdpi-v4\\ic_launcher_round.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_img_page_01160.xml.flat",
@@ -5296,16 +5212,16 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_laiwang.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_laiwang.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_loading_14.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\loading_14.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v26_abc_screen_toolbar.xml.flat",
@@ -5352,12 +5268,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\boxing-impl-1.0.2.aar\\cb2eb747439b4ceedcc11450e2181168\\res\\layout\\layout_boxing_album_item.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_rtmproom_hint_dialog.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\layout_rtmproom_hint_dialog.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_zt_wurao.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\zt_wurao.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_rtmproom_hint_dialog.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\layout_rtmproom_hint_dialog.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push.png.flat",
@@ -5368,12 +5284,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-ldpi\\loading_07.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ucrop_ic_angle.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-mdpi-v4\\ucrop_ic_angle.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_vchat_forgetpassword.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\vchat_forgetpassword.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ucrop_ic_angle.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-mdpi-v4\\ucrop_ic_angle.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -5604,12 +5520,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_layout_paster_preview.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_design_tint_password_toggle.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\color\\design_tint_password_toggle.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_huiseruanjiao.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\huiseruanjiao.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_design_tint_password_toggle.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\color\\design_tint_password_toggle.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_time_repeat_select.png.flat",
@@ -5700,12 +5616,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\love.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_yuanjiaobiankuang.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\yuanjiaobiankuang.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_red_choose_01165.xml.flat",
@@ -5736,12 +5652,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\banner-1.4.9.aar\\489f69a754650bb49418bbddd1ac8f95\\res\\drawable\\white_radius.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_seekbar_progress_drawable.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\seekbar_progress_drawable.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_star1.png.flat",
@@ -5804,32 +5720,32 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\selectimg_01066.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_item_background_holo_dark.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_vchat_setnickname_01162.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\vchat_setnickname_01162.xml"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_item_background_holo_dark.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_edit_text_material.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_infocenter_list_01160.xml.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\infocenter_list_01160.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_ucrop_controls.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\layout\\ucrop_controls.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_video_guanzhu.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\video_guanzhu.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_ucrop_controls.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\layout\\ucrop_controls.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_meiyan_set.xml.flat",
@@ -5864,20 +5780,16 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_activity_editor.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_back.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_back.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_ratetype_item.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\layout\\ratetype_item.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pop_reservation_01160.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\pop_reservation_01160.xml"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_back.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_back.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xxhdpi-v4\\ic_launcher.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pop_reservation_01160.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\pop_reservation_01160.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -6020,12 +5932,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\switch_light_selector.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher11.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher11.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_paypal_img.png.flat",
@@ -6040,12 +5952,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher11.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_record_camera_switch_normal.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xhdpi\\record_camera_switch_normal.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_titlebar_back_pressed.png.flat",
@@ -6128,12 +6040,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_light.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\tooltip_frame_light.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_reservation_icon_phone_gray.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\reservation_icon_phone_gray.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_light.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable\\tooltip_frame_light.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -6236,16 +6148,16 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9c9fcbae476afb3c443506dbbb8afba9\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ucrop_ic_crop.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-hdpi-v4\\ucrop_ic_crop.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_pinterest.png.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_pinterest.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v23\\abc_tint_default.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_pinterest.png.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable\\ssdk_oks_classic_pinterest.png"
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_ucrop_ic_crop.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\drawable-hdpi-v4\\ucrop_ic_crop.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -6280,12 +6192,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\aliyun_svideo_activity_effect_manager.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_news_item_01160.xml.flat",
-        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\fragment_news_item_01160.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_level1_01165.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\level1_01165.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_news_item_01160.xml.flat",
+        "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\layout\\fragment_news_item_01160.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ssdk_oks_classic_douban.png.flat",
@@ -6294,10 +6206,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\mipmap-xhdpi-v4\\ic_launcher.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recorder_demo.xml.flat",
@@ -6312,12 +6220,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\shape_next_button.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_4_3.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\icon_4_3.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_downnotice.xml.flat",
@@ -6348,24 +6256,24 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_sr_classic_arrow_icon.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ext-classic-1.6.2.aar\\2f8018ae10dd8478b8cf88978089fd5a\\res\\drawable-xhdpi-v4\\sr_classic_arrow_icon.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_alivc_speed_dot_blue.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\aliyunVodPlayerView.aar\\13e7c388692778e6560752be3bf44443\\res\\drawable-xhdpi-v4\\alivc_speed_dot_blue.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_sr_classic_arrow_icon.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ext-classic-1.6.2.aar\\2f8018ae10dd8478b8cf88978089fd5a\\res\\drawable-xhdpi-v4\\sr_classic_arrow_icon.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_undo.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\undo.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_aliyun_svideo_icon_4_3.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\mipmap-xhdpi\\aliyun_svideo_icon_4_3.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_filter_weimei.png.flat",
@@ -6612,10 +6520,6 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\share_icon.png"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v11_notification_media_action.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\f89a76046b0b6d0808a6c10b783c488c\\res\\layout-v11\\notification_media_action.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\layout-v21\\notification_template_icon_group.xml"
     },
@@ -6624,12 +6528,12 @@
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\huangseruanjiao.xml"
     },
     {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\6dd1788b0e528ea15f6c8012f3684134\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\90b121fa78be891028b62d6cccc20048\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_baise_yuanjiaobiankuang_01162.xml.flat",
@@ -6730,10 +6634,6 @@
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_recharge.png.flat",
         "source": "E:\\webwork\\yuese_android\\app\\src\\main\\res\\drawable-xxhdpi\\recharge.png"
-    },
-    {
-        "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_fab_out.xml.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\df5574ab2586028fbb3d84a569c11bf8\\res\\anim\\design_fab_out.xml"
     },
     {
         "merged": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_design_bottom_navigation_item_background.xml.flat",

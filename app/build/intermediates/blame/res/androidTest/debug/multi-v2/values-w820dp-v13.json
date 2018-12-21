@@ -4,7 +4,7 @@
             "outputFile": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary-release-9.2.1-2018-11-20.aar\\12ce1885d3ff0988354a4e1ac04c4526\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\xjgarsdklibrary.aar\\e16a807a7b42833e81dc51e84acce132\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
