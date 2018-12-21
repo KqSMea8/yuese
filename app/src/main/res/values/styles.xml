@@ -1,0 +1,178 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="HooliganActivity" parent="android:Theme.Holo.Light.NoActionBar">//无标题
+        <item name="android:windowIsTranslucent">true</item>//透明
+    </style>
+
+    <style name="myTransparent" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@color/transparent1</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item> <!-- 无标题 -->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="roomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/pingxing</item>
+        <item name="android:minHeight">11dp</item>
+        <item name="android:maxHeight">11dp</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.AppTheme" type="text/css"><!-- Customize your theme here. --></style>
+    <!-- Base application theme. --><style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar" type="text/css"><item name="colorPrimary">#FF5C5C</item>
+    <item name="colorPrimaryDark">#FF5C5C</item>
+    <item name="colorAccent">#FF4081</item></style>
+
+    <style name="progress_requst_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@color/dialog_back</item>
+        <!-- 设置完全透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置屏幕变暗 -->
+    </style>
+
+    <style name="myProgressbarStyle" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/my_progressbar</item>
+    </style>
+    <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Base.ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark">
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
+        <item name="colorControlNormal">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorForeground">@color/foreground_material_dark</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorHintInverse">@color/abc_hint_foreground_material_light</item>
+        <item name="android:windowBackground">@color/background_material_dark</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item name="android:textColorHint">@color/abc_hint_foreground_material_dark</item>
+        <item name="android:colorForegroundInverse">@color/foreground_material_light</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item name="isLightTheme">false</item>
+        <item name="colorControlNormal">?android:textColorSecondary</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorButtonNormal">@color/button_material_dark</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_material_dark</item>
+    </style>
+    <style name="Platform.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat">
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+    </style>
+    <style name="Platform.ThemeOverlay.AppCompat" parent="" />
+    <declare-styleable name="Flowlayout1">
+        <attr name="lineSpacing1" format="dimension" />
+        <attr name="tagSpacing1" format="dimension" />
+        <!-- 是否是固定布局 -->
+        <attr name="isFixed1" format="boolean" />
+        <attr name="columnSize1" format="integer" />
+    </declare-styleable>
+
+
+    <style name="MySeekBar" parent="android:Widget">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/abc_seekbar_track_material</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_seekbar_track_material</item>
+        <item name="android:thumb">@drawable/abc_seekbar_thumb_material</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+    </style>
+
+    <!-- ***************************************************************** -->
+    <style name="AliyunVideoUIStytle" >
+        <item name="qusnap_background_color">@color/aliyun_color_bg</item>
+        <item name="qusnap_tint_color">@color/aliyun_tint_color</item>
+        <item name="qusnap_timeline_backgound_color">@color/aliyun_timeline_backgound_color</item>
+        <item name="qusnap_timeline_del_backgound_color">@color/aliyun_timeline_background_del_color</item>
+        <item name="qusnap_back_icon">@mipmap/icon_back</item>
+        <item name="qusnap_switch_light_icon">@drawable/snap_switch_light_selector</item>
+        <item name="qusnap_switch_light_icon_disable">@mipmap/icon_light_dis</item>
+        <item name="qusnap_switch_light_icon_visibility">visible</item>
+        <item name="qusnap_switch_camera_icon">@drawable/snap_switch_camera</item>
+        <item name="qusnap_switch_camera_icon_visibility">visible</item>
+        <item name="qusnap_beauty_icon">@drawable/snap_switch_beauty</item>
+        <item name="qusnap_beauty_icon_visibility">visible</item>
+        <item name="qusnap_record_icon">@drawable/snap_record_state_selector</item>
+        <item name="qusnap_delete_icon">@drawable/snap_icon_delete</item>
+        <item name="qusnap_complete_icon">@drawable/snap_icon_complete</item>
+        <item name="qusnap_gallery_icon">@mipmap/icon_default</item>
+        <item name="qusnap_gallery_icon_visibility">visible</item>
+        <item name="qusnap_time_txt_color">@android:color/white</item>
+        <item name="qusnap_time_txt_size">15dp</item>
+        <item name="qusnap_time_txt_visibility">visible</item>
+        <item name="qusnap_time_line_pos_y">0dp</item>
+        <item name="qusnap_crop_sweep_left">@mipmap/icon_sweep_left</item>
+        <item name="qusnap_crop_sweep_right">@mipmap/icon_sweep_right</item>
+        <item name="qusnap_crop_seek_frame">@mipmap/icon_frame</item>
+        <item name="qusnap_crop_seek_padding_color">@android:color/holo_red_dark</item>
+        <item name="qusnap_crop_icon_transform">@drawable/snap_transform_selector</item>
+        <item name="qusnap_crop_icon_transform_visibility">visible</item>
+        <item name="qusnap_crop_time_txt_color">@android:color/white</item>
+        <item name="qusnap_crop_time_txt_size">15dp</item>
+        <item name="qusnap_crop_txt_visibility">visible</item>
+    </style>
+
+    <style name="QUDemoBottomStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="bottom_dialog_animation">
+        <item name="android:windowEnterAnimation">@anim/anim_trans_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/anim_layout_bottom_out</item>
+    </style>
+
+    <style name="TextDlgStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="ResourcePreviewStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!--  腾讯云style start  -->
+    <style name="RtmproomActivityTheme" parent="Theme.AppCompat.NoActionBar"/>
+    <style name="RtmpRoomDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert"/>
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <!-- 腾讯云style end   -->
+
+</resources>

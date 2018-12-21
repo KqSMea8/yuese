@@ -1,0 +1,3 @@
+# Referenced at E:\webwork\yuese_android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:94
+-keep class com.net.yuesejiaoyou.classroot.core.YhApplicationA { <init>(...); }
+

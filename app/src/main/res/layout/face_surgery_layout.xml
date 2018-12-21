@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_filter_tab"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerVertical="true">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:id="@+id/redFaceText"
+        android:text="红润"
+        android:textColor="#FFFFFF"
+        />
+    <SeekBar
+        style="@style/MySeekBar"
+        android:id="@+id/redFaceValueBar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@drawable/seekbar_thumb"
+        />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:id="@+id/skinWhitenText"
+        android:text="美白"
+        android:textColor="#FFFFFF"
+        />
+    <SeekBar
+        android:id="@+id/skinWhitenValueBar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_above="@id/redFaceText"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@drawable/seekbar_thumb"
+        />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:id="@+id/skinsmoothtext"
+        android:text="磨皮"
+        android:textColor="#FFFFFF"
+        />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/skinSmoothValueBar"
+        android:layout_above="@id/skinWhitenText"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@drawable/seekbar_thumb"
+        />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:id="@+id/faceShapetext"
+        android:text="廋脸"
+        android:textColor="#FFFFFF"
+        />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/faceShapeValueBar"
+        android:layout_above="@id/skinSmoothValueBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@drawable/seekbar_thumb"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:id="@+id/bigeyetext"
+        android:text="大眼"
+        android:textColor="#FFFFFF"
+        />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/bigeyeValueBar"
+        android:layout_above="@id/faceShapetext"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:maxHeight="2dip"
+        android:minHeight="2dip"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:progressDrawable="@drawable/po_seekbar"
+        android:thumb="@drawable/seekbar_thumb"/>
+
+
+
+</LinearLayout>

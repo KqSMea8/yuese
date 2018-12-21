@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\webwork\\yuese_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ext-classic-1.6.2.aar\\2f8018ae10dd8478b8cf88978089fd5a\\res\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,102,152,202,250,296,345,397,441,498,540,592,645,696,745,797,852",
+                        "endColumns": "46,49,49,47,45,48,51,43,56,41,51,52,50,48,51,54,47",
+                        "endOffsets": "97,147,197,245,291,340,392,436,493,535,587,640,691,740,792,847,895"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\ucrop-2.2.0.aar\\31bbb85d1ba1d7fecdd611bb962c5507\\res\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,109,163",
+                        "endColumns": "53,53,46",
+                        "endOffsets": "104,158,205"
+                    },
+                    "to": {
+                        "startLines": "19,20,21",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "900,954,1008",
+                        "endColumns": "53,53,46",
+                        "endOffsets": "949,1003,1050"
+                    }
+                }
+            ]
+        }
+    ]
+}

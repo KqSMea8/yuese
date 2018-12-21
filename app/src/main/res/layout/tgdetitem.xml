@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+        android:id="@+id/iv_headIcon"
+        android:layout_width="40.199982dip"
+        android:layout_height="40.199982dip"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+    <TextView
+        android:id="@+id/gingxianzhi"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:textSize="12dip"
+        android:layout_gravity="center"
+        android:text="A"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:textColor="#454545" />
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text="hhhh"
+        android:textColor="#FF5C5C" />
+    <TextView
+        android:id="@+id/temes"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:text="hhhh"
+        android:textColor="#FF5C5C" />
+
+</LinearLayout>

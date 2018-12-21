@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+       <RelativeLayout
+        android:id="@+id/re"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:background="#290C40"
+        >
+     
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+          
+            android:layout_marginLeft="10dip"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/back_w" />
+
+        <ImageView
+            android:id="@+id/fenxiang"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:layout_marginRight="15dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/share_icon" />
+        
+        
+    </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/re"
+           android:layout_centerInParent="true"
+          android:background="@drawable/fenxiang"/>
+
+
+
+    <!--<com.facebook.share.widget.ShareButton
+        android:id="@+id/share_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="36.0dip"
+        android:layout_marginLeft="34.0dip"
+        android:layout_marginRight="34.0dip"
+        android:layout_marginTop="24.0dip"
+        android:background="#0183D5"
+        android:text="分享"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:textSize="17.0dip"/>-->
+    
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="55dip"
+    	android:layout_marginTop="1dip"
+    	android:background="#FFFFFF"
+        >
+        
+        <!-- <ImageView 
+            android:id="@+id/touxiang"
+	        android:layout_width="35dip"
+	        android:layout_height="35dip"
+	        android:layout_marginTop="10dip"
+	        android:layout_marginBottom="10dip"
+	        android:layout_marginLeft="30dip"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/myself2"
+	        /> -->
+        
+        <!--<com.example.vliao.interface4.RoundImageView-->
+		<com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
+            android:id="@+id/touxiang"
+	        android:layout_width="35dip"
+	        android:layout_height="35dip"
+	        android:layout_marginLeft="10dip"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/beijing"
+            />
+        
+        <TextView 
+            android:id="@+id/nicheng"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="昵称"
+	        android:textColor="#000000"
+	        android:textSize="15dip"
+	        android:layout_toRightOf="@+id/touxiang"
+	        android:layout_marginLeft="10dip"
+	        android:layout_centerVertical="true"
+            />
+        
+    </RelativeLayout>
+    
+</LinearLayout>

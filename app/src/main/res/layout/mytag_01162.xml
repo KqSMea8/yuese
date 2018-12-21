@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    <ImageView
+        android:id="@+id/back2"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/arrow_left_gray"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="用户印象"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+    </RelativeLayout>
+    <!--<com.example.vliao.interface4.FlowLayout_01162-->
+    <com.net.yuesejiaoyou.redirect.ResolverC.interface4.FlowLayout_01162
+
+        android:id="@+id/mytag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    </com.net.yuesejiaoyou.redirect.ResolverC.interface4.FlowLayout_01162>
+</LinearLayout>

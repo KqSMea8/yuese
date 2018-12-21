@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="55dip" 
+    android:background="#ECECEC"
+    android:layout_marginBottom="1dip"
+    >
+    
+    
+    
+    
+    
+    <RelativeLayout 
+	       android:id="@+id/zong"
+	       android:layout_width="match_parent"
+	       android:layout_height="70dip"
+	       android:background="#FFFFFF"
+	       android:layout_marginTop="1dip"
+	       >
+    
+	    <com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
+	        android:id="@+id/touxiang"
+	        android:layout_width="35dip"
+	        android:layout_height="35dip"
+	        android:src="@drawable/ic_launcher_01168"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="10dip"
+	        />
+    
+    
+	    <LinearLayout
+	        android:id="@+id/a1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:layout_marginLeft="10dip"
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@+id/touxiang"
+	        >
+		    <LinearLayout 
+		        android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:orientation="horizontal"
+		        >
+	            
+	            <TextView 
+			        android:id="@+id/name"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="昵称"
+			        android:textColor="#000000"
+			        android:textSize="15dip"
+			        />
+	            
+	        </LinearLayout>
+	    	<LinearLayout 
+			        android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		        	android:orientation="horizontal"
+			        >
+			        
+			        <TextView 
+			    	    android:id="@+id/shuoming"
+			    	    android:layout_width="wrap_content"
+			    	    android:layout_height="wrap_content"
+			    	    android:text="亲密值:"
+			    	    android:textColor="#9E9E9E"
+			    	    android:textSize="15dip"
+			    	    android:layout_gravity="center_horizontal"
+			    	    />
+			    	<TextView 
+			    	    android:id="@+id/qinmivalue"
+			    	    android:layout_width="wrap_content"
+			    	    android:layout_height="wrap_content"
+			    	    android:layout_marginLeft="5dip"
+			    	    android:text="720"
+			    	    android:textColor="#9E9E9E"
+			    	    android:textSize="15dip"
+			    	    />
+			        
+		    </LinearLayout>
+	    </LinearLayout>
+	    
+	    <ImageView 
+	        android:id="@+id/userstatus"
+	        android:layout_width="45dip"
+	        android:layout_height="20dip"
+	        android:background="@drawable/online"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="10dip"
+	        />
+	    
+	    
+    </RelativeLayout>
+    
+    
+    </RelativeLayout>

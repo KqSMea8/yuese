@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="118dp"
+        android:background="@drawable/baise_yuanjiaobiankuang"
+        android:gravity="center" >
+
+        <EditText
+            android:id="@+id/newname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:ems="10"
+			android:padding="5dp"
+			android:background="@null"
+            android:hint="请输入您的新昵称" />
+
+    	<Button
+    	    android:id="@+id/queren"
+    	    android:layout_width="200dip"
+    	    android:layout_height="40dip"
+    	    android:layout_alignParentBottom="true"
+    	    android:layout_centerHorizontal="true"
+    	    android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+    	    android:text="确认"
+    	    android:gravity="center"
+    	    android:background="@drawable/queding"
+    	    android:layout_marginBottom="5dp"
+    	    android:textSize="20dip"
+    	    android:textColor="#ffffff" />
+
+    	<TextView
+    	    android:id="@+id/textView1"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentTop="true"
+    	    android:layout_centerHorizontal="true"
+    	    android:layout_marginTop="18dp"
+    	    android:text="昵称"
+    	    android:textColor="#5F5F5F"
+    	    android:textSize="18dip"
+    	     />
+
+    </RelativeLayout>
+    
+    
+</RelativeLayout>

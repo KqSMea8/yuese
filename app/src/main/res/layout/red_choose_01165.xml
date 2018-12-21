@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+		<LinearLayout
+	        
+	        android:id="@+id/l1"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="#ffffff"
+	        android:paddingBottom="10dip"
+	        android:orientation="horizontal" >
+
+	        <TextView
+	            android:id="@+id/coin5"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="188 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin6"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="520 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin7"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="888 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin8"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="1314 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+	    </LinearLayout>
+	    <LinearLayout
+	        android:id="@+id/l2"
+	        android:layout_above="@id/l1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:background="#ffffff"
+	        android:paddingBottom="10dip"
+	        android:orientation="horizontal" >
+
+	        <TextView
+	            android:id="@+id/coin1"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="9 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin2"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="18 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin3"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="66 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+
+	        <TextView
+	            android:id="@+id/coin4"
+	            android:layout_width="80dip"
+	            android:layout_height="30dip"
+	            android:layout_marginLeft="12dip"
+	            android:layout_marginRight="12dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/hongkuangyuanjiao_01165_11"
+	            android:gravity="center"
+	            android:text="99 币"
+	            android:textColor="#FF5C5C"
+	            android:textSize="12sp" />
+	    </LinearLayout>
+	    <RelativeLayout
+			android:layout_width="match_parent"
+		    android:background="#ffffff"
+		    android:layout_height="50dip"
+			android:layout_above="@+id/l2"
+			android:layout_alignParentLeft="true">
+		   <TextView 
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:layout_centerVertical="true"
+		       android:layout_margin="10dip"
+		       android:text="请选择:"
+		       android:textSize="15sp"
+		       android:textColor="#0A0004"/> 
+		       <TextView 
+		           android:id="@+id/cancel"
+		           android:layout_width="wrap_content"
+		           android:layout_height="match_parent"
+		           android:layout_alignParentRight="true"
+		           android:layout_alignParentEnd="true" 
+		           android:layout_marginRight="10dip"
+		           android:layout_marginEnd="10dip"
+		           android:gravity="center"
+		           android:text="取消"
+		           android:textSize="16sp"
+		       	   android:textColor="#0A0004"/>
+		</RelativeLayout>
+	    
+	</RelativeLayout>
+</LinearLayout>

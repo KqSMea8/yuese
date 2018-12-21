@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#EDEBEB">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:background="@drawable/yuanjiaohuikuang_01165_2"
+        android:paddingBottom="3dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingTop="3dip"
+        android:text="Januuary 23rd 16:32"
+        android:textColor="#ffffff"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:background="@drawable/fangjiaojiaobiankuang_01165_2"
+        android:orientation="vertical"
+        android:padding="2dip" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff" >
+
+            <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+                android:id="@+id/touxiang"
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_launcher"
+                android:layout_margin="10dp"/>
+
+            <RelativeLayout
+                android:id="@+id/r1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_toEndOf="@id/touxiang"
+                android:layout_toRightOf="@id/touxiang" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="评论人:"
+                    android:textColor="#9F9F9F"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/r1"
+                android:layout_marginBottom="10dip"
+                android:layout_toEndOf="@id/touxiang"
+                android:layout_toRightOf="@id/touxiang" >
+                <TextView
+                    android:id="@+id/nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Tom"
+                    android:gravity="bottom"
+                    android:paddingBottom="0dip"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+                <TextView 
+                    android:id="@+id/duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/nickname"
+                    android:layout_toEndOf="@id/nickname"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginStart="5dip"
+                    android:layout_alignBottom="@id/nickname"
+ 					android:paddingTop="1dip"
+                    android:text="(视频通话20分钟)"
+                    android:textSize="12sp"
+                    android:textColor="#9A9A9A"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="6dip"
+            android:background="#C2C2C2" />
+
+        <TextView
+            android:id="@+id/shouzhi2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="6dip"
+            android:text="印象:"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
+			<ImageView 
+			    android:id="@+id/love_img"
+			    android:visibility="gone"
+			    android:layout_width="41dip"
+			    android:layout_height="40dip"
+			    android:background="@drawable/love_selected"
+			    android:layout_centerHorizontal="true"/>
+			<ImageView 
+			    android:id="@+id/no_love_img"
+			    android:layout_width="41dip"
+			    android:layout_height="40dip"
+			    android:background="@drawable/love"
+			    android:layout_centerHorizontal="true"/>
+            <TextView
+                android:id="@+id/love"
+                android:visibility="gone"
+                android:layout_below="@id/love_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dip"
+                android:text="喜欢"
+                android:textColor="#F6B6CC"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/no_love"
+                android:layout_below="@id/no_love_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dip"
+                android:text="不喜欢"
+                android:textColor="#B9B9B9"
+                android:textSize="20sp" />			
+        </RelativeLayout>
+		<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dip"
+            android:text="标签:"
+            android:textColor="#9A9A9A"
+            android:textSize="15sp" />
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="15dip">
+		    <TextView 
+		        android:id="@+id/lable1"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/yuanjiaobiaoqian_01165"
+		        android:layout_marginLeft="5dip"
+		        android:layout_marginStart="5dip"
+		        android:paddingTop="4dip"
+		        android:paddingBottom="4dip"
+		        android:paddingLeft="8dip"
+		        android:paddingRight="8dip"
+		        android:text="Very Beautiful"
+		        android:textSize="14sp"
+		        android:textColor="#ffffff"/>
+		   	
+		    <TextView 
+		        android:id="@+id/lable2"
+	
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/yuanjiaobiaoqian_01165"
+		        android:layout_toRightOf="@id/lable1"
+		        android:layout_marginLeft="15dip"
+		        android:paddingTop="4dip"
+		        android:paddingBottom="4dip"
+		        android:paddingLeft="8dip"
+		        android:paddingRight="8dip"
+		        android:text="Very Sexy"
+		        android:textSize="14sp"
+		        android:textColor="#ffffff"/>
+
+
+			<TextView
+				android:id="@+id/lable3"
+
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:background="@drawable/yuanjiaobiaoqian_01165"
+				android:layout_toRightOf="@id/lable2"
+				android:layout_marginLeft="15dip"
+				android:paddingTop="4dip"
+				android:paddingBottom="4dip"
+				android:paddingLeft="8dip"
+				android:paddingRight="8dip"
+				android:text="Very Sexy"
+				android:textSize="14sp"
+				android:textColor="#ffffff"/>
+
+
+			<TextView
+				android:id="@+id/lable4"
+
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:background="@drawable/yuanjiaobiaoqian_01165"
+				android:layout_below="@+id/lable1"
+				android:layout_marginLeft="5dip"
+				android:layout_marginTop="5dip"
+				android:paddingTop="4dip"
+				android:paddingBottom="4dip"
+				android:paddingLeft="8dip"
+				android:paddingRight="8dip"
+				android:text="Very Sexy"
+				android:textSize="14sp"
+				android:textColor="#ffffff"/>
+
+		</RelativeLayout>
+        
+
+        <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Chat Service"
+                android:textColor="#C2C2C2"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/pay2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text=": 10 V Currency"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="5dp"
+                android:background="#ffffff" >
+
+                <ImageView
+                    android:id="@+id/touxiang"
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:background="#ff0000" />
+
+                <TextView
+                    android:id="@+id/nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/touxiang"
+                    android:layout_toRightOf="@id/touxiang"
+                    android:text="Nickname"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout> -->
+    </LinearLayout>
+
+</LinearLayout>

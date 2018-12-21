@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exit_layout"
+    android:layout_width="300dip"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/yuaniaol">
+
+   <ImageView
+       android:layout_width="100sp"
+       android:layout_height="100sp"
+       android:src="@drawable/quanxian_img"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="玩悦色交友聊，需要开启以下权限呦"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/quanxian_android_icon_xx"
+            android:background="@drawable/quanxian_android_btn"
+            android:paddingLeft="20dp"
+            android:text="消息通知"
+            android:textColor="#FF5C5C"
+            android:layout_marginBottom="10dp"
+            />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quanxian_android_icon_xj"
+        android:background="@drawable/quanxian_android_btn"
+        android:paddingLeft="20dp"
+        android:text="相机权限"
+        android:textColor="#FF5C5C"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quanxian_android_icon_mkf"
+        android:background="@drawable/quanxian_android_btn"
+        android:paddingLeft="20dp"
+        android:text="麦克风权限"
+        android:textColor="#FF5C5C"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/b4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quanxian_android_icon_xc"
+        android:background="@drawable/quanxian_android_btn"
+        android:paddingLeft="20dp"
+        android:text="相册权限"
+        android:textColor="#FF5C5C"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/b5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quanxian_message_red"
+        android:background="@drawable/quanxian_android_btn"
+        android:paddingLeft="20dp"
+        android:text="手机信息权限"
+        android:textColor="#FF5C5C"
+        android:layout_marginBottom="10dp"
+        />
+
+
+            <TextView
+                android:id="@+id/b6"
+                android:layout_width="200dip"
+                android:layout_height="40dip"
+                android:text="我已开启以上权限"
+                android:textSize="18dip"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:background="@drawable/queding"
+                android:layout_marginBottom="30dp"
+                />
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="60dp"
+    android:orientation="vertical"
+     >
+    <com.youth.banner.Banner
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        app:indicator_height="5.0dip"
+        app:indicator_margin="3.0dip"
+        android:layout_marginBottom="3dip"
+        app:indicator_width="3.0dip" />
+
+</LinearLayout>

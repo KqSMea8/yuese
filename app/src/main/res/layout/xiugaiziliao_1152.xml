@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECECEC"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#FAFAFA">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_marginStart="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_01168"
+            />
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="编辑资料"
+            android:textColor="#000000"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+     <RelativeLayout
+        android:id="@+id/RL"
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:background="#FAFAFA">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_centerVertical="true"
+            android:text="头像"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+       <!--<com.example.vliao.interface4.RoundImageView-->
+         <com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
+             android:id="@+id/touxiang"
+             android:layout_width="50dip"
+             android:layout_height="50dip"
+             android:layout_centerVertical="true"
+             android:layout_toLeftOf="@+id/ImageView01"
+             android:layout_toStartOf="@+id/ImageView01"
+             android:src="@drawable/tubiao" />
+
+        <ImageView
+           android:id="@+id/ImageView01"
+            android:layout_width="16dip"
+            android:layout_height="16dip"
+           android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/right" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ECECEC"
+        />
+
+     <RelativeLayout
+        android:id="@+id/rl"
+        
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:background="#FAFAFA">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/nicheng"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="名称"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+        
+         <TextView
+             android:id="@+id/nicheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:layout_toLeftOf="@+id/ImageView02"
+            android:layout_centerVertical="true"
+            android:text="01146"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+      
+
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="16dip"
+            android:layout_height="16dip"
+           android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/right" />
+    </RelativeLayout>
+    
+     <RelativeLayout 
+         android:layout_width="match_parent"
+         android:layout_height="70dip"
+         android:layout_marginTop="10dip"
+         android:background="#FAFAFA">
+         
+        <!-- <ImageView
+             android:id="@+id/queding"
+             android:layout_width="200dip"
+             android:layout_height="50dip"
+             android:background="@drawable/queding"
+             android:layout_centerInParent="true"/>
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Submit"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20dip"/>-->
+
+         <TextView
+             android:id="@+id/queding"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:text="提交"
+             android:textColor="#FFFFFF"
+             android:background="@drawable/border_01162_txt_1"
+             android:gravity="center"
+             android:layout_marginLeft="100dp"
+             android:layout_marginRight="100dp"
+             android:layout_marginTop="15dp"
+             android:layout_marginBottom="15dp"
+             android:textSize="17sp"
+             />
+     </RelativeLayout>
+     
+     <RelativeLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         >
+          
+        <ImageView
+             android:layout_width="15dip"
+             android:layout_height="15dip"
+
+             android:background="@drawable/notice_g"
+             android:layout_centerVertical="true"
+             android:layout_toLeftOf="@+id/shuoming"/>
+         <TextView
+              android:id="@+id/shuoming"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="禁止上传任何违反国家法律法规内容"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="13sp"/>
+         
+     </RelativeLayout>
+    
+    
+
+    
+</LinearLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:background="#ffffff">
+    
+        <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#ffffff"
+        >
+		    <ImageView 
+		        android:id="@+id/back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/back_01168"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+		        />
+
+			<TextView
+				android:id="@+id/textView"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_gravity="center"
+				android:layout_weight="1"
+				android:gravity="center"
+				android:text="填写个性签名"
+				android:textColor="#000000"
+				android:textSize="20dip" />
+
+			<ImageView
+				android:layout_width="13dip"
+				android:layout_height="22dip"
+				android:background="#ffffff"
+				android:layout_marginRight="15dip"
+				android:padding="5dip"
+				android:layout_gravity="center"
+				/>
+
+      </LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#151515">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:text="你希望大家和你面对面聊什么？"
+			android:background="#151515"
+			android:textColor="#ffffff"
+			android:gravity="center_vertical"
+			android:layout_marginLeft="15dip"
+			android:textSize="12dip"/>
+
+	</LinearLayout>
+
+
+
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+		android:background="#E5E5E5">
+			<EditText
+				android:id="@+id/signature"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="#E5E5E5"
+				android:hint="随便什么话题都行"
+				android:paddingLeft="10dip"
+				android:paddingTop="10dip"
+				android:gravity="top"
+                android:maxLength="15"
+				android:textColor="#000000"
+				android:textSize="15dip" />
+		</LinearLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dip">
+
+		<TextView
+			android:id="@+id/sum"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="15dip"
+			android:textColor="#878284"
+			android:text="/15"/>
+
+		<TextView
+			android:id="@+id/num"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toLeftOf="@+id/sum"
+			android:textColor="#878284"
+			android:text="0"/>
+	</RelativeLayout>
+
+	<TextView
+		android:id="@+id/ascertain"
+		android:layout_width="match_parent"
+		android:layout_height="40dip"
+		android:layout_marginTop="40dip"
+		android:layout_marginLeft="80dip"
+		android:layout_marginRight="80dip"
+		android:gravity="center"
+		android:textSize="20dip"
+		android:text="确定"
+		android:textColor="#FFFFFF"
+		android:background="@drawable/border_01162_txt_1" />
+
+
+</LinearLayout>

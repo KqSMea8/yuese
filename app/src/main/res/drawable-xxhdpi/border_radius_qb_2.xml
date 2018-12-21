@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设置方形圆角 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#fa838d"/>
+    <corners android:radius="12dp"/>
+    <stroke android:width="1px" android:color="#fa838d" />
+</shape>

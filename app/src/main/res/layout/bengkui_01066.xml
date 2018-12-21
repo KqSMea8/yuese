@@ -1,0 +1,276 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+    
+    <RelativeLayout
+        android:id="@+id/RR"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#ffffff">
+        
+        <ImageView 
+            android:id="@+id/back"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:background="@drawable/back_01168"
+            android:layout_marginLeft="10dip"
+            android:layout_centerVertical="true"
+           />
+        
+         <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	       android:layout_centerInParent="true"
+	        android:text="解决安卓手机主播漏接来电问题"
+	        android:textSize="18dip"
+	        android:textColor="#000000"
+	        />
+        
+        
+        
+    </RelativeLayout>
+        
+	
+	
+	<ImageView
+	    android:layout_width="match_parent"
+	    android:layout_height="1dip"
+	    android:background="#F2F2F2"
+	    />
+<ScrollView
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="30dip"
+		android:layout_marginTop="10dip"
+	    >
+         
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="华为手机设置方法"
+	        android:textSize="15dip"
+	        android:layout_centerInParent="true"
+	        android:textColor="#525252"
+	        />
+	    
+	</RelativeLayout>
+	
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="0dip"
+	    android:layout_marginRight="0dip"
+	    >
+         
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="\u3000\u30001.打开手机管家，进入自启动管理；\n\u3000\u30002.找到“悦色”，打开右侧开关；\n\u3000\u30003.打开悦色app；\n\u3000\u30004.点击右下侧菜单栏，点击锁定任务。"
+	        android:textSize="13dip"
+	        android:lineSpacingExtra="3dp"
+			android:gravity="left"
+	        android:textColor="#767878"
+	        />
+	    
+	</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:layout_marginTop="20dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="小米手机设置方法"
+				android:textSize="15dip"
+				android:layout_centerInParent="true"
+				android:textColor="#525252"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="0dip"
+			android:layout_marginRight="0dip"
+			android:gravity="left"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="\u3000\u30001.打开手机设置，进入授权管理界面；\n\u3000\u30002.进入自启动管理里面，找到“悦色”，打开右侧开关；\n\u3000\u30003.打开悦色app，点击手机左下侧菜单栏；\n\u3000\u30004.下拉悦色app任务窗口点击锁定任务。"
+				android:textSize="13dip"
+				android:lineSpacingExtra="3dp"
+				android:textColor="#767878"
+				/>
+
+		</RelativeLayout>
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:layout_marginTop="10dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="vivo手机设置方法"
+				android:textSize="15dip"
+				android:layout_centerInParent="true"
+				android:textColor="#525252"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="0dip"
+			android:layout_marginRight="0dip"
+			android:gravity="left"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="\u3000\u30001.打开手机i管家，进入权限管理；\n\u3000\u30002.进入自启动管理，找到“悦色”,打开右侧开关；\n\u3000\u30003.打开悦色app，点击手机左下侧菜单栏；\n\u3000\u30004.点击锁定任务。"
+				android:textSize="13dip"
+				android:lineSpacingExtra="3dp"
+				android:layout_centerInParent="true"
+				android:textColor="#767878"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:layout_marginTop="10dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="oppo手机设置方法"
+				android:textSize="15dip"
+				android:layout_centerInParent="true"
+				android:textColor="#525252"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="0dip"
+			android:layout_marginRight="0dip"
+
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="\u3000\u30001.打开手机管家，进入权限隐私；\n\u3000\u30002.进入自启动管理；\n\u3000\u30003.找到“悦色”，打开右侧开关；\n\u3000\u30004.打开悦色app，点击手机左下侧菜单栏；\n\u3000\u30005.下拉悦色app任务窗口点击锁定任务。"
+				android:textSize="13dip"
+				android:lineSpacingExtra="3dp"
+				android:gravity="left"
+				android:textColor="#767878"
+				/>
+
+		</RelativeLayout>
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:layout_marginTop="10dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="魅族手机设置方法"
+				android:textSize="15dip"
+				android:layout_centerInParent="true"
+				android:textColor="#525252"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="0dip"
+			android:layout_marginRight="0dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="\u3000\u30001.打开手机管家，进入权限管理；\n\u3000\u30002.进入后台管理；\n\u3000\u30003.打开“悦色”，点击选择允许后台运行；\n\u3000\u30004.打开悦色app，点击手机左下侧菜单栏；\n\u3000\u30005.下拉悦色app任务窗口点击锁定任务。"
+				android:textSize="13dip"
+				android:lineSpacingExtra="3dp"
+				android:gravity="left"
+				android:textColor="#767878"
+				/>
+
+		</RelativeLayout>
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="30dip"
+			android:layout_marginTop="10dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="美图手机设置方法"
+				android:textSize="15dip"
+				android:layout_centerInParent="true"
+				android:textColor="#525252"
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="0dip"
+			android:layout_marginRight="0dip"
+			>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="\u3000\u30001.在桌面打开权限管家；\n\u3000\u30002.找到“悦色”，打权限都打开；\n\u3000\u30003.在桌面打开自自动助手；\n\u3000\u30004.找到“悦色”，打开右侧开关。"
+				android:textSize="13dip"
+				android:lineSpacingExtra="3dp"
+				android:gravity="left"
+				android:textColor="#767878"
+				/>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+		</ScrollView>
+
+	</LinearLayout>
+</LinearLayout>
+

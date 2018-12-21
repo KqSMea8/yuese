@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.dkzwm.SmoothRefreshLayout:ext-material-1.6.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ext-material-1.6.2.aar/f7ab07e5a3e543baae30c345614adcb5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ext-material-1.6.2.aar/f7ab07e5a3e543baae30c345614adcb5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

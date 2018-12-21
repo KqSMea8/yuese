@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#ffffff">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/back_01168"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="上传视频"
+            android:textColor="#000000"
+            android:textSize="20dip"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/first_str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dip"
+            android:text="你每上传一个免费视频"
+            android:textColor="#000000"
+            android:textSize="15dip" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/first_str"
+            android:layout_marginTop="5dip"
+            android:text="即可新增一个付费视频"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/mianfei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="8dip"
+            android:text="注:上传免费视频数量需大于付费视频数量"
+            android:textColor="#B0B0B0"
+            android:textSize="13dip" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/mianfei"
+            android:text=""
+            android:textSize="13dip"
+            android:visibility="gone"/>
+
+        
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="160dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp">
+
+            <ImageView
+                android:id="@+id/freevideo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/videopay_btn_free" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="110dip"
+                android:text="免费视频"
+                android:textColor="#000000"
+                android:textSize="15dip" />
+
+            <TextView
+                android:id="@+id/freevideonumber"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/new_msg_bg"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="150dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="270dp">
+
+            <ImageView
+                android:id="@+id/rewardvideo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/videopay_btn2_on" />
+
+            <TextView
+                android:id="@+id/rewardvideonumber"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/new_msg_bg"
+                android:text="0"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rewardvideo"
+                android:text="付费视频"
+                android:textColor="#000000"
+                android:textSize="15dip"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"
+            android:text="禁止上传非法内容" 
+            android:textSize="15dip"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>

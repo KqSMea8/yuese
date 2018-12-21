@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"  android:layout_width="fill_parent" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+
+	>
+
+	<LinearLayout
+		android:id="@+id/ll"
+		android:visibility="visible"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:background="@drawable/shape_report"
+		>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:text="请选择操作类型"
+			android:gravity="center_horizontal|center_vertical"
+			android:textColor="#A9A9A9"
+			android:textSize="15sp"
+			/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#F8F8F8"
+			/>
+
+
+
+		<CheckedTextView
+			android:id="@+id/oneimg"
+			android:textColor="#787878"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:text="设为封面"
+			android:gravity="center"
+			/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#F8F8F8"
+
+			/>
+
+
+
+		<CheckedTextView
+			android:id="@+id/deleteimg"
+			android:textColor="#787878"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:gravity="center_horizontal|center_vertical"
+			android:text="删除图片" />
+
+
+
+
+	</LinearLayout>
+
+
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:background="@drawable/shape_report"
+		>
+		<TextView
+			android:id="@+id/quxiao"
+			android:textColor="#A9A9A9"
+			android:layout_width="match_parent" android:layout_height="match_parent"
+			android:text="取消"
+			android:textSize="16sp"
+			android:gravity="center_horizontal|center_vertical"
+			/>
+
+	</LinearLayout>
+
+</LinearLayout>

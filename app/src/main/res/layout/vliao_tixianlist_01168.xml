@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="#ECECEC"
+    >
+    <RelativeLayout 
+	       android:layout_width="match_parent"
+	       android:layout_height="55dip"
+	       android:background="#FFFFFF"
+	       android:layout_marginTop="1dip"
+	       >
+    <LinearLayout
+        android:id="@+id/a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        >
+	    <TextView 
+	        android:id="@+id/time1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="周五"
+	        android:textColor="#000000"
+	        android:textSize="15dip"
+	        />
+    	<TextView 
+    	    android:id="@+id/time2"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="2017.12.12"
+    	    android:textColor="#000000"
+    	    android:textSize="15dip"
+    	    android:layout_gravity="center_horizontal"
+    	    />
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/zhuangtai"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_toRightOf="@+id/a1"
+        android:layout_marginLeft="20dip"
+        android:layout_centerVertical="true"
+		android:background="@drawable/enchashment_status_success_icon"
+        />
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+     	android:layout_height="wrap_content"
+        android:text="提现"
+        android:textSize="15dip"
+        android:textColor="#000000"
+        android:layout_toLeftOf="@+id/jine"
+        android:layout_centerVertical="true"
+        />
+    
+    <TextView 
+        android:id="@+id/jine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18"
+        android:textColor="#000000"
+        android:textSize="22dip"
+        android:layout_toLeftOf="@+id/tixian"
+        android:layout_centerVertical="true"
+        />
+    
+    <TextView 
+        android:id="@+id/tixian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="悦币"
+        android:textColor="#000000"
+        android:textSize="15dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:layout_centerVertical="true"
+        />
+    
+    
+    
+    
+    
+    </RelativeLayout>
+    </RelativeLayout>

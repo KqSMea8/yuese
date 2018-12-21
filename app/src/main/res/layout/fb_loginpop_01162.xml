@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="260dp"
+    android:layout_height="match_parent"
+
+    >
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/border_01162_2"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+            <ImageView
+                android:id="@+id/fb_close"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/fb_close"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                />
+
+
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="欢迎!"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="25sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#888888"
+            android:text="绑定邀请码"
+            android:layout_marginTop="10dp"
+            android:textSize="13dip"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/fb_invitecode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_01162_5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:hint="绑定邀请码"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:textColor="#000000"
+            android:inputType="number"
+            android:paddingTop="5dp"
+            />
+        <TextView
+            android:id="@+id/fb_sure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:text="确定"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/shape_login2_01160"
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

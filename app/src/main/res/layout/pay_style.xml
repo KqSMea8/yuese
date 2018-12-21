@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    >
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="300dip"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFFFF"
+        >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付方式"
+            android:textSize="20dip"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"/>
+        
+        <ImageView
+            android:id="@+id/back1" 
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:background="@drawable/quanxian_ios_guanbi"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"/>
+        
+    </RelativeLayout>
+    
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="#f2f2f2"/>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:background="#FFFFFF"
+        >
+        
+        <TextView
+            android:id="@+id/money_txt" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="充值50V币,\u2000需支付50元"
+            android:textSize="18dip"
+            android:layout_marginTop="10dip"
+            android:layout_centerHorizontal="true"
+            android:textColor="#797A7A"/>
+        
+        <TextView
+            android:id="@+id/money_num"  
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:textSize="25dip"
+            android:layout_marginTop="60dip"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"/>
+        
+       
+       
+    </RelativeLayout>
+    
+    <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择以下支付方式支付:"
+            android:textSize="18dip"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:textColor="#797A7A"/>
+    
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="#f2f2f2"/>
+    
+    <RelativeLayout
+        android:id="@+id/zhifu"  
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFFFF"
+        >
+        
+        <ImageView 
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/pay_ali_icon"/>
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付宝支付"
+            android:textSize="20dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dip"
+            android:textColor="#000000"/>
+        
+    </RelativeLayout>
+    
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="#f2f2f2"/>
+    
+    <RelativeLayout
+        android:id="@+id/wechat" 
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFFFF"
+        >
+        
+        <ImageView 
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/pay_wechat_icon"/>
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信支付"
+            android:textSize="20dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dip"
+            android:textColor="#000000"/>
+        
+    </RelativeLayout>
+    
+     <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="#f2f2f2"/>
+     
+     </LinearLayout>
+
+</LinearLayout>

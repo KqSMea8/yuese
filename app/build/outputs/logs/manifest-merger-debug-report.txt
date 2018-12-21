@@ -1,0 +1,1434 @@
+-- Merging decision tree log ---
+provider#android.support.v4.content.FileProvider
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:567:9-577:20
+	android:grantUriPermissions
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:571:13-47
+	android:authorities
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:569:13-65
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:570:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:568:13-67
+manifest
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+MERGED from [com.yalantis:ucrop:2.2.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.0.aar\31bbb85d1ba1d7fecdd611bb962c5507\AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\a1e1eaf291315962e71082cac2142fe1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:2:1-28:12
+MERGED from [com.youth.banner:banner:1.4.9] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\banner-1.4.9.aar\489f69a754650bb49418bbddd1ac8f95\AndroidManifest.xml:2:1-11:12
+MERGED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:2:1-17:12
+MERGED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:18:1-46:12
+MERGED from [com.bilibili:boxing:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-1.0.2.aar\58504807fe1345a2e533ab79a2a36576\AndroidManifest.xml:18:1-28:12
+MERGED from [com.github.crossoverone:StatusBarUtil:1.3.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\StatusBarUtil-1.3.2.aar\d7e5d19af04b777a259deab360dfbf65\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9c9fcbae476afb3c443506dbbb8afba9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\90b121fa78be891028b62d6cccc20048\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.castorflex.verticalviewpager:library:19.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-19.0.1.aar\fbfc538aaab30eff047fbc0010b21812\AndroidManifest.xml:2:1-5:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\128c43aaed4366891fad626a9877254f\AndroidManifest.xml:17:1-22:12
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:2:1-14:12
+MERGED from [:aliyunVodPlayerView:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayerView.aar\13e7c388692778e6560752be3bf44443\AndroidManifest.xml:2:1-11:12
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\abb280566896075910ec228dfcbd4a1d\AndroidManifest.xml:2:1-11:12
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:2:1-59:12
+MERGED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:2:1-18:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ce3fe69321fe9980fb0e48b714e5f954\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:core:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\core-1.6.2.aar\a5d34066f1cffaed822d9270455c1523\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-classic:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-classic-1.6.2.aar\2f8018ae10dd8478b8cf88978089fd5a\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-material:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-material-1.6.2.aar\f7ab07e5a3e543baae30c345614adcb5\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-utils:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-utils-1.6.2.aar\9bcf7deaf82ecf2e12b3eb3b5f48904c\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-two-level:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-two-level-1.6.2.aar\d6ce7ad9bc7916eae2b8f2d941acde53\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-horizontal-1.6.2.aar\33757ffdd5cb84c4cc6b7168c52d62c8\AndroidManifest.xml:2:1-14:12
+MERGED from [jp.wasabeef:glide-transformations:2.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.1.aar\e76876d0b61884549f19ac3bf19e4055\AndroidManifest.xml:2:1-12:12
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-gif-drawable-1.2.1.aar\46e8b77cc69a864b6cb3ba2262753d45\AndroidManifest.xml:2:1-11:12
+MERGED from [com.wang.avi:library:2.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\400ab52f1241c657d692e1a6746a7e5c\AndroidManifest.xml:2:1-11:12
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:2:1-26:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\ded966627c077d5d108989ddc8cfb419\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\679d28644385d7a773fb55c31b177c92\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d6c109e7df479ffa5f20361c028a42db\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\56360f52a89be1ce236c4a7b72aa8a46\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5fab08a12328957b96cff1dfb272655c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6b9fab864ac7c3410d2b920c084c1e0f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\cc593ca146946ab87ec6260a9aa13056\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\6dd1788b0e528ea15f6c8012f3684134\AndroidManifest.xml:17:1-22:12
+MERGED from [com.chensl.rotatephotoview:rotatephotoview:1.0.5] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\rotatephotoview-1.0.5.aar\78bb7bbc36a77d79a2125a3eda7c363b\AndroidManifest.xml:2:1-12:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a12f8aa167d32156d7a55e54e8463d47\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\dcb580b54149f1a03eab6702248f0e81\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\48407c6ebd8573e4d4bdc8cb48b1fc86\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\22514fd819410a2dae952613703fcd84\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+	package
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:4:5-35
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:1-842:12
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:2:11-69
+permission#com.net.yuesejiaoyou.redirect.ResolverD.interface4.permission.JPUSH_MESSAGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:8:5-10:47
+	android:protectionLevel
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:10:9-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:9:9-99
+uses-permission#android.permission.REORDER_TASKS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:12:5-72
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:12:22-69
+application
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:16:5-761:19
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:12:5-26:19
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:12:5-26:19
+MERGED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:11:5-15:19
+MERGED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:11:5-15:19
+MERGED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:27:5-44:19
+MERGED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:27:5-44:19
+MERGED from [com.github.crossoverone:StatusBarUtil:1.3.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\StatusBarUtil-1.3.2.aar\d7e5d19af04b777a259deab360dfbf65\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.crossoverone:StatusBarUtil:1.3.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\StatusBarUtil-1.3.2.aar\d7e5d19af04b777a259deab360dfbf65\AndroidManifest.xml:11:5-12:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\abb280566896075910ec228dfcbd4a1d\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\abb280566896075910ec228dfcbd4a1d\AndroidManifest.xml:9:5-20
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:31:5-57:19
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:31:5-57:19
+MERGED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:11:5-16:19
+MERGED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:11:5-16:19
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-horizontal-1.6.2.aar\33757ffdd5cb84c4cc6b7168c52d62c8\AndroidManifest.xml:12:5-20
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-horizontal-1.6.2.aar\33757ffdd5cb84c4cc6b7168c52d62c8\AndroidManifest.xml:12:5-20
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:19:5-24:19
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:19:5-24:19
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:23:9-45
+	android:supportsRtl
+		ADDED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:21:9-41
+	android:roundIcon
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:34:9-54
+	android:configChanges
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:19:9-59
+	android:largeHeap
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:22:9-33
+	android:icon
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:20:9-43
+		REJECTED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:33:9-43
+	android:allowBackup
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:18:9-35
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:24:9-56
+		REJECTED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:36:9-40
+	tools:replace
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:25:9-35
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:17:9-74
+service#com.net.yuesejiaoyou.classroot.interface4.util.PlayerMusicService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:27:9-30:39
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:29:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:28:13-93
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.LoginActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:37:9-57:20
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:41:13-49
+	android:label
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:39:13-45
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:40:13-43
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:42:13-60
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:38:13-88
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:44:13-47:29
+action#android.intent.action.MAIN
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:45:17-69
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:45:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:46:17-77
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:46:27-74
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:49:13-56:29
+action#android.intent.action.VIEW
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:50:17-69
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:50:25-66
+category#android.intent.category.DEFAULT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:52:17-76
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:52:27-73
+category#android.intent.category.BROWSABLE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:53:17-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:53:27-75
+data
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:55:17-49
+	android:scheme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:55:23-46
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.MainActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:58:9-62:47
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:61:13-49
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:60:13-44
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:62:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:59:13-87
+activity#com.yalantis.ucrop.UCropActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:63:9-66:66
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:65:13-49
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:66:13-63
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:64:13-60
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.WelcomeGuideActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:68:9-70:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:70:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:69:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.bengkui_01066
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:72:9-74:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:74:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:73:13-88
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.tuichu
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:77:9-79:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:79:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:78:13-81
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.tuichu1
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:80:9-82:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:82:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:81:13-82
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Userinfo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:85:9-88:47
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:87:13-49
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:88:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:86:13-83
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Vchat_register_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:91:9-96:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:93:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:94:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:92:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Vchat_login_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:97:9-102:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:99:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:100:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:98:13-92
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Vchat_forget1_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:105:9-107:67
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:107:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:106:13-94
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Vchat_forget2_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:110:9-115:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:112:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:113:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:111:13-94
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Agreement_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:116:9-121:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:118:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:119:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:117:13-90
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Gonglue_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:123:9-128:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:125:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:126:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:124:13-88
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Videochat_agreement_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:129:9-134:15
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:131:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:132:13-64
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:130:13-100
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Vliao_yijianfankui_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:135:9-137:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:137:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:136:13-99
+activity#com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:140:9-143:47
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:142:13-49
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:143:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:141:13-98
+activity#com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity_KF
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:144:9-147:47
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:146:13-49
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:147:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:145:13-101
+activity#com.mob.tools.MobUIShell
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:149:9-178:20
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:152:13-49
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:154:13-67
+	android:configChanges
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:151:13-74
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:153:13-72
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:150:13-52
+intent-filter#android.intent.category.DEFAULT+com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:164:13-167:29
+action#com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:165:17-92
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:165:25-89
+meta-data#Mob-AppKey
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:180:9-182:45
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:182:13-42
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:181:13-38
+meta-data#Mob-AppSecret
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:183:9-185:64
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:185:13-61
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:184:13-41
+activity#com.net.yuesejiaoyou.redirect.ResolverD.interface4.wxapi.WXEntryActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:187:9-190:46
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:190:13-43
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:189:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:188:13-100
+activity#com.net.yuesejiaoyou.redirect.ResolverD.interface4.wxapi.WXPayEntryActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:191:9-194:46
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:194:13-43
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:193:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:192:13-103
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:195:9-200:70
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:199:13-47
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:200:13-67
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:198:13-37
+	android:configChanges
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:197:13-85
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:196:13-60
+activity#com.alipay.sdk.app.H5AuthActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:201:9-206:70
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:205:13-47
+	android:windowSoftInputMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:206:13-67
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:204:13-37
+	android:configChanges
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:203:13-74
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:202:13-61
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Anchor_guide_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:208:9-210:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:210:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:209:13-93
+activity#com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ImgPageActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:211:9-213:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:213:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:212:13-101
+activity#com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:214:9-216:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:216:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:215:13-89
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.Activity_web_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:217:9-219:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:219:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:218:13-93
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.yaoqingfensi_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:220:9-222:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:222:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:221:13-93
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.help_center_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:223:9-225:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:225:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:224:13-92
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.bengkui_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:226:9-228:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:228:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:227:13-88
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.HooliganActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:229:9-231:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:231:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:230:13-91
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.DownloadActivityApk
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:233:9-235:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:235:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:234:13-94
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.UploadVideo_01158
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:238:9-240:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:240:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:239:13-92
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoPlay_01066
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:241:9-243:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:243:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:242:13-90
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoPlayPrivate_01066
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:244:9-246:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:246:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:245:13-97
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.User_level_01165
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:247:9-249:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:249:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:248:13-91
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:250:9-252:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:252:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:251:13-84
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.MassChat_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:253:9-255:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:255:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:254:13-89
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.MyVideo_158
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:256:9-258:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:258:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:257:13-86
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:259:9-261:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:261:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:260:13-79
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:262:9-264:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:264:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:263:13-80
+activity#com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:265:9-269:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:269:13-49
+	android:excludeFromRecents
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:267:13-46
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:268:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:266:13-104
+activity#com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:270:9-274:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:274:13-49
+	android:excludeFromRecents
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:272:13-46
+	android:launchMode
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:273:13-44
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:271:13-102
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoChatViewActivity_zhubo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:275:9-278:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:278:13-49
+	android:hardwareAccelerated
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:277:13-47
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:276:13-102
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoChatViewActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:279:9-282:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:282:13-49
+	android:hardwareAccelerated
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:281:13-47
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:280:13-96
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity_zhubo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:283:9-286:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:286:13-49
+	android:hardwareAccelerated
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:285:13-47
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:284:13-97
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:287:9-290:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:290:13-49
+	android:hardwareAccelerated
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:289:13-47
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:288:13-91
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.NoSkinActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:291:9-293:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:293:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:292:13-89
+activity#com.net.yuesejiaoyou.redirect.ResolverA.uiface.SearchDv_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:294:9-296:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:296:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:295:13-89
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:297:9-299:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:299:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:298:13-85
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:300:9-302:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:302:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:301:13-86
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:404:9-406:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:406:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:405:13-94
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_FF
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:407:9-409:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:409:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:408:13-97
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:410:9-412:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:412:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:411:13-100
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Mytag_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:428:9-430:52
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:430:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:429:13-86
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodeqinmibang_01178
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:431:9-433:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:433:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:432:13-100
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:434:9-436:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:436:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:435:13-99
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxi_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:437:9-439:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:439:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:438:13-99
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxi_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:440:9-442:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:442:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:441:13-99
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxi_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:444:9-446:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:446:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:445:13-99
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:448:9-450:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:450:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:449:13-104
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxizhubo_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:451:9-453:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:453:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:452:13-104
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:454:9-456:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:456:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:455:13-104
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_shenqing_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:457:9-459:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:459:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:458:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodefensi_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:461:9-463:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:463:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:462:13-96
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_pingjia_01165
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:465:9-467:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:467:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:466:13-91
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_v_01165
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:469:9-471:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:471:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:470:13-85
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Myphone_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:473:9-475:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:475:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:474:13-88
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_MyWallet_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:478:9-480:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:480:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:479:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_setnickname_01162
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:482:9-484:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:484:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:483:13-98
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:487:9-489:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:489:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:488:13-91
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_heimingdan_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:490:9-492:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:492:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:491:13-97
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.edit_info_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:493:9-495:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:495:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:494:13-90
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Yuyue_01165
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:497:9-499:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:499:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:498:13-86
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyInformation_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:500:9-502:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:502:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:501:13-98
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.FocusDetail
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:503:9-505:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:505:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:504:13-86
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_nicheng_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:508:9-510:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:510:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:509:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_wx_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:511:9-513:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:513:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:512:13-90
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_phonenum_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:514:9-516:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:516:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:515:13-96
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_intro_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:517:9-519:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:519:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:518:13-93
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_job_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:520:9-522:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:522:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:521:13-90
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_signature_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:523:9-525:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:525:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:524:13-97
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_label_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:526:9-528:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:528:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:527:13-93
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authentication_01150
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:530:9-532:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:532:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:531:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_mytimeprice_01178
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:534:9-536:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:536:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:535:13-98
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.withdraw_01156
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:537:9-539:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:539:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:538:13-89
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:542:9-544:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:544:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:543:13-108
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:545:9-547:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:547:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:546:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:548:9-550:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:550:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:549:13-108
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_agmentup_01066
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:552:9-554:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:554:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:553:13-95
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tjrwithdraw_01168
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:555:9-557:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:557:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:556:13-98
+activity#com.net.yuesejiaoyou.redirect.ResolverC.uiface.tuiguangrenshu_01152
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:558:9-560:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:560:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:559:13-95
+meta-data#com.openinstall.APP_KEY
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:563:9-565:38
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:565:13-35
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:564:13-51
+activity#cn.jpush.android.ui.PopWinActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:582:9-584:39
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:584:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:583:13-62
+activity#cn.jpush.android.ui.PushActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:587:9-598:20
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:590:13-37
+	android:configChanges
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:589:13-63
+	android:theme
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:591:13-60
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:588:13-60
+intent-filter#android.intent.category.DEFAULT+cn.jpush.android.ui.PushActivity+com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:592:13-597:29
+action#cn.jpush.android.ui.PushActivity
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:593:17-75
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:593:25-72
+category#com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:596:17-95
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:596:27-92
+service#cn.jpush.android.service.PushService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:602:9-612:19
+	android:process
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:605:13-36
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:604:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:603:13-64
+intent-filter#cn.jpush.android.intent.PUSH_TIME+cn.jpush.android.intent.PushService+cn.jpush.android.intent.REGISTER+cn.jpush.android.intent.REPORT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:606:13-611:29
+action#cn.jpush.android.intent.REGISTER
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:607:17-75
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:607:25-72
+action#cn.jpush.android.intent.REPORT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:608:17-73
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:608:25-70
+action#cn.jpush.android.intent.PushService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:609:17-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:609:25-75
+action#cn.jpush.android.intent.PUSH_TIME
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:610:17-76
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:610:25-73
+provider#cn.jpush.android.service.DataProvider
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:614:9-617:40
+	android:authorities
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:616:13-98
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:617:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:615:13-65
+service#cn.jpush.android.service.DaemonService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:621:9-630:19
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:623:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:624:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:622:13-66
+intent-filter#cn.jpush.android.intent.DaemonService+com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:625:13-628:29
+action#cn.jpush.android.intent.DaemonService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:626:17-80
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:626:25-77
+provider#cn.jpush.android.service.DownloadProvider
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:632:9-635:39
+	android:authorities
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:634:13-102
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:635:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:633:13-69
+receiver#cn.jpush.android.service.PushReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:637:9-656:20
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:639:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:640:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:638:13-65
+intent-filter#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:641:13-644:29
+	android:priority
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:641:28-51
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:642:17-94
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:642:25-91
+intent-filter#android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:645:13-648:29
+action#android.intent.action.USER_PRESENT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:646:17-77
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:646:25-74
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:647:17-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:647:25-76
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:650:13-655:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:651:17-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:651:25-75
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:652:17-80
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:652:25-77
+receiver#cn.jpush.android.service.AlarmReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:659:9-661:40
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:661:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:660:13-66
+receiver#com.net.yuesejiaoyou.redirect.ResolverD.interface4.jpush.MyReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:664:9-676:20
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:666:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:667:13-37
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:665:13-95
+intent-filter#cn.jpush.android.intent.CONNECTION+cn.jpush.android.intent.MESSAGE_RECEIVED+cn.jpush.android.intent.NOTIFICATION_OPENED+cn.jpush.android.intent.NOTIFICATION_RECEIVED+cn.jpush.android.intent.REGISTRATION+com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:668:13-675:29
+action#cn.jpush.android.intent.REGISTRATION
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:669:17-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:669:25-76
+action#cn.jpush.android.intent.MESSAGE_RECEIVED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:670:17-83
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:670:25-80
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:671:17-88
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:671:25-85
+action#cn.jpush.android.intent.NOTIFICATION_OPENED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:672:17-86
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:672:25-83
+action#cn.jpush.android.intent.CONNECTION
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:673:17-77
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:673:25-74
+receiver#com.net.yuesejiaoyou.redirect.ResolverD.interface4.jpush.MyJPushMessageReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:679:9-684:20
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:679:19-113
+intent-filter#cn.jpush.android.intent.RECEIVE_MESSAGE+com.net.yuesejiaoyou.redirect.ResolverD.interface4
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:680:13-683:29
+action#cn.jpush.android.intent.RECEIVE_MESSAGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:681:17-82
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:681:25-79
+receiver#com.net.yuesejiaoyou.redirect.ResolverA.interface4.receiver.OnePixelReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:685:9-113
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:685:19-110
+meta-data#JPUSH_CHANNEL
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:687:9-689:49
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:689:13-46
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:688:13-41
+meta-data#JPUSH_APPKEY
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:690:9-692:56
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:692:13-53
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:691:13-40
+service#com.net.yuesejiaoyou.redirect.ResolverA.interface4.service.DaemonService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:698:9-702:49
+	android:process
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:702:13-46
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:700:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:701:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:699:13-100
+service#com.net.yuesejiaoyou.redirect.ResolverA.interface4.service.CancelNoticeService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:704:9-708:42
+	android:process
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:708:13-39
+	android:enabled
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:706:13-35
+	android:exported
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:707:13-36
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:705:13-106
+service#com.net.yuesejiaoyou.redirect.ResolverA.interface4.service.AliveJobService
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:709:9-711:72
+	android:permission
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:711:13-69
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:710:13-102
+receiver#com.net.yuesejiaoyou.redirect.ResolverA.interface4.receiver.KeepAliveReceiver
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:715:9-745:20
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:715:19-111
+intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.category.LAUNCHER
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:717:13-720:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:718:17-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:718:25-76
+intent-filter#android.intent.action.ACTION_USER_PRESENT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:729:13-731:29
+action#android.intent.action.ACTION_USER_PRESENT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:730:17-84
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:730:25-81
+intent-filter#android.intent.action.MEDIA_MOUNTED+android.intent.action.MEDIA_UNMOUNTED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:733:13-738:29
+action#android.intent.action.MEDIA_MOUNTED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:734:17-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:734:25-75
+action#android.intent.action.MEDIA_UNMOUNTED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:735:17-80
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:735:25-77
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE+android.net.wifi.STATE_CHANGE+android.net.wifi.WIFI_STATE_CHANGED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:740:13-744:29
+action#android.net.wifi.WIFI_STATE_CHANGED
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:742:17-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:742:25-75
+action#android.net.wifi.STATE_CHANGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:743:17-72
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:743:25-69
+activity#com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet_zhubo
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:748:9-750:61
+	android:screenOrientation
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:750:13-49
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:749:13-90
+meta-data#com.netease.nim.appKey
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:755:9-757:64
+	android:value
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:757:13-61
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:756:13-50
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:763:5-83
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:763:22-80
+uses-permission#android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:764:5-95
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:764:22-92
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:765:5-76
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:11:5-76
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:11:5-76
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:11:5-76
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:765:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:766:5-79
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:9:5-79
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:766:22-76
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:767:5-76
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:12:5-76
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:12:5-76
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:767:22-73
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:768:5-71
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:768:22-68
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:769:5-74
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:769:22-71
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:770:5-75
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:770:22-72
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:771:5-81
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:12:5-81
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:771:22-78
+uses-permission#android.permission.GET_TASKS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:772:5-68
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:772:22-65
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:775:5-97
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:775:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:776:5-95
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:776:22-76
+uses-permission#android.permission.READ_LOGS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:783:5-84
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:783:22-65
+uses-permission#android.permission.RECEIVE_USER_PRESENT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:785:5-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:785:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:788:5-80
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:788:22-77
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:792:5-78
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:792:22-75
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:796:5-89
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:796:22-86
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:797:5-79
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:797:22-76
+uses-permission#android.permission.CALL_PHONE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:801:5-85
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:801:22-66
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:810:5-75
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:810:22-72
+uses-permission#android.permission.CAMERA
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:814:5-65
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:11:5-65
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:11:5-65
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:9:5-65
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:814:22-62
+uses-permission#android.permission.FLASHLIGHT
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:815:5-69
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:815:22-66
+uses-permission#android.permission.RECORD_VIDEO
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:816:5-71
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:816:22-68
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:817:5-71
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:817:22-68
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:819:5-80
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:819:22-77
+uses-permission#com.net.yuesejiaoyou.redirect.ResolverD.interface4.permission.JPUSH_MESSAGE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:822:5-115
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:822:22-112
+uses-permission#android.permission.INTERNET
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:825:5-67
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:10:5-67
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:10:5-67
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:13:5-67
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:13:5-67
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:825:22-64
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:829:5-73
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:12:5-73
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:12:5-73
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:829:22-70
+uses-permission#android.permission.VIBRATE
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:830:5-66
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:10:5-66
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:10:5-66
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:830:22-63
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:831:5-84
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:831:22-81
+uses-permission#android.permission.WAKE_LOCK
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:836:5-84
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:836:22-65
+uses-sdk
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+MERGED from [com.yalantis:ucrop:2.2.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.0.aar\31bbb85d1ba1d7fecdd611bb962c5507\AndroidManifest.xml:8:5-10:41
+MERGED from [com.yalantis:ucrop:2.2.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ucrop-2.2.0.aar\31bbb85d1ba1d7fecdd611bb962c5507\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\a1e1eaf291315962e71082cac2142fe1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\a1e1eaf291315962e71082cac2142fe1\AndroidManifest.xml:20:5-43
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:5:5-7:41
+MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:5:5-7:41
+MERGED from [com.youth.banner:banner:1.4.9] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\banner-1.4.9.aar\489f69a754650bb49418bbddd1ac8f95\AndroidManifest.xml:7:5-9:41
+MERGED from [com.youth.banner:banner:1.4.9] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\banner-1.4.9.aar\489f69a754650bb49418bbddd1ac8f95\AndroidManifest.xml:7:5-9:41
+MERGED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.lai.weavey:loadinglayout:1.3.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loadinglayout-1.3.1.aar\ec649d10b41e8b3f39b7657852527ea7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:23:5-25:41
+MERGED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:23:5-25:41
+MERGED from [com.bilibili:boxing:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-1.0.2.aar\58504807fe1345a2e533ab79a2a36576\AndroidManifest.xml:24:5-26:41
+MERGED from [com.bilibili:boxing:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-1.0.2.aar\58504807fe1345a2e533ab79a2a36576\AndroidManifest.xml:24:5-26:41
+MERGED from [com.github.crossoverone:StatusBarUtil:1.3.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\StatusBarUtil-1.3.2.aar\d7e5d19af04b777a259deab360dfbf65\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.crossoverone:StatusBarUtil:1.3.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\StatusBarUtil-1.3.2.aar\d7e5d19af04b777a259deab360dfbf65\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9c9fcbae476afb3c443506dbbb8afba9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9c9fcbae476afb3c443506dbbb8afba9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\90b121fa78be891028b62d6cccc20048\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\90b121fa78be891028b62d6cccc20048\AndroidManifest.xml:20:5-44
+MERGED from [com.github.castorflex.verticalviewpager:library:19.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-19.0.1.aar\fbfc538aaab30eff047fbc0010b21812\AndroidManifest.xml:3:5-72
+MERGED from [com.github.castorflex.verticalviewpager:library:19.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-19.0.1.aar\fbfc538aaab30eff047fbc0010b21812\AndroidManifest.xml:3:5-72
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\128c43aaed4366891fad626a9877254f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\128c43aaed4366891fad626a9877254f\AndroidManifest.xml:20:5-44
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:7:5-9:41
+MERGED from [:aliyunVodPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayer.aar\0bc4275a4be4bd7cf657146e7af5417d\AndroidManifest.xml:7:5-9:41
+MERGED from [:aliyunVodPlayerView:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayerView.aar\13e7c388692778e6560752be3bf44443\AndroidManifest.xml:7:5-9:41
+MERGED from [:aliyunVodPlayerView:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\aliyunVodPlayerView.aar\13e7c388692778e6560752be3bf44443\AndroidManifest.xml:7:5-9:41
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:7:5-9:41
+MERGED from [:alivcPlayer:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\alivcPlayer.aar\bdc7094302b80ee338f2147217e9b246\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\abb280566896075910ec228dfcbd4a1d\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\abb280566896075910ec228dfcbd4a1d\AndroidManifest.xml:5:5-7:41
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:7:5-9:41
+MERGED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:7:5-9:41
+MERGED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ce3fe69321fe9980fb0e48b714e5f954\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ce3fe69321fe9980fb0e48b714e5f954\AndroidManifest.xml:20:5-44
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:core:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\core-1.6.2.aar\a5d34066f1cffaed822d9270455c1523\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:core:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\core-1.6.2.aar\a5d34066f1cffaed822d9270455c1523\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-classic:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-classic-1.6.2.aar\2f8018ae10dd8478b8cf88978089fd5a\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-classic:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-classic-1.6.2.aar\2f8018ae10dd8478b8cf88978089fd5a\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-material:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-material-1.6.2.aar\f7ab07e5a3e543baae30c345614adcb5\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-material:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-material-1.6.2.aar\f7ab07e5a3e543baae30c345614adcb5\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-utils:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-utils-1.6.2.aar\9bcf7deaf82ecf2e12b3eb3b5f48904c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-utils:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-utils-1.6.2.aar\9bcf7deaf82ecf2e12b3eb3b5f48904c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-two-level:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-two-level-1.6.2.aar\d6ce7ad9bc7916eae2b8f2d941acde53\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-two-level:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-two-level-1.6.2.aar\d6ce7ad9bc7916eae2b8f2d941acde53\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-horizontal-1.6.2.aar\33757ffdd5cb84c4cc6b7168c52d62c8\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\ext-horizontal-1.6.2.aar\33757ffdd5cb84c4cc6b7168c52d62c8\AndroidManifest.xml:8:5-10:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.1.aar\e76876d0b61884549f19ac3bf19e4055\AndroidManifest.xml:8:5-10:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.1.aar\e76876d0b61884549f19ac3bf19e4055\AndroidManifest.xml:8:5-10:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-gif-drawable-1.2.1.aar\46e8b77cc69a864b6cb3ba2262753d45\AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-gif-drawable-1.2.1.aar\46e8b77cc69a864b6cb3ba2262753d45\AndroidManifest.xml:7:5-9:41
+MERGED from [com.wang.avi:library:2.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\400ab52f1241c657d692e1a6746a7e5c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.wang.avi:library:2.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\400ab52f1241c657d692e1a6746a7e5c\AndroidManifest.xml:7:5-9:41
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:5:5-7:41
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\ded966627c077d5d108989ddc8cfb419\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\ded966627c077d5d108989ddc8cfb419\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\679d28644385d7a773fb55c31b177c92\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\679d28644385d7a773fb55c31b177c92\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d6c109e7df479ffa5f20361c028a42db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d6c109e7df479ffa5f20361c028a42db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\56360f52a89be1ce236c4a7b72aa8a46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\56360f52a89be1ce236c4a7b72aa8a46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5fab08a12328957b96cff1dfb272655c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5fab08a12328957b96cff1dfb272655c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6b9fab864ac7c3410d2b920c084c1e0f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6b9fab864ac7c3410d2b920c084c1e0f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\cc593ca146946ab87ec6260a9aa13056\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\cc593ca146946ab87ec6260a9aa13056\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\6dd1788b0e528ea15f6c8012f3684134\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\6dd1788b0e528ea15f6c8012f3684134\AndroidManifest.xml:20:5-44
+MERGED from [com.chensl.rotatephotoview:rotatephotoview:1.0.5] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\rotatephotoview-1.0.5.aar\78bb7bbc36a77d79a2125a3eda7c363b\AndroidManifest.xml:8:5-10:41
+MERGED from [com.chensl.rotatephotoview:rotatephotoview:1.0.5] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\rotatephotoview-1.0.5.aar\78bb7bbc36a77d79a2125a3eda7c363b\AndroidManifest.xml:8:5-10:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a12f8aa167d32156d7a55e54e8463d47\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a12f8aa167d32156d7a55e54e8463d47\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\dcb580b54149f1a03eab6702248f0e81\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\dcb580b54149f1a03eab6702248f0e81\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\48407c6ebd8573e4d4bdc8cb48b1fc86\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\48407c6ebd8573e4d4bdc8cb48b1fc86\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\22514fd819410a2dae952613703fcd84\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\22514fd819410a2dae952613703fcd84\AndroidManifest.xml:20:5-44
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:573:13-575:64
+	android:resource
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:575:17-61
+	android:name
+		ADDED from E:\webwork\yuese_android\app\src\main\AndroidManifest.xml:574:17-67
+activity#com.paypal.android.sdk.payments.PaymentActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:13:9-84
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:13:19-81
+activity#com.paypal.android.sdk.payments.PaymentMethodActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:14:9-90
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:14:19-87
+activity#com.paypal.android.sdk.payments.PaymentConfirmActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:15:9-91
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:15:19-88
+activity#com.paypal.android.sdk.payments.LoginActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:16:9-82
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:16:19-79
+activity#com.paypal.android.sdk.payments.PayPalFuturePaymentActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:17:9-96
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:17:19-93
+activity#com.paypal.android.sdk.payments.FuturePaymentConsentActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:18:9-97
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:18:19-94
+activity#com.paypal.android.sdk.payments.FuturePaymentInfoActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:19:9-94
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:19:19-91
+activity#com.paypal.android.sdk.payments.PayPalProfileSharingActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:20:9-97
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:20:19-94
+activity#com.paypal.android.sdk.payments.ProfileSharingConsentActivity
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:21:9-98
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:21:19-95
+service#com.paypal.android.sdk.payments.PayPalService
+ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:23:9-25:40
+	android:exported
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\paypal-android-sdk-2.15.1.aar\68bde3f6e78feff0b3c35053ef8df6ec\AndroidManifest.xml:24:13-73
+activity#com.bilibili.boxing_impl.ui.BoxingActivity
+ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:28:9-33:20
+	android:screenOrientation
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:31:13-49
+	android:launchMode
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:30:13-43
+	android:theme
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:29:13-70
+activity#com.bilibili.boxing_impl.ui.BoxingViewActivity
+ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:34:9-39:20
+	android:screenOrientation
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:37:13-49
+	android:launchMode
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:36:13-43
+	android:theme
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:38:13-63
+	android:name
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:35:13-74
+activity#com.bilibili.boxing_impl.ui.BoxingBottomSheetActivity
+ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:40:9-43:66
+	android:screenOrientation
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:42:13-49
+	android:theme
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:43:13-63
+	android:name
+		ADDED from [com.bilibili:boxing-impl:1.0.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\boxing-impl-1.0.2.aar\cb2eb747439b4ceedcc11450e2181168\AndroidManifest.xml:41:13-81
+uses-feature#android.hardware.camera
+ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:15:5-17:36
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:12:5-14:36
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:12:5-14:36
+	android:required
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:17:9-33
+	android:name
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:16:9-47
+uses-feature#android.hardware.camera.autofocus
+ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:18:5-20:36
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:15:5-17:36
+MERGED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:15:5-17:36
+	android:required
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:20:9-33
+	android:name
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:19:9-57
+uses-feature#android.hardware.camera.front
+ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:21:5-23:36
+	android:required
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:23:9-33
+	android:name
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:22:9-53
+uses-feature#android.hardware.camera.front.autofocus
+ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:24:5-26:36
+	android:required
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:26:9-33
+	android:name
+		ADDED from [:xjgarsdklibrary:] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\xjgarsdklibrary.aar\e16a807a7b42833e81dc51e84acce132\AndroidManifest.xml:25:9-63
+service#com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService
+ADDED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:12:9-118
+	android:name
+		ADDED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:12:18-115
+service#com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService
+ADDED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:13:9-15:49
+	android:process
+		ADDED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:15:13-46
+	android:name
+		ADDED from [com.liulishuo.filedownloader:library:1.4.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\library-1.4.1.aar\59a9f0be754eca0c1293843b935f988c\AndroidManifest.xml:14:13-108
+activity#io.card.payment.CardIOActivity
+ADDED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:20:9-22:66
+	android:configChanges
+		ADDED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:22:13-63
+	android:name
+		ADDED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:21:13-58
+activity#io.card.payment.DataEntryActivity
+ADDED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:23:9-70
+	android:name
+		ADDED from [io.card:android-sdk:5.4.2] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\android-sdk-5.4.2.aar\9cea0051447f540b1000cc13ceb9a9e6\AndroidManifest.xml:23:19-67

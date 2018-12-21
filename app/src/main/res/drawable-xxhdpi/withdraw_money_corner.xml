@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <padding android:top="1dp" android:right="1dp" android:left="1dp" android:bottom="1dp"/>
+
+    <!-- 设置圆角矩形 -->
+
+
+    <corners android:topLeftRadius="20dip"
+        android:topRightRadius="20dip"
+        android:bottomLeftRadius="20dip"
+        android:bottomRightRadius="20dip"/>
+
+    <stroke android:color="#FFffff" android:width="2px"/>
+
+    <!-- 背景颜色 -->
+    <solid android:color="#ffffff"/>
+
+</shape>

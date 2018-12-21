@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+
+            >
+            <ImageView
+                android:id="@+id/meinvtou"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/quanxian1"
+                />
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"
+                android:layout_alignParentRight="true"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:src="@drawable/quotes1"
+                        android:layout_marginLeft="40dp"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="确保优质服务,我们需要您"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+                
+                <!-- <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="启用以下权限"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    /> -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/enabletext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="启用以下权限"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:src="@drawable/quotes2"
+                        android:layout_toRightOf="@+id/enabletext"
+                        android:layout_marginLeft="0dp"
+                        android:layout_height="20dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/besure1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="立即启用"
+                    android:textColor="#FF5C5C"
+                    android:textSize="20sp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:background="@drawable/border_01162_9"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+
+
+
+      <!--  <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/authority1" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/authority2"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/authority3"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/authority4"
+                android:layout_height="40dp" />
+        </LinearLayout>-->
+    </LinearLayout>
+</LinearLayout>

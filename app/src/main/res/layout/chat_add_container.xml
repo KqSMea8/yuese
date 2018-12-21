@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <!-- <TextView
+            android:id="@+id/tv_loc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/btn_chat_add_location_selector"
+            android:gravity="center"
+            android:text="位置"
+            android:visibility="gone"
+            android:textColor="@color/gray" /> -->
+        <!-- <TextView
+            android:id="@+id/tv_voc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/btn_chat_add_voice"
+            android:gravity="center"
+            android:text="语音"
+            android:textColor="@color/gray" /> -->
+
+        <TextView
+            android:id="@+id/tv_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="80dp"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/xiangji"
+            android:gravity="center"
+            android:text="视频"
+                  android:layout_centerInParent="true"
+            android:textColor="#959593" />
+
+        <TextView
+            android:id="@+id/tv_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:drawablePadding="10dp"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/xiangce"
+            android:layout_marginLeft="80dp"
+            android:gravity="center"
+            android:text="图片"
+            android:textColor="#959593" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

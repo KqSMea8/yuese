@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+	android:paddingLeft="40dp"
+	android:paddingRight="40dp"
+
+  >
+	
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+		android:gravity="center"
+        android:background="@drawable/shape_report"
+        >
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="请选择举报类型"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#A9A9A9"
+            android:textSize="15sp"
+            />
+        
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+            />
+        
+		<CheckedTextView 
+		    android:id="@+id/c1"
+		    android:textColor="#787878"
+		    android:layout_width="wrap_content"
+		    android:layout_height="30dp"
+		    android:text="色情、赌博、毒品"
+		     android:gravity="center"
+		    />            
+		      
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+
+            />
+        
+        <CheckedTextView
+             android:id="@+id/c2"
+            android:textColor="#787878"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+               android:gravity="center_horizontal|center_vertical"
+            android:text="谣言、社会负面、诈骗" />
+        
+           <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+
+            />
+        
+        <CheckedTextView
+             android:id="@+id/c3"
+            android:textColor="#787878"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+           android:gravity="center_horizontal|center_vertical"
+            android:text="邪教、非法集会、传销" />
+        
+           <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+
+            />
+        
+        <CheckedTextView
+             android:id="@+id/c4"
+         	android:textColor="#787878"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="医药、整形、虚假广告" />
+        
+           <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+
+            />
+        
+        <CheckedTextView
+             android:id="@+id/c5"
+            android:textColor="#787878"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="有奖集赞和关注转发" />
+        
+           <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F8F8F8"
+
+            />
+        
+        <CheckedTextView
+             android:id="@+id/c6"
+            android:textColor="#787878"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="违反国家政策和法律" />
+        
+    </LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:layout_marginTop="10dp"
+		android:background="@drawable/shape_report">
+
+		<TextView
+			android:id="@+id/quxiao"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center_horizontal|center_vertical"
+			android:text="取消"
+			android:textColor="#A9A9A9"
+			android:textSize="16sp" />
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+       <TextView
+        android:id="@+id/chat_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="09-25 12:00"
+        android:background="@drawable/shape_sj"
+        android:textColor="@color/white"
+		android:paddingTop="2dp"
+		android:paddingRight="6dp"
+		android:paddingLeft="6dp"
+		android:paddingBottom="2dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="10sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chat_time"
+        android:layout_marginTop="5dp" >
+
+        <RelativeLayout
+            android:id="@+id/chart_from_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@color/transparent"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView
+                android:id="@+id/chatfrom_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/chatfrom_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chatfrom_bg"
+                android:gravity="center_vertical"
+				android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@+id/chatfrom_icon"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/chatfrom_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/chatfrom_bg"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/chatfrom_icon"
+                android:src="@drawable/ic_launcher"
+                 />
+
+                 <ImageView
+		                android:id="@+id/left_video_img"
+		                android:layout_width="120dp"
+		                android:layout_height="120dp"
+		                android:background="@drawable/chatfrom_bg"
+		                android:gravity="center"
+		                android:paddingBottom="5dp"
+		                android:paddingLeft="15dp"
+		                android:paddingRight="5dp"
+		                android:paddingTop="5dp"
+		                android:scaleType="fitCenter"
+		                android:layout_toRightOf="@+id/chatfrom_icon"
+		                android:src="@drawable/ic_launcher"
+		                android:visibility="gone"
+                 />
+                 
+             <ImageView
+                  android:id="@+id/left_play"
+                  android:layout_width="30sp"
+                  android:layout_height="30sp"
+                  android:layout_centerVertical="true"
+                  android:layout_alignLeft="@+id/left_video_img"
+				  android:layout_marginLeft="44dp"
+				  android:visibility="gone"
+                  android:src="@drawable/play" />
+            
+            <ProgressBar
+                android:id="@+id/progress_load"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/chatfrom_icon"
+                android:layout_alignBottom="@+id/chatfrom_icon"
+                 />
+            
+            
+            <TextView
+                  android:id="@+id/yuyin1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="35dp"
+                  android:paddingLeft="10dp"
+            	 	 android:layout_marginLeft="10dp"
+             		 android:layout_marginBottom="5dp"
+					android:layout_toRightOf="@+id/chatfrom_icon"
+                  android:background="@drawable/chatfrom_bg"
+                  android:gravity="center_vertical|center_horizontal"
+                  android:singleLine="true"
+                  android:textColor="@color/black"
+                  android:paddingRight="10dp"
+                  android:visibility="gone"
+                  android:drawableLeft="@drawable/audio_3"
+                  android:textSize="14sp" />
+            
+              <!-- <TextView
+                android:id="@+id/jishi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/yuyin1"
+                android:paddingRight="5dp"
+                android:layout_centerVertical="true"
+                android:textColor="#000000"
+             /> -->
+            
+                <!--  android:drawableLeft="@drawable/left_yuyin_animation_01160" -->
+			 <!-- <ImageView 
+                   android:id="@+id/left_dh"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/chatfrom_icon"
+                     android:paddingLeft="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp" 
+                android:layout_alignLeft="@+id/yuyin1"
+					android:layout_centerVertical="true"
+                   android:src="@drawable/left_yuyin_animation_01160"
+                   /> -->
+            
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chart_to_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent" >
+
+            <com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView
+                android:id="@+id/chatto_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/chatto_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/chatto_icon"
+                android:background="@drawable/chatto_bg"
+                android:gravity="center_vertical"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:visibility="gone"
+                android:paddingBottom="10dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/chatto_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_toLeftOf="@+id/chatto_icon"
+                android:background="@drawable/chatto_bg"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher"
+                android:visibility="gone" />
+
+              <ImageView
+                android:id="@+id/right_video_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_toLeftOf="@+id/chatto_icon"
+                android:background="@drawable/chatto_bg"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:visibility="gone"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher"
+                />
+            
+              <ImageView
+                  android:id="@+id/right_play"
+                  android:layout_width="30sp"
+                  android:layout_height="30sp"
+                  android:layout_alignLeft="@+id/right_video_img"
+                  android:layout_centerVertical="true"
+                  android:layout_marginLeft="44dp"
+                  android:visibility="gone"
+                  android:src="@drawable/play" />
+              
+              <TextView
+                android:id="@+id/yuyin"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_toLeftOf="@+id/chatto_icon"
+                android:background="@drawable/chatto_bg"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@color/white"
+                android:singleLine="true"
+                android:paddingRight="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:visibility="gone"
+                android:drawableRight="@drawable/yuyin"
+                android:layout_marginBottom="5dp"   android:textSize="14sp" />
+               <!--  android:drawableRight="@drawable/right_yuyin_animation_01160" -->
+             
+            
+               <!-- <ImageView 
+                   android:id="@+id/right_dh"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/chatto_icon"
+                     android:paddingRight="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp" 
+                android:layout_alignRight="@+id/yuyin"
+					android:layout_centerVertical="true"
+                   android:src="@drawable/right_yuyin_animation_01160"
+                   /> -->
+              
+              
+              <!--   <TextView
+	                android:id="@+id/jishi1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignLeft="@+id/yuyin"
+	                android:layout_centerVertical="true"
+					android:paddingLeft="5dp"
+	                android:textColor="#FFFFFF"
+                 /> -->
+
+             
+            
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

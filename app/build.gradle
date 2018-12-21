@@ -1,0 +1,166 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    useLibrary 'org.apache.http.legacy'
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    defaultConfig {
+        applicationId "com.net.yuesejiaoyou.redirect.ResolverD.interface4"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 3
+        versionName "1.1.0"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_7
+            targetCompatibility JavaVersion.VERSION_1_7
+        }
+        packagingOptions {
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/NOTICE'
+        }
+
+        //打包名称设置
+
+    }
+
+
+    buildTypes {
+        debug {
+            multiDexEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            multiDexEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    signingConfigs {
+
+        debug {
+            storeFile file('../signature/yuese.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+
+        release {
+            storeFile file('../signature/yuese.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
+
+
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+
+
+
+//这段代码表示遍历layout下的文件夹,表示都可以作为分文件夹用
+
+
+}
+dependencies {
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.15.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.youth.banner:banner:1.4.9'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+
+
+    // aliyun start
+    // 阿里云播放器相关
+    implementation(name: 'aliyunVodPlayer', ext: 'aar')
+    implementation(name: 'aliyunVodPlayerView', ext: 'aar')
+    implementation(name: 'alivcPlayer', ext: 'aar')
+    //    compile project(':videoplay')
+    // 阿里云录制相关
+//    compile(name: 'AliyunSdk-RCE', ext: 'aar')
+    //    compile project(':videorecord')
+    
+    // aliyun end
+    // 腾讯云直播与美颜相关
+//    compile(name:'LiteAVSDK_Smart_4.7.4395',ext:'aar')
+//    compile(name:'liteimsdk-release',ext:'aar')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //声网相关
+//    compile 'io.agora.rtc:full-sdk:2.0.0'
+    // 小吉狗美颜
+    implementation(name: 'xjgarsdklibrary', ext: 'aar')
+    //compile files('libs/ResolverB/agora-rtc-sdk.jar')
+//    compile files('libs/ResolverB/AgoraSDK.jar')
+    // android 版base64
+
+    implementation 'org.apache.ant:ant:1.7.1'
+    implementation 'com.liulishuo.filedownloader:library:1.4.1'
+    implementation 'com.google.code.gson:gson:2.8.0'
+
+    /////////////////////////D模块
+//    compile files('libs/ResolverD/MobCommons-2017.1201.1507.jar')
+//    compile files('libs/ResolverD/MobTools-2017.1201.1507.jar')
+//    compile files('libs/ResolverD/ShareSDK-Core-3.1.2.jar')
+//    compile files('libs/ResolverD/ShareSDK-Wechat-3.1.2.jar')
+//    compile files('libs/ResolverD/ShareSDK-Wechat-Core-3.1.2.jar')
+//    compile files('libs/ResolverD/ShareSDK-Wechat-Moments-3.1.2.jar')
+//    compile files('libs/ResolverD/jpush-android-3.1.2.jar')
+//    compile files('libs/ResolverD/jcore-android-1.2.0.jar')
+//    compile files('libs/ResolverD/libammsdk.jar')
+//    compile files('libs/ResolverD/alipaySdk-20170922.jar')
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //核心基础库，包含绝大多数功能，扩展库必须依赖本库（从1.6.0版本开始Core库不再自带刷新视图实现，只包含核心功能）
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:core:1.6.2'
+    //默认Classic样式的刷新视图实现库(从1.6.0版本才有，是从老版本的Core库中拆分出来的库)
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:ext-classic:1.6.2'
+    //默认Material样式的刷新视图实现库(从1.6.0版本才有，是从老版本的Core库中拆分出来的库)
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:ext-material:1.6.2'
+    //工具类库，带有一些快捷配置工具（自动滚动刷新工具，快速设置AppBarLayout工具）
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:ext-utils:1.6.2'
+    //扩展支持二级刷新库
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:ext-two-level:1.6.2'
+    //扩展支持横向刷新库
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:ext-horizontal:1.6.2'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation 'com.github.castorflex.verticalviewpager:library:19.0.1'
+
+    implementation 'com.lai.weavey:loadinglayout:1.3.1'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.1'
+    implementation 'com.wang.avi:library:2.1.3'
+
+    compile('com.yalantis:ucrop:2.2.0') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.squareup.okio'
+        exclude group: 'com.squareup.okhttp3'
+    }
+    implementation 'com.bilibili:boxing:1.0.2'
+    implementation 'com.bilibili:boxing-impl:1.0.2'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.crossoverone:StatusBarUtil:1.3.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    implementation 'com.alibaba:fastjson:1.2.14'
+}
+
+

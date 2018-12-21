@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_chat_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/local_video_view_container"
+        android:layout_width="125dp"
+        android:layout_height="160dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"/>
+
+
+    <!-- <com.example.meijian.interface4.GiftItemView
+         android:id="@+id/gift_item_first"
+         android:layout_marginLeft="10dp"
+         android:layout_above="@+id/layGrpChat"
+         android:clipChildren="true"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+     </com.example.meijian.interface4.GiftItemView>
+ -->
+
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ly1"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onOkClicked"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:src="@drawable/meiyansure" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/moshubang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="onMeiyanClicked"
+            >
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:src="@drawable/beautyon" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_switchcamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="onSwitchCameraClicked"
+            >
+
+            <ImageView
+                android:id="@+id/img_switch"
+                android:layout_width="60sp"
+                android:layout_height="60sp"
+                android:src="@drawable/qiehuan" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

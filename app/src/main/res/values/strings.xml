@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">悦色视频交友</string>
+    <string name="appp_name">悦色视频交友</string>
+    <string name="agora_app_id">4d05caa64b9e4eeeac8041bd7980cf6e</string>
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="facebook_app_id">1028848070611510</string>
+    <string name="fb_login_protocol_scheme">fb1028848070611510</string>
+    <!-- ************************************************************************** -->
+
+    <string name="aliyun_filter_null">原片</string>
+    <string name="aliyun_camera_permission_tip">请开启摄像头权限</string>
+    <string name="aliyun_no_free_memory">剩余磁盘空间不足</string>
+
+    <string name="none_effect">原片</string>
+    <string name="res_copy">资源拷贝中</string>
+    <string name="edit_nav_edit">编辑</string>
+    <string name="not_supported_audio">不支持的音频格式</string>
+    <string name="not_supported_video">不支持的视频格式</string>
+    <string name="not_supported_pixel_format">不支持的文件</string>
+    <string name="play_video_error">该视频为错误视频</string>
+    <string name="cancel">取消</string>
+    <string name="effect_mananger_nav_edit">特效管理</string>
+    <string name="motion_sticker_effect_manager">动图</string>
+    <string name="subtitle_effect_manager">字幕</string>
+    <string name="font_effect_manager">字体</string>
+    <string name="mv_effect_manager">MV</string>
+    <string name="cancel_more_mv_edit">取消</string>
+    <string name="more_caption_nav_edit">更多字幕</string>
+    <string name="no_free_memory">剩余磁盘空间不足</string>
+    <string name="has_no_network">网络不给力，请检查网络</string>
+    <string name="qupai_text_count_outof">字数超出限制</string>
+    <string name="delete_effect_manager">删除</string>
+    <string name="use_effect_edit">使用</string>
+    <string name="download_effect_edit">下载</string>
+    <string name="material_downloading_failure">素材下载失败！</string>
+    <string name="more_motion_sticker_nav_edit">更多动图</string>
+    <string name="more_mv_nav_edit">更多MV</string>
+    <string name="more">更多</string>
+    <string name="my_music">我的音乐</string>
+    <string name="empty_music">无音乐</string>
+    <string name="music_origin">原音</string>
+    <string name="local_music">本地音乐</string>
+    <string name="music_effect_manager">音乐</string>
+
+    <!--         阿里云导入本地短视频        -->
+    <string name="total_duration_label_import">总时长</string>
+    <string name="next_camera_roll_import">下一步</string>
+    <string name="gallery_all_media">相机胶卷</string>
+    <string name="sdcard_not_ready">SDCARD 没有准备好</string>
+    <string name="video_duration">%1$02d:%2$02d:%3$02d</string>
+    <string name="aliyun_not_supported_audio">音频格式不支持</string>
+    <string name="aliyun_video_crop_error">视频格式不支持</string>
+    <string name="aliyun_video_error">视频错误</string>
+    <string name="please_select_video">请选择视频</string>
+    <string name="message_max_duration_import">视频总时长不超过5分钟，请裁剪后继续!</string>
+    <string name="wait">请稍候</string>
+    <string name="start_button">Start</string>
+    <string name="stop_button">Stop</string>
+    <string name="pause_button">Pause</string>
+    <string name="resume_button">Resume</string>
+    <string name="replay_button">Replay</string>
+    <string name="auto_play">Auto-play:</string>
+    <string name="on">on</string>
+    <string name="off">off</string>
+    <string name="mute_label">Mute:</string>
+    <string name="volume_label">Volume</string>
+    <string name="brightness_label">Brightness</string>
+    <string name="scale_model">Scale model</string>
+    <string name="aspect_fit">Aspect fit</string>
+    <string name="aspect_fill">Aspect fill</string>
+    <string name="change_quality_label">Video quality switched to：</string>
+    <string name="log_strart_play">start to play</string>
+    <string name="log_seek_start">seek operation started</string>
+    <string name="log_start_get_data">start to get a streaming</string>
+    <string name="log_prepare_success"> prepared successfully</string>
+    <string name="log_player_create_success"> create a player successfully</string>
+    <string name="log_open_url_success"> open an url successfully</string>
+    <string name="log_request_stream_success"> get a streaming successfully</string>
+    <string name="log_start_open_stream"> start to open a streaming</string>
+    <string name="log_first_frame_played"> the first frame showed</string>
+    <string name="log_seek_completed">seek operation completed</string>
+    <string name="log_play_stopped">play operation stopped</string>
+    <string name="toast_fail_msg">Fail!! Reason:</string>
+    <string name="log_change_quality_success">Video quality switched successfully</string>
+    <string name="log_change_quality">To request video quality switched to：</string>
+    <string name="video_width">Video width：</string>
+    <string name="video_height">Video height：</string>
+    <string name="ok">OK</string>
+    <string name="player_log">Player Logs：</string>
+    <string name="log_change_quality_fail">Video quality switched unsuccessfully</string>
+
+    <!--   阿里云视频录制start  -->
+    <string name="aliyun_no_import_moudle">当前不包含导入模块</string>
+    <!--   阿里云视频录制end  -->
+    <!--   阿里云视频导入start  -->
+    <string name="aliyun_gallery_all_media">相机胶卷</string>】
+    <!--   阿里云视频导入end  -->
+    <!-- 阿里云视频编辑 start -->
+    <string name="transcode">转码中</string>
+    <string name="aliyun_svideo_time_effect_not_support">时间特效不支持多段视频</string>
+    <string name="aliyun_svideo_editor_init_failed">编辑器初始化失败</string>
+    <string name="aliyun_svideo_effect">特效</string>
+    <string name="aliyun_svideo_filter">滤镜</string>
+    <string name="aliyun_svideo_time_effect_moment">某刻</string>
+    <string name="aliyun_svideo_time_effect_all">全程</string>
+    <color name="aliyun_powered_text_color">#adadad</color>
+    <!-- 阿里云视频编辑 end -->
+    <!-- 小吉狗美颜 start -->
+    <string name="filter_none">Original</string>
+    <string name="filter_antique">Antique</string>
+    <string name="filter_cool">Cool</string>
+    <string name="filter_emerald">Emerald</string>
+    <string name="filter_evergreen">Evergreen</string>
+    <string name="filter_healthy">Healthy</string>
+    <string name="filter_nostalgia">Nostalgia</string>
+    <string name="filter_crayon">Crayon</string>
+    <!-- 小吉狗美颜 end -->
+</resources>

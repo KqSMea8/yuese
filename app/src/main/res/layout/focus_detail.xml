@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:id="@+id/headid"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="关注列表"
+            android:textColor="#000000"
+            android:textSize="20dip"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list_focus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headid"
+        android:divider="@null"
+        />
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/list_focus"
+        android:background="#f0f0f0"
+        />
+
+</RelativeLayout>

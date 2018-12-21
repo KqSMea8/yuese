@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/line_oncli"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip">
+
+        <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+            android:id="@+id/image_view_comment"
+            android:layout_width="34.0dip"
+            android:layout_height="34.0dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.0dip" />
+
+        <TextView
+            android:id="@+id/tv_nick"
+            android:layout_width="70.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="9.0dip"
+            android:layout_toRightOf="@id/image_view_comment"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="#ff7f7f7f"
+            android:textSize="14.199982dip" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/tv_nick"
+            >
+
+
+            <TextView
+                android:id="@+id/pj1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10.0dip"
+                android:background="@drawable/bg_tag"
+                android:padding="5dip"
+                android:text=""
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="13dip" />
+
+
+            <TextView
+                android:id="@+id/pj2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5.0dip"
+                android:background="@drawable/bg_tag1"
+                android:layout_toLeftOf="@id/pj1"
+                android:padding="5dip"
+                android:text="会聊天"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="13dip" />
+
+            <TextView
+                android:id="@+id/pj3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5.0dip"
+                android:background="@drawable/bg_tag2"
+                android:layout_toLeftOf="@id/pj2"
+                android:padding="5dip"
+                android:text="柔美妩媚"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="13dip" />
+
+            <!--<FlowLayout-->
+                <!--android:id="@+id/flow"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="14.0dip"-->
+                <!--android:layout_marginRight="16.0dip" />-->
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_no_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45.0dip"
+            android:layout_toRightOf="@id/tv_nick"
+            android:text="TA没有做任何评价"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/v_infromation_new" />
+</LinearLayout>

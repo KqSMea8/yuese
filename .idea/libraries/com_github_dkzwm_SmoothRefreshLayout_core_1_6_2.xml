@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.dkzwm.SmoothRefreshLayout:core-1.6.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/core-1.6.2.aar/a5d34066f1cffaed822d9270455c1523/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/core-1.6.2.aar/a5d34066f1cffaed822d9270455c1523/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

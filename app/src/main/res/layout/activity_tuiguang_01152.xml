@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rr"
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:background="@drawable/beijing"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/RR"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip">
+
+                    <TextView
+                        android:id="@+id/biaoti"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="分享赚钱"
+                        android:textColor="#ffffff"
+                        android:textSize="20dip" />
+
+                    <TextView
+                        android:id="@+id/daili"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dip"
+                        android:text="申请代理"
+                        android:textColor="#ffffff"
+                        android:visibility="gone"
+                        android:textSize="16dip" />
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="25dip"
+                        android:layout_height="25dip"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dip"
+                        android:background="@drawable/back_new" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dip"
+                    android:layout_below="@id/RR">
+
+                    <com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
+                        android:id="@+id/touxiang"
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginTop="15dip"
+                        android:src="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/zhanghu1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginTop="15dip"
+                        android:layout_toRightOf="@id/touxiang"
+                        android:text="提现账户:"
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                    <TextView
+                        android:id="@+id/zhanghu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:layout_marginTop="15dip"
+                        android:layout_toRightOf="@id/zhanghu1"
+                        android:text=""
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                    <TextView
+                        android:id="@+id/xingming1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/zhanghu1"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginTop="5dip"
+                        android:layout_toRightOf="@id/touxiang"
+                        android:text="账户姓名:"
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                    <TextView
+                        android:id="@+id/xingming"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/zhanghu"
+                        android:layout_marginLeft="3dip"
+                        android:layout_marginTop="5dip"
+                        android:layout_toRightOf="@id/xingming1"
+                        android:text=""
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                    <TextView
+                        android:id="@+id/shouji1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/xingming1"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginTop="5dip"
+                        android:layout_toRightOf="@id/touxiang"
+                        android:text="已绑定手机号:"
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                    <TextView
+                        android:id="@+id/shouji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/xingming"
+                        android:layout_marginLeft="3dip"
+                        android:layout_marginTop="5dip"
+                        android:layout_toRightOf="@id/shouji1"
+                        android:text=""
+                        android:textColor="#ffffff"
+                        android:textSize="14dip" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <!--<ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">-->
+
+
+            <!--<include
+                android:id="@+id/nan2"
+                layout="@layout/activity_usershouyi1_01152"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dip" />
+
+            <include
+                android:id="@+id/nv3"
+                layout="@layout/activity_usershouyi_01152"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dip" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rr"
+                android:layout_marginLeft="18dip"
+                android:layout_marginRight="18dip"
+                android:layout_marginTop="-35dip"
+                android:background="@drawable/yuanjiao"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:id="@+id/quyu1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dip"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dip"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dip"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical"
+                            android:text="邀请人数"
+                            android:background="@drawable/shareyuanjiao"
+                            android:textColor="#fff"
+                            android:textSize="15dip" />
+
+                        <!-- <ImageView
+                            android:layout_width="1dip"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0"/>
+
+                        <TextView
+                            android:id="@+id/money"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dip"
+                            android:text="0.00"
+                            android:textColor="#000000"
+                            android:gravity="center"/> -->
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dip"
+                        android:layout_height="60dip"
+                        android:background="#f0f0f0" />
+
+                    <LinearLayout
+                        android:id="@+id/quyu2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dip"
+                            android:layout_weight="1"
+                            android:text="邀请人数"
+                            android:textSize="15dip"
+                            android:gravity="center"/> -->
+                        <TextView
+                            android:id="@+id/money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dip"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dip"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="0.00"
+                            android:textColor="#000000" />
+
+                        <!-- <ImageView
+                            android:layout_width="1dip"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0"/> -->
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dip"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/shareyuanjiao"
+                            android:text="邀请奖励"
+                            android:textColor="#fff"
+                            android:textSize="15dip" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/xian"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginTop="10dip"
+                    android:background="#f0f0f0" />
+
+                <!-- <ListView
+                   android:id="@+id/listview"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:divider="@null"></ListView> -->
+
+
+                <!-- <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1.所有用户都可以参与推广分成计划。\n2.通过自己分享的专属“推广地址”或“二维码”下载悦色交友及注册的用户，才算作“我推荐的用户”。\n3.“我推荐的用户”充值即可产生贡献值。(1元=1贡献值)\n4.用户可以通过我的贡献值进行提现，提现比例见“分成比例”\n5.提现后，贡献值会根据实际分成比例进行扣除。\n6.量大的推广渠道请加合作微信: CPS122133\n7.悦色交友CPS推广联盟: CPS.VLCPS.COM"
+                    android:layout_marginTop="3dip"
+                    /> -->
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/xian"
+                    android:layout_marginTop="30dip"
+                    android:background="#ffffff">
+
+
+                    <Button
+                        android:id="@+id/tuiguang"
+                        android:layout_width="120dip"
+                        android:layout_height="35dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:background="@drawable/shareyuanjiao"
+                        android:gravity="center"
+                        android:text="去分享"
+
+                        android:textColor="#ffffff"
+                        android:textSize="20dip" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dip">
+
+                    <ImageView
+                        android:layout_width="100dip"
+                        android:layout_height="1dip"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dip"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#696969"
+                        android:text="奖励细则"
+                        android:textSize="15dip" />
+
+                    <ImageView
+                        android:layout_width="100dip"
+                        android:layout_height="1dip"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dip"
+                        android:background="#f0f0f0" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/gongluetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="3dip"></TextView>
+
+
+
+
+            </LinearLayout>
+            <!--android:text="1.所有用户都可以参与分成计划；\n2.通过自己分享的专属推广链接下载注册的用户，才算“我”推荐的用户；\n3.推荐的用户充值即可获得充值金额32%的分成奖励；\n4.推荐的用户提现可以获得提现金额8%的分成奖励；\n\n注：活动的最终解释权归平台所有。" />-->
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dip"
+        android:layout_marginRight="18dip"
+        android:visibility="gone"
+        android:textColor="#696969"
+        android:text="注：活动的最终解释权归平台所有。"
+        android:layout_marginBottom="20dip"
+        android:textSize="18dp"
+        android:textStyle="bold"></TextView>
+
+
+    <Button
+        android:id="@+id/gonglue"
+        android:layout_width="180dip"
+        android:layout_height="35dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dip"
+        android:background="@drawable/queding"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="赚钱攻略"
+        android:textColor="#ffffff"
+        android:textSize="20dip" />
+
+</RelativeLayout>

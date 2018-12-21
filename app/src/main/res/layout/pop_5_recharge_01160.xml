@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="120dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_recharge_01160" >
+
+    <LinearLayout 
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        >
+		<TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:gravity="center_vertical|center_horizontal"
+		    android:text="您的账户余额不足以视频一分钟，无法发送私信!"
+		    android:textColor="#717171"
+		    android:textSize="14sp"
+		    android:layout_marginLeft="10dp"
+		    android:id="@+id/eat"
+		    />	
+		    </LinearLayout>
+		   
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+		android:gravity="center"
+        >
+        
+        <ImageView 
+			android:layout_width="30sp"
+			android:layout_height="30sp"
+			android:src="@drawable/v_coin_5"
+			android:gravity="center"
+            />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否立即充值?"
+            android:textColor="#000000"
+            android:singleLine="true"
+			android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            />
+        
+    </LinearLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E8E8E8"
+        />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        >
+        
+        <TextView 
+            android:id="@+id/quxiao"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="否"
+            android:textColor="#7D7D7D"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+        <View 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E8E8E8"
+            />
+          <TextView 
+              android:id="@+id/queding"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="是"
+            android:textColor="#FF5C5C"
+             android:textSize="16sp"
+        	 android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+        
+    </LinearLayout>
+    
+</LinearLayout>

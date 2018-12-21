@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/video_pay"
+        android:endColor="@color/video_pay"
+        android:centerColor="@color/video_pay"
+        android:angle="315"
+        />
+<!-- 设置圆角矩形 -->
+
+
+ <corners android:radius="6dip"/>
+
+    <!--<stroke android:color="#000000" android:width="0px"/> -->
+</shape>
