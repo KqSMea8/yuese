@@ -244,8 +244,6 @@ public class HelpManager_01066A {
                         User_data bean=new User_data();
                         bean.setNickname(item.getString("nickname"));
                         bean.setId(item.getInt("id"));
-                        //bean.setWxnumber(item.getString("wxnumber"));
-                        //bean.setIsvip(item.getInt("isvip"));
                         bean.setIdentify_check(item.getInt("is_anchor"));
                         bean.setOnline(item.getInt("online"));
                         bean.setSignature(item.getString("signature"));
@@ -253,18 +251,12 @@ public class HelpManager_01066A {
                         bean.setPrice(item.getString("price"));
                         bean.setStar(item.getInt("star"));
                         bean.setPicture(item.getString("pictures"));
-                        //bean.setGender(item.getString("gender"));
-                        //bean.setHeight(item.getString("height"));
-                        //bean.setIslike(item.getInt("islike"));
-                        //bean.setIsmatchmaker(item.getInt("ismatchmaker"));
-                        //bean.setIslike(0);
                         list.add(bean);
                     }
                 }
                 page.setList(list);
                 // session.page=page;
             } catch (Exception e) {
-                // TODO: handle exception
                 e.printStackTrace();
                 LogDetect.send(LogDetect.DataType.specialType, "this0",e);
             }

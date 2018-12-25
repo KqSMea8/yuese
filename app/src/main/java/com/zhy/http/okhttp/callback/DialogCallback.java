@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 
 
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.Tools;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 
 import okhttp3.Request;
 import okhttp3.Response;

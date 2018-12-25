@@ -76,12 +76,6 @@ public class MyAdapterMan_01066 extends RecyclerView.Adapter<RecyclerView.ViewHo
                     intentthis.putExtra("name", articles.get(position).getNickname());
                     intentthis.putExtra("headpic", articles.get(position).getPhoto());
                     context.startActivity(intentthis);
-//                    Toast.makeText(context,position+"++0",Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(context, meijian_profile_01178.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("id", ""+articles.get(position).getId());
-//                    intent.putExtras(bundle);
-//                    context.startActivity(intent);
                 }
             });
 

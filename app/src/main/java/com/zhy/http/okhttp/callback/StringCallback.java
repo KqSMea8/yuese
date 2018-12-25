@@ -16,8 +16,5 @@ public abstract class StringCallback extends Callback<String>
         return response.body().string();
     }
 
-    @Override
-    public void onResponse(String response, int id) {
-    }
 
 }

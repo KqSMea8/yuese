@@ -8,10 +8,10 @@ package uk.co.senab.photoview;
 
 public final class R {
     public static final class dimen {
-        public static final int activity_horizontal_margin = 0x7f07004c;
-        public static final int activity_vertical_margin = 0x7f07004d;
+        public static final int activity_horizontal_margin = 0x7f07004d;
+        public static final int activity_vertical_margin = 0x7f07004e;
     }
     public static final class string {
-        public static final int hello_world = 0x7f0f00b5;
+        public static final int hello_world = 0x7f1000c2;
     }
 }

@@ -1,5 +1,6 @@
 package com.net.yuesejiaoyou.redirect.ResolverA.uiface;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
@@ -22,7 +23,7 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.LogUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -33,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -42,10 +44,19 @@ import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.wechat.friends.Wechat;
 import okhttp3.Call;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
 
-public class LoginActivity extends BaseActivity implements PlatformActionListener {
+public class LoginActivity extends BaseActivity implements PlatformActionListener,EasyPermissions.PermissionCallbacks {
 
+    private String[] permissions = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.RECORD_AUDIO
+    };
 
     @BindView(R.id.xieyi)
     TextView xieyi;
@@ -64,17 +75,6 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         style.setSpan(new ForegroundColorSpan(Color.YELLOW), 11, style.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         xieyi.setText(style);
 
-        String username = sp.getString("username", "");
-        String password = sp.getString("password", "");
-        String logintype = sp.getString("logintype", "");
-        String openid = sp.getString("openid", "1");
-        LogUtil.i("ttt", "---username:" + username + "--password:" + password + "---openid:" + openid + "---logintype:" + logintype);
-        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
-            login(username, password);
-        } else if (!TextUtils.isEmpty(openid) && !openid.equals("1")) {
-            weixinLogin(openid, "", "", "");
-        }
-
         OpenInstall.getInstall(new AppInstallAdapter() {
             @Override
             public void onInstall(AppData appData) {
@@ -90,6 +90,24 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         });
 
         OpenInstall.getWakeUp(getIntent(), wakeUpAdapter);
+
+        if (EasyPermissions.hasPermissions(this, permissions)) {
+            init();
+        } else {
+            EasyPermissions.requestPermissions(this, "需要使用如下权限", 101, permissions);
+        }
+    }
+
+    private void init(){
+        String username = sp.getString("username", "");
+        String password = sp.getString("password", "");
+        String logintype = sp.getString("logintype", "");
+        String openid = sp.getString("openid", "1");
+        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+            login(username, password);
+        } else if (!TextUtils.isEmpty(openid) && !openid.equals("1")) {
+            weixinLogin(openid, "", "", "");
+        }
     }
 
     @TargetApi(19)
@@ -494,5 +512,27 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     @Override
     public void onCancel(Platform platform, int i) {
         showToast("登录取消");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        if (perms.size() == permissions.length) {
+            init();
+        }
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        showToast("授权失败");
+        init();
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this).build().show();
+        }
     }
 }

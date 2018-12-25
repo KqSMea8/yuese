@@ -1,9 +1,6 @@
 package com.zhy.http.okhttp.builder;
 
-import android.util.Log;
-
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.LogUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.zhy.http.okhttp.request.PostJsonRequest;
 import com.zhy.http.okhttp.request.RequestCall;
 

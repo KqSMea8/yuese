@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.net.yuesejiaoyou.redirect.ResolverD.interface4"
-    android:versionCode="3"
-    android:versionName="1.1.0" >
+    android:versionCode="5"
+    android:versionName="1.1.2" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -94,6 +94,7 @@
     <application
         android:name="com.net.yuesejiaoyou.classroot.core.YhApplicationA"
         android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:configChanges="keyboardHidden|orientation"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
@@ -834,6 +835,11 @@
             android:name="com.bilibili.boxing_impl.ui.BoxingBottomSheetActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Boxing.AppTheme.NoActionBar" />
+        <activity
+            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/EasyPermissions.Transparent" />
 
         <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService" />
         <service

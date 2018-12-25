@@ -155,34 +155,7 @@ public class Util {
 		}
 	}
 
-	public static void sendMsgText1(Context context,String content, final String touser,final String nickname,final String headpic) {
 
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		getChatInfoTo(context,sd,Const.MSG_TYPE_DAZHAOHU,touser);
-
-		content=Util.nickname+"给你发来一条视频请求";
-
-		final String message = content + Const.SPLIT + Const.MSG_TYPE_DAZHAOHU
-				+ Const.SPLIT + sd.format(new Date())+ Const.SPLIT+Util.nickname+Const.SPLIT+Util.headpic;
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
-					sendMessage1(Utils.xmppConnection, message, touser);
-				} catch (XMPPException | SmackException.NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-
-		updateSession1(Const.MSG_TYPE_DAZHAOHU,sd,  context,touser,nickname,headpic) ;
-
-	}
 
 	private static Msg getChatInfoTo(Context context,SimpleDateFormat sd, String msgtype,String you ) {
 		String time = sd.format(new Date());

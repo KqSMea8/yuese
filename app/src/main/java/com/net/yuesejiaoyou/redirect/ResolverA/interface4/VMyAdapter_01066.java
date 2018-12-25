@@ -153,25 +153,7 @@ public class VMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-//    @Override
-//    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-//        super.onAttachedToRecyclerView(recyclerView);
-//        RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
-//        if(manager instanceof GridLayoutManager) {
-//            final GridLayoutManager gridManager = ((GridLayoutManager) manager);
-//            gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//                @Override
-//                public int getSpanSize(int position) {
-//                    if (position==getItemCount()-1){
-//                        return 2;
-//                    }else{
-//                        return 1;
-//                    }
-//
-//                }
-//            });
-//        }
-//    }
+
 
     @Override
     public long getItemId(int position) {
@@ -199,27 +181,6 @@ public class VMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.ViewHold
         public HeadHolder(View itemView) {
             super(itemView);
             //tips = (TextView) itemView.findViewById(R.id.tips);
-        }
-    }
-    private class GetDataTask extends AsyncTask<Void, Void, String> {
-        @Override
-        protected String doInBackground(Void... params) {
-
-            UsersManage_01066A goodsmanage = new UsersManage_01066A();
-            String page="";
-            Date date = new Date();
-            String[] paramsMap={Util.userid,articles.get(pos).getId()+""};
-            page = goodsmanage.like(paramsMap);
-            LogDetect.send(LogDetect.DataType.specialType, "Faxian_ActAdapter_01150 ——（）返回数据 page: ", page);
-            return page;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if(result.contains("OK")){
-                updateList(pos);
-            }
-            super.onPostExecute(result);
         }
     }
 

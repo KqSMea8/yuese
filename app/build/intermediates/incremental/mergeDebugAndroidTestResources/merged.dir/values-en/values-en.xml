@@ -26,4 +26,7 @@
         , please allow "storage space" right in the "System Settings" dialog box or authorization.</string>
     <string name="boxing_too_many_picture_fmt">You can only select up to %d pictures</string>
     <string name="boxing_video_title">videos</string>
+    <string name="load_end">No more data</string>
+    <string name="load_failed">load more failed</string>
+    <string name="loading">Loading...</string>
 </resources>

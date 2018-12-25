@@ -1,49 +1,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:id="@+id/userinfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:padding="2dip"
-    android:id="@+id/userinfo">
-  
-            <ImageView 
-                android:id="@+id/headpic"
-                android:layout_width="100dip"
-                android:layout_height="90dip"
-                android:background="#FFFFFF"
-                android:scaleType="centerCrop"
-                />
+    android:padding="2dip">
 
-           <TextView 
-               android:id="@+id/nickname"
-               android:layout_width="100dip"
-               android:layout_height="wrap_content"
-               android:text="大白兔奶糖"
-               android:textSize="15dip"
-               android:shadowDx="5"
-               android:shadowColor="#FF000000"
-               android:shadowDy="5"
-               android:shadowRadius="3"
-               android:ellipsize="end"
-               android:singleLine="true"
-               android:layout_alignBottom="@id/headpic"
-               android:layout_margin="5dip"
-               android:textColor="#ffffff"
-               android:layout_alignLeft="@id/headpic"
-               />
+    <ImageView
+        android:id="@+id/headpic"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/headpic"
+        android:layout_alignLeft="@id/headpic"
+        android:layout_margin="5dip"
+        android:ellipsize="end"
+        android:shadowColor="#FF000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="3"
+        android:singleLine="true"
+        android:text="大白兔奶糖"
+        android:textColor="#ffffff"
+        android:textSize="15dip" />
 
     <TextView
         android:id="@+id/zhichi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/zhoustar1_01162"
-        android:textSize="14dp"
         android:layout_below="@+id/headpic"
-        android:layout_margin="4dp"
         android:layout_centerHorizontal="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/zhoustar1_01162"
         android:padding="3dp"
+        android:text="拨打视频"
         android:textColor="#ffffff"
-        android:text="拨打视频"/>
+        android:textSize="14dp" />
 
 
     <LinearLayout
@@ -76,12 +74,4 @@
             android:textSize="10.0sp" />
     </LinearLayout>
 
-<!--
-    <View
-        android:layout_width="175dip"
-        android:layout_height="3dip"
-        android:background="#000000"
-        android:layout_below="@+id/headpic"
-        android:layout_alignLeft="@+id/headpic"
-        />-->
 </RelativeLayout>
