@@ -1,44 +1,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
+    android:layout_height="match_parent"
     android:background="#ECECEC"
-    android:orientation="vertical"
-    >
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/biaoti"
         android:layout_width="match_parent"
-        android:layout_height="50dip" 
+        android:layout_height="50dip"
         android:background="#FFFFFF">
+
         <ImageView
             android:id="@+id/fanhui"
             android:layout_width="35dip"
             android:layout_height="35dip"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/back_01168"
-            />
-        <TextView 
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_01168" />
+
+        <TextView
             android:id="@+id/wodeqianbao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="黑名单"
             android:textColor="#000000"
-            android:textSize="20dip"
-            android:layout_centerInParent="true"
-            />
+            android:textSize="20dip" />
     </RelativeLayout>
+
     <ListView
-              android:id="@+id/l1"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content" 
-              android:divider="@null"
-              android:background="#FFFFFF"
-              android:scrollbars="none"
-              />
-    
-    
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+
 </LinearLayout>

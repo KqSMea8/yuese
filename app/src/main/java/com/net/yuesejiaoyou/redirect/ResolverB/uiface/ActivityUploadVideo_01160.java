@@ -68,7 +68,7 @@ public class ActivityUploadVideo_01160 extends Activity {
                         txtMsg.setText((String) msg.obj);
                         break;
                     case 2: // 发起上传文件请求
-                        VideoUploadUtil.uploadVideo(this,file,uploadAddress,uploadAuth);
+                        VideoUploadUtil.uploadVideo(ActivityUploadVideo_01160.this,this,file,uploadAddress,uploadAuth);
                         break;
                     case 3: // 上传成功
 

@@ -1,109 +1,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="#FFFFFF"
-    >
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/bac"
         android:layout_width="match_parent"
-        android:layout_height="50dip" >
+        android:layout_height="50dip">
+
         <ImageView
             android:id="@+id/fanhui"
             android:layout_width="35dip"
             android:layout_height="35dip"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/back_01168"
-            />
-        <TextView 
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_01168" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="申请代理"
             android:layout_centerInParent="true"
+            android:text="申请代理"
             android:textColor="#8F8F8F"
             android:textSize="20dip"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
     </RelativeLayout>
-    <LinearLayout 
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dip"
-        android:background="#F4F4F4"
-        >
-     <TextView 
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="请填写申请代理的理由或优势"
-         android:textColor="#8F8F8F"
-         android:textSize="13dip"
-         android:layout_marginTop="30dip"
-         android:layout_marginLeft="10dip"
-         />
-     </LinearLayout>
+        android:background="#F4F4F4">
 
-    <EditText 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="30dip"
+            android:text="请填写申请代理的理由或优势"
+            android:textColor="#8F8F8F"
+            android:textSize="13dip" />
+    </LinearLayout>
+
+    <EditText
         android:id="@+id/wenben"
         android:layout_width="match_parent"
         android:layout_height="100dip"
         android:background="#FFFFFF"
-        android:gravity="top" 
-        android:textSize="13dip"
+        android:gravity="top"
         android:hint="理由或优势"
-        android:textColor="#000000"
-        android:padding="5dip"
         android:maxLength="150"
-        />
+        android:padding="5dip"
+        android:textColor="#000000"
+        android:textSize="13dip" />
 
-    <LinearLayout 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dip"
-        android:background="#F4F4F4"
-        >
-	    <TextView 
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:text="您的手机号码 (必填)"
-	         android:textColor="#8F8F8F"
-	         android:textSize="13dip"
-	         android:layout_marginLeft="10dip"
-	         android:layout_gravity="center_vertical"
-	         />
+        android:background="#F4F4F4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="您的手机号码 (必填)"
+            android:textColor="#8F8F8F"
+            android:textSize="13dip" />
     </LinearLayout>
-    <EditText 
+
+    <EditText
         android:id="@+id/shoujihao"
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:background="#FFFFFF"
-        android:gravity="top" 
-        android:textSize="13dip"
-        android:textColor="#000000"
-        android:padding="5dip"
-        android:maxLength="11"
         android:digits="0123456789"
-        />
-    <ImageView 
+        android:gravity="top"
+        android:maxLength="11"
+        android:padding="5dip"
+        android:textColor="#000000"
+        android:textSize="13dip" />
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:background="#EFEFEF"
-        />
+        android:background="#EFEFEF" />
 
     <TextView
         android:id="@+id/queren"
         android:layout_width="match_parent"
         android:layout_height="40.0dip"
-        android:text="确定"
-        android:textColor="#FFFFFF"
-        android:textSize="13dip"
-        android:gravity="center"
-        android:layout_marginTop="35dip"
         android:layout_marginLeft="60dip"
         android:layout_marginRight="60dip"
+        android:layout_marginTop="35dip"
         android:background="@drawable/yuanjiao_01168"
-         />
-    
-    </LinearLayout>
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="#FFFFFF"
+        android:textSize="13dip" />
+
+</LinearLayout>

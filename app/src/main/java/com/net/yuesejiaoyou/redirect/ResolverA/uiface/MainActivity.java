@@ -27,7 +27,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionD
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.AutoMessage;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.UpdateManager;
@@ -56,8 +56,8 @@ public class MainActivity extends BaseActivity {
     private UserFragment userFragment;
     private DynamicFragment dynamicFragment;
     private MessageFragment messageFragment;
-    private Fragment_zhubozhongxin_1152 f4;
-    private vliao_Gerenzhongxin_1152 f5;
+    private ZhuboFragment f4;
+    private MineFragment f5;
     Fragment curFragment = null;
 
 
@@ -148,7 +148,7 @@ public class MainActivity extends BaseActivity {
         layout.findViewById(R.id.img_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, vliao_tuiguang_01152.class);
+                Intent intent = new Intent(MainActivity.this, ShareActivity.class);
                 startActivity(intent);
                 popupWindow.dismiss();
             }
@@ -254,7 +254,7 @@ public class MainActivity extends BaseActivity {
                 }
                 if (!Util.iszhubo.equals("0")) {
                     if (f4 == null) {
-                        f4 = new Fragment_zhubozhongxin_1152();
+                        f4 = new ZhuboFragment();
                         transaction.add(R.id.fl_content, f4);
                     } else {
                         transaction.show(f4);
@@ -262,7 +262,7 @@ public class MainActivity extends BaseActivity {
                     curFragment = f4;
                 } else {
                     if (f5 == null) {
-                        f5 = new vliao_Gerenzhongxin_1152();
+                        f5 = new MineFragment();
                         transaction.add(R.id.fl_content, f5);
                     } else {
                         transaction.show(f5);

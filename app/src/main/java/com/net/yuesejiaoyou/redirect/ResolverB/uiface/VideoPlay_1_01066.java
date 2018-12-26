@@ -71,6 +71,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivit
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AliVideoPlayer;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoPlayListener;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -440,21 +441,19 @@ public class VideoPlay_1_01066 extends Fragment implements OnClickListener {
 
             mohuimg = (ImageView) view.findViewById(id.mohuimg);
             mohuimg.setVisibility(View.VISIBLE);
-            Glide.with(mContext)
+            GlideApp.with(mContext)
                     .load(info.getVideo_photo())
                     .placeholder(R.drawable.moren)
                     .error(R.drawable.moren)
                     //.crossFade(1000)
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .bitmapTransform(new BlurTransformation(mContext, 6, 4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
+                    .optionalTransform(new BlurTransformation(mContext, 6, 4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
                     .into(mohuimg);
-            Glide.with(mContext)
+            GlideApp.with(mContext)
                     .load(info.getVideo_photo())
                     .placeholder(R.drawable.moren)
                     .error(R.drawable.moren)
                     //.crossFade(1000)
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .bitmapTransform(new BlurTransformation(mContext, 6, 4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
+                    .optionalTransform(new BlurTransformation(mContext, 6, 4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
                     .into(viderimg);
 
         } else {

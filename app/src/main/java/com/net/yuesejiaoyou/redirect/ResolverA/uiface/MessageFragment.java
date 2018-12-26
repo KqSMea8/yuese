@@ -17,9 +17,10 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,89 +28,115 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.CoustomerActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Session;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.SessionAdapter;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity_KF;
 
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
 //////////////////A区对接C区
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Myphone_01162;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_pingjia_01165;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Yuyue_01165;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_v_01165;
-/////////////////////////
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.CallHistoryActivity;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.YuyueActivity;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.RecomeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.MessageAdapter;
+import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 
+import okhttp3.Call;
 
-/**************************************
- *VLFragment_News_01160类继承Fragment类实现OnClickListener接口
- **************************************/
 @SuppressLint("NewApi")
 public class MessageFragment extends Fragment implements OnClickListener {
     private String id;
     private boolean isGetData = false;
 
-    private Intent intent;
     private View mBaseView;
     private Context mContext;
-    private RelativeLayout rl1, rl, rl11/*,rl4*/, RL, rl111;
+    private LinearLayout rl1, rl, rl11, rl111;
     private MsgOperReciver msgOperReciver;
     private SessionDao sessionDao;
-    private SessionAdapter adapter;
     private PopupWindow popupWindow;
     private List<Session> sessionList = new ArrayList<Session>();
-    private ListView lv;
     private TextView th_note, vb_note, pj_note, yy_note;
     private TextView chattip;
+    private RecyclerView recyclerView;
+    private MessageAdapter adapter;
 
-    /**********************************
-     *创建视图
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     *********************************/
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ////////////////////////
         mContext = getActivity();
-        ////////////////////////
-        mBaseView = inflater.inflate(R.layout.fragment_mail_01160, null);
-        ////////////////////////
+        mBaseView = inflater.inflate(R.layout.fragment_message, null);
         SharedPreferences share = mContext.getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
         id = share.getString("userid", "");
 
-        RL = (RelativeLayout) mBaseView.findViewById(R.id.RL);
+        recyclerView = mBaseView.findViewById(R.id.recyclerView);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(getContext())
+                .color(Color.parseColor("#F2F2F2"))
+                .build());
+        adapter = new MessageAdapter(getContext(), sessionList);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                showPopupspWindow2(mBaseView, position);
+                return false;
+            }
+        });
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                final Session session = sessionList.get(position);
+                if (session.getTo().equals("40")) {
+                    Intent intent = new Intent(mContext, CoustomerActivity.class);
+                    intent.putExtra("id", session.getFrom());
+                    intent.putExtra("name", session.getName());
+                    intent.putExtra("headpic", session.getHeadpic());
+                    startActivity(intent);
+                } else {
+                    if (session.getFrom().equals("40")) {
+                        Intent intent = new Intent(mContext, CoustomerActivity.class);
+                        intent.putExtra("id", "40");
+                        intent.putExtra("name", "小客服");
+                        intent.putExtra("headpic", "http://116.62.220.67:8090/img/imgheadpic/launch_photo.png");
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(mContext, ChatActivity.class);
+                        intent.putExtra("id", session.getFrom());
+                        intent.putExtra("name", session.getName());
+                        intent.putExtra("headpic", session.getHeadpic());
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
 
-        rl = (RelativeLayout) mBaseView.findViewById(R.id.rl);
+        rl = mBaseView.findViewById(R.id.rl);
         //设置点击监听
         rl.setOnClickListener(this);
 
-        rl1 = (RelativeLayout) mBaseView.findViewById(R.id.rl1);
+        rl1 = mBaseView.findViewById(R.id.rl1);
         //设置点击监听
         rl1.setOnClickListener(this);
 
-        rl11 = (RelativeLayout) mBaseView.findViewById(R.id.rl11);
+        rl11 = mBaseView.findViewById(R.id.rl11);
         //设置点击监听
         rl11.setOnClickListener(this);
 
-        rl111 = (RelativeLayout) mBaseView.findViewById(R.id.rl111);
+        rl111 = mBaseView.findViewById(R.id.rl111);
 
         if (Util.iszhubo.equals("1")) {
             //设置是否可用gone为
@@ -122,7 +149,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
         }
 
 		/*rl4 = (RelativeLayout)mBaseView.findViewById(R.id.rl4);
-		rl4.setOnClickListener(this);*/
+        rl4.setOnClickListener(this);*/
         /////////////////////接收聊天,消息页面下面的适配
         sessionDao = new SessionDao(mContext);
         msgOperReciver = new MsgOperReciver();
@@ -148,124 +175,35 @@ public class MessageFragment extends Fragment implements OnClickListener {
             chattip.setVisibility(View.GONE);
         }
 
-        lv = (ListView) mBaseView.findViewById(R.id.lv);
-        //长按弹窗,删除一条
-        lv.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view,
-                                           int position, long id) {
-                showPopupspWindow2(RL, position);
-                return true;
-            }
-        });
-
-        ///////////////////////设置点击监听，A区使用openfire接收聊天信息
-        lv.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                final Session session = sessionList.get(arg2);
-                if (session.getTo().equals("40")) {
-                    Intent intent = new Intent(mContext, ChatActivity_KF.class);
-                    intent.putExtra("id", session.getFrom());
-                    intent.putExtra("name", session.getName());
-                    intent.putExtra("headpic", session.getHeadpic());
-                    startActivity(intent);
-                } else {
-                    if (session.getFrom().equals("40")) {
-                        Intent intent = new Intent(mContext, ChatActivity_KF.class);
-                        intent.putExtra("id", "40");
-                        intent.putExtra("name", "小客服");
-                        intent.putExtra("headpic", "http://116.62.220.67:8090/img/imgheadpic/launch_photo.png");
-                        startActivity(intent);
-                    } else {
-                        Intent intent = new Intent(mContext, ChatActivity.class);
-                        intent.putExtra("id", session.getFrom());
-                        intent.putExtra("name", session.getName());
-                        intent.putExtra("headpic", session.getHeadpic());
-                        startActivity(intent);
-                    }
-                }
-
-
-            }
-        });
 
         initNetData();
 
-        init();
+        initData(id);
+
 
         return mBaseView;
     }
 
-    /************************
-     * 初始化数据并创建线程
-     **********************/
+
     private void initNetData() {
-        String mode = "xiaoxi";
-        String[] paramsMap = {Util.userid};
-        //实例化线程t,传递参数mode,paramsMap,handler;
-        UsersThread_01160A t = new UsersThread_01160A(mode, paramsMap, handler);
-        Thread b = new Thread(t.runnable);
-        b.start();
-    }
+        OkHttpUtils.post(this)
+                .url(URL.URL_XIAOXI)
+                .addParams("param1", Util.userid)
+                .build()
+                .execute(new DialogCallback(mContext, false) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
+                    }
 
-    /************************
-     *点击事件
-     * @param v
-     ************************/
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
-            //点击我的通话，跳转
-            case R.id.rl:
-                Intent intent = new Intent();
-                intent.setClass(mContext, Myphone_01162.class);
-                startActivity(intent);
-                break;
-            //点击我的v币，跳转
-            case R.id.rl1:
-                intent = new Intent();
-                intent.setClass(mContext, My_v_01165.class);
-                startActivity(intent);
-                break;
-            //点击预约，跳转
-            case R.id.rl11:
-                intent = new Intent();
-                intent.setClass(mContext, Yuyue_01165.class);
-                startActivity(intent);
-                break;
-            //点击我的评价，跳转
-            case R.id.rl111:
-                intent = new Intent();
-                intent.setClass(mContext, My_pingjia_01165.class);
-                startActivity(intent);
-                break;
-
-        }
-
-    }
-
-    /*********************
-     *返回数据
-     ********************/
-    private Handler handler = new Handler(new Handler.Callback() {
-
-        @Override
-        public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case 20:
-                    initData(id);
-                    break;
-                case 206:
-                    //消息界面
-                    String json = (String) msg.obj;
-                    if (!json.isEmpty()) {
+                    @Override
+                    public void onResponse(String resultBean, int id) {
+                        if (TextUtils.isEmpty(resultBean)) {
+                            return;
+                        }
                         try {
 
-                            JSONObject jsonObject1 = new JSONObject(json);
+                            JSONObject jsonObject1 = new JSONObject(resultBean);
                             LogDetect.send(LogDetect.DataType.specialType, "01160:", jsonObject1);
 
                             String success_ornot = jsonObject1.getString("success");
@@ -282,14 +220,13 @@ public class MessageFragment extends Fragment implements OnClickListener {
                             String yuyue = jsonObject1.getString("yuyue");
                             LogDetect.send(LogDetect.DataType.specialType, "01160 我的预约:", yuyue);
 
-                            if (success_ornot.equals("未接通")) {
-                                th_note.setTextColor(Color.parseColor("#e0E61718"));
-                            } else {
-                                th_note.setTextColor(Color.parseColor("#e047F0AF"));
-                            }
-
-                            if (success_ornot != null || success_ornot.length() != 0) {
+                            if (!TextUtils.isEmpty(success_ornot)) {
                                 th_note.setText(success_ornot + ":" + name);
+                                if (success_ornot.equals("未接通")) {
+                                    th_note.setTextColor(Color.parseColor("#e0E61718"));
+                                } else {
+                                    th_note.setTextColor(Color.parseColor("#e047F0AF"));
+                                }
                             }
 
 
@@ -312,62 +249,49 @@ public class MessageFragment extends Fragment implements OnClickListener {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    } else {
-                        //Toast.makeText(mContext, "请检查网络连接", Toast.LENGTH_SHORT).show();
+
                     }
-                    break;
-            }
-            return false;
-        }
-    });
-
-
-    /******************************
-     * MsgOperReciver继承BroadcastReceiver接口
-     *****************************/
-    private class MsgOperReciver extends BroadcastReceiver {
-        /********************
-         * 接收方法
-         * @param context
-         * @param intent
-         *******************/
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            init();
-        }
+                });
     }
 
-    /******************
-     * 初始化方法并创建线程
-     ******************/
-    protected void init() {
-        //实例化线程
-        Thread t = new Thread(new Runnable() {
 
-            @Override
-            public void run() {
-                handler.sendMessage(handler.obtainMessage(20));
-            }
-        });
-        t.start();
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            //点击我的通话，跳转
+            case R.id.rl:
+                Intent intent = new Intent();
+                intent.setClass(mContext, CallHistoryActivity.class);
+                startActivity(intent);
+                break;
+            //点击我的v币，跳转
+            case R.id.rl1:
+                intent = new Intent();
+                intent.setClass(mContext, RecomeActivity.class);
+                startActivity(intent);
+                break;
+            //点击预约，跳转
+            case R.id.rl11:
+                intent = new Intent();
+                intent.setClass(mContext, YuyueActivity.class);
+                startActivity(intent);
+                break;
+            //点击我的评价，跳转
+            case R.id.rl111:
+                intent = new Intent();
+                intent.setClass(mContext, AppariseActivity.class);
+                startActivity(intent);
+                break;
+        }
+
     }
 
-    /*****************
-     * 数据初始化
-     * @param shopid
-     ***************/
+
     private void initData(String shopid) {
         sessionList = sessionDao.queryAllSessions(shopid);
-        LogDetect.send(LogDetect.DataType.specialType, "01160 sessionList：", sessionList);
-
-        if (sessionList != null) {
-            adapter = new SessionAdapter(mContext, sessionList, getActivity(), lv);
-            lv.setAdapter(adapter);
-        } else {
-            Toast.makeText(mContext, "没有消息", Toast.LENGTH_SHORT).show();
-        }
+        adapter.setNewData(sessionList);
     }
-
 
     //点击拒绝此条邀请
     public void showPopupspWindow2(View parent, final int position) {
@@ -394,8 +318,9 @@ public class MessageFragment extends Fragment implements OnClickListener {
                 sessionList.remove(position);
                 sessionDao.deleteSession(s);
                 sessionDao.queryAllSessions(id);
-                lv.setAdapter(adapter);
+                //lv.setAdapter(adapter);
                 popupWindow.dismiss();
+                adapter.notifyDataSetChanged();
 
             }
         });
@@ -432,14 +357,6 @@ public class MessageFragment extends Fragment implements OnClickListener {
 
     }
 
-
-    /************************
-     *
-     * @param transit
-     * @param enter
-     * @param nextAnim
-     * @return
-     *********************/
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         //   进入当前Fragment
@@ -473,4 +390,20 @@ public class MessageFragment extends Fragment implements OnClickListener {
         isGetData = false;
     }
 
+    private class MsgOperReciver extends BroadcastReceiver {
+        /********************
+         * 接收方法
+         * @param context
+         * @param intent
+         *******************/
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    initData(id);
+                }
+            });
+        }
+    }
 }

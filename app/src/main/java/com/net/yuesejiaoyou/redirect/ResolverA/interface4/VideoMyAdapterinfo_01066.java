@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.bumptech.glide.Glide;
@@ -119,13 +120,11 @@ public class VideoMyAdapterinfo_01066 extends RecyclerView.Adapter<RecyclerView.
                 ((NormalHolder) holder).iv_lock.setVisibility(View.VISIBLE);
                 ((NormalHolder) holder).iv_lock.setBackgroundResource(R.drawable.videopay_lock);
 
-                Glide.with(context)
+                GlideApp.with(context)
                         .load(articles.get(position).getVideo_photo())
                         .placeholder(R.drawable.moren)
                         .error(R.drawable.moren)
-                        //.crossFade(1000)
-                        .diskCacheStrategy( DiskCacheStrategy.RESULT )
-                        .bitmapTransform(new BlurTransformation(context,6,4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
+                        .optionalTransform(new BlurTransformation(context,6,4))  // “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。
                         .into(((NormalHolder) holder).iv_cover);
 
             }else{

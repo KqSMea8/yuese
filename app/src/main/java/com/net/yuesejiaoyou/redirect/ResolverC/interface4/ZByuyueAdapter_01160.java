@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
 import com.example.vliao.getset.ZBYuyueJB_01160;
-import com.example.vliao.uiface.Yuyue_01165;
+import com.example.vliao.uiface.YuyueActivity;
 import com.lazysellers.sellers.infocenter.view.CircleImageView;*/
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.ZBYuyueJB_01160;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Yuyue_01165;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.YuyueActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -30,7 +30,7 @@ import java.util.List;
 public class ZByuyueAdapter_01160 extends BaseAdapter {
 
 	private HolderView holderView = null;
-	private Yuyue_01165 ab;
+	private YuyueActivity ab;
 	private ListView listview;
 	private List<ZBYuyueJB_01160> articles;
 	private int m;
@@ -38,7 +38,7 @@ public class ZByuyueAdapter_01160 extends BaseAdapter {
 	private DisplayImageOptions options;
 	private int s;
 	
-	public ZByuyueAdapter_01160(Yuyue_01165 ab, ListView listview, List<ZBYuyueJB_01160> articles, Handler handler, int s){
+	public ZByuyueAdapter_01160(YuyueActivity ab, ListView listview, List<ZBYuyueJB_01160> articles, Handler handler, int s){
 		this.ab = ab;
 		this.listview = listview;
 		this.articles = articles;

@@ -184,19 +184,19 @@ public class main extends Activity implements OnClickListener{
 			//我的评价(消息页面)
 			case R.id.a10:
 				intent = new Intent();
-				intent.setClass(this, My_pingjia_01165.class);
+				intent.setClass(this, AppariseActivity.class);
 				startActivity(intent);
 				break;
 			//我的V币(消息页面)
 			case R.id.a11:
 				intent = new Intent();
-				intent.setClass(this, My_v_01165.class);
+				intent.setClass(this, RecomeActivity.class);
 				startActivity(intent);
 				break;
 			//我的通话(消息页面)
 			case R.id.a12:
 				intent = new Intent();
-				intent.setClass(this, Myphone_01162.class);
+				intent.setClass(this, CallHistoryActivity.class);
 				startActivity(intent);
 				break;
 				//主播设置价格
@@ -208,7 +208,7 @@ public class main extends Activity implements OnClickListener{
 			//我的钱包
 			case R.id.a14:
 				intent = new Intent();
-				intent.setClass(this, Vliao_MyWallet_01168.class);
+				intent.setClass(this, WalletActivity.class);
 				startActivity(intent);
 				break;
 			//我的私藏
@@ -217,11 +217,11 @@ public class main extends Activity implements OnClickListener{
 				intent.setClass(this, MyTreasure_01160.class);
 				startActivity(intent);
 				break;
-				//Vliao_heimingdan_01168
+				//BlackNameActivity
 			//黑名单
 			case R.id.a16:
 				intent = new Intent();
-				intent.setClass(this, Vliao_heimingdan_01168.class);
+				intent.setClass(this, BlackNameActivity.class);
 				startActivity(intent);
 				break;
 			/**
@@ -235,7 +235,7 @@ public class main extends Activity implements OnClickListener{
 			 */
 			case R.id.a17:
 				intent = new Intent();
-				intent.setClass(this, edit_info_01150.class);
+				intent.setClass(this, EditActivity.class);
 				startActivity(intent);
 				break;
 			case R.id.a18:
@@ -277,7 +277,7 @@ public class main extends Activity implements OnClickListener{
 			//普通用户修改资料
 			case R.id.a21:
 				intent = new Intent();
-				intent.setClass(this, ModifyInformation_01152.class);
+				intent.setClass(this, ModifyAvaterActivity.class);
 				startActivity(intent);
 				break;
 			//withdraw_01156
@@ -296,7 +296,7 @@ public class main extends Activity implements OnClickListener{
 			//预约(消息页面)
 			case R.id.a24:
 				intent = new Intent();
-				intent.setClass(this, Yuyue_01165.class);
+				intent.setClass(this, YuyueActivity.class);
 				startActivity(intent);
 				break;
 				//申请(提交支付宝申请[插入数据])

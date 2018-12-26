@@ -31,7 +31,7 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01158A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapter_01066;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.youth.banner.Banner;
@@ -76,12 +76,7 @@ public class VFragment_activity_01066 extends Fragment implements OnClickListene
 		gridView.addItemDecoration(new Recycle_item(10));
 		pageno=1;
 		a=true;
-//		String mode = "stare_01066";
-//		//userid，页数，男女
-//		String[] params = {"1", pageno+"","1"};
-//		UsersThread_01066 b = new UsersThread_01066(mode, params, handler);
-//		Thread thread = new Thread(b.runnable);
-//		thread.start();
+
 		String mode1="activity_search";
 		String []params1={""};
 		UsersThread_01158A b1=new UsersThread_01158A(mode1,params1,handler);
@@ -94,12 +89,6 @@ public class VFragment_activity_01066 extends Fragment implements OnClickListene
 
 	public void initdata() {
 		String mode = "activity_v";
-
-//		if (Util.gender.equals("男")){
-//			gender="女";
-//		}else{
-//			gender="男";
-//		}
 
 		//userid，页数，男女
 		String[] params = {"1", pageno+"","3"};
@@ -165,7 +154,7 @@ public class VFragment_activity_01066 extends Fragment implements OnClickListene
 							public void OnBannerClick(int position) {
                                 if (position==2){
                                     Intent intent = new Intent();
-                                    intent.setClass(getActivity(), vliao_tuiguang_01152.class);
+                                    intent.setClass(getActivity(), ShareActivity.class);
                                     getActivity().startActivity(intent);
                                 }else{
                                     Intent intent=new Intent();

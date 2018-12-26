@@ -17,4 +17,11 @@ public class URL {
     public static final String URL_REMEMAN = BASE_URL + "/ar?mode=A-user-search&mode2=remenman";
     public static final String URL_XUNYAN = BASE_URL + "/ar?mode=A-user-search&mode2=xunyuan";
     public static final String URL_SEARCH = BASE_URL + "/ar?mode=A-user-search&mode2=activity_search";
+
+
+    public static final String URL_XIAOXI = BASE_URL + "/ar?mode=A-user-mod&mode2=xiaoxi";
+    public static final String URL_GETWURAO = BASE_URL + "/ar?mode=A-user-search&mode2=getwudarao";
+    public static final String URL_ZHUBOZHONGXING = BASE_URL + "/ar?mode=A-user-search&mode2=zhubozhongxin";
+    public static final String URL_XIUGAI = BASE_URL + "/ar?mode=A-user-search&mode2=xiugai";
+    public static final String URL_CHANGESTATUS = BASE_URL + "/memberB?mode=A-user-mod&mode2=statuschange";
 }

@@ -69,24 +69,7 @@ public class SessionDao {
 		public List<Session> queryAllSessions(String user_id) {
 			List<Session> list = new ArrayList<Session>();
 			Cursor cursor = db.query(DBcolumns.TABLE_SESSION, new String[] { "*" }, DBcolumns.SESSION_TO + " = ?  order by session_time desc", new String[] { user_id }, null, null, null);
-//			Session syssession = new Session();
-//			syssession.setName("系统通知");
-//			syssession.setFrom("系统通知");
-//			syssession.setType(Const.MSG_TYPE_SYSTEM);
-//			syssession.setHeadpic("000000");
-//			syssession.setContent("");
-//			syssession.setNotReadCount("" + 0);
-//			syssession.setTime( "");
-//			Session ordersession = new Session();
-//			ordersession.setName("订单通知");
-//			ordersession.setFrom("订单通知");
-//			ordersession.setType(Const.MSG_TYPE_ORDER);
-//			ordersession.setHeadpic("000000");
-//			ordersession.setContent("");
-//			ordersession.setNotReadCount("" + 0);
-//			ordersession.setTime( "");
-//			list.add(syssession);
-//			list.add(ordersession);
+
 			
 			Session session = null;
 			while (cursor.moveToNext()) {

@@ -142,7 +142,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity_KF"
+            android:name="com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.CoustomerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
@@ -221,7 +221,7 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverA.uiface.yaoqingfensi_01152"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverA.uiface.help_center_01152"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverA.uiface.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverA.uiface.bengkui_01152"
@@ -251,10 +251,10 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MassChat_01160"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.GroupMessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MyVideo_158"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MyVideoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke"
@@ -463,20 +463,20 @@
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_pingjia_01165"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.My_v_01165"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.RecomeActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Myphone_01162"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.CallHistoryActivity"
             android:screenOrientation="portrait"></activity>
 
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_MyWallet_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.WalletActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
@@ -488,17 +488,17 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_heimingdan_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.edit_info_01150"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.EditActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Yuyue_01165"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.YuyueActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyInformation_01152"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyAvaterActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.FocusDetail"
@@ -543,7 +543,7 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168"
@@ -746,7 +746,7 @@
 
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet_zhubo"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanActivity"
             android:screenOrientation="portrait"></activity>
 
         <!--   网易云信 start   -->

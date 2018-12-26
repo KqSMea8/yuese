@@ -78,7 +78,7 @@ public class ActivityUploadVideo extends Activity {
                         txtMsg.setText((String) msg.obj);
                         break;
                     case 2: // 发起上传文件请求
-                        VideoUploadUtil.uploadVideo(this,file,uploadAddress,uploadAuth);
+                        VideoUploadUtil.uploadVideo(ActivityUploadVideo.this,this,file,uploadAddress,uploadAuth);
                         break;
                     case 3: // 上传成功
 						VideoInfoUtil.getVideoInfo(videoId, new VideoInfoUtil.CoverUrlCallback() {

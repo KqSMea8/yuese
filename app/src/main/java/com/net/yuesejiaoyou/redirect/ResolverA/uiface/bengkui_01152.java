@@ -48,9 +48,9 @@ public class bengkui_01152 extends Activity implements OnClickListener {
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		LogDetect.send(LogDetect.DataType.specialType, "help_center_01152:", "布局开始");
+		LogDetect.send(LogDetect.DataType.specialType, "HelpActivity:", "布局开始");
 		setContentView(R.layout.bengkui_01152);
-		LogDetect.send(LogDetect.DataType.specialType, "help_center_01152:", "开始=====");
+		LogDetect.send(LogDetect.DataType.specialType, "HelpActivity:", "开始=====");
 		back = (ImageView) findViewById(R.id.back);
 		back.setOnClickListener(this);
 		
@@ -58,7 +58,7 @@ public class bengkui_01152 extends Activity implements OnClickListener {
 		tongdao.setOnClickListener(this);
 		
 		
-		LogDetect.send(LogDetect.DataType.specialType, "help_center_01152:", "结束=====");		
+		LogDetect.send(LogDetect.DataType.specialType, "HelpActivity:", "结束=====");
 	
 	}
 	

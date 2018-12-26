@@ -73,6 +73,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AudioRecoderUtils;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
 
 import org.json.JSONException;
@@ -97,7 +98,7 @@ import java.util.List;
  * */
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)
 @SuppressLint("SimpleDateFormat")
-public class ChatActivity extends Activity implements OnClickListener,
+public class ChatActivity extends BaseActivity implements OnClickListener,
 		OnRefreshListenerHeader {
 	private ViewPager mViewPager;
 	private LinearLayout mDotsLayout;
@@ -371,7 +372,6 @@ public class ChatActivity extends Activity implements OnClickListener,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_chat_01160);
 
 		layBottom = (RelativeLayout)findViewById(R.id.lay_bottom);
 
@@ -469,7 +469,12 @@ public class ChatActivity extends Activity implements OnClickListener,
 		}
 	}
 
-    private void init_Data(String from,String to) {
+	@Override
+	protected int getContentView() {
+		return R.layout.activity_chat;
+	}
+
+	private void init_Data(String from,String to) {
 		
 		msgDao.toberead(from,to);
 		Intent intent = new Intent(Const.ACTION_MSG_OPER);// 发送广播，通知消息界面更新

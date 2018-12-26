@@ -24,41 +24,34 @@ public class VideoUploadUtil {
     private VODUploadClient uploader;
     private String uploadAddress;
     private String uploadAuth;
-    private Handler handler;
-    private Context mContext;
-    public static void init(Context ctxt) {
-        if(instance == null) {
-            instance = new VideoUploadUtil(ctxt);
-            instance.mContext = ctxt;
-        }
-    }
-    private VideoUploadUtil(Context ctxt) {
+
+    private VideoUploadUtil(Context ctxt, final Handler handler) {
         uploader = new VODUploadClientImpl(ctxt);
         VODUploadCallback callback = new VODUploadCallback() {
 
             @Override
             public void onUploadSucceed(UploadFileInfo uploadFileInfo) {
-                Log.e("YT","onUploadSucceed()");
-                if(handler != null) {
-                    Message.obtain(handler,3).sendToTarget();
+                Log.e("YT", "onUploadSucceed()");
+                if (handler != null) {
+                    Message.obtain(handler, 3).sendToTarget();
                 }
                 uploader.clearFiles();
             }
 
             @Override
             public void onUploadFailed(UploadFileInfo uploadFileInfo, String s, String s1) {
-                Log.e("YT","onUploadFailed()");
-                if(handler != null) {
-                    Message.obtain(handler,4).sendToTarget();
+                Log.e("YT", "onUploadFailed()");
+                if (handler != null) {
+                    Message.obtain(handler, 4).sendToTarget();
                 }
                 uploader.clearFiles();
             }
 
             @Override
             public void onUploadProgress(UploadFileInfo uploadFileInfo, long uploadSize, long totalSize) {
-                Log.e("YT","onUploadProgress():"+((int)(uploadSize*100/totalSize)));
-                if(handler != null) {
-                    Message.obtain(handler,5,((int)(uploadSize*100/totalSize))).sendToTarget();
+                Log.e("YT", "onUploadProgress():" + ((int) (uploadSize * 100 / totalSize)));
+                if (handler != null) {
+                    Message.obtain(handler, 5, ((int) (uploadSize * 100 / totalSize))).sendToTarget();
                 }
             }
 
@@ -79,22 +72,19 @@ public class VideoUploadUtil {
 
             @Override
             public void onUploadStarted(UploadFileInfo uploadFileInfo) {
-                Log.e("YT","onUploadStarted()");
+                Log.e("YT", "onUploadStarted()");
                 uploader.setUploadAuthAndAddress(uploadFileInfo, uploadAuth, uploadAddress);
             }
         };
         //uploader.init(callback);
-        uploader.init("LTAIMw9n5RwSGy7V","ttaQTSsdubE5ydnA0YsjfdQGhDt1vU",callback);
+        uploader.init("LTAIMw9n5RwSGy7V", "ttaQTSsdubE5ydnA0YsjfdQGhDt1vU", callback);
     }
 
-    public static void uploadVideo(Handler handler, String file, String uploadAddress, String uploadAuth) {
-        Context tmpCtxt = instance.mContext;
-        instance = new VideoUploadUtil(instance.mContext); // 重新创建uploader
-        instance.mContext = tmpCtxt;
-        instance.handler = handler;
+    public static void uploadVideo(Context context, Handler handler, String file, String uploadAddress, String uploadAuth) {
+        instance = new VideoUploadUtil(context, handler);
         instance.uploadAddress = uploadAddress;
         instance.uploadAuth = uploadAuth;
-        instance.uploader.addFile(file,getVodInfo());
+        instance.uploader.addFile(file, getVodInfo());
         instance.uploader.start();
     }
 

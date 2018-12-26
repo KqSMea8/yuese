@@ -52,25 +52,26 @@ public class ActivityUploadVideo_FF extends Activity {
     private ProgressBar progressBar;
     private Handler handler;
     private TextView priceNumber;
-    private TextView diyi,dier,disan,disi,diwu,diliu;
+    private TextView diyi, dier, disan, disi, diwu, diliu;
     private String price = "8悦币";
 
     private YhApplicationA application;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadvideo_ff);
 
-        application = (YhApplicationA)getApplication();
+        application = (YhApplicationA) getApplication();
 
         file = getIntent().getStringExtra("file");  // 获取上传文件路径
 
-        layWait = (RelativeLayout)this.findViewById(R.id.lay_wait);
+        layWait = (RelativeLayout) this.findViewById(R.id.lay_wait);
         /*editTitle = (EditText)this.findViewById(R.id.edttitle);*/
-        txtFile = (TextView)this.findViewById(R.id.txt_file);
-        txtMsg = (TextView)this.findViewById(R.id.txt_msg);
-        btnUpload = (Button)this.findViewById(R.id.btn_upload);
-        progressBar = (ProgressBar)this.findViewById(R.id.pgb_update);
+        txtFile = (TextView) this.findViewById(R.id.txt_file);
+        txtMsg = (TextView) this.findViewById(R.id.txt_msg);
+        btnUpload = (Button) this.findViewById(R.id.btn_upload);
+        progressBar = (ProgressBar) this.findViewById(R.id.pgb_update);
         priceNumber = (TextView) this.findViewById(R.id.price);
 
         diyi = (TextView) this.findViewById(R.id.diyi);
@@ -136,36 +137,27 @@ public class ActivityUploadVideo_FF extends Activity {
             @Override
             public void handleMessage(Message msg) {
 
-                switch(msg.what) {
+                switch (msg.what) {
                     case 1: // 显示进度信息
                         txtMsg.setText((String) msg.obj);
                         break;
                     case 2: // 发起上传文件请求
-                        VideoUploadUtil.uploadVideo(this,file,uploadAddress,uploadAuth);
+                        VideoUploadUtil.uploadVideo(ActivityUploadVideo_FF.this, this, file, uploadAddress, uploadAuth);
                         break;
                     case 3: // 上传成功
 
-						VideoInfoUtil.getVideoInfo(videoId, new VideoInfoUtil.CoverUrlCallback() {
+                        VideoInfoUtil.getVideoInfo(videoId, new VideoInfoUtil.CoverUrlCallback() {
 
-							@Override
-							public void onGetCoverSuccess(String url) {
-								handler.obtainMessage(8, url).sendToTarget();
-							}
+                            @Override
+                            public void onGetCoverSuccess(String url) {
+                                handler.obtainMessage(8, url).sendToTarget();
+                            }
 
-							@Override
-							public void onGetCoverFail(String reason) {
-								handler.obtainMessage(7).sendToTarget();
-							}
-						});
-
-
-
-//                        txtMsg.setText("拍摄完成");
-//                        Intent intent = new Intent();
-//                        intent.putExtra("videoid", videoId);
-//                        intent.putExtra("videophoto", "http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg");
-//                        //intent.setClass(ActivityUploadVideo.this,ImageselActivity2.class);
-//                        startActivity(intent);
+                            @Override
+                            public void onGetCoverFail(String reason) {
+                                handler.obtainMessage(7).sendToTarget();
+                            }
+                        });
 
                         break;
                     case 4: // 上传失败
@@ -173,16 +165,16 @@ public class ActivityUploadVideo_FF extends Activity {
                         break;
                     case 5: // 上传进度
                         progressBar.setVisibility(View.VISIBLE);
-                        progressBar.setProgress((int)msg.obj);
+                        progressBar.setProgress((int) msg.obj);
                         break;
                     case 6: // 短视频videoid和缩略图信息更新到数据库
-                        String result = (String)msg.obj;
-                        Log.v("TT","addvideo_ff: "+result);
+                        String result = (String) msg.obj;
+                        Log.v("TT", "addvideo_ff: " + result);
                         LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", result);
-                        if("success".equals(result)) {
-                            Toast.makeText(ActivityUploadVideo_FF.this,"上传成功", Toast.LENGTH_SHORT).show();
+                        if ("success".equals(result)) {
+                            Toast.makeText(ActivityUploadVideo_FF.this, "上传成功", Toast.LENGTH_SHORT).show();
 
-                            Intent intent=new Intent("rewardvideoNumber");
+                            Intent intent = new Intent("rewardvideoNumber");
                             sendBroadcast(intent);
 
                             application.closeManageActivity_ff();
@@ -192,14 +184,14 @@ public class ActivityUploadVideo_FF extends Activity {
 //                            startActivity(intent);
                             finish();
                             //Fragment_guangchang_01150.freshList();
-                        } else if("fail".equals(result)){
-                            Toast.makeText(ActivityUploadVideo_FF.this,"上传失败", Toast.LENGTH_SHORT).show();
+                        } else if ("fail".equals(result)) {
+                            Toast.makeText(ActivityUploadVideo_FF.this, "上传失败", Toast.LENGTH_SHORT).show();
                         }
                         break;
-					case 7:	// 获取短视频封面失败
-						Toast.makeText(ActivityUploadVideo_FF.this, "获取视频封面失败", Toast.LENGTH_SHORT).show();
-						break;
-					case 8: // 成功获取短视频封面，更新封面信息和videoid到app服务端
+                    case 7:    // 获取短视频封面失败
+                        Toast.makeText(ActivityUploadVideo_FF.this, "获取视频封面失败", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 8: // 成功获取短视频封面，更新封面信息和videoid到app服务端
 //						String coverUrl = (String)msg.obj;
 //						txtMsg.setText("上传完成");
 //						String mode = "addvideo";
@@ -210,21 +202,21 @@ public class ActivityUploadVideo_FF extends Activity {
 //						Thread t = new Thread(b.runnable);
 //						t.start();
 
-						String coverUrl = (String)msg.obj;
-						txtMsg.setText("上传完成");
-						if(price.equals("")){
-							Toast.makeText(ActivityUploadVideo_FF.this,"请输入打赏金额",Toast.LENGTH_SHORT).show();
-						}else{
-							String a  = (String)price.subSequence(0, price.length()-2);
-							String mode = "addvideo_ff";
+                        String coverUrl = (String) msg.obj;
+                        txtMsg.setText("上传完成");
+                        if (price.equals("")) {
+                            Toast.makeText(ActivityUploadVideo_FF.this, "请输入打赏金额", Toast.LENGTH_SHORT).show();
+                        } else {
+                            String a = (String) price.subSequence(0, price.length() - 2);
+                            String mode = "addvideo_ff";
 //												"对方的id，礼物的id,礼物的数量"//Util.userid,
-							String[] paramsMap = {"",videoId,coverUrl,a};	//"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg",a};
-							LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode+" "+paramsMap);
-							UsersThread_01107B b = new UsersThread_01107B(mode,paramsMap,this);
-							Thread t = new Thread(b.runnable);
-							t.start();
-						}
-						break;
+                            String[] paramsMap = {"", videoId, coverUrl, a};    //"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg",a};
+                            LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode + " " + paramsMap);
+                            UsersThread_01107B b = new UsersThread_01107B(mode, paramsMap, this);
+                            Thread t = new Thread(b.runnable);
+                            t.start();
+                        }
+                        break;
                 }
             }
         };
@@ -234,14 +226,14 @@ public class ActivityUploadVideo_FF extends Activity {
             @Override
             public void onClick(View view) {
                 /*String title = editTitle.getText().toString();*/
-                Log.e("YT","开始上传");
+                Log.e("YT", "开始上传");
                 /*if(title.isEmpty()) {
                     Toast.makeText(ActivityUploadVideo.this,"请输入标题",Toast.LENGTH_SHORT).show();
                     return;
                 }*/
                 layWait.setVisibility(View.VISIBLE);
-                Message.obtain(handler,1,"获取上传凭证...").sendToTarget();
-                DianboUtil.uploadVideo(file,new Callback() {
+                Message.obtain(handler, 1, "获取上传凭证...").sendToTarget();
+                DianboUtil.uploadVideo(file, new Callback() {
 
                     @Override
                     public void onFailure(Call call, IOException e) {
@@ -251,14 +243,14 @@ public class ActivityUploadVideo_FF extends Activity {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         String json = response.body().string();
-                        Log.v("TT","json: "+json);
+                        Log.v("TT", "json: " + json);
                         JSONObject jsonObj = JSONObject.fromObject(json);
                         uploadAddress = jsonObj.getString("UploadAddress");
                         videoId = jsonObj.getString("VideoId");
                         uploadAuth = jsonObj.getString("UploadAuth");
 
-                        Message.obtain(handler,1,"开始上传").sendToTarget();
-                        Message.obtain(handler,2).sendToTarget();
+                        Message.obtain(handler, 1, "开始上传").sendToTarget();
+                        Message.obtain(handler, 2).sendToTarget();
                     }
                 });
             }
@@ -267,7 +259,7 @@ public class ActivityUploadVideo_FF extends Activity {
 
     }
 
-    public void initTextViewBackgroudColor(){
+    public void initTextViewBackgroudColor() {
         diyi.setBackgroundResource(R.drawable.confirmruanjiao_2);
         dier.setBackgroundResource(R.drawable.confirmruanjiao_2);
         disan.setBackgroundResource(R.drawable.confirmruanjiao_2);

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chat_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9ECF1"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/base_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/button_more_moremodify"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/back_01168" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Elise"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <!-- <ImageView 
+            android:id="@+id/dv"
+            android:layout_width="13sp"
+            android:layout_height="25sp"
+			android:layout_toRightOf="@+id/tv_title"
+			android:layout_centerVertical="true"
+			android:layout_alignBottom="@+id/tv_title"
+            android:src="@drawable/v_icon2"
+            android:layout_marginLeft="3dp"
+            /> -->
+
+        <ImageView
+            android:id="@+id/dv"
+            android:layout_width="18dip"
+            android:layout_height="16dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dip"
+            android:layout_toRightOf="@+id/tv_title"
+            android:background="@drawable/v_icon2" />
+
+
+        <TextView
+            android:id="@+id/shuru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="对方正在输入..."
+            android:textColor="#E521C0"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/jb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/p2p_session_more_img_new" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zhuyishixiang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/base_header"
+        android:background="#ffffff">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="要求加微信，QQ代充悦币等全部属于诈骗行为，请举报"
+            android:textColor="#EF4B81" />
+
+
+    </RelativeLayout>
+
+
+    <com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.DropdownListView
+        android:id="@+id/message_chat_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/zhuyishixiang"
+        android:cacheColorHint="#000000"
+        android:divider="@null"
+        android:listSelector="#000000"
+        android:transcriptMode="normal" />
+
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#BBB8B8"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+
+            android:id="@+id/eat"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:src="@drawable/yy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="手指上滑，取消发送"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/lay_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FFFFFF">
+
+            <!-- <ImageView
+                android:id="@+id/image_add"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"   
+                android:src="@drawable/nim_message_input_plus"/> -->
+
+            <TextView
+                android:id="@+id/tv_voc"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/send_sms"
+                android:background="@drawable/zb_video" />
+
+            <!-- 	<TextView
+                        android:id="@+id/tv_voc1"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:visibility="gone"
+                        android:background="@drawable/nim_message_input_keyboard" /> -->
+
+            <!--   <TextView
+                    android:id="@+id/shuohua"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="80dp"
+                    android:layout_height="33dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:background="@drawable/nim_message_input_edittext_box"
+                    android:text="Press and hold speak"
+                    android:padding="2dip"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:singleLine="true"
+                    android:textSize="14sp" /> -->
+
+            <EditText
+
+                android:id="@+id/input_sms"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="52dp"
+                android:layout_marginRight="120dp"
+                android:background="@drawable/nim_message_input_edittext_box"
+                android:hint="请输入信息"
+                android:maxLength="240"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <!--   android:layout_toLeftOf="@+id/send_sms" -->
+            <TextView
+                android:id="@+id/send_sms"
+                android:layout_width="55dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/shape_send"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="发送"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/send_sms1"
+                android:layout_width="55dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/shape_bad_send"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="发送"
+
+
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/image_face"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="75dp"
+                android:src="@drawable/biaoqing" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/gray" />
+
+        <include
+            android:id="@+id/chat_face_container"
+            layout="@layout/chat_face_container_01160"
+            android:visibility="gone" />
+
+        <!--   <include
+           android:id="@+id/chat_add_container"
+           layout="@layout/chat_add_container"
+            android:visibility="gone"
+           /> -->
+    </LinearLayout>
+
+</RelativeLayout>

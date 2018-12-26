@@ -505,10 +505,10 @@ public class MeiyanSet extends Activity{
                 switchMode();
             }
             else if (buttonId == R.id.btn_camera_shutter) {
-//                if (PermissionChecker.checkSelfPermission(MeiyanSet_zhubo.this,
+//                if (PermissionChecker.checkSelfPermission(MeiyanActivity.this,
 //                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
 //                        == PackageManager.PERMISSION_DENIED) {
-//                    ActivityCompat.requestPermissions(MeiyanSet_zhubo.this, new String[] {
+//                    ActivityCompat.requestPermissions(MeiyanActivity.this, new String[] {
 //                                    Manifest.permission.WRITE_EXTERNAL_STORAGE },
 //                            v.getId());
 //                } else {
@@ -713,7 +713,7 @@ public class MeiyanSet extends Activity{
     //==================================================================================================
     //==================================================================================================
     //==================================================================================================
-    private static final String LOG_TAG = MeiyanSet_zhubo.class.getSimpleName();
+    private static final String LOG_TAG = MeiyanActivity.class.getSimpleName();
 
     private static final boolean DBG = true;
 

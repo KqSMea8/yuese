@@ -3,6 +3,7 @@ package com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 
 /**
  * Created by tl on 2018/7/30.
@@ -11,8 +12,8 @@ import com.bumptech.glide.Glide;
 public class ImageUtils {
 
     public static void loadImage(String url, ImageView imageView) {
-        Glide.clear(imageView);
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView).clear(imageView);
+        GlideApp.with(imageView)
                 .load(url)
                 .into(imageView);
     }

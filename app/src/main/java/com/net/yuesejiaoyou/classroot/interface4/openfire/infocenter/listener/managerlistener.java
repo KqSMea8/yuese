@@ -22,14 +22,11 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.ChatMsgD
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.Base64;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.XMPPException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.Chat;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.Message;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.MessageListener;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.util.FileInOut;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.Userinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
@@ -37,13 +34,8 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke_01160;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.tuichu;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.tuichu1;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo_01160;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Yuyue_01165;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

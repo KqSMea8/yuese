@@ -24,19 +24,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.Phone_01162;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.photo_01162;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01158A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapter_01066;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.Find2Adapter;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
@@ -164,7 +154,7 @@ public class VFragment_1_01066 extends Fragment implements SwipeRefreshLayout.On
 
                                 if (position == 2) {
                                     Intent intent = new Intent();
-                                    intent.setClass(getActivity(), vliao_tuiguang_01152.class);
+                                    intent.setClass(getActivity(), ShareActivity.class);
                                     getActivity().startActivity(intent);
                                 } else {
                                     Intent intent = new Intent();

@@ -32,7 +32,7 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01158A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapter_01066;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_tuiguang_01152;
+import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.youth.banner.Banner;
@@ -169,7 +169,7 @@ public class VFragment_new_01066 extends Fragment implements OnClickListener, Sw
 							public void OnBannerClick(int position) {
                                 if (position==2){
                                     Intent intent = new Intent();
-                                    intent.setClass(getActivity(), vliao_tuiguang_01152.class);
+                                    intent.setClass(getActivity(), ShareActivity.class);
                                     getActivity().startActivity(intent);
                                 }else{
                                     Intent intent=new Intent();
