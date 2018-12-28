@@ -4,107 +4,115 @@
     android:layout_height="match_parent"
     android:background="@drawable/timg2">
 
-	<RelativeLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp">
 
-		android:layout_marginTop="110dp">
-		<TextView
-			android:layout_width="260dp"
-			android:layout_height="wrap_content"
-			android:text="严禁出现违反国家法律法规的行为。 一旦发现我们会立即封号。"
-			android:textColor="#ffffff"
-			android:padding="10dp"
-			android:gravity="center"
-			android:background="@drawable/yuanjiaobiankuang"
-			android:shadowRadius="1"
-			android:shadowDx="1"
-			android:shadowDy="1"
-			android:shadowColor="#000000"/>
-	</RelativeLayout>
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yuanjiaobiankuang"
+            android:gravity="center"
+            android:padding="10dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="严禁出现违反国家法律法规的行为。 一旦发现我们会立即封号。"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
 
-	<RelativeLayout
-		android:id="@+id/ttt"
+    <RelativeLayout
+        android:id="@+id/ttt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-		android:layout_marginTop="45dp">
-		<RelativeLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_centerInParent="true">
-			<com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
-				android:id="@+id/photo"
-				android:layout_width="55dip"
-				android:layout_height="55dip"
-				android:src="@drawable/ic_launcher"/>
-			<LinearLayout
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				android:layout_gravity="bottom"
-				android:layout_toRightOf="@+id/photo"
-				android:layout_centerVertical="true"
-				android:layout_marginLeft="3dp">
-				<TextView
-					android:id="@+id/nickname"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="张鹏"
-					android:textColor="#fafafa"
-					android:textSize="15dip"
-					android:layout_marginBottom="5dip"
-					android:shadowRadius="1"
-					android:shadowDx="1"
-					android:shadowDy="1"
-					android:shadowColor="#000000"/>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="等待对方接受邀请"
-					android:textSize="10dip"
-					android:textColor="#fafafa"
-					android:shadowRadius="1"
-					android:shadowDx="1"
-					android:shadowDy="1"
-					android:shadowColor="#000000"/>
-			</LinearLayout>
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+                android:id="@+id/photo"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:src="@drawable/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/photo"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dip"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="张鹏"
+                    android:textColor="#fafafa"
+                    android:textSize="15dip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="等待对方接受邀请"
+                    android:textColor="#fafafa"
+                    android:textSize="10dip" />
+            </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
 
-	    <LinearLayout
-			android:id="@+id/exit_tuichu"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:layout_centerHorizontal="true"
-	        android:layout_alignParentBottom="true"
-	        android:layout_margin="25dip"
-			android:gravity="center_horizontal">
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="00:00"
-				android:textColor="#ffffff"
-				android:textSize="15dp"
-				android:visibility="gone"/>
-	        <ImageView
-				android:id="@+id/jujue"
-	            android:layout_width="50dip"
-	            android:layout_height="50dip"
-	            android:background="@drawable/gddh"/>
-	        <TextView 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-				android:layout_marginTop="5dip"
-	            android:text="挂断"
-	            android:textSize="15dip"
-	            android:textColor="#fafafa"
-	            android:layout_gravity="center_horizontal"
-				android:shadowRadius="1"
-				android:shadowDx="1"
-				android:shadowDy="1"
-				android:shadowColor="#000000"/>
-	    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/exit_tuichu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="25dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/jujue"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:background="@drawable/gddh" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dip"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="挂断"
+            android:textColor="#fafafa"
+            android:textSize="15dip" />
+    </LinearLayout>
 </RelativeLayout>

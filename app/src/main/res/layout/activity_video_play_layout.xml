@@ -1,193 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:fresco="http://schemas.android.com/apk/com.example.vliao"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
-    <!--<SurfaceView-->
-    <!--android:id="@+id/surfaceView"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:visibility="gone" />-->
 
     <ImageView
         android:id="@+id/mohuimg"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:visibility="gone" />
 
-
-
-
     <RelativeLayout
         android:id="@+id/ceshi"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     </RelativeLayout>
 
 
+    <ImageView
+        android:id="@+id/iv_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/videopay_play"
+        android:visibility="gone" />
+
+
     <RelativeLayout
-        android:id="@+id/playvideo"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:visibility="gone">
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/videopay_play" />
-    </RelativeLayout>
-
-
-
-    <!--<ImageView-->
-    <!--android:id="@+id/surimg"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:scaleType="centerCrop"-->
-    <!--android:visibility="gone"-->
-    <!--/>-->
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="16dip">
 
         <include layout="@layout/banner_play_video" />
 
-        <LinearLayout
-            android:id="@+id/id_video_income_layout"
+
+        <TextView
+            android:id="@+id/id_video_income"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="12dip"
-            android:orientation="vertical"
-            android:visibility="invisible">
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/vcoin"
+            android:textColor="#ffffffff"
+            android:textSize="12dip" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dip"
-                android:src="@drawable/vcoin" />
-
-            <TextView
-                android:id="@+id/id_video_income"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="#ffffffff"
-                android:textSize="12dip" />
-        </LinearLayout>
-
-
-       <!-- <com.facebook.share.widget.ShareButton
-            android:id="@+id/share_btn"
-            android:layout_width="fill_parent"
-            android:layout_height="36.0dip"
-            android:layout_marginLeft="34.0dip"
-            android:layout_marginRight="34.0dip"
-            android:layout_marginTop="24.0dip"
-            android:background="#0183D5"
-            android:text="分享"
-            android:visibility="gone"
-            android:textColor="#ffffff"
-            android:textSize="17.0dip"/>-->
-
-
-        <LinearLayout
-            android:id="@+id/id_share_video_layout"
+        <TextView
+            android:id="@+id/id_share_video_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/id_video_income_layout"
+            android:layout_above="@id/id_video_income"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="24dip"
-            android:layout_marginRight="10dip"
-            android:layout_toStartOf="@+id/id_video_income_layout"
-            android:gravity="right"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_marginRight="10dp"
+            android:drawableTop="@drawable/video_zhuanfa"
+            android:gravity="center"
+            android:text="aaaa"
+            android:textColor="@color/white"
+            android:textSize="12dip" />
 
-            <ImageView
-                android:id="@+id/id_share_video"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dip"
-                android:src="@drawable/video_zhuanfa" />
-
-            <TextView
-                android:id="@+id/id_share_video_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=""
-                android:textColor="#ffffffff"
-                android:textSize="12dip" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/id_play_video_quantity_layout"
+        <TextView
+            android:id="@+id/id_play_video_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/id_share_video_layout"
+            android:layout_above="@id/id_share_video_quantity"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="21dip"
-            android:layout_marginRight="10dip"
-            android:gravity="right"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:layout_marginBottom="21dp"
+            android:layout_marginRight="10dp"
+            android:drawableTop="@drawable/video_liulan"
+            android:gravity="center"
+            android:text="aaa"
+            android:textColor="#ffffffff"
+            android:textSize="12dip" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dip"
-                android:src="@drawable/video_liulan" />
 
-            <TextView
-                android:id="@+id/id_play_video_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=""
-                android:textColor="#ffffffff"
-                android:textSize="12dip" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/id_like_video_layout"
+        <TextView
+            android:id="@+id/id_like_video_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/id_play_video_quantity_layout"
+            android:layout_above="@id/id_play_video_quantity"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="21dip"
-            android:layout_marginRight="10dip"
-            android:gravity="right"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:layout_marginBottom="21dp"
+            android:layout_marginRight="10dp"
+            android:drawableTop="@drawable/video_like"
+            android:gravity="center"
+            android:text="aaa"
+            android:textColor="#ffffffff"
+            android:textSize="12dip" />
 
-            <ImageView
-                android:id="@+id/iv_video_islike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/video_like" />
-
-            <TextView
-                android:id="@+id/id_like_video_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=""
-                android:textColor="#ffffffff"
-                android:textSize="12dip" />
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/id_head_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/id_like_video_layout"
+            android:layout_above="@id/id_like_video_quantity"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="21dip"
             android:layout_marginRight="6dip">
@@ -224,15 +139,7 @@
                 android:visibility="gone" />
         </RelativeLayout>
 
-<!--        <ImageView
-            android:id="@+id/id_send_red_packet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/id_head_layout"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="21dip"
-            android:layout_marginRight="6dip"
-            android:src="@drawable/video_dashang" />-->
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/id_send_red_packet"
             android:layout_width="45dp"
@@ -240,76 +147,64 @@
             android:layout_above="@id/id_head_layout"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="21dip"
-            android:layout_marginRight="6dip"
-
-            />
+            android:layout_marginRight="6dip" />
 
         <ImageView
-            android:id="@+id/id_like_on_anim"
+            android:id="@+id/id_call_v"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/doubleclick_dianzan"
-            android:visibility="gone" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/video_call_img" />
 
-        <RelativeLayout
-            android:id="@+id/relative_call_v"
-            android:layout_width="fill_parent"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="16dip">
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="15dip"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/v_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#ffffffff"
-                        android:textSize="18dip" />
-                    <!--@drawable/zt_bg-->
-                    <TextView
-                        android:id="@+id/v_status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="8dip"
-                        android:background="@drawable/zt_bg"
-                        android:drawableLeft="@drawable/zt_zaixian"
-                        android:drawablePadding="2dip"
-                        android:padding="2dp"
-                        android:paddingLeft="4dip"
-                        android:textColor="#ffffffff"
-                        android:textSize="11dip" />
-                </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/id_video_description"
+                    android:id="@+id/v_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dip"
+                    android:layout_marginLeft="16dp"
+                    android:textColor="@color/white"
+                    android:text="哈哈哈"
+                    android:textSize="18dip" />
+
+                <TextView
+                    android:id="@+id/v_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dip"
+                    android:background="@drawable/zt_bg"
+                    android:drawableLeft="@drawable/zt_zaixian"
+                    android:drawablePadding="2dip"
+                    android:padding="2dp"
+                    android:paddingLeft="4dip"
                     android:textColor="#ffffffff"
-                    android:textSize="15dip" />
+                    android:textSize="11dip" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/id_call_v"
+            <TextView
+                android:id="@+id/id_video_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/video_call_img" />
-        </RelativeLayout>
+                android:layout_marginTop="5dip"
+                android:textColor="#ffffffff"
+                android:textSize="15dip" />
+        </LinearLayout>
+
+
     </RelativeLayout>
 
     <ImageView

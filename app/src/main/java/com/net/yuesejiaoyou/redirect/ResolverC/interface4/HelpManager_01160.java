@@ -4,7 +4,7 @@ import android.util.Log;
 
 /*import com.example.vliao.getset.Page;
 import com.example.vliao.getset.Videoinfo;
-import com.example.vliao.getset.ZBYuyueJB_01160;*/
+import com.example.vliao.getset.UserBean;*/
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;

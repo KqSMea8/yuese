@@ -13,7 +13,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Msg;

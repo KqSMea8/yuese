@@ -11,12 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.ZBYuyueJB_01160;
+import com.example.vliao.getset.UserBean;
 import com.example.vliao.uiface.YuyueActivity;
 import com.lazysellers.sellers.infocenter.view.CircleImageView;*/
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.ZBYuyueJB_01160;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.YuyueActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

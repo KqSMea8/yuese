@@ -41,6 +41,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoom;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -70,10 +71,10 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
     private View fragmentView;
 
     // 控件相关
-    private LinearLayout exit_del,exit_queding;
+    private LinearLayout exit_del, exit_queding;
     private ImageView photo;
     private TextView nickname;
-    private DisplayImageOptions options=null;
+    private DisplayImageOptions options = null;
     private RelativeLayout layWait;
 
     // 计时相关
@@ -85,8 +86,8 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 
         // 获取上层获取用户信息与操作一对一视频的接口
         baseActivity = getActivity();
-        userInfoHandler = (IUserInfoHandler)baseActivity;
-        videoHandler = (IVideoHandler)baseActivity;
+        userInfoHandler = (IUserInfoHandler) baseActivity;
+        videoHandler = (IVideoHandler) baseActivity;
 
         fragmentView = inflater.inflate(R.layout.frag_callingfrom, null);
 
@@ -105,7 +106,7 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 
         // 显示对方头像
         photo = (ImageView) fragmentView.findViewById(R.id.photo);
-        options=new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
         ImageLoader.getInstance().displayImage(
                 userInfoHandler.getFromUserHeadpic(), photo,
                 options);
@@ -115,7 +116,7 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
         nickname.setText(userInfoHandler.getFromUserName());
 
         // 进度条
-        layWait = (RelativeLayout)fragmentView.findViewById(R.id.lay_progress);
+        layWait = (RelativeLayout) fragmentView.findViewById(R.id.lay_progress);
 
         exit_queding = (LinearLayout) fragmentView.findViewById(R.id.exit_login);
         exit_queding.setOnClickListener(new View.OnClickListener() {
@@ -131,9 +132,9 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
             public void onClick(View view) {
                 // 发送挂断消息
                 String strCmd;
-                if(userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
-                } else if(userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                     strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
                 } else {
                     strCmd = VideoMessageManager.VIDEO_NONE;
@@ -162,8 +163,8 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 //                    }
 //                });
                 String mode1 = "pushcmdmsg";
-                String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+                String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                 Thread c = new Thread(a.runnable);
                 c.start();
 
@@ -194,7 +195,7 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
     private void checkRoomInfo() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(Util.url+"/uiface/memberB?p0=A-user-search&p1=checkroominfo&p2=&p3="+Util.userid+"&p4="+userInfoHandler.getRoomid())
+                .url(Util.url + "/uiface/memberB?p0=A-user-search&p1=checkroominfo&p2=&p3=" + Util.userid + "&p4=" + userInfoHandler.getRoomid())
                 .build();
         client.newCall(request).enqueue(new Callback() {
 
@@ -205,69 +206,48 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 
                 // 发送挂断消息
                 String strCmd;
-                if(userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
-                } else if(userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                     strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
                 } else {
                     strCmd = VideoMessageManager.VIDEO_NONE;
                 }
                 String mode1 = "pushcmdmsg";
-                String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+                String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                 Thread c = new Thread(a.runnable);
                 c.start();
                 cancelCalling(false);
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 int code = response.code();
-
-                if(code == 200) {
+                if (code == 200) {
                     String strJson = response.body().string();
+                    LogUtil.d("ttt","---"+strJson);
                     JSONObject jsonObj = JSONObject.fromObject(strJson);
-                    if("yes".equals(jsonObj.getString("result"))) {
+                    if ("yes".equals(jsonObj.getString("result"))) {
                         // 发送接听消息
                         String strCmd;
-                        if(userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                        if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                             strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_ACCEPT;
-                        } else if(userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                        } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                             strCmd = VideoMessageManager.VIDEO_A2U_USER_ACCEPT;
                         } else {
                             strCmd = VideoMessageManager.VIDEO_NONE;
                         }
-//                VideoMessageManager.sendCmdMessage(Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), strCmd, new VideoMessageManager.SendMsgCallback() {
-//                    @Override
-//                    public void onSendSuccess() {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "接听消息发送成功", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//
-//                    @Override
-//                    public void onSendFail(int code, String reason) {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "接听消息发送失败", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//                });
+
                         String mode1 = "pushcmdmsg";
-                        String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                        UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+                        String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                         Thread c = new Thread(a.runnable);
                         c.start();
                         acceptCalling();
 
                         videoHandler.startVideo();
-                    } else if("no".equals(jsonObj.getString("result"))) {
+                    } else if ("no".equals(jsonObj.getString("result"))) {
                         baseActivity.runOnUiThread(new Runnable() {
 
                             @Override
@@ -289,26 +269,26 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
      */
     private void openCalling() {
         // 开始播放音乐
-        MusicUtil.playSound(1,100);
+        MusicUtil.playSound(1, 100);
 
         // 修改自己为忙碌状态
         String mode1 = "mod_mang";
         String[] paramsMap1 = {Util.userid};
-        UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
         Thread c = new Thread(a.runnable);
         c.start();
 
         // 初始化计时器
-        callingTimer = new GeneralTimer(60);	// 60秒后自动挂断
+        callingTimer = new GeneralTimer(60);    // 60秒后自动挂断
         callingTimer.start(new GeneralTimer.TimerCallback() {
 
             @Override
             public void onTimerEnd() {
                 // 发送超时消息
                 String strCmd;
-                if(userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_TIMEUP;
-                } else if(userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                     strCmd = VideoMessageManager.VIDEO_A2U_USER_TIMEUP;
                 } else {
                     strCmd = VideoMessageManager.VIDEO_NONE;
@@ -337,8 +317,8 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 //                    }
 //                });
                 String mode1 = "pushcmdmsg";
-                String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+                String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                 Thread c = new Thread(a.runnable);
                 c.start();
                 cancelCalling(true);
@@ -351,10 +331,10 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
      * isFromTimer: true：从Timer超时调用过来
      */
     private void cancelCalling(boolean isFromTimer) {
-        Log.v("TTT","++closeCalling()");
+        Log.v("TTT", "++closeCalling()");
         // 关闭音乐
         MusicUtil.stopPlay();
-        if(isFromTimer == false) {
+        if (isFromTimer == false) {
             // 关闭定时器
             callingTimer.stop();
         }
@@ -362,17 +342,17 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
         // 修改双方状态为在线
         String mode1 = "modezhubostate";
         String[] paramsMap1 = {Util.userid, userInfoHandler.getFromUserId()};
-        UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
         Thread c = new Thread(a.runnable);
         c.start();
 
         // 删除一对一通话记录
         String mode2 = "removep2pvideo";
-        String[] paramsMap2 = {"",userInfoHandler.getRoomid()};
-        UsersThread_01158B a2 = new UsersThread_01158B(mode2,paramsMap2,handlerZhubo);
+        String[] paramsMap2 = {"", userInfoHandler.getRoomid()};
+        UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, handlerZhubo);
         Thread c2 = new Thread(a2.runnable);
 
-        Log.v("TTT","--closeCalling()");
+        Log.v("TTT", "--closeCalling()");
 
         baseActivity.finish();
     }
@@ -388,8 +368,8 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
         callingTimer.stop();
 
         String mode2 = "removep2pvideo";
-        String[] paramsMap2 = {"",userInfoHandler.getRoomid()};
-        UsersThread_01158B a2 = new UsersThread_01158B(mode2,paramsMap2,handlerZhubo);
+        String[] paramsMap2 = {"", userInfoHandler.getRoomid()};
+        UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, handlerZhubo);
         Thread c2 = new Thread(a2.runnable);
         c2.start();
 
@@ -398,6 +378,7 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 
     //连点两次退出
     private long firstTime = 0;
+
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         switch (keyCode) {
@@ -409,9 +390,9 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
                 } else {// 两次按键小于2秒时，退出应用
                     // 发送挂断消息
                     String strCmd;
-                    if(userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                    if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                         strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
-                    } else if(userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                    } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                         strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
                     } else {
                         strCmd = VideoMessageManager.VIDEO_NONE;
@@ -440,8 +421,8 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
 //                        }
 //                    });
                     String mode1 = "pushcmdmsg";
-                    String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                    UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handlerZhubo);
+                    String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                    UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                     Thread c = new Thread(a.runnable);
                     c.start();
 

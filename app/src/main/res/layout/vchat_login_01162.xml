@@ -2,20 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows = "true"
     android:background="#FFFFFF"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/back1"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/back_01168" />
 
@@ -23,18 +24,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="17dp"
         android:text="登陆"
         android:textColor="#000000"
         android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/back1"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -50,20 +51,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Select my area"
                 android:textColor="#000000"
-                android:textSize="30sp"
-                android:gravity="center"
-                />
+                android:textSize="30sp" />
         </LinearLayout>
-
-
-
 
 
         <LinearLayout
@@ -72,38 +69,38 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="30dp"
-            android:orientation="horizontal"
-            android:background="@drawable/border_01162_5">
+            android:background="@drawable/border_01162_5"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="8dp"
                 android:layout_width="25sp"
                 android:layout_height="25sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/phone_input_icon" />
 
-           <!-- <EditText
-                android:id="@+id/guojianum"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="3dp"
-                android:background="#F1F2F4"
-                android:textColor="#000000"
-                android:focusable="false"
-                android:focusableInTouchMode="true"
-                android:textSize="15sp" />-->
+            <!-- <EditText
+                 android:id="@+id/guojianum"
+                 android:layout_width="50dp"
+                 android:layout_height="match_parent"
+                 android:layout_marginLeft="3dp"
+                 android:background="#F1F2F4"
+                 android:textColor="#000000"
+                 android:focusable="false"
+                 android:focusableInTouchMode="true"
+                 android:textSize="15sp" />-->
 
             <EditText
                 android:id="@+id/phonenum"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="8dp"
-                android:background="#F1F2F4"
-                android:inputType="number"
-                android:hint="请输入手机号"
-                android:maxLength="16"
                 android:layout_marginRight="8dp"
+                android:background="#F1F2F4"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:maxLength="16"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -116,11 +113,11 @@
             android:background="@drawable/border_01162_5">
 
             <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="8dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/password_input_icon" />
 
             <EditText
@@ -128,12 +125,12 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:background="#F1F2F4"
-                android:layout_marginLeft="8dp"
-                android:maxLength="16"
                 android:hint="请输入密码"
                 android:inputType="textPassword"
+                android:maxLength="16"
                 android:textColor="#000000"
                 android:textCursorDrawable="@null"
                 android:textSize="13sp" />
@@ -141,15 +138,14 @@
         </LinearLayout>
 
 
-
-       <!-- <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:textSize="10sp"
-            android:text="Other login methods"
-            android:textColor="#555555" />-->
+        <!-- <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="50dp"
+             android:gravity="center"
+             android:textSize="10sp"
+             android:text="Other login methods"
+             android:textColor="#555555" />-->
 
 
         <TextView
@@ -161,9 +157,9 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/shape_login1_01160"
             android:gravity="center"
-            android:text="登陆"
-            android:paddingTop="10sp"
             android:paddingBottom="10sp"
+            android:paddingTop="10sp"
+            android:text="登陆"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
@@ -176,8 +172,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/shape_login_01160"
             android:gravity="center"
-            android:paddingTop="10sp"
             android:paddingBottom="10sp"
+            android:paddingTop="10sp"
             android:text="注册"
             android:textColor="#BABABA"
             android:textSize="20sp" />
@@ -218,10 +214,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="o  其他方式登陆  o"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                />
+                android:text="o  其他方式登陆  o" />
 
 
             <View
@@ -259,54 +254,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
 
             >
-        <!--  <ImageView
-              android:layout_width="wrap_content"
-              android:layout_height="match_parent"
-              android:src="@drawable/circle"
+            <!--  <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:src="@drawable/circle"
 
-              />-->
+                  />-->
 
 
         </LinearLayout>
 
- <!--       <com.facebook.login.widget.LoginButton
-            android:id="@+id/face_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
--->
+        <!--       <com.facebook.login.widget.LoginButton
+                   android:id="@+id/face_login"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:visibility="gone" />
+       -->
     </LinearLayout>
 
     <TextView
         android:id="@+id/xieyi1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="41dp"
-        android:textSize="10sp"
+        android:layout_marginLeft="3dp"
         android:gravity="center"
-        android:visibility="gone"
         android:text="注册或登陆"
-        android:textColor="#555555" />
+        android:textColor="#555555"
+        android:textSize="10sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/xieyi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="25dp"
-        android:textSize="10sp"
+        android:layout_marginLeft="3dp"
         android:gravity="center"
         android:text="即代表你已同意《悦色交友用户协议》"
-        android:textColor="#555555" />
+        android:textColor="#555555"
+        android:textSize="10sp" />
 
 
 </RelativeLayout>

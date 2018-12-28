@@ -33,10 +33,7 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
-
-
-
-
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoPlayFragment;
 
 
 public class VideoPlayPrivate_01066 extends FragmentActivity {
@@ -55,7 +52,7 @@ public class VideoPlayPrivate_01066 extends FragmentActivity {
 		getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
 				WindowManager.LayoutParams. FLAG_FULLSCREEN);
 		//getWindow().setFormat(PixelFormat.TRANSLUCENT);
-		setContentView(R.layout.activity_new_video_play_layout);
+		setContentView(R.layout.activity_videoplay);
 
 		refreshLayout = (SmoothRefreshLayout)findViewById(R.id.refresh_layout);
 		mClassicHeader = (ClassicHeader)findViewById(R.id.classicHeader_with_listView);
@@ -93,7 +90,7 @@ public class VideoPlayPrivate_01066 extends FragmentActivity {
 		//构造适配器
 		fragments=new ArrayList<Fragment>();
 		for (int i=0;i<videoinfolist.size();i++){
-			fragments.add(new VideoPlay_1_01066(videoinfolist.get(i),i));
+			fragments.add(new VideoPlayFragment(videoinfolist.get(i),i));
 		}
 
 		VerticalViewPager viewpager= (VerticalViewPager) findViewById(R.id.view_pager);
@@ -101,30 +98,6 @@ public class VideoPlayPrivate_01066 extends FragmentActivity {
 		adapter = new FragAdapter(VideoPlayPrivate_01066.this.getSupportFragmentManager(), fragments);
 		viewpager.setAdapter(adapter);
 		viewpager.setCurrentItem(pos);
-//		viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//			@Override
-//			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//				Log.d("测试代码", "onPageScrolled滑动中" + position);
-//			}
-//			@Override
-//			public void onPageSelected(int position) {
-//				Log.d("测试代码", "onPageSelected选中了" + position);
-//				if (position==0) {
-//					refreshLayout.setDisableLoadMore(true);
-//					refreshLayout.setDisableRefresh(true);
-//				} else if (position==(videoinfolist.size()-1)) {
-//					refreshLayout.setDisableLoadMore(false);
-//					refreshLayout.setDisableRefresh(true);
-//				}else{
-//					refreshLayout.setDisableLoadMore(true);
-//					refreshLayout.setDisableRefresh(true);
-//				}
-//			}
-//			@Override
-//			public void onPageScrollStateChanged(int state) {
-//
-//			}
-//		});
 
 		MsgOperReciver msgOperReciver = new MsgOperReciver();
 		IntentFilter intentFilter = new IntentFilter("videoinfo");
@@ -186,7 +159,7 @@ public class VideoPlayPrivate_01066 extends FragmentActivity {
 							}
 							fragments.clear();
 							for (int i=0;i<videoinfolist.size();i++){
-								fragments.add(new VideoPlay_1_01066(videoinfolist.get(i),i));
+								fragments.add(new VideoPlayFragment(videoinfolist.get(i),i));
 							}
 							adapter.notifyDataSetChanged();
 							canPull=true;

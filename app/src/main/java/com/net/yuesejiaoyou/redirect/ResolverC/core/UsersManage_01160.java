@@ -1,7 +1,7 @@
 package com.net.yuesejiaoyou.redirect.ResolverC.core;
 
 /*import com.example.vliao.getset.Page;
-import com.example.vliao.getset.ZBYuyueJB_01160;
+import com.example.vliao.getset.UserBean;
 import com.example.vliao.interface2.OkHttp;
 import com.example.vliao.interface4.HelpManager_01160;
 import com.example.vliao.interface4.LogDetect;*/
@@ -45,11 +45,11 @@ public class UsersManage_01160 {
 		ArrayList<ZBYuyueJB_01160> list = helpmanager.zhubo_yuyue(json);
 		return list;
 	}
-	/*public ArrayList<ZBYuyueJB_01160> zhubo_yuyue(String[] params) {
+	/*public ArrayList<UserBean> zhubo_yuyue(String[] params) {
 		String a = "memberC01178?mode=A-user-mod&mode2=zhubo_yuyue";
 		String json = okhttp.requestPostBySyn(a, params);
 		LogDetect.send(LogDetect.DataType.specialType,"01160 json:",json);
-		ArrayList<ZBYuyueJB_01160> list = helpmanager.zhubo_yuyue(json);
+		ArrayList<UserBean> list = helpmanager.zhubo_yuyue(json);
 		return list;
 	}*/
 

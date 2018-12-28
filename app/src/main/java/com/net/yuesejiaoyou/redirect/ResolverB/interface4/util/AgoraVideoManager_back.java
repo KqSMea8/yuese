@@ -14,7 +14,7 @@ import android.view.SurfaceView;
 //import com.example.vliao.uiface.zhubo_bk;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity_zhubo;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke_01160;

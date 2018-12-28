@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -22,14 +21,11 @@ import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
-import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.core.UsersManage_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.Userinfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -96,7 +92,7 @@ public class VMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             ((NormalHolder) holder).xyitem.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, Userinfo.class);
+                    Intent intent = new Intent(context, UserActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("id", ""+articles.get(pos).getId());
                     intent.putExtras(bundle);

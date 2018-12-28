@@ -26,8 +26,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a"
         }
-        //打包名称设置
-
     }
 
 
@@ -146,6 +144,8 @@ dependencies {
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
 }
 
 

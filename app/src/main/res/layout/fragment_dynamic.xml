@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/include_one"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/newvideo"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="最新"
+            android:textColor="#8C8C8C"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/hotvideo"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/newvideo"
+            android:gravity="center"
+            android:text="热门"
+            android:textColor="#FF5C5C"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/attention"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/newvideo"
+            android:gravity="center"
+            android:text="关注"
+            android:textColor="#8C8C8C"
+            android:textSize="18dip" />
+
+
+        <ImageView
+            android:id="@+id/uploadvideoyun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/discover_upload"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f2f2f2"/>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:overScrollMode="never"/>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/viewpager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/include_one"-->
+        <!--android:background="#ffffff" />-->
+
+
+</LinearLayout>

@@ -14,10 +14,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.LoginActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;

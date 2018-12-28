@@ -22,8 +22,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
@@ -36,7 +34,7 @@ import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.core.UsersManage_01066A;
 
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;//调用B区页面
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoPlay_01066;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.VideoPlayActivity;
 
 
 /**
@@ -85,7 +83,7 @@ public class VideoMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == normalType) {
-            return new NormalHolder(LayoutInflater.from(context).inflate(R.layout.disovery_list_item, null));
+            return new NormalHolder(LayoutInflater.from(context).inflate(R.layout.item_dynamic, null));
         } else {
             return new FootHolder(LayoutInflater.from(context).inflate(R.layout.footview_01066, null));
         }
@@ -118,7 +116,7 @@ public class VideoMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.View
             ((NormalHolder) holder).xyitem.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(context, VideoPlay_01066.class);
+                    Intent intent = new Intent(context, VideoPlayActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", position);
                     bundle.putSerializable("vlist",(Serializable)articles);

@@ -10,7 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.MainActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MainActivity;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.Contants;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.SystemUtils;
 

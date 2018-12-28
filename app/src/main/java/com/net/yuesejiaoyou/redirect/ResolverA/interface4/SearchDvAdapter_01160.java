@@ -16,8 +16,8 @@ import android.widget.TextView;
 import com.net.yuesejiaoyou.R;
 
 
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.ZBYuyueJB_01160;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.SearchDv_01160;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.SearchActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -42,16 +42,16 @@ public class SearchDvAdapter_01160 extends RecyclerView.Adapter{
 	}
 	private int normalType = 0;
 	private int footType = 1;
-	private SearchDv_01160 ab;
+	private SearchActivity ab;
 	private RecyclerView listview;
-	private List<ZBYuyueJB_01160> articles;
+	private List<UserBean> articles;
 	private int m;
 	private String key;
 	private Handler requestHandler;
 	private DisplayImageOptions options;
 
 	
-	public SearchDvAdapter_01160(SearchDv_01160 ab, RecyclerView listview, List<ZBYuyueJB_01160> articles, Handler requestHandler,String key){
+	public SearchDvAdapter_01160(SearchActivity ab, RecyclerView listview, List<UserBean> articles, Handler requestHandler, String key){
 		this.ab = ab;
 		this.listview = listview;
 		this.articles = articles;

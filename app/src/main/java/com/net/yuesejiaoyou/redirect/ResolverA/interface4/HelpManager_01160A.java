@@ -20,8 +20,8 @@ import android.util.Log;
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.Page;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.ZBYuyueJB_01160;
 
 
 /**
@@ -102,13 +102,13 @@ public class HelpManager_01160A {
         Log.e("getNetIp", ipLine);
         return ipLine;
     }
-	public ArrayList<ZBYuyueJB_01160> zhubo_yuyue(String json) {
-		  ArrayList<ZBYuyueJB_01160> list = new ArrayList<ZBYuyueJB_01160>();
+	public ArrayList<UserBean> zhubo_yuyue(String json) {
+		  ArrayList<UserBean> list = new ArrayList<UserBean>();
           try {
               JSONArray jsonArray = new JSONArray(json);
               for (int i = 0; i < jsonArray.length(); i++) {
                   JSONObject item = jsonArray.getJSONObject(i);
-                  ZBYuyueJB_01160 bean=new ZBYuyueJB_01160();
+                  UserBean bean=new UserBean();
                   bean.setUser_id(item.getString("id"));
                   bean.setIntimacy(item.getString("SUM(p.intimacy)"));
                   LogDetect.send(LogDetect.DataType.specialType, "亲密度",bean.getIntimacy().toString());
@@ -129,13 +129,13 @@ public class HelpManager_01160A {
 		return list;
 	}
 
-    public ArrayList<ZBYuyueJB_01160> search_dv(String json) {
-        ArrayList<ZBYuyueJB_01160> list = new ArrayList<ZBYuyueJB_01160>();
+    public ArrayList<UserBean> search_dv(String json) {
+        ArrayList<UserBean> list = new ArrayList<UserBean>();
         try {
             JSONArray jsonArray = new JSONArray(json);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
-                ZBYuyueJB_01160 bean=new ZBYuyueJB_01160();
+                UserBean bean=new UserBean();
                 bean.setUser_id(item.getString("id"));
                 bean.setName(item.getString("nickname"));
                 bean.setPhoto(item.getString("photo"));

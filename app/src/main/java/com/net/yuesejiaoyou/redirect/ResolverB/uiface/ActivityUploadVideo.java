@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01107B;

@@ -12,9 +12,8 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.DownloadActivityApk;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DownloadActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
 
@@ -51,6 +50,7 @@ public class UpdateManager {
                         if (TextUtils.isEmpty(resultBean)) {
                             return;
                         }
+                        LogUtil.i("ttt","---"+resultBean);
                         JSONObject jsonObject = JSON.parseArray(resultBean).getJSONObject(0);
                         String apkversion = jsonObject.getString("vsion");
 
@@ -79,13 +79,16 @@ public class UpdateManager {
 
         TextView gengxinc = view.findViewById(R.id.gengxinc);
         gengxinc.setText(jsonObject.getString("update_what"));
+
+
         view.findViewById(R.id.updateon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,DownloadActivityApk.class);
+                Intent intent = new Intent(mContext, DownloadActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("url", jsonObject.getString("downurl"));
                 bundle.putString("name", jsonObject.getString("update_what"));
+                bundle.putString("vsion", jsonObject.getString("vsion"));
                 intent.putExtras(bundle);
                 mContext.startActivity(intent);
                 dialog.dismiss();

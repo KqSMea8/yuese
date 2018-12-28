@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverA.core.UsersManage_01160A;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.ZBYuyueJB_01160;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.HelpManager_01160A;
 
 
@@ -57,13 +57,13 @@ public class UsersManageInOut_01160A {
 		
 	}
 /*	public void zhubo_yuyue(String[] params, Handler handler) {
-		ArrayList<ZBYuyueJB_01160> getdate = usersManage.zhubo_yuyue(params);
+		ArrayList<UserBean> getdate = usersManage.zhubo_yuyue(params);
 		handler.sendMessage(handler.obtainMessage(207, (Object) getdate));
 	}*/
 
 
 	public void search_dv(String[] params, Handler handler) {
-		ArrayList<ZBYuyueJB_01160> getdate = usersManage.search_dv(params);
+		ArrayList<UserBean> getdate = usersManage.search_dv(params);
 		handler.sendMessage(handler.obtainMessage(208, (Object) getdate));
 	}
 

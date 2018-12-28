@@ -1,7 +1,6 @@
 package com.net.yuesejiaoyou.redirect.ResolverC.uiface;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -22,7 +21,8 @@ import android.widget.Toast;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.Gonglue_01162;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AgreeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Member_01152;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01152;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView;
@@ -34,14 +34,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-//import com.example.aiba.interface4.Aiba_wodejiazuAdapter_01152;
 
 
-public class ShareActivity extends Activity implements OnClickListener {
+public class ShareActivity extends BaseActivity implements OnClickListener {
 	//自定义ID
 	
-	private PopupWindow mPopWindow;
-	private NumberPicker numberpicker;
 	private TextView zhanghu,xingming,shouji,num,money,daili;
 	private Button tuiguang,gonglue;
 	private RoundImageView touxiang;
@@ -104,13 +101,7 @@ public class ShareActivity extends Activity implements OnClickListener {
 		UsersThread_01152 b = new UsersThread_01152(mode,paramsMap,requestHandler);
 		Thread thread = new Thread(b.runnable);
 		thread.start();
-		
-//		String mode1 = "xiaofei";
-//		String[] paramsMap1 = {Util.userid};
-//		LogDetect.send(LogDetect.DataType.specialType, "ShareActivity:", "参数结束=====");
-//		UsersThread_01152 b1 = new UsersThread_01152(mode1,paramsMap1,requestHandler);
-//		Thread thread1 = new Thread(b1.runnable);
-//		thread1.start();
+
 
 		// 判断是否是代理
 		if("1".equals(Util.is_agent)) {
@@ -118,21 +109,12 @@ public class ShareActivity extends Activity implements OnClickListener {
 			biaoti.setText("分成计划(代理)");
 		}
 	}
-	
-//	//返回页面后重新刷新一次
-//	@Override
-//	public void onResume() {
-//		
-//		super.onResume();
-//		
-//		String mode = "tuiguang";
-//		String[] paramsMap = {Util.userid};
-//		LogDetect.send(LogDetect.DataType.specialType, "meijian_tuiguang_01152:", "参数=====");
-//		UsersThread_01152 b = new UsersThread_01152(mode,paramsMap,requestHandler);
-//		Thread thread = new Thread(b.runnable);
-//		thread.start();
-//		
-//	}
+
+	@Override
+	protected int getContentView() {
+		return R.layout.activity_tuiguang_01152;
+	}
+
 
 	//获得onclick点击事件
 	@Override
@@ -163,7 +145,7 @@ public class ShareActivity extends Activity implements OnClickListener {
 				intent1.putExtra("cash_twofee",list.get(0).getCash_twofee());
 				intent1.putExtra("dvcash_onefee",list.get(0).getDvcash_onefee());
 				intent1.putExtra("dvcash_twofee",list.get(0).getDvcash_twofee());
-			intent1.setClass(ShareActivity.this,Gonglue_01162.class);
+			intent1.setClass(ShareActivity.this,AgreeActivity.class);
 			startActivity(intent1);
 				break;
         case R.id.quyu1: //点击提取现金

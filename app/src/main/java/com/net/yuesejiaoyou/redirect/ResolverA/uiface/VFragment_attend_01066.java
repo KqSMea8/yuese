@@ -31,6 +31,7 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01158A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapter_01066;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WebActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.youth.banner.Banner;
@@ -210,7 +211,7 @@ public class VFragment_attend_01066 extends Fragment implements OnClickListener,
                                     bundle.putString("photo_item",list1.get(position).getPhoto_item());
                                     LogDetect.send(LogDetect.DataType.basicType,"01162---第几个图",list1.get(position).getPhoto_item());
                                     intent.putExtras(bundle);
-                                    intent.setClass(getActivity(),Activity_web_01162.class);
+                                    intent.setClass(getActivity(),WebActivity.class);
                                     startActivity(intent);
                                 }
                             }

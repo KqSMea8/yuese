@@ -25,8 +25,7 @@ import android.widget.TextView;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 import com.net.yuesejiaoyou.R;
@@ -72,7 +71,7 @@ public class VideoMyAdapterinfo_01066 extends RecyclerView.Adapter<RecyclerView.
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == normalType) {
-            return new NormalHolder(LayoutInflater.from(context).inflate(R.layout.disovery_list_item, null));
+            return new NormalHolder(LayoutInflater.from(context).inflate(R.layout.item_dynamic, null));
         } else {
             return new FootHolder(LayoutInflater.from(context).inflate(R.layout.footview_01066, null));
         }

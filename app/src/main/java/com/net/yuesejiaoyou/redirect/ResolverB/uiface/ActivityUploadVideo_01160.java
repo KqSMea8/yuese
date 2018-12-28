@@ -16,11 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect.DataType;
 
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01107B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.DianboUtil;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoInfoUtil;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoUploadUtil;

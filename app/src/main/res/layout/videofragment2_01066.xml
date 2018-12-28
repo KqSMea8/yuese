@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
@@ -23,15 +22,10 @@
             android:id="@+id/theme_grre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            android:numColumns="2">
-
-        </android.support.v7.widget.RecyclerView>
+            android:numColumns="2"
+            android:overScrollMode="never"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
-
-
 
 
 </RelativeLayout>

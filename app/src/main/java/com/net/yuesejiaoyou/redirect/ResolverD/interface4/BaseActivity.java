@@ -16,7 +16,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.zhy.http.okhttp.OkHttpUtils;
 

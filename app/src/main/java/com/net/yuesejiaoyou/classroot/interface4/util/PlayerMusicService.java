@@ -8,10 +8,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.SystemUtils;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.MainActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MainActivity;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -121,7 +121,7 @@ public class PlayerMusicService extends Service {
                     writeFile("不休眠测试不休眠测试-------------测试");
                     LogDetect.send(LogDetect.DataType.basicType, "不休眠测试不休眠测试", "-------------测试");
                     boolean isalive = SystemUtils.isAPPALive(PlayerMusicService.this, "com.net.yuesejiaoyou.redirect.ResolverD.interface4");
-                    boolean islive=CheckUtil.isClsRunning(PlayerMusicService.this,"com.net.yuesejiaoyou.redirect.ResolverD.interface4","com.net.yuesejiaoyou.redirect.ResolverA.uiface.MainActivity");
+                    boolean islive=CheckUtil.isClsRunning(PlayerMusicService.this,"com.net.yuesejiaoyou.redirect.ResolverD.interface4","com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MainActivity");
                     writeFile("不休眠测试不休眠测试-------------播放次数1：" + playcount + "---" + isalive+"----"+islive+"----"+((YhApplicationA)getApplication()).ishave);
                     LogDetect.send(LogDetect.DataType.specialType, "ActivityLogin_01158:--json2 ", "播放次数1：" + playcount + "---" + isalive+"----"+islive+"----"+((YhApplicationA)getApplication()).ishave);
                     //if (!isalive) {

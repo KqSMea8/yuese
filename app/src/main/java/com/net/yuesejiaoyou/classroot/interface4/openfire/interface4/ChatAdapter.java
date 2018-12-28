@@ -38,7 +38,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Msg;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ImgPageActivity;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.Userinfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -413,7 +413,7 @@ public class ChatAdapter extends BaseAdapter {
 						@Override
 						public void onClick(View v) {
 													//跳转到他的用户资料页面
-							Intent intent = new Intent(activity,Userinfo.class);
+							Intent intent = new Intent(activity,UserActivity.class);
 							intent.putExtra("id", list.get(position).getFromUser());
 							activity.startActivity(intent);
 						}

@@ -104,52 +104,18 @@ import java.util.concurrent.ScheduledExecutorService;
  * Created by Administrator on 2018\8\17 0017.
  */
 
-public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener,View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
+public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener, View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
 
     private View fragmentView;
     private Activity baseActivity;
     private IUserInfoHandler userInfoHandler;
     private IVideoHandler videoHandler;
-    //----------------------------------------------------------------------------------------------
-    // 表情图标每页6列4行
-    private int columns = 6;
-    //private VideoPreProcessing mvideoPreProcessing;
-    private int rows = 4;
-    private EditText send_sms;
-    private SimpleDateFormat sd;
-    private LayoutInflater inflater;
-    // 每页显示的表情view
-    private List<View> views = new ArrayList<View>();
-    // 表情列表
-    private List<String> staticFacesList;
-    private LinearLayout chat_face_container, chat_add_container,bottom;
-    private ImageView image_face;// 表情图标
-    private ViewPager mViewPager;
-    private LinearLayout mDotsLayout;
-    private EditText input;
-    private TextView send;
-    private DropdownListView mListView;
-    private String I, YOU,name,logo,headpicture,username,duifang="";
-    private ScheduledExecutorService service;
     private LinearLayout ly1;
     private TextView t2;
-    // private GiftItemView giftView ;
-    // 美颜
-    //private VideoPreProcessing mVideoPreProcessing;
-    private boolean bJHThread = true;
-    private SeekBar smoothLevel;
-    private SeekBar whiteLevel;
-    private ImageView meiyan,meibai;
     private String guke_name;
 
-    private int mopiLevel;
-    private int meibaiLevel;
     // 群聊
-    TextView grpChat,btn_chat;
-    TextView sendMsg;
-    EditText edtInput;
-    RelativeLayout layChat;
-    RelativeLayout another1;
+    TextView grpChat, btn_chat;
     RelativeLayout layGrpChat;
     ArrayList<String> grpChatArray = new ArrayList<String>();
 
@@ -158,40 +124,23 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     private Timer timer;
     private String strtime;
     Reciever reciever;
-    //private List<Shang_01160> shangList;
 
-    private int num =1;
-    private String roomid,yid_zhubo,yid_guke;
+    private int num = 1;
+    private String roomid, yid_zhubo, yid_guke;
 
-    private RelativeLayout relativeLayout;
-    private RelativeLayout activity_video_chat_view;
-    //屏幕高度
-    private int screenHeight = 0;
-    //软件盘弹起后所占高度阀值
-    private int keyHeight = 0;
 
     private int xDelta;
     private int yDelta;
     private int sWidth;
 
-    private boolean ks =  false;
-    private RelativeLayout gbsp,xz,moshubang,xx;
-    private ImageView imageView7;
-    private LinearLayout ly2;
+    private boolean ks = false;
     MsgOperReciver_zhubo msgOperReciver;
-    private SurfaceView remoteSurface,localSurface;
-    private FrameLayout remoteContainer,localContainer;
+    private SurfaceView remoteSurface, localSurface;
+    private FrameLayout remoteContainer, localContainer;
 
-    private CheckedTextView c1,c2,c3,c4,c5,c6;
+    private CheckedTextView c1, c2, c3, c4, c5, c6;
 
     private PopupWindow popupWindow;
-
-    private ImageView translate;
-    private LinearLayout translate_select;
-    private ImageView cn,en;
-    //    private SpeechTranslate spchTranslate;
-    private boolean switchCameraCtrl = false;
-    private int switchCameraCnt = 10;
 
     private CountDownTimer c;   // 一对一视频余额不足倒计时
 
@@ -202,25 +151,22 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     private TextView redpkValue;
     private redpkTimer showRedpkThread;
 
-//    private boolean isHuibo = false;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        Log.e("TTT","ZhuboVideoFragment-onCreateView start");
         // 获取上层获取用户信息与操作一对一视频的接口
         baseActivity = getActivity();
-        userInfoHandler = (IUserInfoHandler)baseActivity;
-        videoHandler = (IVideoHandler)baseActivity;
+        userInfoHandler = (IUserInfoHandler) baseActivity;
+        videoHandler = (IVideoHandler) baseActivity;
 
         fragmentView = inflater.inflate(R.layout.activity_agora_rtc_zhubo, null);
 
-//        ((ZhuboActivity)baseActivity).setKeyUpListener(this);
 
         // 获取远程surfaceView
         SurfaceView surfaceView = videoHandler.getRemoteSurfaceView();
-        if(surfaceView != null) {
+        if (surfaceView != null) {
             setupRemoteVideo();
             remoteSurface = surfaceView;    //videoHandler.getRemoteSurfaceView();
             if (remoteSurface != null) {
@@ -229,10 +175,10 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         }
 
 
-        layMuteRemoteVideo = (RelativeLayout)fragmentView.findViewById(R.id.lay_remote_mute);
-        layRedpk = (RelativeLayout)fragmentView.findViewById(R.id.lay_redpk);
-        redpkUsername = (TextView)fragmentView.findViewById(R.id.txt_username);
-        redpkValue = (TextView)fragmentView.findViewById(R.id.txt_rdvalue);
+        layMuteRemoteVideo = (RelativeLayout) fragmentView.findViewById(R.id.lay_remote_mute);
+        layRedpk = (RelativeLayout) fragmentView.findViewById(R.id.lay_redpk);
+        redpkUsername = (TextView) fragmentView.findViewById(R.id.txt_username);
+        redpkValue = (TextView) fragmentView.findViewById(R.id.txt_rdvalue);
 
         DisplayMetrics metric = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -242,16 +188,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         yid_zhubo = userInfoHandler.getFromUserId();    //getIntent().getStringExtra("yid_zhubo");
         guke_name = userInfoHandler.getFromUserName();  //getIntent().getStringExtra("guke_name");
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
-        I = sharedPreferences.getString("id","");
-        sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        username = sharedPreferences.getString("name","");
-
-        // 读取美颜设置
-        mopiLevel = sharedPreferences.getInt("mopi",1);
-        meibaiLevel = sharedPreferences.getInt("meibai",1);
-
-/*      headpicture= sharedPreferences.getString("headpic","");
-*/
 
         fragmentView.findViewById(R.id.btn_endcall).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,10 +196,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
             }
         });
 
-
-        activity_video_chat_view = (RelativeLayout) fragmentView.findViewById(R.id.activity_video_chat_view);
-
-
         fragmentView.findViewById(R.id.cafont).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,15 +203,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
             }
         });
 
-        //获取屏幕高度
-        screenHeight = getActivity().getWindowManager().getDefaultDisplay().getHeight();
-        //阀值设置为屏幕高度的1/3
-        keyHeight = screenHeight/3;
 
-
-
-
-        final ImageView guanbi = (ImageView)fragmentView.findViewById(R.id.guanbi);
+        final ImageView guanbi = (ImageView) fragmentView.findViewById(R.id.guanbi);
         guanbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -287,111 +212,64 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                 //takePhoto();
             }
         });
-//        final ImageView qiehuan = (ImageView)this.findViewById(R.id.qiehuan);
-//        qiehuan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                if(switchCameraCtrl == false) {
-////                    switchCameraCtrl = true;
-//                onSwitchCameraClicked(qiehuan);
-////                    startSwitchCameraCtrl();
-////                } else {
-////                    Toast.makeText(VideoChatViewActivity_zhubo.this, "请 "+switchCameraCnt+" 秒后再切换摄像头", Toast.LENGTH_SHORT).show();
-////                }
-//            }
-//        });
 
 
-        ly1 = (LinearLayout)fragmentView.findViewById(R.id.ly1);
+        ly1 = (LinearLayout) fragmentView.findViewById(R.id.ly1);
         ly1.setVisibility(View.GONE);
-        t2 = (TextView)ly1.findViewById(R.id.t2);
+        t2 = (TextView) ly1.findViewById(R.id.t2);
 
-        LogDetect.send(LogDetect.DataType.specialType,"01160 顾客id:",yid_zhubo);
-        reciever=new Reciever();
+        LogDetect.send(LogDetect.DataType.specialType, "01160 顾客id:", yid_zhubo);
+        reciever = new Reciever();
         IntentFilter intentFilter1 = new IntentFilter(Const.REWARD_ANCHOR);
         getActivity().registerReceiver(reciever, intentFilter1);
 
-
-/*
-        String mode1 = "kan_qian";
-        String[] paramsMap1 = {Util.userid,yid_zhubo};
-        UsersThread_01160 a = new UsersThread_01160(mode1,paramsMap1,handler);
-        Thread t = new Thread(a.runnable);
-        t.start();*/
 
         msgOperReciver = new MsgOperReciver_zhubo();
         IntentFilter intentFilter = new IntentFilter(Const.ACTION_MSG_ONECHAT);
         getActivity().registerReceiver(msgOperReciver, intentFilter);
 
-        //if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
-            init();
-            initAgoraEngineAndJoinChannel();
-        //}
+        init();
+        initAgoraEngineAndJoinChannel();
 
 
-
-        timer=new Timer();
-        timer.schedule(new TimerTask(){
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
             long t = System.currentTimeMillis();
             long tl = t / (1000 * 3600 * 24) * (1000 * 3600 * 24) - TimeZone.getDefault().getRawOffset();
+
             @Override
             public void run() {
                 Timestamp tt = new Timestamp(tl);
                 String starttime = sdf.format(tt);
-                handler.sendMessage(handler.obtainMessage(1,(Object)starttime));
-                tl = tl+1000;
+                handler.sendMessage(handler.obtainMessage(1, (Object) starttime));
+                tl = tl + 1000;
             }
-        }, 0,1000);
+        }, 0, 1000);
 
-//        if(!TextUtils.isEmpty(getIntent().getStringExtra("status"))) {
-//            isHuibo = true;
-//        }
 
-//        if(isHuibo) {
-            // 进入房间就删除记录
-            String mode2 = "removep2pvideo";
-            String[] paramsMap2 = {"", userInfoHandler.getRoomid()};
-            UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, handler);
-            Thread c2 = new Thread(a2.runnable);
-            c2.start();
-//        } else {
-//            // 进入房间就删除记录
-//            String mode2 = "removep2pvideo";
-//            String[] paramsMap2 = {"", AgoraVideoManager.getCurRoomid()};
-//            UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, handler);
-//            Thread c2 = new Thread(a2.runnable);
-//            c2.start();
-//        }
+        // 进入房间就删除记录
+        String mode2 = "removep2pvideo";
+        String[] paramsMap2 = {"", userInfoHandler.getRoomid()};
+        UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, handler);
+        Thread c2 = new Thread(a2.runnable);
+        c2.start();
+
         startAwake();   // 保持屏幕常亮
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                @SuppressLint("ResourceType") XmlPullParser parser = getResources().getXml(R.layout.lay_luoglcameraview);
-//                AttributeSet attributes = Xml.asAttributeSet(parser);
-//                LuoGLCameraView subView = new LuoGLCameraView(AgoraRtcActivity_zhubo.this, attributes);
-//                remoteContainer.addView(subView);
-//            }
-//        }).start();
-//        @SuppressLint("ResourceType") XmlPullParser parser = getResources().getXml(R.layout.lay_luoglcameraview);
-//                AttributeSet attributes = Xml.asAttributeSet(parser);
-//        cameraView = new LuoGLCameraView(getApplicationContext());
-//        cameraView.setVisibility(View.VISIBLE);
-//        remoteContainer.addView(cameraView);
 
         //=====================================================
         // 美颜初始化
         //=====================================================
         sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
         // 获取保存在本地的美颜参数
-        hongRun = sharedPreferences.getInt("hongrun",0);
-        meiBai = sharedPreferences.getInt("meibai",0);
-        moPi = sharedPreferences.getInt("mopi",0);
-        shouLian = sharedPreferences.getInt("shoulian",0);
-        daYan = sharedPreferences.getInt("dayan",0);
-        vFilter = sharedPreferences.getString("filter","");
-        tieZhi = sharedPreferences.getString("tiezhi","");
+        hongRun = sharedPreferences.getInt("hongrun", 0);
+        meiBai = sharedPreferences.getInt("meibai", 0);
+        moPi = sharedPreferences.getInt("mopi", 0);
+        shouLian = sharedPreferences.getInt("shoulian", 0);
+        daYan = sharedPreferences.getInt("dayan", 0);
+        vFilter = sharedPreferences.getString("filter", "");
+        tieZhi = sharedPreferences.getString("tiezhi", "");
 
         // 设置美颜参数
         XJGArSdkApi.XJGARSDKSetRedFaceParam(hongRun);
@@ -399,14 +277,14 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         XJGArSdkApi.XJGARSDKSetSkinSmoothParam(moPi);
         XJGArSdkApi.XJGARSDKSetThinChinParam(shouLian);
         XJGArSdkApi.XJGARSDKSetBigEyeParam(daYan);
-        if(vFilter.isEmpty() == false) {
+        if (vFilter.isEmpty() == false) {
             XJGArSdkApi.XJGARSDKChangeFilter(vFilter);
         }
-        if(tieZhi.isEmpty() == false) {
+        if (tieZhi.isEmpty() == false) {
 //            String stickerPaperdir = XJGArSdkApi.getPrivateResDataDir(getActivity().getApplicationContext());
 //            stickerPaperdir = stickerPaperdir +"/StickerPapers/"+ tieZhi;
-            File beautyZip = new File(getStickPaperDir(), tieZhi+".zip");
-            if(beautyZip.exists()) {
+            File beautyZip = new File(getStickPaperDir(), tieZhi + ".zip");
+            if (beautyZip.exists()) {
                 ZIP.unzipAStickPaperPackages(getStickPaperDir().getAbsolutePath());
                 XJGArSdkApi.XJGARSDKSetShowStickerPapers(true);
                 XJGArSdkApi.XJGARSDKChangeStickpaper(tieZhi);
@@ -420,48 +298,46 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         mFaceSurgeryFaceShapeSeek.setProgress(shouLian);
         mFaceSurgeryBigEyeSeek.setProgress(daYan);
 
-        Log.e("TTT","ZhuboVideoFragment-onCreateView end");
+        Log.e("TTT", "ZhuboVideoFragment-onCreateView end");
 
         return fragmentView;
     }
 
-    //private final AgoraVideoManager.AgoraRtcListener mRtcEventHandler = new AgoraVideoManager.AgoraRtcListener() { // Tutorial Step 1
-        @Override
-        public void onFirstRemoteVideoDecoded() { // Tutorial Step 5
+    @Override
+    public void onFirstRemoteVideoDecoded() { // Tutorial Step 5
 
-            setupRemoteVideo();
-            remoteSurface = videoHandler.getRemoteSurfaceView();    //AgoraVideoManager.getRemoteSurfaceView();
-            if(remoteSurface != null) {
-                remoteSurface.setZOrderMediaOverlay(false);
-                remoteContainer.addView(remoteSurface);
+        setupRemoteVideo();
+        remoteSurface = videoHandler.getRemoteSurfaceView();    //AgoraVideoManager.getRemoteSurfaceView();
+        if (remoteSurface != null) {
+            remoteSurface.setZOrderMediaOverlay(false);
+            remoteContainer.addView(remoteSurface);
+        }
+    }
+
+    @Override
+    public void onJoinChannelSuccess() {
+
+    }
+
+    @Override
+    public void onUserOffline() { // Tutorial Step 7
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                onRemoteUserLeft();
             }
-            //Toast.makeText(baseActivity, "onFirstRemoteVideoDecoded", Toast.LENGTH_SHORT).show();
-        }
+        });
+    }
 
-        @Override
-        public void onJoinChannelSuccess() {
-
-        }
-
-        @Override
-        public void onUserOffline() { // Tutorial Step 7
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    onRemoteUserLeft();
-                }
-            });
-        }
-
-        @Override
-        public void onUserMuteVideo(final boolean muted) { // Tutorial Step 10
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    onRemoteUserVideoMuted( muted);
-                }
-            });
-        }
+    @Override
+    public void onUserMuteVideo(final boolean muted) { // Tutorial Step 10
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                onRemoteUserVideoMuted(muted);
+            }
+        });
+    }
     //};
 
     // 美颜参数
@@ -474,43 +350,19 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     private String tieZhi;     // 贴纸
 
 
-    private LuoGLCameraView cameraView;
-
     PowerManager.WakeLock wakeLock;
+
     private void startAwake() {
         PowerManager pm = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "TAG");
         wakeLock.acquire();
     }
+
     private void stopAwake() {
-        if(wakeLock != null) {
+        if (wakeLock != null) {
             wakeLock.release();
         }
     }
-
-    /**
-     * 一对一视频切换摄像头控制
-     */
-    private void startSwitchCameraCtrl() {
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                switchCameraCnt = 10;
-                while(switchCameraCnt > 0) {
-                    switchCameraCnt--;
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                switchCameraCtrl = false;
-            }
-        }).start();
-    }
-
 
 
     @Override
@@ -548,7 +400,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
     private void addGrpChat(String txt) {
         int size = grpChatArray.size();
-        if(size >= 4) {
+        if (size >= 4) {
             grpChatArray.remove(0);
         }
         grpChatArray.add(txt);
@@ -556,78 +408,72 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
     private void freshGrpChat() {
 
-        if(grpChatArray.size() <= 0) {
+        if (grpChatArray.size() <= 0) {
             layGrpChat.setVisibility(View.GONE);
             return;
         } else {
             StringBuffer sb = new StringBuffer();
-            for(int i = 0; i < grpChatArray.size(); i++) {
-                sb.append(grpChatArray.get(i)+"\r\n");
+            for (int i = 0; i < grpChatArray.size(); i++) {
+                sb.append(grpChatArray.get(i) + "\r\n");
             }
-            grpChat.setText(/*guke_name+":"+*/sb.toString().substring(0, sb.length()-2));
-            /*if(duifang.equals("")){
-                grpChat.setText(guke_name+":"+sb.toString().substring(0, sb.length()-2));
-            }else{
-                grpChat.setText(guke_name+":"+sb.toString().substring(0, sb.length()-2));
-            }*/
+            grpChat.setText(/*guke_name+":"+*/sb.toString().substring(0, sb.length() - 2));
 
             layGrpChat.setVisibility(View.VISIBLE);
         }
 
 
     }
-    String songing="";
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.c1:
-                String mode ="report";
-                String[] paramsMap = {Util.userid,yid_zhubo,c1.getText().toString()};
+                String mode = "report";
+                String[] paramsMap = {Util.userid, yid_zhubo, c1.getText().toString()};
                 UsersThread_01160B az = new UsersThread_01160B(mode, paramsMap, handler);
                 Thread t = new Thread(az.runnable);
                 t.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
             case R.id.c2:
-                String mode112 ="report";
-                String[] paramsMap112 = {Util.userid,yid_zhubo,c2.getText().toString()};
+                String mode112 = "report";
+                String[] paramsMap112 = {Util.userid, yid_zhubo, c2.getText().toString()};
                 UsersThread_01160B a1 = new UsersThread_01160B(mode112, paramsMap112, handler);
                 Thread t1 = new Thread(a1.runnable);
                 t1.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
             case R.id.c3:
-                String mode2 ="report";
-                String[] paramsMap2 = {Util.userid,yid_zhubo,c3.getText().toString()};
+                String mode2 = "report";
+                String[] paramsMap2 = {Util.userid, yid_zhubo, c3.getText().toString()};
                 UsersThread_01160B a2 = new UsersThread_01160B(mode2, paramsMap2, handler);
                 Thread t2 = new Thread(a2.runnable);
                 t2.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
             case R.id.c4:
-                String mode3 ="report";
-                String[] paramsMap3 = {Util.userid,yid_zhubo,c4.getText().toString()};
+                String mode3 = "report";
+                String[] paramsMap3 = {Util.userid, yid_zhubo, c4.getText().toString()};
                 UsersThread_01160B a3 = new UsersThread_01160B(mode3, paramsMap3, handler);
                 Thread t3 = new Thread(a3.runnable);
                 t3.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
             case R.id.c5:
-                String mode4 ="report";
-                String[] paramsMap4 = {Util.userid,yid_zhubo,c5.getText().toString()};
+                String mode4 = "report";
+                String[] paramsMap4 = {Util.userid, yid_zhubo, c5.getText().toString()};
                 UsersThread_01160B a4 = new UsersThread_01160B(mode4, paramsMap4, handler);
                 Thread t4 = new Thread(a4.runnable);
                 t4.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
             case R.id.c6:
-                String mode5 ="report";
-                String[] paramsMap5 = {Util.userid,yid_zhubo,c6.getText().toString()};
+                String mode5 = "report";
+                String[] paramsMap5 = {Util.userid, yid_zhubo, c6.getText().toString()};
                 UsersThread_01160B a5 = new UsersThread_01160B(mode5, paramsMap5, handler);
                 Thread t5 = new Thread(a5.runnable);
                 t5.start();
-                LogDetect.send(LogDetect.DataType.specialType,"01160 开线程举报:","3");
+                LogDetect.send(LogDetect.DataType.specialType, "01160 开线程举报:", "3");
                 break;
         }
     }
@@ -636,22 +482,23 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            String msgBody=intent.getStringExtra("oneuponechat");
+            String msgBody = intent.getStringExtra("oneuponechat");
 
-            if(msgBody.contains("开0倒1计2时")) {
+            if (msgBody.contains("开0倒1计2时")) {
                 LogDetect.send(LogDetect.DataType.specialType, "01160 主播开倒计时信息 :", msgBody);
                 handler.sendMessage(handler.obtainMessage(330, (Object) msgBody));
-            } else if(msgBody.contains("停0倒1计2时")) {
+            } else if (msgBody.contains("停0倒1计2时")) {
                 handler.sendMessage(handler.obtainMessage(331, (Object) msgBody));
-            } else if(msgBody.startsWith("[☆")){
+            } else if (msgBody.startsWith("[☆")) {
                 LogDetect.send(LogDetect.DataType.specialType, "01160 主播收信息 invite:", msgBody);
                 handler.sendMessage(handler.obtainMessage(350, (Object) msgBody));
-            }else{
+            } else {
                 LogDetect.send(LogDetect.DataType.specialType, "01160 主播收信息 invite:", msgBody);
                 handler.sendMessage(handler.obtainMessage(320, (Object) msgBody));
             }
         }
     }
+
     private class Reciever extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, final Intent intent) {
@@ -666,73 +513,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         }
     }
 
-    private void showSoftInputView(final View v) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ((InputMethodManager) v.getContext().getSystemService(
-                        Service.INPUT_METHOD_SERVICE)).toggleSoftInput(0,
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-            }
-        }, 0);
-    }
 
-    /**
-     * 执行发送消息 文本类型
-     * @param content
-     */
-    void sendMsgText(String content) {
-//        edtInput.setText("");
-//        addGrpChat(content);
-//        handler.obtainMessage(19).sendToTarget();
-        final String message = content + Const.SPLIT + Const.ACTION_MSG_ONECHAT
-                + Const.SPLIT + sd.format(new Date())+ Const.SPLIT+username;
-        //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
-                    sendMessage(Utils.xmppConnection, message, yid_zhubo);
-                } catch (XMPPException | SmackException.NotConnectedException e) {
-                    e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-                    Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-                    Looper.loop();
-                }
-            }
-        }).start();
-
-    }
-
-    /**
-     * 隐藏软键盘
-     */
-    public void hideSoftInputView() {
-        InputMethodManager manager = ((InputMethodManager) getActivity()
-                .getSystemService(Activity.INPUT_METHOD_SERVICE));
-        if (getActivity().getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-            if (getActivity().getCurrentFocus() != null)
-                manager.hideSoftInputFromWindow(getActivity().getCurrentFocus()
-                        .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
-
-    public void updateRemoteSurfaceView(final SurfaceView surface) {
-        getActivity().runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                remoteSurface = surface;
-                if(remoteContainer != null) {
-                    remoteContainer.removeAllViews();
-                    remoteContainer.addView(remoteSurface);
-                }
-            }
-        });
-
-    }
 
     private void initAgoraEngineAndJoinChannel() {
 
@@ -741,16 +522,10 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
         localSurface = videoHandler.getLocalSurfaceView();  //AgoraVideoManager.getLocalSurfaceView();
 
-        if(localSurface != null) {
-            // localSurface设置了1像素，再重新恢复一下
-//            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)localSurface.getLayoutParams();
-//            params.height = FrameLayout.LayoutParams.MATCH_PARENT;
-//            params.width = FrameLayout.LayoutParams.MATCH_PARENT;
-//            localSurface.setLayoutParams(params);
+        if (localSurface != null) {
             localSurface.setZOrderMediaOverlay(true);
             localContainer.addView(localSurface);
         }
-
 
 
 //        AgoraVideoManager.setAgoraRtcListener(mRtcEventHandler);
@@ -774,50 +549,19 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[], @NonNull int[] grantResults) {
-        //Log.i(LOG_TAG, "onRequestPermissionsResult " + grantResults[0] + " " + requestCode);
 
-//        switch (requestCode) {
-//            case PERMISSION_REQ_ID_RECORD_AUDIO: {
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA);
-//                } else {
-//                    showLongToast("没有权限 " + Manifest.permission.RECORD_AUDIO);
-//                    finish();
-//                }
-//                break;
-//            }
-//            case PERMISSION_REQ_ID_CAMERA: {
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    initAgoraEngineAndJoinChannel();
-//                } else {
-//                    showLongToast("没有权限 " + Manifest.permission.CAMERA);
-//                    finish();
-//                }
-//                break;
-//            }
-//        }
     }
 
-    public final void showLongToast(final String msg) {
-        baseActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(baseActivity.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.v("TT","zhubo_bk  onDestroy()");
+        Log.v("TT", "zhubo_bk  onDestroy()");
         stopAwake();    // 解除屏幕常亮
 
-        Log.v("TT","before disableAudioFrame()");
-        Log.v("TT","after disableAudioFrame()");
+        Log.v("TT", "before disableAudioFrame()");
+        Log.v("TT", "after disableAudioFrame()");
         leaveChannel();
 
         timer.cancel();//关闭定时器
@@ -857,27 +601,13 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         videoHandler.muteLocalAudioStream(iv.isSelected());   //mRtcEngine.muteLocalAudioStream(iv.isSelected());
     }
 
-    // Tutorial Step 8
-    public void onSwitchCameraClicked(View view) {
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                Log.v("TT","before switchcamera");
-                videoHandler.switchCamera();   //mRtcEngine.switchCamera();
-                Log.v("TT","after switchcamera");
-            }
-        }).start();
-    }
-
     // Tutorial Step 6
     public void onEncCallClicked(View view) {
-
         //修改主播 活跃状态
         String mode1 = "modezhubostate";
-        String[] paramsMap1 = {Util.userid,yid_zhubo};
-        LogDetect.send(LogDetect.DataType.specialType,"01160 主播挂断 video:", Util.userid);
-        UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handler);
+        String[] paramsMap1 = {Util.userid, yid_zhubo};
+        LogDetect.send(LogDetect.DataType.specialType, "01160 主播挂断 video:", Util.userid);
+        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
         Thread c = new Thread(a.runnable);
         c.start();
         baseActivity.finish();
@@ -893,24 +623,24 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(localSurface == null || remoteSurface == null) {
+                if (localSurface == null || remoteSurface == null) {
                     //Toast.makeText(VideoChatViewActivity.this, "surface null", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    if(remoteContainer == null || localContainer == null) {
+                    if (remoteContainer == null || localContainer == null) {
                         //Toast.makeText(VideoChatViewActivity.this, "container null", Toast.LENGTH_SHORT).show();
                     } else {
                         //Toast.makeText(VideoChatViewActivity.this, "onClick", Toast.LENGTH_SHORT).show();
                         localContainer.removeAllViews();
                         remoteContainer.removeAllViews();
-                        String tag = (String)remoteContainer.getTag();
-                        if("remote".equals(tag)) {
+                        String tag = (String) remoteContainer.getTag();
+                        if ("remote".equals(tag)) {
                             remoteContainer.addView(localSurface);
                             localContainer.addView(remoteSurface);
                             localSurface.setZOrderMediaOverlay(false);
                             remoteSurface.setZOrderMediaOverlay(true);
                             remoteContainer.setTag("local");
-                        } else if("local".equals(tag)) {
+                        } else if ("local".equals(tag)) {
                             remoteContainer.addView(remoteSurface);
                             localContainer.addView(localSurface);
                             localSurface.setZOrderMediaOverlay(true);
@@ -941,9 +671,9 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         container.removeAllViews();
 
         String mode1 = "modezhubostate";
-        String[] paramsMap1 = {Util.userid,yid_zhubo};
-        LogDetect.send(LogDetect.DataType.specialType,"01160 主播改变在线状态 video:",Util.userid);
-        UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handler);
+        String[] paramsMap1 = {Util.userid, yid_zhubo};
+        LogDetect.send(LogDetect.DataType.specialType, "01160 主播改变在线状态 video:", Util.userid);
+        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
         Thread c = new Thread(a.runnable);
         c.start();
 
@@ -954,16 +684,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
     // Tutorial Step 10
     private void onRemoteUserVideoMuted(boolean muted) {
-//        Log.v("TT","onRemoteUserVideoMuted():"+uid+","+muted);
-//        FrameLayout container = (FrameLayout) findViewById(R.id.remote_video_view_container);
-//
-//        SurfaceView surfaceView = (SurfaceView) container.getChildAt(0);
-//        LogDetect.send(LogDetect.DataType.specialType, "TyrantsFragment: ", surfaceView);
-//        Object tag = surfaceView.getTag();
-//        if (tag != null && (Integer) tag == uid) {
-//            surfaceView.setVisibility(muted ? View.GONE : View.VISIBLE);
-//        }
-        if(muted) {
+
+        if (muted) {
             layMuteRemoteVideo.setVisibility(View.VISIBLE);
         } else {
             layMuteRemoteVideo.setVisibility(View.GONE);
@@ -979,26 +701,26 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
             super.handleMessage(msg);
             switch (msg.what) {
                 case 280:
-                    String json1 = (String)msg.obj;
-                    if(!json1.equals("")){
+                    String json1 = (String) msg.obj;
+                    if (!json1.equals("")) {
                         try {
                             JSONObject jsonObject = new JSONObject(json1);
-                            LogDetect.send(LogDetect.DataType.exceptionType,"01160 给主播扣钱:",jsonObject);
+                            LogDetect.send(LogDetect.DataType.exceptionType, "01160 给主播扣钱:", jsonObject);
                             //如果返回1，说明修改成功了
-                            String success_ornot=jsonObject.getString("success");
-                            if(success_ornot.equals("1")){
-                                LogDetect.send(LogDetect.DataType.specialType,"扣了几次:",num);
-                                String qian = num+"";
+                            String success_ornot = jsonObject.getString("success");
+                            if (success_ornot.equals("1")) {
+                                LogDetect.send(LogDetect.DataType.specialType, "扣了几次:", num);
+                                String qian = num + "";
                                 Toast.makeText(baseActivity, "主播挂断，扣除1分钟的钱.", Toast.LENGTH_SHORT).show();
                                 baseActivity.finish();
-                            }else{
+                            } else {
                                 Toast.makeText(baseActivity, "您的余额不足，无法挂断", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }else{
-                        Toast.makeText(baseActivity,"请检查网络连接", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(baseActivity, "请检查网络连接", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
@@ -1008,67 +730,23 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                     baseActivity.finish();
                     break;
                 case 210:
-             /*     String xiaoxi = (String) msg.obj;
-                    LogDetect.send(LogDetect.DataType.specialType,"01160 实时充值 :",xiaoxi);
-                    Toast.makeText(VideoChatViewActivity_zhubo.this, xiaoxi, Toast.LENGTH_SHORT).show();
-                    break;*/
-              /*case 300:
-                    String json = (String)msg.obj;
-                    LogDetect.send(LogDetect.DataType.exceptionType,"01160 倒计时:",json);
-                    try {
-                        JSONObject jsonObject = new JSONObject(json);
-                        LogDetect.send(LogDetect.DataType.exceptionType,"01160 倒计时:",jsonObject);
-                        //如果返回1，说明修改成功了
-                        String success_ornot=jsonObject.getString("success");
-                        if(success_ornot.equals("0")){
-                            ly1.setVisibility(View.GONE);
-                            num ++;
-                            String mode1 = "kan_qian";
-                            String[] paramsMap1 = {Util.userid,yid_zhubo};
-                            UsersThread_01160 a = new UsersThread_01160(mode1,paramsMap1,handler);
-
-
-                            service = Executors
-                                    .newSingleThreadScheduledExecutor();
-                            service.scheduleAtFixedRate(a.runnable, 1, 1, TimeUnit.MINUTES);
-                            LogDetect.send(LogDetect.DataType.specialType,"01160 主播执行1分钟定时看用户钱:",TimeUnit.MINUTES);
-
-                        }//否则弹出提示
-                        else if(success_ornot.equals("2")){
-                            ly1.setVisibility(View.GONE);
-                            String mode1 = "mod_online";
-                            String[] paramsMap1 = {Util.userid,Util.userid};
-                            UsersThread_01160 a = new UsersThread_01160(mode1,paramsMap1,handler);
-                            Thread t = new Thread(a.runnable);
-                            t.start();
-                        }
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    break;*/
                 case 220:
                     break;
                 case 320:
-                    String msgBody = (String)msg.obj;
-                    if(!msgBody.equals("")){
+                    String msgBody = (String) msg.obj;
+                    if (!msgBody.equals("")) {
                         Msg m = new Msg();
        /*             List<Msg> listMsg = new ArrayList<Msg>();*/
                         String[] msgs = msgBody.split("卍");
-                        LogDetect.send(LogDetect.DataType.specialType,"主播收到", "msgs:"+msgs);
-          /*          m.setContent(msgs[0]);
-                    m.setType(msgs[1]);
-                    m.setDate(msgs[2]);*/
-                        duifang = msgs[3];//发送人
-          /*          m.setBak1(msgs[4]); //发送人头像*/
+                        LogDetect.send(LogDetect.DataType.specialType, "主播收到", "msgs:" + msgs);
 
                         addGrpChat(msgs[0]);
-                        LogDetect.send(LogDetect.DataType.specialType,"01160 顾客发zhubo:",guke_name+":"+msgs[0]);
+                        LogDetect.send(LogDetect.DataType.specialType, "01160 顾客发zhubo:", guke_name + ":" + msgs[0]);
                         //freshGrpChat();
                         handler.obtainMessage(19).sendToTarget();
-                        LogDetect.send(LogDetect.DataType.specialType,"01160", "msgs:"+msgs.toString());
-                    }else{
-                        Toast.makeText(baseActivity,"网络连接异常，请稍后再试", Toast.LENGTH_SHORT).show();
+                        LogDetect.send(LogDetect.DataType.specialType, "01160", "msgs:" + msgs.toString());
+                    } else {
+                        Toast.makeText(baseActivity, "网络连接异常，请稍后再试", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 350:
@@ -1077,29 +755,30 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                 case 330:
                     //Log.v("TT","开倒计时: "+msg.obj);
                     ly1.setVisibility(View.VISIBLE);
-                    Toast.makeText(baseActivity,"请提示对方，余额不足",Toast.LENGTH_LONG).show();
-                    String[] msgArray = ((String)msg.obj).split("卍");
-                    String countType = msgArray[0].replaceAll("开0倒1计2时","");
+                    Toast.makeText(baseActivity, "请提示对方，余额不足", Toast.LENGTH_LONG).show();
+                    String[] msgArray = ((String) msg.obj).split("卍");
+                    String countType = msgArray[0].replaceAll("开0倒1计2时", "");
                     int counter;
-                    Log.v("TT","开倒计时-type: "+countType);
-                    switch(countType) {
+                    Log.v("TT", "开倒计时-type: " + countType);
+                    switch (countType) {
                         case "2":   // 两分钟倒计时
-                            counter = 60*2000;
+                            counter = 60 * 2000;
                             break;
                         case "3":   // 一分钟倒计时
-                            counter = 60*1000;
+                            counter = 60 * 1000;
                             break;
                         default:
-                            counter = 60*1000;
+                            counter = 60 * 1000;
                             break;
                     }
 
-                    c = new CountDownTimer(counter,1000){
+                    c = new CountDownTimer(counter, 1000) {
                         @Override
                         public void onTick(long l) {
                             //String a = String.valueOf(millisUntilFinished);
-                            t2.setText(""+ String.format("%d",l/1000)+"秒");
+                            t2.setText("" + String.format("%d", l / 1000) + "秒");
                         }
+
                         @Override
                         public void onFinish() {
 //                            String mode1 = "mod_online";
@@ -1114,8 +793,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                     break;
                 case 331:
                     ly1.setVisibility(View.GONE);
-                    Toast.makeText(baseActivity,"对方已充值",Toast.LENGTH_LONG).show();
-                    if(c != null) {
+                    Toast.makeText(baseActivity, "对方已充值", Toast.LENGTH_LONG).show();
+                    if (c != null) {
                         c.cancel();
                     }
                     break;
@@ -1124,7 +803,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                     break;
                 case 25:
                     String reportcheckjson = (String) msg.obj;
-                    if(reportcheckjson.isEmpty()){
+                    if (reportcheckjson.isEmpty()) {
                         Toast.makeText(baseActivity, "网络连接异常。请稍后重试", Toast.LENGTH_SHORT).show();
                         break;
                     }
@@ -1137,65 +816,45 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                         e1.printStackTrace();
                     }
                     LogDetect.send(LogDetect.DataType.specialType, "handleMessage01178--reportcheckjson-:", reportcheckjson);
-                    if("1".equals(reportcheckjson))
-                    {
+                    if ("1".equals(reportcheckjson)) {
                         Toast.makeText(baseActivity, "成功", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(baseActivity, "失败", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 1:
                     strtime = (String) msg.obj;
-                    if(!strtime.equals("")){
+                    if (!strtime.equals("")) {
                         time.setText(strtime);
-                    }else{
+                    } else {
                         time.setText("");
                     }
                     break;
                 case 203:
                     String json_report = (String) (msg).obj;
-                    LogDetect.send(LogDetect.DataType.specialType,"01160:",msg);
-                    if(!json_report.isEmpty()){
+                    LogDetect.send(LogDetect.DataType.specialType, "01160:", msg);
+                    if (!json_report.isEmpty()) {
                         try {
                             JSONObject jsonObject1 = new JSONObject(json_report);
-                            LogDetect.send(LogDetect.DataType.specialType,"01160:",jsonObject1);
+                            LogDetect.send(LogDetect.DataType.specialType, "01160:", jsonObject1);
                             //拉黑
-                            String success_ornot=jsonObject1.getString("success");
-                            LogDetect.send(LogDetect.DataType.specialType,"01160 success_ornot:",success_ornot);
-                            if(success_ornot.equals("1")){
+                            String success_ornot = jsonObject1.getString("success");
+                            LogDetect.send(LogDetect.DataType.specialType, "01160 success_ornot:", success_ornot);
+                            if (success_ornot.equals("1")) {
                                 popupWindow.dismiss();
                                 Toast.makeText(baseActivity, "举报成功", Toast.LENGTH_SHORT).show();
                             }
-                        }catch(JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(baseActivity, "举报失败，请检查网络连接", Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
         }
     };
-    /**
-     * 表情页改变时，dots效果也要跟着改变
-     * */
-    class PageChange implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-        }
 
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-        }
-
-        @Override
-        public void onPageSelected(int arg0) {
-            for (int i = 0; i < mDotsLayout.getChildCount(); i++) {
-                mDotsLayout.getChildAt(i).setSelected(false);
-            }
-            mDotsLayout.getChildAt(arg0).setSelected(true);
-        }
-    }
 
     /**
      * 发送消息
@@ -1218,14 +877,15 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
             chat.sendMessage(content, Util.userid + "@" + Const.XMPP_HOST);
             Log.e("jj", "发送成功");
-            LogDetect.send(LogDetect.DataType.noType,"01160主播发消息" ,content);
-        }else{
+            LogDetect.send(LogDetect.DataType.noType, "01160主播发消息", content);
+        } else {
             //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"send fail:chat is null");
         }
     }
 
     //连点两次退出
     private long firstTime = 0;
+
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         switch (keyCode) {
@@ -1238,9 +898,9 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                     //改变主播状态
                     //hideSoftInputView();
                     String mode1 = "modezhubostate";
-                    String[] paramsMap1 = {Util.userid,yid_zhubo};
-                    LogDetect.send(LogDetect.DataType.specialType,"01160 主播改变在线状态 video:",Util.userid);
-                    UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handler);
+                    String[] paramsMap1 = {Util.userid, yid_zhubo};
+                    LogDetect.send(LogDetect.DataType.specialType, "01160 主播改变在线状态 video:", Util.userid);
+                    UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
                     Thread c = new Thread(a.runnable);
                     c.start();
                     baseActivity.finish();
@@ -1250,27 +910,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         return false;
     }
 
-//    @Override
-//    public void onLayoutChange(View v, int left, int top, int right,
-//                               int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-//        if(oldBottom != 0 && bottom != 0 &&(oldBottom - bottom > keyHeight)){
-//        }else if(oldBottom != 0 && bottom != 0 &&(bottom - oldBottom > keyHeight)){
-//            //关闭
-//            layChat.setVisibility(View.GONE);
-//        }
-//
-//    }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        //添加layout大小发生改变监听器
-//        activity_video_chat_view.addOnLayoutChangeListener(this);
-//    }
-
     //举报
-    @SuppressLint({ "RtlHardcoded", "NewApi" })
+    @SuppressLint({"RtlHardcoded", "NewApi"})
     public void showPopupspWindow_rp(View parent) {
         // 加载布局
         LayoutInflater inflater = LayoutInflater.from(baseActivity);
@@ -1293,7 +934,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         c5.setOnClickListener(this);
         c6.setOnClickListener(this);
 
-        quxiao = (TextView)layout.findViewById(R.id.quxiao);
+        quxiao = (TextView) layout.findViewById(R.id.quxiao);
         quxiao.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -1312,7 +953,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         baseActivity.getWindow().setAttributes(lp);
         popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
         //popupWindow.showAsDropDown(parent, 0, 0,Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
-        popupWindow.showAtLocation(parent, Gravity.CENTER_VERTICAL|Gravity.BOTTOM, 0, 0);
+        popupWindow.showAtLocation(parent, Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 0);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             public void onDismiss() {
                 WindowManager.LayoutParams lp = baseActivity.getWindow().getAttributes();
@@ -1335,19 +976,19 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
     private void showRedpkLayout(String username, String value) {
 
-        redpkUsername.setText(username+"用户");
+        redpkUsername.setText(username + "用户");
         redpkValue.setText(value);
 
-        if(layRedpk.getVisibility() == View.GONE) {
+        if (layRedpk.getVisibility() == View.GONE) {
 
             layRedpk.setVisibility(View.VISIBLE);
 
-            showRedpkThread = new redpkTimer(){
+            showRedpkThread = new redpkTimer() {
 
                 @Override
                 public void run() {
 
-                    while(curCnt < maxCnt) {
+                    while (curCnt < maxCnt) {
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e1) {
@@ -1372,7 +1013,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
             new Thread(showRedpkThread).start();
         } else {
-            if(showRedpkThread != null) {
+            if (showRedpkThread != null) {
                 showRedpkThread.clearCnt();
             }
         }
@@ -1392,7 +1033,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     protected SeekBar mSkinSmoothSeek;
     protected SeekBar mSkinWihtenSeek;
     protected SeekBar mRedFaceSeek;
-
 
 
     private ArrayList<MenuBean> mStickerData;
@@ -1425,7 +1065,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     protected void init() {
         //super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_camera_with_filter);
-        GPUCamImgOperator =  new GPUCamImgOperator();
+        GPUCamImgOperator = new GPUCamImgOperator();
         LuoGLCameraView luoGLCameraView = (LuoGLCameraView) videoHandler.getLocalSurfaceView(); //AgoraVideoManager.getLocalSurfaceView();
         //mCustomizedCameraRenderer = luoGLCameraView;
 
@@ -1444,33 +1084,36 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         XJGArSdkApi.XJGARSDKSetShowStickerPapers(false);
     }
 
-    private void initView(){
-        mFilterLayout = (LinearLayout)fragmentView.findViewById(R.id.layout_filter);
+    private void initView() {
+        mFilterLayout = (LinearLayout) fragmentView.findViewById(R.id.layout_filter);
 
-        mFaceSurgeryLayout = (LinearLayout)fragmentView.findViewById(R.id.layout_facesurgery);
-        mFaceSurgeryFaceShapeSeek = (SeekBar)fragmentView.findViewById(R.id.faceShapeValueBar);
+        mFaceSurgeryLayout = (LinearLayout) fragmentView.findViewById(R.id.layout_facesurgery);
+        mFaceSurgeryFaceShapeSeek = (SeekBar) fragmentView.findViewById(R.id.faceShapeValueBar);
         mFaceSurgeryFaceShapeSeek.setProgress(20);
-        mFaceSurgeryBigEyeSeek = (SeekBar)fragmentView.findViewById(R.id.bigeyeValueBar);
+        mFaceSurgeryBigEyeSeek = (SeekBar) fragmentView.findViewById(R.id.bigeyeValueBar);
         mFaceSurgeryBigEyeSeek.setProgress(50);
 
-        mSkinSmoothSeek = (SeekBar)fragmentView.findViewById(R.id.skinSmoothValueBar);
+        mSkinSmoothSeek = (SeekBar) fragmentView.findViewById(R.id.skinSmoothValueBar);
         mSkinSmoothSeek.setProgress(100);
-        mSkinWihtenSeek = (SeekBar)fragmentView.findViewById(R.id.skinWhitenValueBar);
+        mSkinWihtenSeek = (SeekBar) fragmentView.findViewById(R.id.skinWhitenValueBar);
         mSkinWihtenSeek.setProgress(20);
-        mRedFaceSeek = (SeekBar)fragmentView.findViewById(R.id.redFaceValueBar);
+        mRedFaceSeek = (SeekBar) fragmentView.findViewById(R.id.redFaceValueBar);
         mRedFaceSeek.setProgress(80);
         XJGArSdkApi.XJGARSDKSetSkinSmoothParam(100);
         XJGArSdkApi.XJGARSDKSetWhiteSkinParam(20);
         XJGArSdkApi.XJGARSDKSetRedFaceParam(80);
         mFaceSurgeryFaceShapeSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 value = i;
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int strength = value;//(int)(value*(float)1.0/100);
@@ -1479,13 +1122,16 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         });
         mFaceSurgeryBigEyeSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 value = i;
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int strength = value;//(int)(value*(float)1.0/100);
@@ -1494,13 +1140,16 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         });
         mSkinSmoothSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 value = i;
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int level = value;//(int)(value/18);
@@ -1511,13 +1160,16 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
         mSkinWihtenSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 value = i;
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int level = value;//(int)(value/18);
@@ -1527,13 +1179,16 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         });
         mRedFaceSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 value = i;
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int level = value;//(int)(value/18);
@@ -1544,8 +1199,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
         mFilterListView = (RecyclerView) fragmentView.findViewById(R.id.filter_listView);
 
-        btn_shutter = (ImageView)fragmentView.findViewById(R.id.btn_camera_shutter);
-        btn_mode = (ImageView)fragmentView.findViewById(R.id.btn_camera_mode);
+        btn_shutter = (ImageView) fragmentView.findViewById(R.id.btn_camera_shutter);
+        btn_mode = (ImageView) fragmentView.findViewById(R.id.btn_camera_mode);
 
         fragmentView.findViewById(R.id.btn_camera_filter).setOnClickListener(btn_listener);
         fragmentView.findViewById(R.id.btn_camera_closefilter).setOnClickListener(btn_listener);
@@ -1562,7 +1217,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         mFilterListView.setAdapter(mAdapter);
         mAdapter.setOnFilterChangeListener(onFilterChangeListener);
 
-        animator = ObjectAnimator.ofFloat(btn_shutter,"rotation",0,360);
+        animator = ObjectAnimator.ofFloat(btn_shutter, "rotation", 0, 360);
         animator.setDuration(500);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         Point screenSize = new Point();
@@ -1576,33 +1231,32 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 //        cameraView.setLayoutParams(params);
 
 
-
-        mMenuView= (RecyclerView)fragmentView.findViewById(R.id.mMenuView);
-        mStickerData=new ArrayList<>();
-        mMenuView.setLayoutManager(new LinearLayoutManager(baseActivity, LinearLayoutManager.HORIZONTAL,false));
-        mStickerAdapter=new MenuAdapter(baseActivity,mStickerData);
+        mMenuView = (RecyclerView) fragmentView.findViewById(R.id.mMenuView);
+        mStickerData = new ArrayList<>();
+        mMenuView.setLayoutManager(new LinearLayoutManager(baseActivity, LinearLayoutManager.HORIZONTAL, false));
+        mStickerAdapter = new MenuAdapter(baseActivity, mStickerData);
         mStickerAdapter.setOnClickListener(new ClickUtils.OnClickListener() {
             @Override
             public void onClick(final View v, int type, int pos, int child) {
-                final MenuBean m=mStickerData.get(pos);
-                final String name=m.name;
+                final MenuBean m = mStickerData.get(pos);
+                final String name = m.name;
                 String path = m.path;
                 if (name.equals("无")) {
                     XJGArSdkApi.XJGARSDKSetShowStickerPapers(false);
-                    mStickerAdapter.checkPos=pos;
+                    mStickerAdapter.checkPos = pos;
                     v.setSelected(true);
 //                }else if(name.equals("测试2")){
 //
 //                    mStickerAdapter.checkPos=pos;
 //                    v.setSelected(true);
                     mStickerAdapter.notifyDataSetChanged();
-                }else{
+                } else {
 //                    String stickerPaperdir = XJGArSdkApi.getPrivateResDataDir(baseActivity.getApplicationContext());
 //                    stickerPaperdir = stickerPaperdir +"/StickerPapers/"+ path;
 
-                    if(type == R.id.mMenu) {
+                    if (type == R.id.mMenu) {
                         try {
-                            Log.v("XXX","切换动效: "+getStickPaperDir().getAbsolutePath() + "/StickerPapers/" + path);
+                            Log.v("XXX", "切换动效: " + getStickPaperDir().getAbsolutePath() + "/StickerPapers/" + path);
                             ZIP.unzipAStickPaperPackages(getStickPaperDir().getAbsolutePath() + "/StickerPapers/" + path);
 
                             XJGArSdkApi.XJGARSDKSetShowStickerPapers(true);
@@ -1611,24 +1265,24 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                             v.setSelected(true);
                             mStickerAdapter.notifyDataSetChanged();
                         } catch (Exception e) {
-                            Log.e("XXX","切换动效异常： "+getStackInfo(e));
+                            Log.e("XXX", "切换动效异常： " + getStackInfo(e));
                         }
-                    } else if(type == R.id.laydownload) {
+                    } else if (type == R.id.laydownload) {
                         v.setEnabled(false);
                         final ImageView imgDownload = v.findViewById(R.id.imgdownload);
                         final ProgressBar pbDownload = v.findViewById(R.id.pbprogress);
                         imgDownload.setVisibility(View.GONE);
                         pbDownload.setVisibility(View.VISIBLE);
                         new Downloader(Util.url + "/res/" + path + ".zip",
-                                getStickPaperDir().getAbsolutePath() + "/StickerPapers/"+path + ".zip",
+                                getStickPaperDir().getAbsolutePath() + "/StickerPapers/" + path + ".zip",
                                 new Downloader.DownloaderListener() {
                                     @Override
                                     public void onError(final int code, final String reason) {
-                                        Log.v("XXX","onError["+code+"]: "+reason);
+                                        Log.v("XXX", "onError[" + code + "]: " + reason);
                                         baseActivity.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                Toast.makeText(baseActivity, "下载 "+name+"失败("+code+"): "+reason, Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(baseActivity, "下载 " + name + "失败(" + code + "): " + reason, Toast.LENGTH_SHORT).show();
                                                 pbDownload.setVisibility(View.GONE);
                                                 imgDownload.setVisibility(View.VISIBLE);
                                             }
@@ -1637,7 +1291,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
                                     @Override
                                     public void onProgress(final int progress) {
-                                        Log.v("XXX","onProgress: "+progress);
+                                        Log.v("XXX", "onProgress: " + progress);
                                         baseActivity.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
@@ -1651,7 +1305,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
                                     public void onSuccess(long length, String filePath) {
                                         m.exist = true;
                                         m.isDownloading = false;
-                                        Log.v("XXX","onSuccess: ("+length+") "+filePath);
+                                        Log.v("XXX", "onSuccess: (" + length + ") " + filePath);
                                         baseActivity.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
@@ -1693,24 +1347,24 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
 //
 
-        MenuBean bean=new MenuBean();
-        bean.name="无";
-        bean.path="";
+        MenuBean bean = new MenuBean();
+        bean.name = "无";
+        bean.path = "";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="天使";
-        bean.path="angel";
+        bean = new MenuBean();
+        bean.name = "天使";
+        bean.path = "angel";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="财神爷";
-        bean.path="caishen";
+        bean = new MenuBean();
+        bean.name = "财神爷";
+        bean.path = "caishen";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="罐头狗";
-        bean.path="cangou";
+        bean = new MenuBean();
+        bean.name = "罐头狗";
+        bean.path = "cangou";
         mStickerData.add(bean);
 
 //        bean=new MenuBean();
@@ -1718,9 +1372,9 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 //        bean.path="daxiongmao";
 //        mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="潜水镜";
-        bean.path="diving";
+        bean = new MenuBean();
+        bean.name = "潜水镜";
+        bean.path = "diving";
         mStickerData.add(bean);
 
 //        bean=new MenuBean();
@@ -1728,9 +1382,9 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 //        bean.path="flowermustach";
 //        mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="花环";
-        bean.path="huahuan";
+        bean = new MenuBean();
+        bean.name = "花环";
+        bean.path = "huahuan";
         mStickerData.add(bean);
 //
 //        bean=new MenuBean();
@@ -1743,24 +1397,24 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 //        bean.path="hunli";
 //        mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="蕾丝";
-        bean.path="leisi";
+        bean = new MenuBean();
+        bean.name = "蕾丝";
+        bean.path = "leisi";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="路飞";
-        bean.path="lufei";
+        bean = new MenuBean();
+        bean.name = "路飞";
+        bean.path = "lufei";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="鹿花";
-        bean.path="lvhua";
+        bean = new MenuBean();
+        bean.name = "鹿花";
+        bean.path = "lvhua";
         mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="梦兔";
-        bean.path="mengtu";
+        bean = new MenuBean();
+        bean.name = "梦兔";
+        bean.path = "mengtu";
         mStickerData.add(bean);
 
 //        bean=new MenuBean();
@@ -1778,15 +1432,15 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 //        bean.path="strawberry";
 //        mStickerData.add(bean);
 
-        bean=new MenuBean();
-        bean.name="血族女";
-        bean.path="xuezunv";
+        bean = new MenuBean();
+        bean.name = "血族女";
+        bean.path = "xuezunv";
         mStickerData.add(bean);
 
 
-        bean=new MenuBean();
-        bean.name=" 西瓜猫";
-        bean.path="stpaper900224";
+        bean = new MenuBean();
+        bean.name = " 西瓜猫";
+        bean.path = "stpaper900224";
         mStickerData.add(bean);
 
 //        bean=new MenuBean();
@@ -1799,7 +1453,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         mStickerAdapter.notifyDataSetChanged();
     }
 
-    private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener(){
+    private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener() {
 
         @Override
         public void onFilterChanged(com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType filterType) {
@@ -1809,22 +1463,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         }
     };
 
-    public void subPermissions(int requestCode, String[] permissions,
-                               int[] grantResults) {
-
-        //subPermissionsResult(requestCode, permissions, grantResults);
-
-        if (grantResults.length != 1 || grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if(mode == MODE_PIC)
-                takePhoto();
-            else
-                takeVideo();
-        } else {
-            //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-
-    }
 
     static boolean bShowFaceSurgery = false;
     static boolean bShowImgFilters = false;
@@ -1833,42 +1471,37 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         @Override
         public void onClick(View v) {
             int buttonId = v.getId();
-            if( buttonId == R.id.btn_camera_mode) {
+            if (buttonId == R.id.btn_camera_mode) {
                 switchMode();
-            }
-            else if (buttonId == R.id.btn_camera_shutter) {
+            } else if (buttonId == R.id.btn_camera_shutter) {
                 if (PermissionChecker.checkSelfPermission(baseActivity,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         == PackageManager.PERMISSION_DENIED) {
-                    ActivityCompat.requestPermissions(baseActivity, new String[] {
-                                    Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                    ActivityCompat.requestPermissions(baseActivity, new String[]{
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             v.getId());
                 } else {
-                    if(mode == MODE_PIC)
+                    if (mode == MODE_PIC)
                         takePhoto();
                     else
                         takeVideo();
                 }
-            }
-            else if (buttonId == R.id.btn_camera_filter) {
+            } else if (buttonId == R.id.btn_camera_filter) {
                 bShowImgFilters = !bShowImgFilters;
-                if(bShowImgFilters)
+                if (bShowImgFilters)
                     showFilters();
                 else
                     hideFilters();
-            }
-            else if (buttonId == R.id.btn_camera_switch) {
+            } else if (buttonId == R.id.btn_camera_switch) {
                 GPUCamImgOperator.switchCamera();
-            }
-            else if (buttonId == R.id.btn_camera_beauty) {
-                bShowFaceSurgery = ! bShowFaceSurgery;
-                if(bShowFaceSurgery)
+            } else if (buttonId == R.id.btn_camera_beauty) {
+                bShowFaceSurgery = !bShowFaceSurgery;
+                if (bShowFaceSurgery)
                     showFaceSurgery();
                 else
                     hideFaceSurgery();
-            }
-            else if (buttonId ==  R.id.btn_camera_closefilter) {
-                if(bShowImgFilters) {
+            } else if (buttonId == R.id.btn_camera_closefilter) {
+                if (bShowImgFilters) {
                     hideFilters();
                     bShowImgFilters = false;
                 }
@@ -1876,25 +1509,25 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         }
     };
 
-    private void switchMode(){
-        if(mode == MODE_PIC){
+    private void switchMode() {
+        if (mode == MODE_PIC) {
             mode = MODE_VIDEO;
             btn_mode.setImageResource(R.drawable.icon_camera);
-        }else{
+        } else {
             mode = MODE_PIC;
             btn_mode.setImageResource(R.drawable.icon_video);
         }
     }
 
-    private void takePhoto(){
+    private void takePhoto() {
         GPUCamImgOperator.savePicture();
     }
 
-    private void takeVideo(){
-        if(isRecording) {
+    private void takeVideo() {
+        if (isRecording) {
             animator.end();
             GPUCamImgOperator.stopRecord();
-        }else {
+        } else {
             animator.start();
             GPUCamImgOperator.startRecord();
         }
@@ -1902,8 +1535,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     }
 
     //显示面部整形
-    private void showFaceSurgery()
-    {
+    private void showFaceSurgery() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(mFaceSurgeryLayout, "translationY", mFaceSurgeryLayout.getHeight(), 0);
         animator.setDuration(200);
         animator.addListener(new Animator.AnimatorListener() {
@@ -1934,9 +1566,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     }
 
     //隐藏面部整形
-    private void hideFaceSurgery()
-    {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mFaceSurgeryLayout, "translationY", 0 ,  mFaceSurgeryLayout.getHeight());
+    private void hideFaceSurgery() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mFaceSurgeryLayout, "translationY", 0, mFaceSurgeryLayout.getHeight());
         animator.setDuration(200);
         animator.addListener(new Animator.AnimatorListener() {
 
@@ -1969,7 +1600,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
     }
 
-    private void showFilters(){
+    private void showFilters() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(mFilterLayout, "translationY", mFilterLayout.getHeight(), 0);
         animator.setDuration(200);
         animator.addListener(new Animator.AnimatorListener() {
@@ -1998,8 +1629,8 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         animator.start();
     }
 
-    private void hideFilters(){
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mFilterLayout, "translationY", 0 ,  mFilterLayout.getHeight());
+    private void hideFilters() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mFilterLayout, "translationY", 0, mFilterLayout.getHeight());
         animator.setDuration(200);
         animator.addListener(new Animator.AnimatorListener() {
 
@@ -2043,10 +1674,10 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     }
 
     private void freshMenuData() {
-        for(int i = 0; i < mStickerData.size(); i++) {
+        for (int i = 0; i < mStickerData.size(); i++) {
             MenuBean bean = mStickerData.get(i);
-            File beautyZip = new File(getStickPaperDir(), "StickerPapers/"+bean.path+".zip");
-            if(beautyZip.exists()) {
+            File beautyZip = new File(getStickPaperDir(), "StickerPapers/" + bean.path + ".zip");
+            if (beautyZip.exists()) {
                 bean.exist = true;
             } else {
                 bean.exist = false;

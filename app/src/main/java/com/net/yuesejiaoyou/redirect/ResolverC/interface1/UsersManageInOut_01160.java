@@ -5,7 +5,7 @@ import android.os.Handler;
 /*
 import com.example.vliao.core.UsersManage_01160;
 import com.example.vliao.getset.Page;
-import com.example.vliao.getset.ZBYuyueJB_01160;
+import com.example.vliao.getset.UserBean;
 import com.example.vliao.interface4.HelpManager_01160;
 import com.example.vliao.interface4.LogDetect;
 */

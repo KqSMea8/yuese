@@ -5,19 +5,20 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,6 +33,39 @@ import java.util.Date;
  */
 
 public class Tools {
+
+    public static void setDrawableTop(TextView textView, int resId) {
+        Resources resources = textView.getContext().getResources();
+        BitmapDrawable drawable = new BitmapDrawable(resources, BitmapFactory.decodeResource(resources, resId));
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, drawable, null, null);
+    }
+
+    public static void setDrawableLeft(TextView textView, int resId) {
+        Resources resources = textView.getContext().getResources();
+        BitmapDrawable drawable = new BitmapDrawable(resources, BitmapFactory.decodeResource(resources, resId));
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(drawable, null, null, null);
+    }
+
+    public static void setDrawableRight(TextView textView, int resId) {
+        Resources resources = textView.getContext().getResources();
+        BitmapDrawable drawable = new BitmapDrawable(resources, BitmapFactory.decodeResource(resources, resId));
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, drawable, null);
+    }
+
+    public static void setDrawableBottom(TextView textView, int resId) {
+        Resources resources = textView.getContext().getResources();
+        BitmapDrawable drawable = new BitmapDrawable(resources, BitmapFactory.decodeResource(resources, resId));
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, null, drawable);
+    }
+
+    public static void setNullDrawable(TextView textView){
+        textView.setCompoundDrawables(null, null, null, null);
+    }
+
 
     public static int dp2px(Context context, float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,

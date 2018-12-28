@@ -1,6 +1,5 @@
 package com.net.yuesejiaoyou.redirect.ResolverB.interface4.util;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,11 +7,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.util.Xml;
 import android.view.SurfaceView;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -21,15 +17,13 @@ import android.widget.FrameLayout;
 //import com.example.vliao.uiface.zhubo_bk;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.core.YhApplicationA;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity_zhubo;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke_01160;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
-
-import org.xmlpull.v1.XmlPullParser;
 
 import java.io.File;
 import java.io.IOException;

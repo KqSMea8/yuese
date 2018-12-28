@@ -15,6 +15,8 @@ import android.widget.TextView;
 //import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
 /*import com.example.vliao.interface3.UsersThread_01168;
 import com.example.vliao.interface4.LogDetect;

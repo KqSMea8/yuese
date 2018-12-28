@@ -33,7 +33,7 @@ import com.example.vliao.util.Util;*/
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoPlay_01066;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.VideoPlayActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01160;
@@ -243,7 +243,7 @@ public class MyTeasure_buy_01160 extends Fragment implements OnClickListener, Sw
 										/***************************
 										 * 播放视频暂注释
 										 **************************/
-										Intent intent = new Intent(mContext, VideoPlay_01066.class);
+										Intent intent = new Intent(mContext, VideoPlayActivity.class);
 										Bundle bundle = new Bundle();
 										bundle.putInt("id", position);
 										bundle.putSerializable("vlist",(Serializable)articles);
@@ -298,7 +298,7 @@ public class MyTeasure_buy_01160 extends Fragment implements OnClickListener, Sw
 								/***************************
 								 * 播放视频暂注释
 								 **************************/
-								Intent intent = new Intent(mContext, VideoPlay_01066.class);
+								Intent intent = new Intent(mContext, VideoPlayActivity.class);
 								Bundle bundle = new Bundle();
 								bundle.putInt("id", position);
 								bundle.putSerializable("vlist",(Serializable)articles);

@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceView;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
@@ -28,6 +30,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.XMPPException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IActivityListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IAgoraVideoEventListener;
@@ -37,11 +40,17 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.microedition.khronos.egl.EGLContext;
 
@@ -50,14 +59,14 @@ import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.AgoraVideoFrame;
 import io.agora.rtc.video.VideoCanvas;
+import okhttp3.Call;
 
 /**
  * Created by Administrator on 2018\8\17 0017.
  * Activity管理： 命令消息、声网一对一视频操作
- *
  */
 
-public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler, IVideoHandler {
+public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVideoHandler {
 
     private GukeInfo gukeInfo;
     private ICmdListener gukeCmdListener;
@@ -67,9 +76,8 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zhubo);
         getWindow().addFlags(
-                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|               //这个在锁屏状态下
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |               //这个在锁屏状态下
                         WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
                         | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
                         | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -82,23 +90,27 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
         initIM();
 
         // 如果是主播回拨则先初始化声网
-        if(gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-            Log.v("TTT","before initVideo()");
+        if (gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+            Log.v("TTT", "before initVideo()");
             initVideo();
         } else {
-            Log.v("TTT","else initVideo()");
+            Log.v("TTT", "else initVideo()");
         }
 
         // 显示默认fragment
-        if(gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+        if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
             startFragment(new FromCallingFragment());
-        } else if(gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+        } else if (gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
             startFragment(new ZhuboCallingFragment());
         } else {
             Toast.makeText(this, "没有适合的接听页面类型", Toast.LENGTH_SHORT).show();
-            return;
         }
 
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_zhubo;
     }
 
     private void startFragment(Fragment fragment) {
@@ -107,9 +119,9 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
         transaction.add(R.id.lay_content, fragment);
         transaction.commit();
 
-        gukeCmdListener = (ICmdListener)fragment;
-        activityListener = (IActivityListener)fragment;
-        videoEventListener = (IAgoraVideoEventListener)fragment;
+        gukeCmdListener = (ICmdListener) fragment;
+        activityListener = (IActivityListener) fragment;
+        videoEventListener = (IAgoraVideoEventListener) fragment;
     }
 
     @Override
@@ -117,7 +129,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
         super.onDestroy();
 
         // 声网相关
-        if(mRtcEngine != null) {
+        if (mRtcEngine != null) {
             leaveChannel();
             RtcEngine.destroy();
         }
@@ -128,8 +140,8 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         boolean bRet;
-        if(activityListener != null) {
-            if(activityListener.onKeyUp(keyCode, event)) {
+        if (activityListener != null) {
+            if (activityListener.onKeyUp(keyCode, event)) {
                 return true;
             }
         }
@@ -152,77 +164,40 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
     private VideoMessageManager.CmdMsgListener cmdMsgListener = new VideoMessageManager.CmdMsgListener() {
         @Override
         public void onCmdMessageListener(String fromId, String fromNickname, String fromHeadpic, String cmd, final String roomid) {
-            Log.v("jj","zhubo_bk-onCmdMessageListener(): "+fromId+","+fromNickname+","+fromHeadpic+","+cmd);
+            Log.v("jj", "zhubo_bk-onCmdMessageListener(): " + fromId + "," + fromNickname + "," + fromHeadpic + "," + cmd);
 
-            if(gukeInfo.getRoomid().equals(roomid) == false) {
+            if (gukeInfo.getRoomid().equals(roomid) == false) {
                 runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         Toast.makeText(ZhuboActivity.this, "roomid不匹配", Toast.LENGTH_SHORT).show();
-                        LogDetect.send("01107", "********** gukeRoomid="+gukeInfo.getRoomid()+",roomid="+roomid+" **********");
+                        LogDetect.send("01107", "********** gukeRoomid=" + gukeInfo.getRoomid() + ",roomid=" + roomid + " **********");
                     }
                 });
                 return;
             }
-            switch(cmd) {
-                case VideoMessageManager.VIDEO_U2A_USER_CALL:	// 用户邀请
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "用户邀请", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+            switch (cmd) {
+                case VideoMessageManager.VIDEO_U2A_USER_CALL:    // 用户邀请
+
                     break;
-                case VideoMessageManager.VIDEO_U2A_USER_HANGUP:	// 用户邀请-用户挂断
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "用户邀请-用户挂断", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+                case VideoMessageManager.VIDEO_U2A_USER_HANGUP:    // 用户邀请-用户挂断
+
                     gukeCmdListener.onCmdHangup();
                     break;
-                case VideoMessageManager.VIDEO_U2A_USER_TIMEUP:	// 用户邀请-用户超时
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "用户邀请-用户超时", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+                case VideoMessageManager.VIDEO_U2A_USER_TIMEUP:    // 用户邀请-用户超时
                     gukeCmdListener.onCmdTimeup();
                     break;
                 case VideoMessageManager.VIDEO_A2U_USER_ACCEPT: // 主播邀请-用户接受
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "主播邀请-用户接受", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+
                     gukeCmdListener.onCmdAccept();
                     break;
                 case VideoMessageManager.VIDEO_A2U_USER_HANGUP: // 主播邀请-用户挂断
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "主播邀请-用户挂断", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+
                     gukeCmdListener.onCmdHangup();
                     break;
                 case VideoMessageManager.VIDEO_A2U_USER_TIMEUP: // 主播邀请-用户超时
-//                    runOnUiThread(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(ZhuboActivity.this, "主播邀请-用户超时", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+
                     gukeCmdListener.onCmdTimeup();
                     break;
             }
@@ -240,11 +215,13 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
     private LuoGLCameraView mCustomizedCameraRenderer;
     private SurfaceView remoteSurface;
     private volatile boolean mJoined = false;
+
     private void initVideo() {
         //if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
-            initAgoraEngineAndJoinChannel();
+        initAgoraEngineAndJoinChannel();
         //}
     }
+
     public boolean checkSelfPermission(String permission, int requestCode) {
         if (ContextCompat.checkSelfPermission(this,
                 permission)
@@ -273,14 +250,14 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
 
                 @Override
                 public void run() {
-                    Log.v("TTT","zhubo-setupRemoteVideo: ,"+Thread.currentThread().getId());
+                    Log.v("TTT", "zhubo-setupRemoteVideo: ," + Thread.currentThread().getId());
                     SurfaceView surfaceView = RtcEngine.CreateRendererView(ZhuboActivity.this);
-                    Log.v("TTT","zhubo-setupRemoteVideo: 2");
+                    Log.v("TTT", "zhubo-setupRemoteVideo: 2");
                     mRtcEngine.setupRemoteVideo(new VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_HIDDEN, uid));
-                    Log.v("TTT","zhubo-setupRemoteVideo: 3");
+                    Log.v("TTT", "zhubo-setupRemoteVideo: 3");
                     remoteSurface = surfaceView;
 
-                    if(videoEventListener != null) {
+                    if (videoEventListener != null) {
                         videoEventListener.onFirstRemoteVideoDecoded();
                     }
                 }
@@ -290,21 +267,21 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
 
         @Override
         public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
-            if(videoEventListener != null) {
+            if (videoEventListener != null) {
                 videoEventListener.onJoinChannelSuccess();
             }
         }
 
         @Override
         public void onUserOffline(int uid, int reason) { // Tutorial Step 7
-            if(videoEventListener != null) {
+            if (videoEventListener != null) {
                 videoEventListener.onUserOffline();
             }
         }
 
         @Override
         public void onUserMuteVideo(final int uid, final boolean muted) { // Tutorial Step 10
-            if(videoEventListener != null) {
+            if (videoEventListener != null) {
                 videoEventListener.onUserMuteVideo(muted);
             }
         }
@@ -321,6 +298,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
             throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
         }
     }
+
     private void setupVideoProfile() {
         mRtcEngine.enableVideo();
 
@@ -338,7 +316,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
 
     // Tutorial Step 3
     private void setupLocalVideo() {
-        if(mCustomizedCameraRenderer == null) {
+        if (mCustomizedCameraRenderer == null) {
             // 代码生成LuoGLCameraView控件
             //@SuppressLint("ResourceType") XmlPullParser parser = mContext.getResources().getXml(R.layout.lay_luoglcameraview);
             //AttributeSet attributes = Xml.asAttributeSet(parser);
@@ -364,7 +342,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
                 };
 
                 boolean result = false;
-                if(mRtcEngine != null) {
+                if (mRtcEngine != null) {
                     result = mRtcEngine.pushExternalVideoFrame(vf);
                 }
 
@@ -379,7 +357,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
             public void onEGLContextReady(EGLContext eglContext) {
 
                 if (!mJoined) {
-                    Log.v("TTT","before joinChannel("+gukeInfo.getRoomid()+")");
+                    Log.v("TTT", "before joinChannel(" + gukeInfo.getRoomid() + ")");
                     joinChannel(); // Tutorial Step 4
                     mJoined = true;
                 }
@@ -388,6 +366,7 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
         XJGArSdkApi.XJGARSDKSetOptimizationMode(2);
         XJGArSdkApi.XJGARSDKSetShowStickerPapers(false);
     }
+
     private void joinChannel() {
         mRtcEngine.setClientRole(Constants.CLIENT_ROLE_BROADCASTER);    //01107 , null);
         mRtcEngine.joinChannel(null, gukeInfo.getRoomid(), "Extra Optional Data", 0); // if you do not specify the uid, we will generate the uid for you
@@ -404,18 +383,17 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
                 videoEventListener = fragment;
                 activityListener = fragment;
 
-                if(gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     initVideo();
                 }
-                Log.e("TTT","-----------------  after initVideo");
+                Log.e("TTT", "-----------------  after initVideo");
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.lay_content, fragment);
                 transaction.commit();
 
 
-
-                Log.e("TTT","-----------------  after ZhuboVideoFragment commit");
+                Log.e("TTT", "-----------------  after ZhuboVideoFragment commit");
             }
         });
 
@@ -423,12 +401,13 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
         // 主播在切换fragment的时候初始化声网
 
     }
+
     @Override
     public SurfaceView getLocalSurfaceView() {
         //return mCustomizedCameraRenderer == null ? null : mCustomizedCameraRenderer;
-        if(mCustomizedCameraRenderer != null) {
-            ViewGroup parent = (ViewGroup)mCustomizedCameraRenderer.getParent();
-            if(parent != null) {
+        if (mCustomizedCameraRenderer != null) {
+            ViewGroup parent = (ViewGroup) mCustomizedCameraRenderer.getParent();
+            if (parent != null) {
                 parent.removeView(mCustomizedCameraRenderer);
             }
             return mCustomizedCameraRenderer;
@@ -518,49 +497,82 @@ public class ZhuboActivity extends FragmentActivity implements IUserInfoHandler,
     // 页面跳转相关 start
     private static void startActivity(Context context, GukeInfo guke, int direct) {
         Intent intent = new Intent(context.getApplicationContext(), ZhuboActivity.class);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK  | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK  | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        Log.v("TTT","currentActivity="+context.getClass().getName());
         Bundle bundle = new Bundle();
         bundle.putParcelable("guke", guke);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }
-    public static void startCallGuke(Context context, final GukeInfo guke) {
 
-        String mode2 = "pushp2pvideo";
-        String[] paramsMap2 = {"",Util.userid, Util.nickname, Util.headpic,guke.getGukeId(),guke.getRoomid(), VideoMessageManager.VIDEO_A2U_ANCHOR_CALL, guke.getYuyue()};
-        UsersThread_01158B a2 = new UsersThread_01158B(mode2,paramsMap2,new Handler() {
-            // 发完推送以后再发送openfire消息，发推送的同时会更新数据库表，尽量保证数据库数据到位后再发送消息
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                switch (msg.what) {
-                    case 500:
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-								    final String message = "邀0请1视2频"+ Const.SPLIT + Const.ACTION_MSG_ZB_RESERVE
-										+ Const.SPLIT + guke.getRoomid() + Const.SPLIT + Util.nickname + Const.SPLIT + Util.headpic;
+    public static void startCallGuke(final Context context, final GukeInfo guke) {
 
-                                    Utils.sendmessage(Utils.xmppConnection, message, guke.getGukeId());
-                                } catch (XMPPException e) {
-                                    e.printStackTrace();
-                                } catch (SmackException.NotConnectedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }).start();
-                        break;
-                }
-            }
-        });
-        Thread c2 = new Thread(a2.runnable);
-        c2.start();
+        OkHttpUtils
+                .post()
+                .url(URL.URL_PUSHVIDEO)
+                .addParams("param1", "")
+                .addParams("param2", Util.userid)
+                .addParams("param3", Util.nickname)
+                .addParams("param4", Util.headpic)
+                .addParams("param5", guke.getGukeId())
+                .addParams("param6", guke.getRoomid())
+                .addParams("param7", VideoMessageManager.VIDEO_A2U_ANCHOR_CALL)
+                .addParams("param8", guke.getYuyue())
+                .build()
+                .execute(new StringCallback() {
 
-        startActivity(context, guke, P2PVideoConst.ZHUBO_CALL_GUKE);
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(context,"拨打失败",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try {
+                            final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ZB_RESERVE
+                                    + Const.SPLIT + guke.getRoomid() + Const.SPLIT + Util.nickname + Const.SPLIT + Util.headpic;
+                            Utils.sendmessage(Utils.xmppConnection, message, guke.getGukeId());
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        startActivity(context, guke, P2PVideoConst.ZHUBO_CALL_GUKE);
+                    }
+
+                });
+
+
+//        String mode2 = "pushp2pvideo";
+//        String[] paramsMap2 = {"", Util.userid, Util.nickname, Util.headpic, guke.getGukeId(),
+//                guke.getRoomid(), VideoMessageManager.VIDEO_A2U_ANCHOR_CALL, guke.getYuyue()};
+//        UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, new Handler() {
+//            // 发完推送以后再发送openfire消息，发推送的同时会更新数据库表，尽量保证数据库数据到位后再发送消息
+//            @Override
+//            public void handleMessage(Message msg) {
+//                super.handleMessage(msg);
+//                switch (msg.what) {
+//                    case 500:
+//                        new Thread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                try {
+//                                    SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                                    final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ZB_RESERVE
+//                                            + Const.SPLIT + guke.getRoomid() + Const.SPLIT + Util.nickname + Const.SPLIT + Util.headpic;
+//
+//                                    Utils.sendmessage(Utils.xmppConnection, message, guke.getGukeId());
+//                                } catch (XMPPException e) {
+//                                    e.printStackTrace();
+//                                } catch (SmackException.NotConnectedException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        }).start();
+//                        break;
+//                }
+//            }
+//        });
+//        Thread c2 = new Thread(a2.runnable);
+//        c2.start();
+
+
     }
 
     public static void callFromGuke(Context context, GukeInfo guke) {
