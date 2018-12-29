@@ -110,9 +110,6 @@ public class UsersManageInOut_01066A {
 
 	public void userinfo(String []params,Handler handler){
 		User_data getdata=usersManage.userinfo(params);
-		/////////////////////////////
-		LogDetect.send(LogDetect.DataType.specialType,"Userinfo:","121212212"+getdata.getAge());
-		//////////////////////////////
 		handler.sendMessage(handler.obtainMessage(201,(Object) getdata));
 	}
 

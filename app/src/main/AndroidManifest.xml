@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.net.yuesejiaoyou"
-    >
+    package="com.net.yuesejiaoyou">
 
 
     <permission
@@ -10,7 +9,6 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
-
 
 
     <application
@@ -29,11 +27,6 @@
             android:enabled="true"
             android:exported="true" />
 
-        <!--<service android:name="com.net.yuesejiaoyou.classroot.interface4.util.PlayerMusicService1"
-            android:enabled="true"
-            android:exported="true"
-            />-->
-        <!--android:process=":music_service"-->
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity"
             android:label="@string/app_name"
@@ -116,27 +109,20 @@
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AgreementActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-
-            />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AgreeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-
-            />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.XieyiActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-
-            />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.OtherActivity"
             android:screenOrientation="portrait" />
 
-        >
         <activity
             android:name="com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity"
             android:screenOrientation="portrait"
@@ -152,13 +138,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
-            <!-- ShareSDK3.1.0版本之前才需要在MobUIShell下面注册此意图，3.1.0版本之后（包含3.1.0）不需要注册此intent-->
-            <!--       <intent-filter>
-                     <data android:scheme="tencent101430417" />
-                     <action android:name="android.intent.action.VIEW" />
-                     <category android:name="android.intent.category.BROWSABLE" />
-                     <category android:name="android.intent.category.DEFAULT" />
-                 </intent-filter> -->
+
 
             <!-- 调用新浪原生SDK，需要注册的回调activity -->
             <intent-filter>
@@ -225,7 +205,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.Answer2Activity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DownloadActivity"
@@ -296,114 +276,16 @@
             android:screenOrientation="portrait" />
 
 
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.AliyunImageCrop"-->
-        <!--android:exported="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.AliyunVideoCrop"-->
-        <!--android:exported="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity"-->
-        <!--android:screenOrientation="portrait"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_FF"-->
-        <!--android:screenOrientation="portrait"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_01160"-->
-        <!--android:screenOrientation="portrait"/>-->
 
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity"-->
-
-        <!--android:exported="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity_FF"-->
-        <!--android:exported="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity_01160"-->
-        <!--android:exported="true"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EffectManagerActivity"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.duanqu.qupai.action.effectmanager" />-->
-
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.MorePasterActivity"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.duanqu.qupai.action.morepaster" />-->
-
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.MoreCaptionActivity"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.duanqu.qupai.action.morecaption" />-->
-
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.MoreMVActivity"-->
-        <!--android:label="@string/app_name"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.duanqu.qupai.action.moremv" />-->
-
-        <!--<category android:name="android.intent.category.DEFAULT" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/AliyunVideoUIStytle"></activity>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder_01160"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/AliyunVideoUIStytle"></activity>-->
-        <!--<activity-->
-        <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder_FF"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@style/AliyunVideoUIStytle"></activity>-->
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_FF"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_01160"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <!--<activity-->
         <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoomActivity"-->
@@ -424,134 +306,134 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodeqinmibang_01178"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxi_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxi_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxi_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxizhubo_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_shenqing_01152"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodefensi_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.RecomeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.CallHistoryActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_setnickname_01162"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.EditActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyAvaterActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.FocusDetail"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_nicheng_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_wx_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_phonenum_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_intro_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_job_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_signature_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authen_label_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Authentication_01150"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_mytimeprice_01178"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.withdraw_01156"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_agmentup_01066"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tjrwithdraw_01168"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.tuiguangrenshu_01152"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <!--                      C 区界面                 -->
 
         <meta-data
@@ -575,7 +457,7 @@
         <!-- Rich push 核心功能 since 2.0.6-->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <!-- Required SDK核心功能-->
         <activity
@@ -673,7 +555,7 @@
         <receiver android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.jpush.MyJPushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4"></category>
+                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4"/>
             </intent-filter>
         </receiver>
         <receiver android:name="com.net.yuesejiaoyou.redirect.ResolverA.interface4.receiver.OnePixelReceiver" />
@@ -728,7 +610,7 @@
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
                 <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
 
-                <data android:scheme="file"></data>
+                <data android:scheme="file"/>
             </intent-filter>
             <!--网络状态广播-->
             <intent-filter>
@@ -741,7 +623,7 @@
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <!--   网易云信 start   -->
         <!-- APP key, 可以在这里设置，也可以在 SDKOptions 中提供。
@@ -766,50 +648,26 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
 
 
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <!-- Required  一些系统要求的权限，如访问网络等-->
@@ -817,20 +675,10 @@
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
-    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
-
-
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 </manifest>

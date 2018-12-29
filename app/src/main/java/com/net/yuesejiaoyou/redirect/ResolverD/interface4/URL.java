@@ -18,6 +18,10 @@ public class URL {
     public static final String URL_XUNYAN = BASE_URL + "/ar?mode=A-user-search&mode2=xunyuan";
     public static final String URL_SEARCH = BASE_URL + "/ar?mode=A-user-search&mode2=activity_search";
     public static final String URL_SEARCHUSER = BASE_URL + "/ar?mode=A-user-mod&mode2=search_dv";
+    public static final String URL_GUANZHU = BASE_URL + "/ar?mode=A-user-mod&mode2=guanzhu";
+    public static final String URL_USERINFO = BASE_URL + "/ar?mode=A-user-search&mode2=userinfo";
+
+    public static final String URL_CALL = BASE_URL + "/memberB?mode=A-user-search&mode2=zhubo_online";
 
     public static final String URL_VIDEO_NEW = BASE_URL + "/ar?mode=A-user-search&mode2=newvideolist";
     public static final String URL_VIDEO_HOT = BASE_URL + "/ar?mode=A-user-search&mode2=hotvideolist";

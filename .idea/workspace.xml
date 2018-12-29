@@ -14,158 +14,28 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="ttt|okhttp" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="338d4dda-02e3-4ff1-bbcb-8324c8e9e0dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_scwang_smartrefresh_SmartRefreshHeader_1_0_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_scwang_smartrefresh_SmartRefreshLayout_1_0_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/getset/UserBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/AgreeActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/AnchorGuideActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/DownloadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/WebActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/adapter/DynamicAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/adapter/SearchAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/BaseFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/UserFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_search.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_invate.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dynamic.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/getset/ZBYuyueJB_01160.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Activity_web_01162.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Anchor_guide_01162.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/DownloadActivityApk.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Gonglue_01162.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/HooliganActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/UserFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment2_1_01066.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment2_2_01066.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment2_3_01160.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_3s_01066.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_4s_01066.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_5s_01066.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Vchat_splash.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/zhubo_01160.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fensi_01152.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vfragment2_01066.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface2/OkHttp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface2/OkHttp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/openfire/infocenter/listener/managerlistener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/openfire/infocenter/listener/managerlistener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/openfire/interface4/ChatAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/openfire/interface4/ChatAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/util/PlayerMusicService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/util/PlayerMusicService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/util/PlayerMusicService1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/util/PlayerMusicService1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01160A.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01160A.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01160A.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01160A.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/HelpManager_01160A.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/HelpManager_01160A.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/KeywordUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/KeywordUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/SearchDvAdapter_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/SearchDvAdapter_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VMyAdapter_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VMyAdapter_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VideoMyAdapter_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VideoMyAdapter_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VideoMyAdapterinfo_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VideoMyAdapterinfo_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/service/AliveJobService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/service/AliveJobService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_attend_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_attend_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/VideoMyAdapter_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/VideoMyAdapter_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/FromCallingFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/FromCallingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/ZhuboActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/ZhuboActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/ZhuboVideoFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/agora/zhubo/ZhuboVideoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/util/AgoraVideoManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/util/AgoraVideoManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/util/AgoraVideoManager_back.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/util/AgoraVideoManager_back.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo_FF.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/ActivityUploadVideo_FF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlayPrivate_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlayPrivate_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/tuichu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/tuichu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/tuichu1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/tuichu1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/core/UsersManage_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/core/UsersManage_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface1/UsersManageInOut_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface1/UsersManageInOut_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/HelpManager_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/HelpManager_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/VideoMyAdapter_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/VideoMyAdapter_01066.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/ZByuyueAdapter_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/interface4/ZByuyueAdapter_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/MyTeasure_buy_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/MyTeasure_buy_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/MyTeasure_like_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/MyTeasure_like_01160.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/ShareActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/ShareActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/main.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01066A.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01066A.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/jpush/MyReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/jpush/MyReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/utils/Tools.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/utils/Tools.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/utils/UpdateManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/utils/UpdateManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_agora_rtc_zhubo.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_agora_rtc_zhubo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_download.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_play_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_play_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_zhubo.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_zhubo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/banner_play_video.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/banner_play_video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/search_dv_item_01160.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/search_dv_item_01160.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/tonghuabohao_01146.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tonghuabohao_01146.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vchat_login_01162.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vchat_login_01162.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vchat_splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vchat_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/videofragment1_01066.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/videofragment1_01066.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/videofragment2_01066.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/videofragment2_01066.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/yuyue_man_01160.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/yuyue_man_01160.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/core/YhApplicationA.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/YhApplicationA.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/AgreementActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/AgreementActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/DynamicFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/DynamicFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/FragmentMan_1_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/BoyFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/HelpActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/HelpActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/LoginActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/MainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/MessageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/MessageFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/MineFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/MineFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/PhoneLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/PhoneLoginActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/SearchDv_01160.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/SearchActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Userinfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_1_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/RecommendFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_activity_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/ActiveFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragment_new_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/NewFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VFragmentzl_1_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/UserInfoFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Vchat_forget1_01162.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/ForgetPasswordActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Vchat_forget2_01162.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/ModifyPasswordActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Vchat_register_01162.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/RegisterActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/VideoFragment_1_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/VideoFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Videochat_agreement_01162.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/XieyiActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Vliao_yijianfankui_01168.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/OtherActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/WelcomeGuideActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/WelcomeGuideActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/ZhuboFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/ZhuboFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/bengkui_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/Answer1Activity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/bengkui_01152.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/Answer2Activity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/yaoqingfensi_01152.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/InvateActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/MyVideoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/MyVideoActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlay_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/VideoPlayActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlay_1_01066.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/VideoPlayFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/WalletActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/WalletActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/YuyueActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/YuyueActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_video_play_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_videoplay.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_web_01162.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/agreement_01162.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_agree.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/anchor_page.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_anchorguide.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/bengkui_01066.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_answer1.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/bengkui_01152.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_answer2.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/disovery_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_dynamic.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragmentzl_01066.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_userinfo.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/search_dv_01160.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vchat_register_01162.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vchat_resetpassword.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_modifypassword.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/videochat_agreement_01162.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_xieyi.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/vliao_yijianfankui_01168.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_other.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/big_v_home_icon_video.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/big_v_home_icon_video.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -190,27 +60,110 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShareActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/ShareActivity.java">
+      <file leaf-file-name="UserActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="488">
+              <caret line="258" column="5" lean-forward="false" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
               <folding>
-                <element signature="e#4011#4012#0" expanded="true" />
-                <element signature="e#4057#4058#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#7752#8359#0" expanded="true" />
+                <element signature="e#8358#8359#0" expanded="true" />
+                <element signature="method#initWindow#0;class#UserActivity#0" expanded="false" />
+                <element signature="e#12550#12551#0" expanded="true" />
+                <element signature="e#12615#12616#0" expanded="true" />
+                <element signature="method#focusClick#0;class#UserActivity#0" expanded="false" />
+                <element signature="e#19042#19043#0" expanded="true" />
+                <element signature="e#19107#19108#0" expanded="true" />
+                <element signature="method#qrcodeClick#0;class#UserActivity#0" expanded="false" />
+                <element signature="method#chatClick#0;class#UserActivity#0" expanded="false" />
+                <element signature="e#21498#31443#0" expanded="true" />
+                <element signature="e#31442#31443#0" expanded="true" />
+                <element signature="method#setIndicator#0;class#UserActivity#0" expanded="false" />
+                <element signature="e#33166#33167#0" expanded="true" />
+                <element signature="e#33209#33210#0" expanded="true" />
+                <element signature="method#callClick#0;class#UserActivity#0" expanded="false" />
+                <element signature="class#FragAdapter#0;class#UserActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_tuiguang_01152.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tuiguang_01152.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="UsersThread_01066A.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface3/UsersThread_01066A.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3213">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="663">
+              <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManageInOut_01066A.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01066A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="659">
+              <caret line="111" column="44" lean-forward="false" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManage_01066A.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01066A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="583">
+              <caret line="141" column="42" lean-forward="false" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelpManager_01066A.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/HelpManager_01066A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="385" column="0" lean-forward="false" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="URL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersThread_01158B.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface3/UsersThread_01158B.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="39" column="50" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManageInOut_01158B.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface1/UsersManageInOut_01158B.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersManage_01158B.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/core/UsersManage_01158B.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="40" column="65" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -229,21 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FragAdapter</find>
-      <find>10086</find>
-      <find>iv_cover</find>
-      <find>findpage_list_item_examine_rl</find>
-      <find>shenhe</find>
-      <find>title_text</find>
-      <find>username</find>
-      <find>follow_tv</find>
-      <find>xyitem</find>
-      <find>iv_lock</find>
-      <find>maxid</find>
-      <find>onItemClick</find>
-      <find>onItemLongClick</find>
-      <find>mohuimg</find>
-      <find>container1</find>
       <find>playvideo</find>
       <find>id_video_income_layout</find>
       <find>id_video_income</find>
@@ -259,6 +197,21 @@
       <find>id_video_description</find>
       <find>ceshi</find>
       <find>iv_video_islike</find>
+      <find>main_ll</find>
+      <find>textView</find>
+      <find>ll_vhome_avchat</find>
+      <find>header</find>
+      <find>linear_load_visible</find>
+      <find>text_view_price</find>
+      <find>view_gon</find>
+      <find>biaoti</find>
+      <find>URL</find>
+      <find>ib_focus</find>
+      <find>relative_layout_intimacy_listener</find>
+      <find>erweima</find>
+      <find>send_red</find>
+      <find>parent</find>
+      <find>tvCall</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2061,11 +2014,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/UserXieyiActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/AgreeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/AgreeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_web_01162.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/Activity_web_01162.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/uiface/WebActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/WebActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bengkui_01066.xml" />
@@ -2087,7 +2035,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/BaseFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_dynamic.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/core/YhApplicationA.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/adapter/DynamicAdapter.java" />
@@ -2105,13 +2052,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlayPrivate_01066.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/VideoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/tonghuabohao_01146.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface2/OkHttp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01160A.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/YuyueActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/YuyueActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/WalletActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverC/uiface/ShareActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01066A.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java" />
       </list>
     </option>
   </component>
@@ -2200,6 +2153,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yuese_android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yuese_android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2831,6 +2810,9 @@
     <property name="ExportApk.SignV2" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\webwork\yuese_android\app\src\main\res\drawable-xxhdpi" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity" />
       <recent name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
@@ -2934,7 +2916,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545977317558" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545990067574" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2982,7 +2964,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545977317558" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545990067574" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3165,7 +3147,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545977317558" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1545990067575" />
       </method>
     </configuration>
     <list size="1">
@@ -3288,198 +3270,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/yuyue_man_01160.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/zhubo_01160.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/VideoPlayActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="91" column="38" lean-forward="false" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
-          <folding>
-            <element signature="e#2571#2954#0" expanded="true" />
-            <element signature="e#2953#2954#0" expanded="true" />
-            <element signature="e#3810#3811#0" expanded="true" />
-            <element signature="e#3860#3861#0" expanded="true" />
-            <element signature="e#8333#8334#0" expanded="true" />
-            <element signature="e#8384#8385#0" expanded="true" />
-            <element signature="e#8435#8436#0" expanded="true" />
-            <element signature="e#8483#8484#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface4/util/AgoraVideoManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="554" column="78" lean-forward="false" selection-start-line="554" selection-start-column="78" selection-end-line="554" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/net/yuesejiaoyou/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="7922" column="28" lean-forward="false" selection-start-line="7922" selection-start-column="28" selection-end-line="7922" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/utils/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_video_play_layout.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="85" column="51" lean-forward="false" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/VideoPlayFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="749" column="0" lean-forward="false" selection-start-line="749" selection-start-column="0" selection-end-line="749" selection-end-column="0" />
-          <folding>
-            <element signature="e#11959#12100#0" expanded="true" />
-            <element signature="e#12099#12100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/VideoPlayPrivate_01066.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/VideoMyAdapterinfo_01066.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/VideoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/uiface/zhubo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="98" column="40" lean-forward="true" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tonghuabohao_01146.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/adapter/FindAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/BoyFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="69" column="22" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/adapter/Find2Adapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/fragment/RecommendFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="92" column="65" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="351" column="33" lean-forward="false" selection-start-line="351" selection-start-column="33" selection-end-line="351" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_v_homepage.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="27" column="55" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface2/OkHttp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/cache/AsyncTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="196" column="22" lean-forward="false" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/cache/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -3524,14 +3314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01066A.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="81" column="59" lean-forward="false" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -3722,6 +3504,199 @@
           <folding>
             <element signature="e#4011#4012#0" expanded="true" />
             <element signature="e#4057#4058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10540">
+          <caret line="620" column="19" lean-forward="true" selection-start-line="620" selection-start-column="19" selection-end-line="620" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/little.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/big_v_home_icon_video.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/big_v_home_btn.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/big_v_home_tab_on.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/classroot/interface4/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="141" column="54" lean-forward="false" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/guanzhu.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://E:/AndroidSdk/sources/android-28/java/net/URL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="143" column="19" lean-forward="false" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/zhy/http/okhttp/OkHttpUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="402" column="44" lean-forward="false" selection-start-line="402" selection-start-column="29" selection-end-line="402" selection-end-column="44" />
+          <folding>
+            <element signature="e#4326#5672#0" expanded="false" />
+            <element signature="e#5694#5867#0" expanded="false" />
+            <element signature="e#5889#8071#0" expanded="false" />
+            <element signature="e#17194#18341#0" expanded="false" />
+            <element signature="e#19620#20505#0" expanded="false" />
+            <element signature="e#20515#21228#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/core/UsersManage_01158B.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="40" column="65" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface3/UsersThread_01158B.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="39" column="50" lean-forward="false" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverB/interface1/UsersManageInOut_01158B.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface3/UsersThread_01066A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/URL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface1/UsersManageInOut_01066A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="111" column="44" lean-forward="false" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/core/UsersManage_01066A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="141" column="42" lean-forward="false" selection-start-line="141" selection-start-column="42" selection-end-line="141" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverA/interface4/HelpManager_01066A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="385" column="0" lean-forward="false" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/net/yuesejiaoyou/redirect/ResolverD/interface4/activity/UserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="258" column="5" lean-forward="false" selection-start-line="258" selection-start-column="5" selection-end-line="258" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7752#8359#0" expanded="true" />
+            <element signature="e#8358#8359#0" expanded="true" />
+            <element signature="method#initWindow#0;class#UserActivity#0" expanded="false" />
+            <element signature="e#12550#12551#0" expanded="true" />
+            <element signature="e#12615#12616#0" expanded="true" />
+            <element signature="method#focusClick#0;class#UserActivity#0" expanded="false" />
+            <element signature="e#19042#19043#0" expanded="true" />
+            <element signature="e#19107#19108#0" expanded="true" />
+            <element signature="method#qrcodeClick#0;class#UserActivity#0" expanded="false" />
+            <element signature="method#chatClick#0;class#UserActivity#0" expanded="false" />
+            <element signature="e#21498#31443#0" expanded="true" />
+            <element signature="e#31442#31443#0" expanded="true" />
+            <element signature="method#setIndicator#0;class#UserActivity#0" expanded="false" />
+            <element signature="e#33166#33167#0" expanded="true" />
+            <element signature="e#33209#33210#0" expanded="true" />
+            <element signature="method#callClick#0;class#UserActivity#0" expanded="false" />
+            <element signature="class#FragAdapter#0;class#UserActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

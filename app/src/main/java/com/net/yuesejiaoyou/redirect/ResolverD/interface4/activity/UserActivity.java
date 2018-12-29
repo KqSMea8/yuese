@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -30,6 +31,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -46,6 +48,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
@@ -66,6 +69,7 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapterqm_01066;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserInfoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
@@ -75,26 +79,20 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -102,8 +100,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class UserActivity extends BaseActivity implements View.OnClickListener {
-    private String msgBody;
+import butterknife.OnClick;
+import okhttp3.Call;
+
+public class UserActivity extends BaseActivity {
     public String yid, msgbody;
     private int yue;//用户V币余额
     private ArrayList mListImage;
@@ -112,12 +112,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
     private String nicheng, headpic, userid = "";
 
     private GridLayoutManager mLayoutManager;
-    private RelativeLayout layout;
-    private LinearLayout exit_del, exit_queding;
-    private RelativeLayout ll_vhome_avchat;
     private SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    ;
-    private TextView user_exit;
     private ImageView photo, fanhui, erweima, iv_zt_img, ib_focus;
     private TextView nickname, wodeqianbao, vhome_tv_status, text_view_price, tv_dv, flow_img, tv_focus_count;
     private DisplayImageOptions options = null;
@@ -132,10 +127,6 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
      * 通用的ToolBar
      */
     private Toolbar commonTitleTb;
-    /**
-     * 内容区域
-     */
-    private RelativeLayout content;
     private RelativeLayout relative_layout_intimacy;
     private View.OnClickListener relative_layout_intimacy_listener;
 
@@ -143,16 +134,12 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
 
     private User_data userInfo;
 
-    /********************************
-     *
-     * @param savedInstanceState
-     *******************************/
 
-    //送红包
     private ChatMsgDao msgDao;
     private List<Msg> listMsg = new ArrayList<Msg>();
     private SessionDao sessionDao;
     private String I, price;
+    private TextView tvCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,47 +162,14 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         });
         erweima = (ImageView) findViewById(R.id.erweima);//二维码
 
-        //分享功能
-        erweima.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                ShareHelp shareHelp1 = new ShareHelp();
-                shareHelp1.showShare(UserActivity.this, Util.invite_num);
-            }
-        });
-
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "55555555555");
-        //////////////////////////////
         iv_zt_img = (ImageView) findViewById(R.id.iv_zt_img);//状态图片
         vhome_tv_status = (TextView) findViewById(R.id.vhome_tv_status);//状态文字
         text_view_price = (TextView) findViewById(R.id.text_view_price);//价格
         tv_dv = (TextView) findViewById(R.id.tv_dv);//昵称
         flow_img = (TextView) findViewById(R.id.flow_img);//介绍
         ib_focus = (ImageView) findViewById(R.id.ib_focus);//关注图片
-        /////////////////////////////////////////////
 
-        ib_focus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (guanzhuable) {
-                    guanzhuable = false;
-                    String mode = "guanzhu";
-                    //userid，页数，男女
-                    String[] params = {"13", userid, isguanzhu + ""};
-                    UsersThread_01066A b = new UsersThread_01066A(mode, params, handler);
-                    Thread thread = new Thread(b.runnable);
-                    thread.start();
-                    /////////////////////////////
-                    LogDetect.send(LogDetect.DataType.specialType, "UserActivity:A区 转2调 B区", "关注图片");
-                    //////////////////////////////
-                }
-            }
-        });
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "6666666");
-        //////////////////////////////
 
         tv_focus_count = (TextView) findViewById(R.id.tv_focus_count);//粉丝数
         ratingbar = (RatingBar) findViewById(R.id.ratingbar);//星星
@@ -240,38 +194,11 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "777777777");
         //////////////////////////////
 
-        ll_vhome_avchat = (RelativeLayout) findViewById(R.id.ll_vhome_avchat);
-        ll_vhome_avchat.setOnClickListener(this);
+        tvCall = findViewById(R.id.tv_call);
 
-        //01165-----打赏红包////////////////////////////////////////////////////
-        send_red = (LinearLayout) findViewById(R.id.send_red);
-        send_red.setOnClickListener(this);
-        /////////////////////////////////////////////////////////////////
-        LinearLayout ll_vhome_imchat = (LinearLayout) findViewById(R.id.ll_vhome_imchat);
-        ll_vhome_imchat.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                /////////////////////////////
-                LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "私信 转1调 聊天");
-                //////////////////////////////
-                Intent intentthis = new Intent(UserActivity.this, ChatActivity.class);
-                intentthis.putExtra("id", userid);
-                intentthis.putExtra("name", nicheng);
-                intentthis.putExtra("headpic", headpic);
-                startActivity(intentthis);
-
-            }
-        });
-        //RecyclerView gridView=(RecyclerView)findViewById(R.id.recycler_intimacy);
 
         commonTitleTb = (Toolbar) findViewById(R.id.toolbar);
         AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "8888888");
-        //////////////////////////////
-        //////////////////////////////////////////////
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -285,18 +212,13 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                     Log.d("1111", "alpha: " + verticalOffset);
                     if (verticalOffset < -700) {
                         Resources resources = getBaseContext().getResources();
-//						Drawable imageDrawable = resources.getDrawable(R.drawable.arrow_left_gray); //图片在drawable目录下
-//						fanhui.setBackground(imageDrawable);
                         fanhui.setImageResource(R.drawable.arrow_left_gray);
                         erweima.setImageResource(R.drawable.big_v_home_business_card_gray);
                         Drawable imageDrawable1 = resources.getDrawable(R.drawable.big_v_home_mask_yb); //图片在drawable目录下
                         commonTitleTb.setBackground(imageDrawable1);
                     } else {
                         Resources resources = getBaseContext().getResources();
-//						Drawable imageDrawable = resources.getDrawable(R.drawable.arrow_left_white); //图片在drawable目录下
-//						fanhui.setBackground(imageDrawable);
                         fanhui.setImageResource(R.drawable.arrow_left_white);
-                        //Drawable imageDrawable1 = resources.getDrawable(R.drawable.big_v_home_business_card); //图片在drawable目录下
                         erweima.setImageResource(R.drawable.big_v_home_business_card);
                         Drawable imageDrawable1 = resources.getDrawable(R.drawable.big_v_home_mask_s); //图片在drawable目录下
                         commonTitleTb.setBackground(imageDrawable1);
@@ -309,13 +231,9 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         });
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "9999999");
-        //////////////////////////////
         reviever = new reciever();
         IntentFilter filter1 = new IntentFilter("5");
         registerReceiver(reviever, filter1);
-
 
         reviever1 = new reciever1();
         IntentFilter filter2 = new IntentFilter("99");
@@ -324,32 +242,25 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         Intent intent9 = getIntent();
         Bundle bundle = intent9.getExtras();
         userid = bundle.getString("id");
-        String mode = "userinfo";
-        String[] params = {"13", userid};
-        UsersThread_01066A b = new UsersThread_01066A(mode, params, handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
 
-        //01165--------------------------------------------开线程，请求用户V币余额，-----------------------01165
-    /*	String mode1 = "yue_search";
-		//userid，页数，男女
-		String[] params1 = {Util.userid};
-		UsersThread_01165 b1 = new UsersThread_01165(mode1, params1, handler);
-		Thread thread1 = new Thread(b1.runnable);
-		thread1.start();*/
-        //////////////////////////////////////////////////////////////////////////////////////
+
+//        String mode = "userinfo";
+//        String[] params = {"13", userid};
+//        UsersThread_01066A b = new UsersThread_01066A(mode, params, handler);
+//        Thread thread = new Thread(b.runnable);
+//        thread.start();
+
+
         msgOperReciver1 = new MsgOperReciver1();
         IntentFilter intentFilter = new IntentFilter("userguanzhu");
         registerReceiver(msgOperReciver1, intentFilter);
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "666666666");
-        //////////////////////////////
 
+        getUserData();
     }
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_new_v_homepage;
+        return R.layout.activity_user;
     }
 
     @TargetApi(19)
@@ -362,9 +273,191 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    /*************************************
-     *
-     ************************************/
+    public void getUserData() {
+        OkHttpUtils.post(this)
+                .url(URL.URL_USERINFO)
+                .addParams("param1", "13")
+                .addParams("param2", userid)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        super.onResponse(response, id);
+                        if (TextUtils.isEmpty(response)) {
+                            return;
+                        }
+
+                        User_data userinfo = JSON.parseArray(response, User_data.class).get(0);
+                        userInfo = userinfo;
+
+                        wodeqianbao = (TextView) findViewById(R.id.wodeqianbao);//昵称
+                        nicheng = userinfo.getNickname();
+                        headpic = userinfo.getPhoto();
+                        userid = String.valueOf(userinfo.getId());
+                        wodeqianbao.setText(userinfo.getNickname());
+                        tv_dv.setText(userinfo.getNickname());
+                        fanhui = (ImageView) findViewById(R.id.fanhui);//返回
+                        erweima = (ImageView) findViewById(R.id.erweima);//二维码
+                        //得到AssetManager
+                        AssetManager mgr = UserActivity.this.getAssets();
+
+                        //根据路径得到Typeface
+                        Typeface tf = Typeface.createFromAsset(mgr, "fonts/arialbd.ttf");
+
+                        vhome_tv_status.setTypeface(tf);
+                        if (userinfo.getOnline() == 1) {
+                            iv_zt_img.setBackgroundResource(R.drawable.zt_zaixian);
+                            vhome_tv_status.setText("在线");
+
+                        } else if (userinfo.getOnline() == 2) {
+                            iv_zt_img.setBackgroundResource(R.drawable.zt_zailiao);
+                            vhome_tv_status.setText("在聊");
+                        } else if (userinfo.getOnline() == 3) {
+                            iv_zt_img.setBackgroundResource(R.drawable.zt_wurao);
+                            vhome_tv_status.setText("勿扰");
+                        } else {
+                            iv_zt_img.setBackgroundResource(R.drawable.zt_lixian);
+                            vhome_tv_status.setText("离线");
+                        }
+
+                        ratingbar.setRating((float) userinfo.getStar());
+
+                        if (userinfo.getIslike() == 0) {
+                            ib_focus.setBackgroundResource(R.drawable.guanzhu);
+                        } else {
+                            ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                        }
+                        isguanzhu = userinfo.getIslike();
+                        flow_img.setText(userinfo.getLab_tab());
+                        text_view_price.setText(userinfo.getPrice() + " 悦币/分钟");
+                        tv_focus_count.setText(userinfo.getFans_num() + " 粉丝");
+                        fannum = Integer.parseInt(userinfo.getFans_num());
+                        //实例化Banner
+                        Banner banner = findViewById(R.id.header);
+                        //设置Banner样式
+                        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
+                        //设置图片加载器
+
+                        //实例化图片集合
+                        mListImage = new ArrayList<>();
+                        //实例化Title集合
+                        ArrayList mListTitle = new ArrayList<>();
+                        String[] a = userinfo.getPicture().split(",");
+                        for (int i = 0; i < a.length; i++) {
+                            mListImage.add(a[i]);
+                            mListTitle.add("");
+                        }
+
+                        banner.setImages(mListImage);
+                        banner.setImageLoader(new GlideImageLaoder());
+                        banner.setBannerAnimation(Transformer.Tablet);
+                        //设置Banner标题集合（当banner样式有显示title时）
+                        banner.setBannerTitles(mListTitle);
+                        banner.setDelayTime(3000);
+                        banner.setBackgroundColor(UserActivity.this.getResources().getColor(R.color.white));
+                        banner.setIndicatorGravity(BannerConfig.CIRCLE_INDICATOR);
+                        banner.start();
+
+
+                        ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
+                        //构造适配器
+                        List<Fragment> fragments = new ArrayList<Fragment>();
+                        fragments.add(new UserInfoFragment(userinfo));
+                        fragments.add(new VideoFragment(userinfo));
+                        FragAdapter adapter = new FragAdapter(getSupportFragmentManager(), fragments);
+                        viewpager.setAdapter(adapter);
+
+                        TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
+                        mTabLayout.setupWithViewPager(viewpager);
+
+                        LinearLayout linearLayout = (LinearLayout) mTabLayout.getChildAt(0);
+                        linearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+
+                        linearLayout.setDividerDrawable(ContextCompat.getDrawable(UserActivity.this,
+                                R.drawable.shuxian));
+                        linearLayout.setDividerPadding(30);
+                        setIndicator(UserActivity.this, mTabLayout, 40, 40);
+                        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_intimacy);
+
+
+                        if (userinfo.getLikep().equals("")) {
+
+                        } else {
+                            String[] pic = userinfo.getLikep().split(",");
+                            VMyAdapterqm_01066 adapter1 = new VMyAdapterqm_01066(null, UserActivity.this, true, pic, userid, relative_layout_intimacy_listener);
+
+                            mLayoutManager = new GridLayoutManager(UserActivity.this, pic.length);
+                            gridView.setLayoutManager(mLayoutManager);
+                            gridView.setAdapter(adapter1);
+                        }
+                    }
+                });
+    }
+
+    @OnClick(R.id.ib_focus)
+    public void focusClick() {
+        OkHttpUtils.post(this)
+                .url(URL.URL_GUANZHU)
+                .addParams("param1", "13")
+                .addParams("param2", userid)
+                .addParams("param3", isguanzhu)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        super.onResponse(response, id);
+                        if (TextUtils.isEmpty(response)) {
+                            return;
+                        }
+                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
+
+                        isguanzhu = jsonObject.getIntValue("success");
+
+                        if (isguanzhu == 0) {
+                            ib_focus.setBackgroundResource(R.drawable.guanzhu);
+                            fannum = fannum - 1;
+                            tv_focus_count.setText(fannum + " 粉丝");
+                        } else {
+                            ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                            fannum = fannum + 1;
+                            tv_focus_count.setText(fannum + " 粉丝");
+                        }
+
+                        Intent intent = new Intent("userinfoguanzhu");
+                        Bundle bundle = new Bundle();
+                        bundle.putString("guanzhu", userid);
+                        bundle.putInt("isguanzhu", isguanzhu);
+                        intent.putExtras(bundle);
+                        UserActivity.this.sendBroadcast(intent);
+                    }
+                });
+    }
+
+    @OnClick(R.id.erweima)
+    public void qrcodeClick() {
+        ShareHelp shareHelp1 = new ShareHelp();
+        shareHelp1.showShare(UserActivity.this, Util.invite_num);
+    }
+
+    @OnClick(R.id.ll_vhome_imchat)
+    public void chatClick() {
+        Intent intentthis = new Intent(UserActivity.this, ChatActivity.class);
+        intentthis.putExtra("id", userid);
+        intentthis.putExtra("name", nicheng);
+        intentthis.putExtra("headpic", headpic);
+        startActivity(intentthis);
+    }
+
     private class MsgOperReciver1 extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -377,53 +470,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    /*************************************
-     *
-     ************************************/
-    public Bitmap returnBitMap(String url) {
-        URL myFileUrl = null;
-        Bitmap bitmap = null;
 
-        try {
-            myFileUrl = new URL(url);
-            HttpURLConnection conn;
-
-            conn = (HttpURLConnection) myFileUrl.openConnection();
-            conn.setDoInput(true);
-            conn.connect();
-            InputStream is = conn.getInputStream();
-            bitmap = BitmapFactory.decodeStream(is);
-
-        } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return bitmap;
-    }
-
-    /*************************************
-     *
-     ************************************/
-    public void saveFile(Bitmap bm, String fileName) throws IOException {
-        String path = Environment.getExternalStorageDirectory() + "/revoeye/";
-        File dirFile = new File(path);
-        if (!dirFile.exists()) {
-            dirFile.mkdir();
-        }
-        File myCaptureFile = new File(path + fileName);
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
-        bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
-        bos.flush();
-        bos.close();
-    }
-
-
-    /*************************************
-     *
-     ************************************/
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -436,42 +483,8 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                     fannum = fannum + 1;
                     tv_focus_count.setText(fannum + " 粉丝");
                     break;
-                case 0:
-                    break;
-                /////////////////////////////
-                case 500:
-                    String json11 = (String) msg.obj;
-                    try { //如果服务端返回1，说明个人信息修改成功了
-                        JSONObject jsonObject = new JSONObject(json11);
-                        isguanzhu = Integer.parseInt(jsonObject.getString("success"));
-                        ///////////////////////////////
-                        LogDetect.send(LogDetect.DataType.specialType, "yue_____： ", isguanzhu);
-                        if (isguanzhu == 0) {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu);
-                            fannum = fannum - 1;
-                            tv_focus_count.setText(fannum + " 粉丝");
-                        } else {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
-                            fannum = fannum + 1;
-                            tv_focus_count.setText(fannum + " 粉丝");
-                        }
-
-                        Intent intent = new Intent("userinfoguanzhu");//
-                        Bundle bundle = new Bundle();
-                        bundle.putString("guanzhu", userid);
-                        bundle.putInt("isguanzhu", isguanzhu);
-                        intent.putExtras(bundle);
-                        UserActivity.this.sendBroadcast(intent);
-
-                        guanzhuable = true;
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
 
 
-                    break;
-                /////////////////////////////////////////
                 case 201:
                     User_data userinfo = (User_data) msg.obj;
                     userInfo = userinfo;
@@ -518,11 +531,11 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                     }
                     isguanzhu = userinfo.getIslike();
                     flow_img.setText(userinfo.getLab_tab());
-                    text_view_price.setText(userinfo.getPrice());
+                    text_view_price.setText(userinfo.getPrice() + " 悦币/分钟");
                     tv_focus_count.setText(userinfo.getFans_num() + " 粉丝");
                     fannum = Integer.parseInt(userinfo.getFans_num());
                     //实例化Banner
-                    Banner banner = (Banner) findViewById(R.id.header);
+                    Banner banner = findViewById(R.id.header);
                     //设置Banner样式
                     banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
                     //设置图片加载器
@@ -537,21 +550,17 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                         mListTitle.add("");
                     }
 
-                    //设置Banner图片集合
                     banner.setImages(mListImage);
                     banner.setImageLoader(new GlideImageLaoder());
-                    //设置Banner动画效果
                     banner.setBannerAnimation(Transformer.Tablet);
-
                     //设置Banner标题集合（当banner样式有显示title时）
                     banner.setBannerTitles(mListTitle);
-                    //设置轮播时间
                     banner.setDelayTime(3000);
                     banner.setBackgroundColor(UserActivity.this.getResources().getColor(R.color.white));
-                    //设置指示器位置（当banner模式中有指示器时）
                     banner.setIndicatorGravity(BannerConfig.CIRCLE_INDICATOR);
-                    //Banner设置方法全部调用完毕时最后调用
                     banner.start();
+
+
                     ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
                     //构造适配器
                     List<Fragment> fragments = new ArrayList<Fragment>();
@@ -585,114 +594,6 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                     }
 
                     break;
-                /////////////////////////////////////////
-                case 230:
-                    String json = (String) msg.obj;
-                    //LogDetect.send(LogDetect.DataType.specialType,"01160:",msg);
-                    if (!json.isEmpty()) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(json);
-                            ///////////////////////////////
-                            LogDetect.send(LogDetect.DataType.specialType, "01160:", jsonObject);
-                            //如果返回1，说明成功了
-                            String success_ornot = jsonObject.getString("success");
-                            ///////////////////////////////
-                            LogDetect.send(LogDetect.DataType.specialType, "01160:", success_ornot);
-                            if (success_ornot.equals("1")) {
-
-                                ///////////////////////////////A区进入B区 一对一视频
-                                /////////////////////////////////
-                                SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                                final String timestamp = new Date().getTime() + "";
-                                final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ONEINVITE
-                                        + Const.SPLIT + timestamp + Const.SPLIT + com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname + Const.SPLIT + com.net.yuesejiaoyou.classroot.interface4.util.Util.headpic;
-                                LogDetect.send(LogDetect.DataType.noType, "这是-------1", message);
-                                if (userid.equals(Util.userid)) {
-                                    LogDetect.send(LogDetect.DataType.noType, "这是-------111", message);
-                                } else {
-//									new Thread(new Runnable() {
-//										@Override
-//										public void run() {
-//											try {
-//												LogDetect.send(LogDetect.DataType.noType,"这是什么YouId",userid);
-//												Utils.sendmessage(Utils.xmppConnection, message,userid);
-                                    //AgoraVideoManager.startVideo(getApplication(), timestamp, false);	// 发出邀请后立即进入房间
-                                    // 发出邀请直接跳转到音乐播放页面
-                                    if (userInfo != null) {
-//													Intent intent = new Intent();
-//													intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//													intent.setClass(mContext.getApplicationContext(),
-//															guke_bk.class);
-                                        yid = userInfo.getId() + "";
-//													Bundle bundle = new Bundle();
-//													bundle.putString("yid_guke", yid);
-//													LogDetect.send(LogDetect.DataType.specialType, "01160 主播id跳转到顾客页面 yid:", yid);
-//													bundle.putString("msgbody", "" + Const.SPLIT + "" + Const.SPLIT + "" + Const.SPLIT +userInfo.getNickname()+Const.SPLIT+userInfo.getPhoto());
-//													bundle.putString("roomid", timestamp);
-//													intent.putExtras(bundle);
-
-//													mContext.startActivity(intent);
-
-
-                                        Log.v("TTT", "before pushp2pvideo");
-
-                                        // 插入一对一请求记录
-//													String mode2 = "pushp2pvideo";
-//													String[] paramsMap2 = {"",Util.userid, Util.nickname, Util.headpic,yid,timestamp};
-//													UsersThread_01158B a2 = new UsersThread_01158B(mode2,paramsMap2,handler);
-//													Thread c2 = new Thread(a2.runnable);
-//													c2.start();
-//													Log.v("TTT","after pushp2pvideo");
-
-                                        //guke_bk.startGukeActivity(yid, userInfo.getNickname(), userInfo.getPhoto(), timestamp, UserActivity.this);
-                                        GukeActivity.startCallZhubo(UserActivity.this, new ZhuboInfo(yid, userInfo.getNickname(), userInfo.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
-                                    }
-//											} catch (XMPPException | SmackException.NotConnectedException e) {
-//												e.printStackTrace();
-//												Looper.prepare();
-//												Looper.loop();
-//											}
-//										}
-//									}).start();
-                                }/////////////////////////////A区进入B区 一对一视频
-                                //////////////////////////////////////////////////
-                            }//否则失败了
-                            else if (success_ornot.equals("2")) {
-                                showPopupspWindow_reservation(findViewById(R.id.linear_load_visible), 2);
-                                Toast.makeText(UserActivity.this, "主播忙碌，请稍后再试", Toast.LENGTH_SHORT).show();
-
-                            }/*else if(success_ornot.equals("0")){
-
-							}*/ else if (success_ornot.equals("3")) {
-                                showPopupspWindow_reservation(findViewById(R.id.linear_load_visible), 3);
-                                Toast.makeText(UserActivity.this, "主播设置勿打扰，请稍后再试", Toast.LENGTH_SHORT).show();
-
-                            } else if (success_ornot.equals("4")) {
-                                showPopupspWindow_reservation(findViewById(R.id.linear_load_visible), 4);
-                                Toast.makeText(UserActivity.this, "主播不在线", Toast.LENGTH_SHORT).show();
-
-                            } else if (success_ornot.equals("0")) {
-                                //Toast.makeText(UserActivity.this, "您的余额不足", Toast.LENGTH_SHORT).show();
-                                showPopupspWindow_chongzhi(wodeqianbao);
-                            } else if (success_ornot.equals("5")) {
-                                Toast.makeText(UserActivity.this, "主播被封禁", Toast.LENGTH_SHORT).show();
-
-                            } else if (success_ornot.equals("6")) {
-                                Toast.makeText(UserActivity.this, "您已被对方拉黑", Toast.LENGTH_SHORT).show();
-
-                            }
-                        } catch (JSONException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    } else {
-                        Toast.makeText(UserActivity.this, "网络出错", Toast.LENGTH_SHORT).show();
-                    }
-                    ll_vhome_avchat.setClickable(true);
-
-                    break;
-                //------01165----------------------获得V币余额-------------------------01165
-                //////////////////////////////////////////////
                 case 100:
                     String json1 = (String) msg.obj;
                     try { //如果服务端返回1，说明个人信息修改成功了
@@ -807,84 +708,97 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         return metric;
     }
 
-    /*************************************
-     *
-     ************************************/
-    public static float getPXfromDP(float value, Context context) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value,
-                context.getResources().getDisplayMetrics());
+
+    @OnClick(R.id.send_red)
+    public void awardClick() {
+        showPopupspWindow_sendred();
     }
 
-    /*************************************
-     *
-     ************************************/
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            //////////////////////////////////
-            case R.id.ll_vhome_avchat:
-                //点击通话
-
-                // 主播不能发起一对一视频
-                if (!"0".equals(Util.iszhubo)) {
-                    Toast.makeText(this, "主播不能跟主播通话", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-
-                String mode1 = "zhubo_online";
-                String[] paramsMap1 = {"", Util.userid, userid};
-                LogDetect.send(LogDetect.DataType.specialType, "查看信息： ", "----------" + Util.userid + "---------" + userid);
-                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);//230
-                Thread c = new Thread(a.runnable);
-                c.start();
-                ll_vhome_avchat.setClickable(false);
-                ///////////////////////////////
-                LogDetect.send(LogDetect.DataType.specialType, "准备通话", "禁止点击");
-                break;
-            //红包打赏
-            ////////////////////////////////////
-            case R.id.send_red:
-                ///////////////////////////////
-                LogDetect.send(LogDetect.DataType.specialType, "打赏红包： ", "-------------------");
-                showPopupspWindow_sendred(send_red);
-                break;
+    @OnClick(R.id.tv_call)
+    public void callClick() {
+        if (!"0".equals(Util.iszhubo)) {
+            Toast.makeText(this, "主播不能跟主播通话", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        OkHttpUtils.post(this)
+                .url(URL.URL_CALL)
+                .addParams("param1", "")
+                .addParams("param2", Util.userid)
+                .addParams("param3", userid)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                        tvCall.setEnabled(true);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        super.onResponse(response, id);
+                        if (TextUtils.isEmpty(response)) {
+                            showToast("拨打失败");
+                            return;
+                        }
+                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
+                        String success_ornot = jsonObject.getString("success");
+                        if (success_ornot.equals("1")) {
+                            final String timestamp = new Date().getTime() + "";
+                            if (userid.equals(Util.userid)) {
+                            } else {
+                                if (userInfo != null) {
+                                    yid = userInfo.getId() + "";
+                                    GukeActivity.startCallZhubo(UserActivity.this, new ZhuboInfo(yid, userInfo.getNickname(), userInfo.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
+                                }
+                            }
+                        } else if (success_ornot.equals("2")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 2);
+                            showToast("主播忙碌，请稍后再试");
+
+                        } else if (success_ornot.equals("3")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 3);
+                            showToast("主播设置勿打扰，请稍后再试");
+                        } else if (success_ornot.equals("4")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 4);
+                            showToast("主播不在线");
+                        } else if (success_ornot.equals("0")) {
+                            showPopupspWindow_chongzhi(wodeqianbao);
+                        } else if (success_ornot.equals("5")) {
+                            showToast("主播被封禁");
+                        } else if (success_ornot.equals("6")) {
+                            showToast("您已被对方拉黑");
+                        }
+
+                    }
+                });
+
+        tvCall.setEnabled(false);
     }
 
-    /*************************************
-     *
-     ************************************/
     public class FragAdapter extends FragmentPagerAdapter {
 
         private List<Fragment> mFragments;
 
-        /***
-         *
-         **/
+
         public FragAdapter(FragmentManager fm, List<Fragment> fragments) {
             super(fm);
             mFragments = fragments;
         }
 
-        /***
-         *
-         **/
+
         @Override
         public Fragment getItem(int arg0) {
             return mFragments.get(arg0);
         }
 
-        /***
-         *
-         **/
+
         @Override
         public int getCount() {
             return mFragments.size();
         }
 
-        /***
-         *
-         **/
+
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
@@ -900,51 +814,17 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    /*************************************
-     *
-     ************************************/
     public class GlideImageLaoder extends com.youth.banner.loader.ImageLoader {
 
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
-            /**
-             注意：
-             1.图片加载器由自己选择，这里不限制，只是提供几种使用方法
-             2.返回的图片路径为Object类型，由于不能确定你到底使用的那种图片加载器，
-             传输的到的是什么格式，那么这种就使用Object接收和返回，你只需要强转成你传输的类型就行，
-             切记不要胡乱强转！
-             */
-
-            //第一种方法：Glide 加载图片简单用法
-            //Glide.with(context).load(path).into(imageView);
-
-            ImageLoader.getInstance().displayImage(
-                    (String) path, imageView,
-                    options);
-
-
-            //第二种方法：Picasso 加载图片简单用法
-            //Picasso.with(context).load(path).into(imageView);
-
-            //第三种方法：fresco加载图片简单用法，记得要写下面的createImageView方法
-            //Uri uri = Uri.parse((String) path);
-            //imageView.setImageURI(uri);
+            ImageUtils.loadImage((String) path, imageView);
         }
 
-        //提供createImageView 方法，如果不用可以不重写这个方法，主要是方便自定义ImageView的创建
-        //////////////////////////////////////////////
-        @Override
-        public ImageView createImageView(Context context) {
-
-            return null;
-        }
     }
 
 
-    /*************************************
-     *红包打赏
-     ************************************/
-    public void showPopupspWindow_sendred(View parent) {
+    public void showPopupspWindow_sendred() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.red_choose_01165, null);
         TextView cancel = (TextView) layout.findViewById(R.id.cancel);
@@ -1071,8 +951,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                 int xpos = manager.getDefaultDisplay().getWidth() / 2
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
-        // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 252, 0);
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 252, 0);
         // 监听
         ///////////////////////////////////////
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -1283,12 +1162,9 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                 try {
                     //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
                     sendMessage_hongbao(Utils.xmppConnection, message, userid);
-                    LogDetect.send(LogDetect.DataType.noType, "zhuboid", user_exit);
                 } catch (XMPPException | SmackException.NotConnectedException e) {
                     e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
                     Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
                 }
             }
@@ -1379,7 +1255,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         @Override
         public void onReceive(Context context, Intent intent) {
             //showPopupspWindow4(wodeqianbao);
-            ll_vhome_avchat.setClickable(true);
+            tvCall.setEnabled(true);
             ///////////////////////////////
             LogDetect.send(LogDetect.DataType.specialType, "准备通话---发送openfire", "允许点击");
         }

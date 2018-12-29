@@ -46,7 +46,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         sp = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);;
         app = (YhApplicationA) getApplication();
-
     }
 
     protected abstract int getContentView();
