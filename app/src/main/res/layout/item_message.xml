@@ -12,13 +12,24 @@
         android:layout_marginLeft="6dp">
 
 
-        <com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView
+        <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/user_head"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:scaleType="centerCrop"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="0dp"
+            app:siRadius="70dp"
+            app:siSquare="true" />
+        <!--<com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView-->
+            <!--android:id="@+id/user_head"-->
+            <!--android:layout_width="48dp"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@drawable/ic_launcher" />-->
 
         <TextView
             android:id="@+id/tv_noread"

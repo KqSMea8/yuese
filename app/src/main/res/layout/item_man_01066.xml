@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/userinfo"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +14,7 @@
 
     <TextView
         android:id="@+id/nickname"
-        android:layout_width="100dip"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/headpic"
         android:layout_alignLeft="@id/headpic"
@@ -32,13 +31,13 @@
 
     <TextView
         android:id="@+id/zhichi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headpic"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:background="@drawable/zhoustar1_01162"
+        android:gravity="center"
         android:padding="3dp"
+        android:background="@drawable/bg_grey"
         android:text="拨打视频"
         android:textColor="#ffffff"
         android:textSize="14dp" />

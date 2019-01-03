@@ -63,30 +63,7 @@ public class UsersManageInOut_01152A {
 		handler.sendMessage(handler.obtainMessage(113, (Object) getdate));	
 		
 	}
-	/*
-	public void tuiguang(String[] params, Handler handler) {
-		ArrayList<Member_01152> getdate = usersManage.tuiguang(params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManageInOut_01152推广:", getdate);
-		handler.sendMessage(handler.obtainMessage(200, (Object) getdate));	
-	}
-	public void xiaofei(String[] params, Handler handler) {
-		Page getdate = usersManage.xiaofei(params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManageInOut_01152消费:", getdate);
-		handler.sendMessage(handler.obtainMessage(210, (Object) getdate));	
-		
-	}
-	public void shenqing(String[] params, Handler handler) {
-		String getdate = usersManage.shenqing(params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManageInOut_01152修改账户====:", getdate);
-		handler.sendMessage(handler.obtainMessage(200, (Object) getdate));	
-		
-	}
-	public void tuiguangrenshu(String[] params, Handler handler) {
-		Page getdate = usersManage.tuiguangrenshu(params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManageInOut_01152消费:", getdate);
-		handler.sendMessage(handler.obtainMessage(210, (Object) getdate));	
-		
-	}*/
+
 	
 	
 }

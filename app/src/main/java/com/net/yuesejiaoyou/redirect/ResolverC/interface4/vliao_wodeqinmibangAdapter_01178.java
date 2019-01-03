@@ -12,28 +12,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.vliaofans_01168;
+import com.example.vliao.getset.FansBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;*/
 //import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
+
 import java.text.DecimalFormat;
 import java.util.List;
 
 
 public class vliao_wodeqinmibangAdapter_01178 extends BaseAdapter {
-List<vliaofans_01168> list1;
+List<FansBean> list1;
 Context context;
 HolderView holderview;
 private DisplayImageOptions options;
 Resources resources;
 Drawable drawable;
 
-	public vliao_wodeqinmibangAdapter_01178(List<vliaofans_01168> list1, Context context) {
+	public vliao_wodeqinmibangAdapter_01178(List<FansBean> list1, Context context) {
 	super();
 	this.list1 = list1;
 	this.context = context;

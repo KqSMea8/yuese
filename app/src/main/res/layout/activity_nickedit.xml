@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/back1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back_01168" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="修改昵称"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/edit_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/border_01162_5"
+        android:gravity="center"
+        android:hint="请输入你的新昵称"
+        android:maxLength="16"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/besure"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/border_01162_txt_1"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+</LinearLayout>

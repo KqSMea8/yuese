@@ -192,7 +192,7 @@
             android:name="com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ImgPageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WebActivity"
@@ -278,7 +278,7 @@
 
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UploadVideoActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_FF"
@@ -311,31 +311,31 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxi_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.IncomeActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxi_01168"
-            android:screenOrientation="portrait"/>
-
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxi_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ZhuboBillActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.TixianDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ZhuboIncomeActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_zhichumingxizhubo_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.BillActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ZhuboTixianActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_shenqing_01152"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodefensi_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.FansActivity"
             android:screenOrientation="portrait"/>
 
         <activity
@@ -343,11 +343,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.RecomeActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RecomeActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.CallHistoryActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.CallHistoryActivity"
             android:screenOrientation="portrait"/>
 
 
@@ -356,7 +356,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_setnickname_01162"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.NickEditActivity"
             android:screenOrientation="portrait"/>
 
 
@@ -367,17 +367,17 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.EditActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.EditActivity"
             android:screenOrientation="portrait"/>
 
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyAvaterActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ModifyAvaterActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.FocusDetail"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.FocusActivity"
             android:screenOrientation="portrait"/>
 
 
@@ -408,10 +408,10 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_mytimeprice_01178"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.PriceActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.withdraw_01156"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WithdrawActivity"
             android:screenOrientation="portrait"/>
 
 
@@ -419,20 +419,20 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_agmentup_01066"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tjrwithdraw_01168"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.TuijianActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.tuiguangrenshu_01152"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.TuiguangActivity"
             android:screenOrientation="portrait"/>
         <!--                      C 区界面                 -->
 

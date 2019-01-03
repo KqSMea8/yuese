@@ -3,13 +3,10 @@ package com.net.yuesejiaoyou.redirect.ResolverC.interface1;
 
 import android.os.Handler;
 
-//import com.example.vliao.core.UsersManage_vliao_01178;
-//import com.example.vliao.getset.Page;
-//import com.example.vliao.getset.vliaofans_01168;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.core.UsersManage_vliao_01178C;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 
 import java.util.ArrayList;
 
@@ -46,14 +43,14 @@ public class UsersManageInOut_vliao_01178C {
 
 	public void vcurrency(String[] params, Handler handler) {
 
-		ArrayList<vliaofans_01168> list1=usersManage.vcurrency(params);
+		ArrayList<FansBean> list1=usersManage.vcurrency(params);
 
 		handler.sendMessage(handler.obtainMessage(121,(Object)list1));
 		
 	}
 
 	public void payprice(String[] params, Handler handler) {
-		ArrayList<vliaofans_01168> list2=usersManage.payprice(params);
+		ArrayList<FansBean> list2=usersManage.payprice(params);
 		handler.sendMessage(handler.obtainMessage(200,(Object)list2));
 	}
 	

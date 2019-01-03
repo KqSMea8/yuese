@@ -71,6 +71,7 @@ import android.widget.Toast;
 //import com.lazysellers.sellers.infocenter.hengexa2.smack.Chat;
 //import com.lazysellers.sellers.infocenter.hengexa2.smack.ChatManager;
 //import com.lazysellers.sellers.infocenter.hengexa2.smack.SmackException;
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
@@ -86,15 +87,16 @@ import com.net.yuesejiaoyou.redirect.ResolverB.getset.Tag;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01162B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01165B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyAdapter_01162_1;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyLayoutmanager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
-//import com.net.yuesejiaoyou.redirect.ResolverB.interface4.io.agora.propeller.preprocessing.VideoPreProcessing;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AgoraVideoManager;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -113,10 +115,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 //import io.agora.propeller.preprocessing.VideoPreProcessing;
+import okhttp3.Call;
 import pl.droidsonroids.gif.GifImageView;
 
 @SuppressLint("NewApi")
-public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener, View.OnTouchListener,View.OnClickListener {
+public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener, View.OnTouchListener, View.OnClickListener {
 
     private static final String LOG_TAG = VideoChatViewActivity.class.getSimpleName();
     private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
@@ -128,7 +131,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     // 表情图标每页6列4行
     private int columns = 6;
     private int rows = 4;
-    private String record_id="";
+    private String record_id = "";
     private EditText send_sms;
     private SimpleDateFormat sd;
     // 每页显示的表情view
@@ -189,14 +192,14 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private int keyHeight = 0;
     private ImageView translate;
     private boolean ks = false;
-    private RelativeLayout gbsp, xz, relativeLayout2,moshubang;
+    private RelativeLayout gbsp, xz, relativeLayout2, moshubang;
     private LinearLayout ly2;
 
     // 美颜
 //    private VideoPreProcessing mVideoPreProcessing;
     private SeekBar smoothLevel;
     private SeekBar whiteLevel;
-    private ImageView meiyan,meibai;
+    private ImageView meiyan, meibai;
     private int mopiLevel;
     private int meibaiLevel;
 
@@ -207,10 +210,10 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private LinearLayout id_like_video_layout, id_share_video_layout;
     private SurfaceView remoteSurface, localSurface;
     private FrameLayout remoteContainer, localContainer;
-//    private SpeechTranslate spchTranslate;
+    //    private SpeechTranslate spchTranslate;
     private ImageView cn, en;
 
-    private CheckedTextView c1,c2,c3,c4,c5,c6;
+    private CheckedTextView c1, c2, c3, c4, c5, c6;
 
     private PopupWindow popupWindow;
 
@@ -272,7 +275,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
             @Override
             public void run() {
                 remoteSurface = surface;
-                if(remoteContainer != null) {
+                if (remoteContainer != null) {
                     remoteContainer.removeAllViews();
                     remoteContainer.addView(remoteSurface);
                 }
@@ -286,10 +289,10 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agora_rtc);
 
-        layMuteRemoteVideo = (RelativeLayout)findViewById(R.id.lay_remote_mute);
-        layRedpk = (RelativeLayout)findViewById(R.id.lay_redpk);
-        redpkUsername = (TextView)findViewById(R.id.txt_username);
-        redpkValue = (TextView)findViewById(R.id.txt_rdvalue);
+        layMuteRemoteVideo = (RelativeLayout) findViewById(R.id.lay_remote_mute);
+        layRedpk = (RelativeLayout) findViewById(R.id.lay_redpk);
+        redpkUsername = (TextView) findViewById(R.id.txt_username);
+        redpkValue = (TextView) findViewById(R.id.txt_rdvalue);
 
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -322,8 +325,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         headpicture = sharedPreferences.getString("headpic", "");
 
         // 读取美颜设置
-        mopiLevel = sharedPreferences.getInt("mopi",1);
-        meibaiLevel = sharedPreferences.getInt("meibai",1);
+        mopiLevel = sharedPreferences.getInt("mopi", 1);
+        meibaiLevel = sharedPreferences.getInt("meibai", 1);
 
         activity_video_chat_view = (RelativeLayout) findViewById(R.id.activity_video_chat_view);
 
@@ -337,7 +340,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(AgoraRtcActivity.this, Chongzhi_01178.class);
+                intent.setClass(AgoraRtcActivity.this, RechargeActivity.class);
                 startActivity(intent);
 
             }
@@ -417,24 +420,23 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
         LogDetect.send(LogDetect.DataType.specialType, "01160 主播id:", yid_guke);
 
-        if(!TextUtils.isEmpty(getIntent().getStringExtra("status"))){
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("status"))) {
             isHuibo = true;
-            String[] paramsMap = {Util.userid,YOU,""};
+            String[] paramsMap = {Util.userid, YOU, ""};
             num = 1;
-            new Thread(new UsersThread_01158B("mod_return",paramsMap,handler).runnable).start();
+            new Thread(new UsersThread_01158B("mod_return", paramsMap, handler).runnable).start();
 
-            handler.postDelayed(e =new Runnable() {
+            handler.postDelayed(e = new Runnable() {
                 @Override
                 public void run() {
 //					kouqian();
                     startReduceTimer();
                 }
             }, 60000);
-        }else {
+        } else {
             //kouqian();
             startReduceTimer();
         }
-
 
 
         msgOperReciver = new MsgOperReciver_shouzhubo();
@@ -471,16 +473,15 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         relativeLayout2 = (RelativeLayout) findViewById(R.id.relativeLayout2);
         ly2 = (LinearLayout) findViewById(R.id.ly2);
 
-        smoothLevel = (SeekBar)findViewById(R.id.seek_smooth);
-        whiteLevel = (SeekBar)findViewById(R.id.seek_white);
+        smoothLevel = (SeekBar) findViewById(R.id.seek_smooth);
+        whiteLevel = (SeekBar) findViewById(R.id.seek_white);
 
-        moshubang = (RelativeLayout)findViewById(R.id.moshubang);
+        moshubang = (RelativeLayout) findViewById(R.id.moshubang);
         meibai = (ImageView) findViewById(R.id.meibai);
         meiyan = (ImageView) findViewById(R.id.meiyan);
 
 
-
-        if(isHuibo) {
+        if (isHuibo) {
             // 进入房间就删除记录
             String mode2 = "removep2pvideo";
             String[] paramsMap2 = {"", AgoraVideoManager.getCurRoomid()};
@@ -499,13 +500,15 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     }
 
     PowerManager.WakeLock wakeLock;
+
     private void startAwake() {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "TAG");
         wakeLock.acquire();
     }
+
     private void stopAwake() {
-        if(wakeLock != null) {
+        if (wakeLock != null) {
             wakeLock.release();
         }
     }
@@ -526,29 +529,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 //        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
 //        Thread t = new Thread(a.runnable);
 //        t.start();
-    }
-
-    /**
-     * 一对一视频切换摄像头控制
-     */
-    private void startSwitchCameraCtrl() {
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                switchCameraCnt = 10;
-                while(switchCameraCnt > 0) {
-                    switchCameraCnt--;
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                switchCameraCtrl = false;
-            }
-        }).start();
     }
 
     /**
@@ -618,7 +598,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
             meiyan.setVisibility(View.VISIBLE);
         }
     }
-
 
 
     private void showSoftInputView(final View v) {
@@ -729,55 +708,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     }
 
     /**
-     * 执行发送消息 文本类型
-     *
-     * @param content
-     */
-    void sendMsgTextLw(String content) {
-        //addGrpChat(content);
-        //handler.obtainMessage(19).sendToTarget();
-        //edtInput.setText("");
-        final String message = content + Const.SPLIT + Const.ACTION_MSG_ONECHAT
-                + Const.SPLIT + sd.format(new Date()) + Const.SPLIT + username;
-        //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
-                    sendMessage(Utils.xmppConnection, message, yid_guke);
-                } catch (XMPPException | SmackException.NotConnectedException e) {
-                    e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-                    Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-                    Looper.loop();
-                }
-            }
-        }).start();
-
-    }
-
-    /**
-     * 发送的信息 from为收到的消息，to为自己发送的消息
-     *
-     * @param message => 接收者卍发送者卍消息类型卍消息内容卍发送时间
-     * @return
-     */
-    private Msg getChatInfoTo(String message, String msgtype) {
-        String time = sd.format(new Date());
-        Msg msg = new Msg();
-        msg.setFromUser(YOU);
-        msg.setToUser(I);
-        msg.setType(msgtype);
-        msg.setIsComing(1);
-        msg.setContent(message);
-        msg.setDate(time);
-        return msg;
-    }
-
-
-    /**
      * 隐藏软键盘
      */
     public void hideSoftInputView() {
@@ -799,11 +729,11 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
         localSurface = AgoraVideoManager.getLocalSurfaceView();
         remoteSurface = AgoraVideoManager.getRemoteSurfaceView();
-        if(localSurface != null) {
+        if (localSurface != null) {
             localContainer.addView(localSurface);
         }
 
-        if(remoteSurface != null) {
+        if (remoteSurface != null) {
             remoteContainer.addView(remoteSurface);
         }
 
@@ -864,13 +794,13 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.v("TT","guke_bk  onDestroy()");
+        Log.v("TT", "guke_bk  onDestroy()");
 
-        stopAwake();	// 解除屏幕常亮
+        stopAwake();    // 解除屏幕常亮
 
-        Log.v("TT","before disableAudioFrame()");
+        Log.v("TT", "before disableAudioFrame()");
 
-        Log.v("TT","after disableAudioFrame()");
+        Log.v("TT", "after disableAudioFrame()");
         leaveChannel();
 
         timer.cancel();//关闭定时器
@@ -881,9 +811,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         unregisterReceiver(msgOperReciver);
         handler.removeCallbacks(e);
 
-        Log.v("TT","VideoChatViewActivity-onDestroy()");
+        Log.v("TT", "VideoChatViewActivity-onDestroy()");
     }
-
 
 
     // Tutorial Step 10
@@ -917,16 +846,15 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     }
 
 
-
     // Tutorial Step 8
     public void onSwitchCameraClicked(View view) {
         new Thread(new Runnable() {
 
             @Override
             public void run() {
-                Log.v("TT","before switchcamera");
+                Log.v("TT", "before switchcamera");
                 AgoraVideoManager.switchCamera();   //mRtcEngine.switchCamera();
-                Log.v("TT","after switchcamera");
+                Log.v("TT", "after switchcamera");
             }
         }).start();
 
@@ -942,14 +870,13 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
             stopVideoCall();
 
             String mode1 = "mod_online";
-            String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "",time.getText().toString()};
+            String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "", time.getText().toString()};
             UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
             LogDetect.send(LogDetect.DataType.specialType, "01160 用户挂断 video:", yid_guke);
             Thread c = new Thread(a.runnable);
             c.start();
         }
     }
-
 
 
     // Tutorial Step 3
@@ -1023,12 +950,12 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     }
 
     private void zhuboStopVideoCall() {
-        if(service != null) {
+        if (service != null) {
             service.shutdown();
         }
 
         String mode1 = "mod_online";
-        String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "",time.getText().toString()};
+        String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "", time.getText().toString()};
         UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
         LogDetect.send(LogDetect.DataType.specialType, "01160 用户挂断 video:", yid_guke);
         Thread c = new Thread(a.runnable);
@@ -1037,7 +964,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
     // Tutorial Step 10
     private void onRemoteUserVideoMuted(int uid, boolean muted) {
-        Log.v("TT","onRemoteUserVideoMuted():"+uid+","+muted);
+        Log.v("TT", "onRemoteUserVideoMuted():" + uid + "," + muted);
 //        FrameLayout container = (FrameLayout) findViewById(R.id.remote_video_view_container);
 //
 //        SurfaceView surfaceView = (SurfaceView) container.getChildAt(0);
@@ -1046,7 +973,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 //        if (tag != null && (Integer) tag == uid) {
 //            surfaceView.setVisibility(muted ? View.GONE : View.VISIBLE);
 //        }
-        if(muted) {
+        if (muted) {
             layMuteRemoteVideo.setVisibility(View.VISIBLE);
         } else {
             layMuteRemoteVideo.setVisibility(View.GONE);
@@ -1061,25 +988,17 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
-                case 260:		// 用户余额不足
+                case 260:        // 用户余额不足
                     // LogDetect.send(LogDetect.DataType.specialType,"扣了几次:",num);
-                    String json2= (String) msg.obj;
+                    String json2 = (String) msg.obj;
                     try {
-                        JSONObject object=new JSONObject(json2);
-                        record_id=object.getString("success");
+                        JSONObject object = new JSONObject(json2);
+                        record_id = object.getString("success");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     String qian = num * 2 + "";
-                    // Toast.makeText(VideoChatViewActivity.this, "The customer hang up,you cost"+qian, Toast.LENGTH_SHORT).show();
-                    //finish();
-                    /*Intent intent = new Intent();
-                    intent.setClass(VideoChatViewActivity.this, Evalue_01162.class);//编辑资料
-                    Bundle bundle = new Bundle();
-                    bundle.putString("zhubo_id", YOU);
-                    bundle.putString("time", num+"");
-                    intent.putExtras(bundle);
-                    startActivity(intent);*/
+
                     leaveChannel();
                     String mode = "evalue_search";
                     String params[] = {"", YOU};
@@ -1100,47 +1019,31 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                             if (success_ornot.equals("1")) {
                                 ly1.setVisibility(View.GONE);
                                 num++;
-//								String mode1 = "kou_frist";
-//								String[] paramsMap1 = {Util.userid, yid_guke};
-//								UsersThread_01158 a = new UsersThread_01158(mode1, paramsMap1, handler);
-//
-//									if (num == 1) {
-//
-//										service = Executors
-//												.newSingleThreadScheduledExecutor();
-//										service.scheduleAtFixedRate(a.runnable, 1, 1, TimeUnit.MINUTES);
-//										LogDetect.send(LogDetect.DataType.specialType, "01160 执行1分钟定时:", TimeUnit.MINUTES);
-//
-//									}
-
                             }//否则失败了
                             else if (success_ornot.equals("0")) {
                                 String mode1 = "mod_online";
-                                String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "",time.getText().toString()};
+                                String[] paramsMap1 = {Util.userid, yid_guke, "1", num + "", time.getText().toString()};
                                 UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
                                 Thread t = new Thread(a.runnable);
                                 t.start();
-                          /*  Toast.makeText(VideoChatViewActivity.this, "您的余额不足", Toast.LENGTH_SHORT).show();
-                            finish();*/
-
-                            } else if(success_ornot.equals("2") || success_ornot.equals("3")) {
+                            } else if (success_ornot.equals("2") || success_ornot.equals("3")) {
                                 num++;
                                 int counter;
-                                if(success_ornot.equals("2")) {		// 2分钟倒计时
+                                if (success_ornot.equals("2")) {        // 2分钟倒计时
                                     Toast.makeText(AgoraRtcActivity.this, "余额不足", Toast.LENGTH_SHORT).show();
-                                    counter = 60*2000;
-                                } else if(success_ornot.equals("3")) {		// 1分钟倒计时
+                                    counter = 60 * 2000;
+                                } else if (success_ornot.equals("3")) {        // 1分钟倒计时
                                     Toast.makeText(AgoraRtcActivity.this, "余额不足", Toast.LENGTH_SHORT).show();
-                                    counter = 60*1000;
+                                    counter = 60 * 1000;
                                 } else {
-                                    counter = 60*1000;
+                                    counter = 60 * 1000;
                                 }
 
 
                                 ly1.setVisibility(View.VISIBLE);
-                                sendMsgText1("开0倒1计2时"+success_ornot);
+                                sendMsgText1("开0倒1计2时" + success_ornot);
                                 // 如果已经存在倒计时则先取消再重新打开(两分钟倒计时切换到一分钟倒计时)
-                                if(c != null) {
+                                if (c != null) {
                                     c.cancel();
                                 }
                                 c = new CountDownTimer(counter, 1000) {
@@ -1160,7 +1063,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 //										t.start();
                                     }
                                 }.start();
-                            } else {	// 其他 checkyue 网络请求检测余额充足
+                            } else {    // 其他 checkyue 网络请求检测余额充足
 //                                if(isHuibo) {
 //                                    num = 1;
 //                                } else {
@@ -1198,22 +1101,22 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                     break;
                 case 203:
                     String json_report = (String) (msg).obj;
-                    LogDetect.send(LogDetect.DataType.specialType,"01160:",msg);
-                    if(!json_report.isEmpty()){
+                    LogDetect.send(LogDetect.DataType.specialType, "01160:", msg);
+                    if (!json_report.isEmpty()) {
                         try {
                             JSONObject jsonObject1 = new JSONObject(json_report);
-                            LogDetect.send(LogDetect.DataType.specialType,"01160:",jsonObject1);
+                            LogDetect.send(LogDetect.DataType.specialType, "01160:", jsonObject1);
                             //拉黑
-                            String success_ornot=jsonObject1.getString("success");
-                            LogDetect.send(LogDetect.DataType.specialType,"01160 success_ornot:",success_ornot);
-                            if(success_ornot.equals("1")){
+                            String success_ornot = jsonObject1.getString("success");
+                            LogDetect.send(LogDetect.DataType.specialType, "01160 success_ornot:", success_ornot);
+                            if (success_ornot.equals("1")) {
                                 popupWindow.dismiss();
                                 Toast.makeText(AgoraRtcActivity.this, "举报成功", Toast.LENGTH_SHORT).show();
                             }
-                        }catch(JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }else{
+                    } else {
                         Toast.makeText(AgoraRtcActivity.this, "举报失败，请检查网络连接", Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -1251,20 +1154,20 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                     break;
                 case 101: {
                     try {
-                        Log.v("TT","red_envelope-1: "+msg.obj);
-                        JSONObject jsonObject = new JSONObject((String)msg.obj);
-                        if("1".equals(jsonObject.getString("success"))) {
+                        Log.v("TT", "red_envelope-1: " + msg.obj);
+                        JSONObject jsonObject = new JSONObject((String) msg.obj);
+                        if ("1".equals(jsonObject.getString("success"))) {
                             String value = jsonObject.getString("value");
                             sendMsgText2(value);
                             //Toast.makeText(AgoraRtcActivity.this, "成功赠送 "+value+" 悦币", Toast.LENGTH_LONG).show();
                             showRedpkLayout(Util.nickname, value);
-                        } else if("0".equals(jsonObject.getString("success"))) {
+                        } else if ("0".equals(jsonObject.getString("success"))) {
                             Toast.makeText(AgoraRtcActivity.this, "余额不足", Toast.LENGTH_LONG).show();
                             showPopupspWindow_chongzhi(activity_video_chat_view);
                         }
                     } catch (JSONException e1) {
                         e1.printStackTrace();
-                        Log.v("TT","red_envelope-exception: "+e1);
+                        Log.v("TT", "red_envelope-exception: " + e1);
                     }
 
                 }
@@ -1411,26 +1314,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         }
     }
 
-    /**
-     * 表情页改变时，dots效果也要跟着改变
-     */
-    class PageChange implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-        }
-
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-        }
-
-        @Override
-        public void onPageSelected(int arg0) {
-            for (int i = 0; i < mDotsLayout.getChildCount(); i++) {
-                mDotsLayout.getChildAt(i).setSelected(false);
-            }
-            mDotsLayout.getChildAt(arg0).setSelected(true);
-        }
-    }
 
     /**
      * 发送消息
@@ -1503,13 +1386,13 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private void stopVideoCall() {
 
         // 如果正在扣钱就不主动触发扣钱动作了
-        if(serviceRunning == false) {
-            if(service != null) {
+        if (serviceRunning == false) {
+            if (service != null) {
                 service.shutdown();
             }
             //kouqian();
         } else {
-            if(service != null) {
+            if (service != null) {
                 service.shutdown();
             }
         }
@@ -1558,16 +1441,16 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     @Override
     protected void onResume() {
         super.onResume();
-        Log.v("TT","VideoChatViewActivity-onResume()");
+        Log.v("TT", "VideoChatViewActivity-onResume()");
         //添加layout大小发生改变监听器
         activity_video_chat_view.addOnLayoutChangeListener(this);
-        if(remoteSurface != null) {
+        if (remoteSurface != null) {
             remoteSurface.invalidate();
-            Log.v("TT","remote()");
+            Log.v("TT", "remote()");
         }
-        if(localSurface != null) {
+        if (localSurface != null) {
             localSurface.invalidate();
-            Log.v("TT","local()");
+            Log.v("TT", "local()");
         }
     }
 
@@ -1705,15 +1588,41 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
     //开线程，添加红包
     public void songhongbao(int coin) {
-        LogDetect.send(LogDetect.DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
-        //sendMsgText2(String.valueOf(coin));
-        String mode = "red_envelope";
-        //userid,---用户id，“2”----主播id，coin----红包大小
-        String[] params = {Util.userid, yid_guke, Integer.toString(coin)};
-        Log.v("TT","songhongbao: "+params);
-        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
+//        String mode = "red_envelope";
+//        String[] params = {Util.userid, yid_guke, Integer.toString(coin)};
+//        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
+//        Thread thread = new Thread(b.runnable);
+//        thread.start();
+
+        OkHttpUtils.post(this)
+                .url(URL.URL_HONGBAO)
+                .addParams("param1", Util.userid)
+                .addParams("param2", yid_guke)
+                .addParams("param3", coin)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if ("1".equals(jsonObject.getString("success"))) {
+                                String value = jsonObject.getString("value");
+                                sendMsgText2(value);
+                                showRedpkLayout(Util.nickname, value);
+                            } else if ("0".equals(jsonObject.getString("success"))) {
+                                Toast.makeText(AgoraRtcActivity.this, "余额不足", Toast.LENGTH_LONG).show();
+                                showPopupspWindow_chongzhi(activity_video_chat_view);
+                            }
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                });
     }
 
     public void showPopupspWindow4(View parent) {
@@ -1758,7 +1667,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                 int pos3 = 0;
                 int pos4 = 0;
                 String evalue = "";
-                String evalues="";
+                String evalues = "";
                 int a = list1.size();
 
                 if (a == 0) {
@@ -1766,8 +1675,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                 } else if (a == 1) {
                     pos1 = Integer.parseInt(list1.get(0));
                     evalue = list.get(pos1).getRecord() + "@" + list.get(pos1).getColor();
-                    evalues= "“"+list.get(pos1).getRecord()+"”";
-                    String params[] = {"1", YOU, evalue, pp, Util.userid,record_id};
+                    evalues = "“" + list.get(pos1).getRecord() + "”";
+                    String params[] = {"1", YOU, evalue, pp, Util.userid, record_id};
                     UsersThread_01162B b1 = new UsersThread_01162B(mode, params, handler);
                     Thread thread = new Thread(b1.runnable);
                     thread.start();
@@ -1775,8 +1684,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                     pos1 = Integer.parseInt(list1.get(0));
                     pos2 = Integer.parseInt(list1.get(1));
                     evalue = list.get(pos1).getRecord() + "@" + list.get(pos1).getColor() + "卍" + list.get(pos2).getRecord() + "@" + list.get(pos2).getColor();
-                    evalues= "“"+list.get(pos1).getRecord()+"”，“"+list.get(pos2).getRecord()+"”";
-                    String params[] = {"1", YOU, evalue, pp, Util.userid,record_id};
+                    evalues = "“" + list.get(pos1).getRecord() + "”，“" + list.get(pos2).getRecord() + "”";
+                    String params[] = {"1", YOU, evalue, pp, Util.userid, record_id};
                     UsersThread_01162B b1 = new UsersThread_01162B(mode, params, handler);
                     Thread thread = new Thread(b1.runnable);
                     thread.start();
@@ -1786,8 +1695,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                     pos3 = Integer.parseInt(list1.get(2));
                     // pos4=Integer.parseInt(list1.get(3));
                     evalue = list.get(pos1).getRecord() + "@" + list.get(pos1).getColor() + "卍" + list.get(pos2).getRecord() + "@" + list.get(pos2).getColor() + "卍" + list.get(pos3).getRecord() + "@" + list.get(pos3).getColor();
-                    evalues= "“"+list.get(pos1).getRecord()+"”，“"+list.get(pos2).getRecord()+"”，“"+list.get(pos3).getRecord()+"”";
-                    String params[] = {"1", YOU, evalue, pp, Util.userid,record_id};
+                    evalues = "“" + list.get(pos1).getRecord() + "”，“" + list.get(pos2).getRecord() + "”，“" + list.get(pos3).getRecord() + "”";
+                    String params[] = {"1", YOU, evalue, pp, Util.userid, record_id};
                     UsersThread_01162B b1 = new UsersThread_01162B(mode, params, handler);
                     Thread thread = new Thread(b1.runnable);
                     thread.start();
@@ -1797,18 +1706,18 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                     pos3 = Integer.parseInt(list1.get(2));
                     pos4 = Integer.parseInt(list1.get(3));
                     evalue = list.get(pos1).getRecord() + "@" + list.get(pos1).getColor() + "卍" + list.get(pos2).getRecord() + "@" + list.get(pos2).getColor() + "卍" + list.get(pos3).getRecord() + "@" + list.get(pos3).getColor() + "卍" + list.get(pos4).getRecord() + "@" + list.get(pos4).getColor();
-                    evalues= "“"+list.get(pos1).getRecord()+"”，“"+list.get(pos2).getRecord()+"”，“"+list.get(pos3).getRecord()+"”，“"+list.get(pos4).getRecord()+"”";
-                    String params[] = {"1", YOU, evalue, pp, Util.userid,record_id};
+                    evalues = "“" + list.get(pos1).getRecord() + "”，“" + list.get(pos2).getRecord() + "”，“" + list.get(pos3).getRecord() + "”，“" + list.get(pos4).getRecord() + "”";
+                    String params[] = {"1", YOU, evalue, pp, Util.userid, record_id};
                     UsersThread_01162B b1 = new UsersThread_01162B(mode, params, handler);
                     Thread thread = new Thread(b1.runnable);
                     thread.start();
                 }
 
                 LogDetect.send(LogDetect.DataType.specialType, "01160 用户发:", username + ":" + evalues);
-                if(pp.equals("dislike")){
-                    evalues="视频评价：不喜欢，"+evalues;
-                }else{
-                    evalues="视频评价：喜欢，"+evalues;
+                if (pp.equals("dislike")) {
+                    evalues = "视频评价：不喜欢，" + evalues;
+                } else {
+                    evalues = "视频评价：喜欢，" + evalues;
                 }
                 LogDetect.send(LogDetect.DataType.specialType, "01160 用户发:", username + ":" + evalues);
                 sendPtMsgText(evalues);
@@ -1872,14 +1781,14 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     }
 
     void sendPtMsgText(String content) {
-        LogDetect.send(LogDetect.DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+content);
+        LogDetect.send(LogDetect.DataType.noType, Utils.seller_id + "=phone=" + Utils.android, "chatmanager: " + content);
         //addGrpChat(content);
         //handler.obtainMessage(19).sendToTarget();
         //edtInput.setText("");
         final String message = content + Const.SPLIT + Const.MSG_TYPE_TEXT
-                + Const.SPLIT + sd.format(new Date()) + Const.SPLIT + username+Const.SPLIT+headpicture;
+                + Const.SPLIT + sd.format(new Date()) + Const.SPLIT + username + Const.SPLIT + headpicture;
         //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
-        LogDetect.send(LogDetect.DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
+        LogDetect.send(LogDetect.DataType.noType, Utils.seller_id + "=phone=" + Utils.android, "message: " + message);
         ////////////
         new Thread(new Runnable() {
             @Override
@@ -1898,8 +1807,9 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         }).start();
 
     }
+
     //举报
-    @SuppressLint({ "RtlHardcoded", "NewApi" })
+    @SuppressLint({"RtlHardcoded", "NewApi"})
     public void showPopupspWindow_rp(View parent) {
         // 加载布局
         LayoutInflater inflater = LayoutInflater.from(AgoraRtcActivity.this);
@@ -1920,7 +1830,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         c5.setOnClickListener(this);
         c6.setOnClickListener(this);
 
-        quxiao = (TextView)layout.findViewById(R.id.quxiao);
+        quxiao = (TextView) layout.findViewById(R.id.quxiao);
         quxiao.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -1939,7 +1849,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         AgoraRtcActivity.this.getWindow().setAttributes(lp);
         popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
         //popupWindow.showAsDropDown(parent, 0, 0,Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
-        popupWindow.showAtLocation(parent, Gravity.CENTER_VERTICAL|Gravity.BOTTOM, 0, 0);
+        popupWindow.showAtLocation(parent, Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 0);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             public void onDismiss() {
                 WindowManager.LayoutParams lp = AgoraRtcActivity.this.getWindow().getAttributes();
@@ -1954,11 +1864,11 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         super.onActivityResult(requestCode, resultCode, data);
 
         // 返回充值结果
-        if(resultCode == 100) {
+        if (resultCode == 100) {
             String result = data.getStringExtra("rlt");
-            if("success".equals(result)) {
+            if ("success".equals(result)) {
                 sendMsgText1("停0倒1计2时");
-                if(c != null) {
+                if (c != null) {
                     c.cancel();
                 }
                 ly1.setVisibility(View.GONE);
@@ -1972,7 +1882,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
 
-        TextView cancel = (TextView)layout.findViewById(R.id.cancel);
+        TextView cancel = (TextView) layout.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -1986,8 +1896,8 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent1=new Intent();
-                intent1.setClass(AgoraRtcActivity.this,Chongzhi_01178.class );//充值页面
+                Intent intent1 = new Intent();
+                intent1.setClass(AgoraRtcActivity.this, RechargeActivity.class);//充值页面
 //				startActivity(intent1);
                 startActivityForResult(intent1, 100);
                 popupWindow.dismiss();
@@ -2011,7 +1921,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
         // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER,0, 0);
+        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 0, 0);
         // 监听
 
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -2026,7 +1936,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         });
     }
 
-//--------------------------------------------------------------------
+    //--------------------------------------------------------------------
 //  送红包
     abstract class redpkTimer implements Runnable {
         protected int curCnt = 0;
@@ -2039,19 +1949,19 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
     private void showRedpkLayout(String username, String value) {
 
-        redpkUsername.setText(username+"用户");
+        redpkUsername.setText(username + "用户");
         redpkValue.setText(value);
 
-        if(layRedpk.getVisibility() == View.GONE) {
+        if (layRedpk.getVisibility() == View.GONE) {
 
             layRedpk.setVisibility(View.VISIBLE);
 
-            showRedpkThread = new redpkTimer(){
+            showRedpkThread = new redpkTimer() {
 
                 @Override
                 public void run() {
 
-                    while(curCnt < maxCnt) {
+                    while (curCnt < maxCnt) {
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e1) {
@@ -2076,7 +1986,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
             new Thread(showRedpkThread).start();
         } else {
-            if(showRedpkThread != null) {
+            if (showRedpkThread != null) {
                 showRedpkThread.clearCnt();
             }
         }

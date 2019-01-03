@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECECEC"
@@ -16,10 +17,8 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="35dip"
-            android:layout_height="35dip"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"
             android:background="@drawable/back_01168" />
@@ -33,6 +32,11 @@
             android:textColor="#000000"
             android:textSize="20dip" />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
 
     <RelativeLayout
         android:id="@+id/RL"
@@ -50,15 +54,18 @@
             android:textColor="#000000"
             android:textSize="17sp" />
 
-        <!--<com.example.vliao.interface4.RoundImageView-->
-        <com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
+        <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/touxiang"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/ImageView01"
             android:layout_toStartOf="@+id/ImageView01"
-            android:src="@drawable/tubiao" />
+            android:src="@drawable/tubiao"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="0dp"
+            app:siRadius="70dp"
+            app:siSquare="true" />
 
         <ImageView
             android:id="@+id/ImageView01"
@@ -77,7 +84,6 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-
         android:layout_width="match_parent"
         android:layout_height="70dip"
         android:background="#FAFAFA">

@@ -107,20 +107,14 @@ public class VideoPlayActivity extends BaseActivity {
         return R.layout.activity_videoplay;
     }
 
-    @TargetApi(19)
-    protected void initWindow() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setNavigationBarTintEnabled(false);
-            tintManager.setStatusBarTintColor(Color.TRANSPARENT);
+    @Override
+    public int statusBarColor() {
+        return R.color.transparent;
+    }
 
-            if (miUISetStatusBarLightMode(getWindow(), true)) {
-            } else if (flymeSetStatusBarLightMode(getWindow(), true)) {
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            }
-        }
+    @Override
+    public boolean statusBarFont() {
+        return false;
     }
 
     private int pageno = 1, maxid, totlepage;

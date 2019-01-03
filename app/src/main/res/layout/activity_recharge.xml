@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dip">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/back_01168" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="充值"
+            android:textColor="#000000"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dip" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:layout_marginLeft="15dip"-->
+                <!--android:layout_marginRight="15dip"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao"-->
+                    <!--android:paddingRight="10dip">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v100" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum1"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="10"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy100"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money1"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="10元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+                    <!--</LinearLayout>-->
+                <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao"-->
+                    <!--android:paddingRight="10dip">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v200" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum2"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="20"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy200"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money2"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="20元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao"-->
+                    <!--android:paddingRight="10dip">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v500" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum3"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="50"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy500"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money3"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="50元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+
+                    <!--android:background="@drawable/huiseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v1000" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum4"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="100"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy1000"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money4"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="100元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v2000" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum5"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="200"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy2000"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money5"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="200元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v5000" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum6"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="500"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy5000"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money6"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="500元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="80dip"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="15dip"-->
+                <!--android:paddingRight="15dip"-->
+                <!--android:paddingTop="8dip">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/huiseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="15dip"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="27dip"-->
+                            <!--android:layout_height="27dip"-->
+                            <!--android:src="@drawable/v10000" />-->
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/vbnum7"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="1000"-->
+                            <!--android:textColor="#000000"-->
+                            <!--android:textSize="16dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="悦"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="5dip"-->
+                            <!--android:text="币"-->
+                            <!--android:textColor="#7F7F7F"-->
+                            <!--android:textSize="13dip" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/buy10000"-->
+                    <!--android:layout_width="100dip"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@drawable/huangseruanjiao">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="$"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="16dip"-->
+                                <!--android:visibility="gone" />-->
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/money7"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="1000元"-->
+                                <!--android:textColor="#FFFFFF"-->
+                                <!--android:textSize="13dip" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="5dip"-->
+                            <!--android:text="立即购买"-->
+                            <!--android:textColor="#FFFFFF"-->
+                            <!--android:textSize="16dip" />-->
+
+
+                    <!--</LinearLayout>-->
+
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/bottom"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="15dip"-->
+                <!--android:layout_marginTop="10dip"-->
+                <!--android:text="注: 充值金额不可退还和提现"-->
+                <!--android:textColor="#7F7F7F"-->
+                <!--android:textSize="13dip" />-->
+
+        <!--</LinearLayout>-->
+
+    <!--</ScrollView>-->
+
+</LinearLayout>

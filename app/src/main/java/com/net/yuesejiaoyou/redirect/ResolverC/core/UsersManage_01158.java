@@ -1,11 +1,6 @@
 package com.net.yuesejiaoyou.redirect.ResolverC.core;
 
 
-/*import com.example.vliao.getset.Page;
-import com.example.vliao.getset.photo_01162;
-import com.example.vliao.interface2.OkHttp;
-import com.example.vliao.interface4.HelpManager_01158;
-import com.example.vliao.interface4.LogDetect;*/
 
 import com.net.yuesejiaoyou.classroot.interface2.OkHttp;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;

@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
     android:background="#ffffff">
 
     <RelativeLayout
@@ -10,20 +12,22 @@
         android:layout_height="50dip"
         android:layout_alignParentTop="true"
         android:background="#ffffff">
+
         <ImageView
             android:id="@+id/back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back_01168" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:text="关注列表"
             android:textColor="#000000"
-            android:textSize="20dip"
-            android:gravity="center"/>
+            android:textSize="20dip" />
     </RelativeLayout>
 
     <ListView
@@ -31,13 +35,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/headid"
-        android:divider="@null"
-        />
-    <View 
+        android:divider="@null" />
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:layout_below="@+id/list_focus"
-        android:background="#f0f0f0"
-        />
+        android:background="#f0f0f0" />
 
 </RelativeLayout>

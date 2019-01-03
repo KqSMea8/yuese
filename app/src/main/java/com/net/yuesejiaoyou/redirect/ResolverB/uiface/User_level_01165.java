@@ -21,11 +21,18 @@ import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Bills_01165;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01165B;
 
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.Call;
 
 
 /**
@@ -62,12 +69,75 @@ public class User_level_01165 extends Activity implements View.OnClickListener{
         level = (TextView)findViewById(R.id.level);
         level1 = (TextView)findViewById(R.id.level1);
         level2 = (TextView)findViewById(R.id.level2);
-        String mode = "level_search";
-        String[] params = {Util.userid};
-        UsersThread_01165B b = new UsersThread_01165B(mode,params,handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
+//        String mode = "level_search";
+//        String[] params = {Util.userid};
+//        UsersThread_01165B b = new UsersThread_01165B(mode,params,handler);
+//        Thread thread = new Thread(b.runnable);
+//        thread.start();
+
+        OkHttpUtils.post(this)
+                .url(URL.URL_LEVEL)
+                .addParams("param1", Util.userid)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+
+                        Page page = level_search(response);
+                        //获取V币消耗数量
+                        int pay_sum = page.getTotlePage();
+                        ArrayList<Bills_01165> list = (ArrayList<Bills_01165>)page.getList();
+                        LogDetect.send(LogDetect.DataType.specialType, "list",list);
+
+                        if(list.get(0).getTouxiang().contains("http")){
+                            ImageLoader.getInstance().displayImage(list.get(0).getTouxiang(),touxiang,options);
+                        }
+
+                        ImageLoader.getInstance().displayImage(list.get(0).getTouxiang(),touxiang);
+                        level.setText(("LV"+list.get(0).getLevel()));
+                        String now_pay = map.get(list.get(0).getLevel());
+                        String[] now_pays = extractAmountMsg(now_pay);
+                        int now_pay_num = Integer.parseInt(now_pays[0]);
+                        level1.setText(pay_sum - now_pay_num + "");
+                        int nex_pay_level = Integer.parseInt(list.get(0).getLevel())+1;
+                        String next_pay_num = map.get(nex_pay_level+"");
+                        int next_num = Integer.parseInt(next_pay_num);
+                        level2.setText(next_num-pay_sum +"");
+                    }
+                });
     }
+
+    public Page level_search(String json) {
+        ArrayList<Bills_01165> list = new ArrayList<>();
+        Page page = new Page();
+        JSONArray jsonArray;
+        try {
+            jsonArray = new JSONArray(json);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+                //最后一条数据是返回的抓中次数
+                if(i==jsonArray.length()-1){
+                    page.setTotlePage(item.getInt("totlePage"));
+                }
+                else{
+                    Bills_01165 bean = new Bills_01165();
+                    bean.setTouxiang(item.getString("photo"));
+                    bean.setLevel(item.getString("dengji"));
+                    list.add(bean);
+                }
+            }
+            page.setList(list);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return page;
+    }
+
     private Handler handler = new Handler(){
         public void handleMessage(Message msg) {
             switch (msg.what){

@@ -2,11 +2,9 @@ package com.net.yuesejiaoyou.redirect.ResolverC.interface4;
 
 import android.util.Log;
 
-//import com.example.vliao.getset.Page;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
-//import com.example.vliao.getset.vliaofans_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -47,7 +45,7 @@ public class HelpManager_vliao_01178C {
 	
 	public Page wodeqimibang(String rev) {
 		Page page=new Page();
-		ArrayList<vliaofans_01168> list = new ArrayList<vliaofans_01168>();
+		ArrayList<FansBean> list = new ArrayList<FansBean>();
 		///////////////////////////
 		LogDetect.send(LogDetect.DataType.specialType, "我的亲密榜返回:","2323232323");
 		///////////////////////////
@@ -62,7 +60,7 @@ public class HelpManager_vliao_01178C {
 					 page.setTotlePage(item.getInt("totlePage"));
 					 page.setPageNo(item.getInt("pagenum"));
 				}else{
-					vliaofans_01168 wodeqimibang=new vliaofans_01168();
+					FansBean wodeqimibang=new FansBean();
 					wodeqimibang.setNickname(item.getString("nickname"));
 					///////////////////////////
 					LogDetect.send(LogDetect.DataType.specialType, "我的亲密榜返回:",item.getString("nickname"));
@@ -81,13 +79,13 @@ public class HelpManager_vliao_01178C {
 	}
 	
 	//user_id,price,time
-	public ArrayList<vliaofans_01168> vcurrency(String rev) {
-		ArrayList<vliaofans_01168> list1 = new ArrayList<vliaofans_01168>();
+	public ArrayList<FansBean> vcurrency(String rev) {
+		ArrayList<FansBean> list1 = new ArrayList<FansBean>();
 		try {
 			JSONArray jsonArray = new JSONArray(rev);
 			for (int i = 0; i < jsonArray.length(); i++) {
 				JSONObject item = jsonArray.getJSONObject(i);
-				vliaofans_01168 mytimeprice=new vliaofans_01168();
+				FansBean mytimeprice=new FansBean();
 				mytimeprice.setUser_id(item.getString("userid"));
 				mytimeprice.setPrice(item.getString("price"));
 				
@@ -99,13 +97,13 @@ public class HelpManager_vliao_01178C {
 		return list1;
 	}
 	
-	public ArrayList<vliaofans_01168> payprice(String rev) {
-		ArrayList<vliaofans_01168> list1 = new ArrayList<vliaofans_01168>();
+	public ArrayList<FansBean> payprice(String rev) {
+		ArrayList<FansBean> list1 = new ArrayList<FansBean>();
 		try {
 			JSONArray jsonArray = new JSONArray(rev);
 			for (int i = 0; i < jsonArray.length(); i++) {
 				JSONObject item = jsonArray.getJSONObject(i);
-				vliaofans_01168 payprice=new vliaofans_01168();
+				FansBean payprice=new FansBean();
 				payprice.setV_num(item.getString("v_num"));
 				payprice.setPrice(item.getString("price"));
 				

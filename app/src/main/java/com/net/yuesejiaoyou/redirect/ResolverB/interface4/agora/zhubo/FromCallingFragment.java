@@ -11,6 +11,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
@@ -40,10 +42,16 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoom;
+import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 
 import net.sf.json.JSONObject;
 
@@ -193,75 +201,142 @@ public class FromCallingFragment extends Fragment implements ICmdListener, IActi
     }
 
     private void checkRoomInfo() {
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
+        OkHttpUtils.post(this)
                 .url(Util.url + "/uiface/memberB?p0=A-user-search&p1=checkroominfo&p2=&p3=" + Util.userid + "&p4=" + userInfoHandler.getRoomid())
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-
-            // 如果请求异常则挂断一对一视频
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Toast.makeText(baseActivity, "网络异常", Toast.LENGTH_SHORT).show();
-
-                // 发送挂断消息
-                String strCmd;
-                if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
-                    strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
-                } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-                    strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
-                } else {
-                    strCmd = VideoMessageManager.VIDEO_NONE;
-                }
-                String mode1 = "pushcmdmsg";
-                String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
-                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
-                Thread c = new Thread(a.runnable);
-                c.start();
-                cancelCalling(false);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                int code = response.code();
-                if (code == 200) {
-                    String strJson = response.body().string();
-                    LogUtil.d("ttt","---"+strJson);
-                    JSONObject jsonObj = JSONObject.fromObject(strJson);
-                    if ("yes".equals(jsonObj.getString("result"))) {
-                        // 发送接听消息
+                .build()
+                .execute(new DialogCallback(getContext()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(baseActivity, "网络异常", Toast.LENGTH_SHORT).show();
                         String strCmd;
                         if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
-                            strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_ACCEPT;
+                            strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
                         } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-                            strCmd = VideoMessageManager.VIDEO_A2U_USER_ACCEPT;
+                            strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
                         } else {
                             strCmd = VideoMessageManager.VIDEO_NONE;
                         }
-
                         String mode1 = "pushcmdmsg";
                         String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
                         UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
                         Thread c = new Thread(a.runnable);
                         c.start();
-                        acceptCalling();
-
-                        videoHandler.startVideo();
-                    } else if ("no".equals(jsonObj.getString("result"))) {
-                        baseActivity.runOnUiThread(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                Toast.makeText(baseActivity, "对方已挂断", Toast.LENGTH_SHORT).show();
-                                cancelCalling(false);
-                            }
-                        });
-
-                        baseActivity.finish();
+                        cancelCalling(false);
                     }
-                }
-            }
-        });
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        super.onResponse(response, id);
+                        if(TextUtils.isEmpty(response)){
+                            return;
+                        }
+                        JSONObject jsonObj = JSONObject.fromObject(response);
+                        if ("yes".equals(jsonObj.getString("result"))) {
+                            // 发送接听消息
+                            String strCmd;
+                            if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+                                strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_ACCEPT;
+                            } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+                                strCmd = VideoMessageManager.VIDEO_A2U_USER_ACCEPT;
+                            } else {
+                                strCmd = VideoMessageManager.VIDEO_NONE;
+                            }
+
+                            String mode1 = "pushcmdmsg";
+                            String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+                            UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
+                            Thread c = new Thread(a.runnable);
+                            c.start();
+                            acceptCalling();
+
+                            videoHandler.startVideo();
+                        } else if ("no".equals(jsonObj.getString("result"))) {
+                            baseActivity.runOnUiThread(new Runnable() {
+
+                                @Override
+                                public void run() {
+                                    Toast.makeText(baseActivity, "对方已挂断", Toast.LENGTH_SHORT).show();
+                                    cancelCalling(false);
+                                }
+                            });
+                            baseActivity.finish();
+                        }
+
+                    }
+                });
+
+//        OkHttpClient client = new OkHttpClient();
+//        Request request = new Request.Builder()
+//                .url(Util.url + "/uiface/memberB?p0=A-user-search&p1=checkroominfo&p2=&p3=" + Util.userid + "&p4=" + userInfoHandler.getRoomid())
+//                .build();
+//        client.newCall(request).enqueue(new Callback() {
+//
+//            // 如果请求异常则挂断一对一视频
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Toast.makeText(baseActivity, "网络异常", Toast.LENGTH_SHORT).show();
+//
+//                // 发送挂断消息
+//                String strCmd;
+//                if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+//                    strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_HANGUP;
+//                } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+//                    strCmd = VideoMessageManager.VIDEO_A2U_USER_HANGUP;
+//                } else {
+//                    strCmd = VideoMessageManager.VIDEO_NONE;
+//                }
+//                String mode1 = "pushcmdmsg";
+//                String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+//                UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
+//                Thread c = new Thread(a.runnable);
+//                c.start();
+//                cancelCalling(false);
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                int code = response.code();
+//                if (code == 200) {
+//                    String strJson = response.body().string();
+//                    if(TextUtils.isEmpty(strJson)){
+//                        return;
+//                    }
+//                    LogUtil.d("ttt","---"+strJson);
+//                    JSONObject jsonObj = JSONObject.fromObject(strJson);
+//                    if ("yes".equals(jsonObj.getString("result"))) {
+//                        // 发送接听消息
+//                        String strCmd;
+//                        if (userInfoHandler.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
+//                            strCmd = VideoMessageManager.VIDEO_U2A_ANCHOR_ACCEPT;
+//                        } else if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
+//                            strCmd = VideoMessageManager.VIDEO_A2U_USER_ACCEPT;
+//                        } else {
+//                            strCmd = VideoMessageManager.VIDEO_NONE;
+//                        }
+//
+//                        String mode1 = "pushcmdmsg";
+//                        String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
+//                        UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handlerZhubo);
+//                        Thread c = new Thread(a.runnable);
+//                        c.start();
+//                        acceptCalling();
+//
+//                        videoHandler.startVideo();
+//                    } else if ("no".equals(jsonObj.getString("result"))) {
+//                        baseActivity.runOnUiThread(new Runnable() {
+//
+//                            @Override
+//                            public void run() {
+//                                Toast.makeText(baseActivity, "对方已挂断", Toast.LENGTH_SHORT).show();
+//                                cancelCalling(false);
+//                            }
+//                        });
+//
+//                        baseActivity.finish();
+//                    }
+//                }
+//            }
+//        });
     }
 
     /**

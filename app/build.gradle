@@ -15,6 +15,8 @@ android {
         targetSdkVersion 27
         versionCode 5
         versionName "1.1.2"
+
+        multiDexEnabled true
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
@@ -31,13 +33,12 @@ android {
 
     buildTypes {
         debug {
-            multiDexEnabled true
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            multiDexEnabled true
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -97,6 +98,8 @@ dependencies {
     implementation 'com.liulishuo.filedownloader:library:1.4.1'
     implementation 'com.google.code.gson:gson:2.8.0'
 
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okio:okio:1.13.0'
 
 
     //核心基础库，包含绝大多数功能，扩展库必须依赖本库（从1.6.0版本开始Core库不再自带刷新视图实现，只包含核心功能）
@@ -146,6 +149,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
 }
 
 

@@ -19,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -33,7 +32,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -47,12 +46,12 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CleanCacheManager;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView;
 
 ///////////////////////A区调用C区的相关文件类引入
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyAvaterActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.FocusDetail;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ModifyAvaterActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.FocusActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_agmentup_01066;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity;
 ///////////////////////A区调用B区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.User_level_01165;
@@ -70,9 +69,7 @@ public class MineFragment extends Fragment implements OnClickListener{
 	private TextView user_id,dengji,dailishang,my_guanzhu,money,wurao_zhuangtai;
 	private View mBaseView;
 	private Intent intent;
-	private Button cancel,confirm;
-	private CleanCacheManager cleanCacheManager;
-	//弹出框 
+	//弹出框
 	private PopupWindow popupWindow;
 	private Context mContext;
 	DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
@@ -86,9 +83,6 @@ public class MineFragment extends Fragment implements OnClickListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		//////////////////////////////
-		LogDetect.send(LogDetect.DataType.specialType, "MineFragment:", "布局开始");
-		//////////////////////////////
 		mBaseView = inflater.inflate(R.layout.gerenzhongxin_1152, null);
 
 		mContext = getActivity();
@@ -319,19 +313,19 @@ public class MineFragment extends Fragment implements OnClickListener{
 			////////////////////////////////
 			case R.id.dailishang://跳转到代理商等级页面
 				intent = new Intent();
-				intent.setClass(mContext, Vliao_agmentup_01066.class);
+				intent.setClass(mContext, DailiActivity.class);
 				startActivity(intent);
 				break;
 			////////////////////////////////
 			case R.id.user_my_like_layout://跳转关注页面
 				intent = new Intent();
-				intent.setClass(mContext, FocusDetail.class);
+				intent.setClass(mContext, FocusActivity.class);
 				startActivity(intent);//
 				break;
 			////////////////////////////////
 			case R.id.chongzhi://充值页面
 				intent = new Intent();
-				intent.setClass(mContext, Chongzhi_01178.class);
+				intent.setClass(mContext, RechargeActivity.class);
 				startActivity(intent);//
 				break;
 			////////////////////////////////
@@ -358,16 +352,6 @@ public class MineFragment extends Fragment implements OnClickListener{
 				break;
 			////////////////////////////////
 			case R.id.meiyan://美颜设置
-				//intent = new Intent();
-				//intent.setClass(mContext, OtherActivity.class);
-				//startActivity(intent);
-//				Log.v("TT","meiyan start");
-//				Intent intent = new Intent(getActivity(),MeiyanSet.class);
-//				intent.putExtra("roomid",new Date().getTime()+"");
-//				intent.putExtra("yid_guke","");
-//				intent.putExtra("zhubo_name","");
-//				startActivity(intent);
-//				Log.v("TT","meiyan end");
 				Intent intent = new Intent(getActivity(),MeiyanSet.class);
 				startActivity(intent);
 				break;
@@ -417,122 +401,20 @@ public class MineFragment extends Fragment implements OnClickListener{
 	private void clearCache() {
 		String hunc="";
 		try {
-			hunc =  cleanCacheManager.getTotalCacheSize(getActivity());
+			hunc =  CleanCacheManager.getTotalCacheSize(getActivity());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//LogDetect.send(LogDetect.DataType.basicType,"01165_获得缓存",hunc);
-		cleanCacheManager.clearAllCache(getActivity());
+		CleanCacheManager.clearAllCache(getActivity());
 		try {
-			hunc =  cleanCacheManager.getTotalCacheSize(getActivity());
+			hunc =  CleanCacheManager.getTotalCacheSize(getActivity());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//LogDetect.send(LogDetect.DataType.basicType,"01165_清除之后的缓存",hunc);
-		//Toast.makeText(getActivity(), "清除成功", Toast.LENGTH_SHORT).show();
-	}
-
-	/*****************************************************
-	 * 清除缓存（目前没用到）
-	 *
-	 *****************************************************/
-	private void showPopupspWindow_qingchu(View arg0) {
-		//////////////////////////////
-		LogDetect.send(LogDetect.DataType.specialType, "MineFragment:", "弹出框======");
-		//////////////////////////////
-		LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		//View layout = inflater.inflate(R.layout.tuichudenglu_1152, null);
-		View  convertView = LayoutInflater.from(mContext).inflate(R.layout.qingchuhuancun_1152, null);
-
-		/////////////////////////////////
-		/**
-		 * 监听事件
-		 */
-		TextView cancel = (TextView)convertView.findViewById(R.id.cancel);
-		cancel.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				popupWindow.dismiss();
-				
-			}
-		});
-
-		/////////////////////////////////
-		/**
-		 * 监听事件
-		 */
-		TextView confirm = (TextView) convertView.findViewById(R.id.confirm);//获取小窗口上的TextView，以便显示现在操作的功能。
-		confirm.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-
-				String hunc="";
-				try {
-					hunc =  cleanCacheManager.getTotalCacheSize(getActivity());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"01165_获得缓存",hunc);
-				//////////////////////////////
-				cleanCacheManager.clearAllCache(getActivity());
-				try {
-					hunc =  cleanCacheManager.getTotalCacheSize(getActivity());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"01165_清除之后的缓存",hunc);
-				//////////////////////////////
-				Toast.makeText(getActivity(), "清除成功", Toast.LENGTH_SHORT).show();
-				
-				popupWindow.dismiss();
-				
-				
-
-			}
-		});
-
-
-		popupWindow = new PopupWindow(convertView, LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT, true);
-		popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-		popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-
-		//是否响应touch事件
-		// mPopWindow.setTouchable(false);
-		//是否具有获取焦点的能力
-		popupWindow.setFocusable(true);
-		popupWindow.showAtLocation(arg0, Gravity.BOTTOM  | Gravity.CENTER,252, 0);
-		//外部是否可以点击
-		popupWindow.setBackgroundDrawable(new BitmapDrawable());
-		popupWindow.setOutsideTouchable(true);
-		//mPopWindow.showAsDropDown(tj2);
-
-		/////////////////////////////////
-		convertView.setOnTouchListener(new View.OnTouchListener()// 需要设置，点击之后取消popupview，即使点击外面，也可以捕获事件
-		{
-			@Override
-			public boolean onTouch(View v, android.view.MotionEvent event) {
-				// TODO Auto-generated method stub
-				if (popupWindow.isShowing())
-				{
-					popupWindow.dismiss();
-				}
-				return false;
-			}
-		});
-		/////////////////////////////////
-		
 	}
 
 
-	/*****************************************************
-	 * 退出登录
-	 *
-	 *****************************************************/
 	private void showPopupspWindow_tuichu(View arg0) {
 		//////////////////////////////
 		LogDetect.send(LogDetect.DataType.specialType, "MineFragment:", "弹出框======");
@@ -641,8 +523,6 @@ public class MineFragment extends Fragment implements OnClickListener{
 			}
 		});
 
-		/////////////////////////////////
-		
 	}
 
 

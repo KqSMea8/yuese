@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_vliao_01178C;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.vliao_wodeqinmibangAdapter_01178;
@@ -31,137 +31,137 @@ import com.net.yuesejiaoyou.redirect.ResolverC.interface4.vliao_wodeqinmibangAda
  **********************/
 public class Vliao_wodeqinmibang_01178 extends Activity implements OnClickListener {
 
-	ArrayList<vliaofans_01168> list1 = new ArrayList<vliaofans_01168>();
-	private int pageno = 1, totlepage = 0;
-	private boolean canPull = true;
-	private int lastVisibleItem = 0;
+    ArrayList<FansBean> list1 = new ArrayList<FansBean>();
+    private int pageno = 1, totlepage = 0;
+    private boolean canPull = true;
+    private int lastVisibleItem = 0;
 
 
-	private ImageView fanhui;
-	private RelativeLayout fanhuizong;
-	private ListView l1;
-	private vliao_wodeqinmibangAdapter_01178 adapter1;
-	private TextView norecord;
-	private Context context;
+    private ImageView fanhui;
+    private RelativeLayout fanhuizong;
+    private ListView l1;
+    private vliao_wodeqinmibangAdapter_01178 adapter1;
+    private TextView norecord;
+    private Context context;
 
-	/*********************
-	 *
-	 * @param savedInstanceState
-	 ********************/
-	@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			
-			super.onCreate(savedInstanceState);
-			context=this;
-			setContentView(R.layout.vliao_qinmibanfi_01178);
-			////////////////////////
-			LogDetect.send(LogDetect.DataType.specialType, "vliao_qinmibanfi_01178","初始化");
-			///////////////////////
-			fanhui=(ImageView) findViewById(R.id.fanhui);
-			fanhui.setOnClickListener(this);
-			fanhuizong = (RelativeLayout) findViewById(R.id.fanhuizong);
-			fanhuizong.setOnClickListener(this);
-			norecord= (TextView) findViewById(R.id.no_record);
-			l1=(ListView) findViewById(R.id.l1);
-			//点击一条信息可跳转该条信息用户id的主页
-		initdata();
-		}
+    /*********************
+     *
+     * @param savedInstanceState
+     ********************/
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-	/********************
-	 *发送线程
-	 *******************/
-	public void initdata(){
-		String mode="wodeqimibang";
-		String[]params={"", Util.userid,pageno+""};
-		UsersThread_vliao_01178C b=new UsersThread_vliao_01178C(mode, params, handler);
-		Thread thread=new Thread(b.runnable);
-		thread.start();
-	}
+        super.onCreate(savedInstanceState);
+        context = this;
+        setContentView(R.layout.vliao_qinmibanfi_01178);
+        ////////////////////////
+        LogDetect.send(LogDetect.DataType.specialType, "vliao_qinmibanfi_01178", "初始化");
+        ///////////////////////
+        fanhui = (ImageView) findViewById(R.id.fanhui);
+        fanhui.setOnClickListener(this);
+        fanhuizong = (RelativeLayout) findViewById(R.id.fanhuizong);
+        fanhuizong.setOnClickListener(this);
+        norecord = (TextView) findViewById(R.id.no_record);
+        l1 = (ListView) findViewById(R.id.l1);
+        //点击一条信息可跳转该条信息用户id的主页
+        initdata();
+    }
 
-	/************************
-	 * 返回数据
-	 ***********************/
-	private Handler handler=new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			super.handleMessage(msg);
-			switch (msg.what) {
-				////////////////////////////
-				case 202:
+    /********************
+     *发送线程
+     *******************/
+    public void initdata() {
+        String mode = "wodeqimibang";
+        String[] params = {"", Util.userid, pageno + ""};
+        UsersThread_vliao_01178C b = new UsersThread_vliao_01178C(mode, params, handler);
+        Thread thread = new Thread(b.runnable);
+        thread.start();
+    }
 
-					Page page = (Page) msg.obj;
-					totlepage = page.getTotlePage();
-					pageno = page.getPageNo();
-					if (totlepage == 0||list1==null) {
-						norecord.setVisibility(View.VISIBLE);
-						return;
-					}
-					if (pageno == 1) {
+    /************************
+     * 返回数据
+     ***********************/
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                ////////////////////////////
+                case 202:
 
-						list1 = (ArrayList<vliaofans_01168>) page.getList();
-						adapter1 = new vliao_wodeqinmibangAdapter_01178(list1, Vliao_wodeqinmibang_01178.this);
-						l1.setAdapter(adapter1);
+                    Page page = (Page) msg.obj;
+                    totlepage = page.getTotlePage();
+                    pageno = page.getPageNo();
+                    if (totlepage == 0 || list1 == null) {
+                        norecord.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                    if (pageno == 1) {
 
-						l1.setOnScrollListener(new AbsListView.OnScrollListener() {
-							/******
-							 *
-							 *****/
-							@Override
-							public void onScrollStateChanged(AbsListView absListView, int i) {
-								if (i == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-									if (lastVisibleItem + 1 == adapter1.getCount()) {
-										if (pageno == totlepage) {
-										} else {
-											if (canPull) {
-												canPull = false;
-												pageno++;
-												initdata();
-											}
-										}
-									}
-								}
-							}
+                        list1 = (ArrayList<FansBean>) page.getList();
+                        adapter1 = new vliao_wodeqinmibangAdapter_01178(list1, Vliao_wodeqinmibang_01178.this);
+                        l1.setAdapter(adapter1);
 
-							/*********
-							 *
-							 *********/
-							@Override
-							public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                        l1.setOnScrollListener(new AbsListView.OnScrollListener() {
+                            /******
+                             *
+                             *****/
+                            @Override
+                            public void onScrollStateChanged(AbsListView absListView, int i) {
+                                if (i == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                                    if (lastVisibleItem + 1 == adapter1.getCount()) {
+                                        if (pageno == totlepage) {
+                                        } else {
+                                            if (canPull) {
+                                                canPull = false;
+                                                pageno++;
+                                                initdata();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
 
-								lastVisibleItem = absListView.getLastVisiblePosition();
+                            /*********
+                             *
+                             *********/
+                            @Override
+                            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
 
-							}
-						});
-					} else {
-						List<vliaofans_01168> list2 = new ArrayList<vliaofans_01168>();
-						list2 = page.getList();
-						for (int i = 0; i < list2.size(); i++) {
-							list1.add(list2.get(i));
-						}
-						adapter1.notifyDataSetChanged();
-						canPull = true;
-					}
-					break;
-			}
-		}
-	};
+                                lastVisibleItem = absListView.getLastVisiblePosition();
 
-	/********************
-	 * 单击事件
-	 * @param arg0
-	 *******************/
-	@Override
-	public void onClick(View arg0) {
-		int id=arg0.getId();
-		switch(id){
-		case R.id.fanhuizong:
-			finish();
-			break;
-		case R.id.fanhui:
-			finish();
-			break;
-		}
-		
-	}
+                            }
+                        });
+                    } else {
+                        List<FansBean> list2 = new ArrayList<FansBean>();
+                        list2 = page.getList();
+                        for (int i = 0; i < list2.size(); i++) {
+                            list1.add(list2.get(i));
+                        }
+                        adapter1.notifyDataSetChanged();
+                        canPull = true;
+                    }
+                    break;
+            }
+        }
+    };
+
+    /********************
+     * 单击事件
+     * @param arg0
+     *******************/
+    @Override
+    public void onClick(View arg0) {
+        int id = arg0.getId();
+        switch (id) {
+            case R.id.fanhuizong:
+                finish();
+                break;
+            case R.id.fanhui:
+                finish();
+                break;
+        }
+
+    }
 
 }

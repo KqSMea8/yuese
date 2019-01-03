@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
-/*import com.example.vliao.getset.Page;
-import com.example.vliao.getset.User_data;
-import com.example.vliao.getset.Videoinfo;*/
+
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;

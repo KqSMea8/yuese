@@ -1,6 +1,5 @@
 package com.net.yuesejiaoyou.redirect.ResolverB.uiface;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,61 +7,55 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01107B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.DianboUtil;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoInfoUtil;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoUploadUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import net.sf.json.JSONObject;
 
 import java.io.IOException;
 
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-//import com.king.photo.activity.ImageselActivity2;
 
 /**
  * Created by Administrator on 2017/11/14.
  */
 
-public class ActivityUploadVideo_FF extends Activity {
+public class ActivityUploadVideo_FF extends BaseActivity {
 
     private RelativeLayout layWait;
-    private EditText editTitle;
     private TextView txtFile;
     private TextView txtMsg;
-    private Button btnUpload;
     private String file;
     private String uploadAddress;
     private String uploadAuth;
     private String videoId;
     private ProgressBar progressBar;
     private Handler handler;
-    private TextView priceNumber;
     private TextView diyi, dier, disan, disi, diwu, diliu;
     private String price = "8悦币";
 
-    private YhApplicationA application;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uploadvideo_ff);
-
-        application = (YhApplicationA) getApplication();
 
         file = getIntent().getStringExtra("file");  // 获取上传文件路径
 
@@ -70,9 +63,7 @@ public class ActivityUploadVideo_FF extends Activity {
         /*editTitle = (EditText)this.findViewById(R.id.edttitle);*/
         txtFile = (TextView) this.findViewById(R.id.txt_file);
         txtMsg = (TextView) this.findViewById(R.id.txt_msg);
-        btnUpload = (Button) this.findViewById(R.id.btn_upload);
         progressBar = (ProgressBar) this.findViewById(R.id.pgb_update);
-        priceNumber = (TextView) this.findViewById(R.id.price);
 
         diyi = (TextView) this.findViewById(R.id.diyi);
         diyi.setOnClickListener(new View.OnClickListener() {
@@ -167,96 +158,86 @@ public class ActivityUploadVideo_FF extends Activity {
                         progressBar.setVisibility(View.VISIBLE);
                         progressBar.setProgress((int) msg.obj);
                         break;
-                    case 6: // 短视频videoid和缩略图信息更新到数据库
-                        String result = (String) msg.obj;
-                        Log.v("TT", "addvideo_ff: " + result);
-                        LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", result);
-                        if ("success".equals(result)) {
-                            Toast.makeText(ActivityUploadVideo_FF.this, "上传成功", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent("rewardvideoNumber");
-                            sendBroadcast(intent);
-
-                            application.closeManageActivity_ff();
-
-//                            Intent intent = new Intent();
-//                            intent.setClass(ActivityUploadVideo.this,ActivityVideo.class);
-//                            startActivity(intent);
-                            finish();
-                            //Fragment_guangchang_01150.freshList();
-                        } else if ("fail".equals(result)) {
-                            Toast.makeText(ActivityUploadVideo_FF.this, "上传失败", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
                     case 7:    // 获取短视频封面失败
                         Toast.makeText(ActivityUploadVideo_FF.this, "获取视频封面失败", Toast.LENGTH_SHORT).show();
                         break;
                     case 8: // 成功获取短视频封面，更新封面信息和videoid到app服务端
-//						String coverUrl = (String)msg.obj;
-//						txtMsg.setText("上传完成");
-//						String mode = "addvideo";
-//
-//						String[] paramsMap = {"",videoId,coverUrl};	//"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg"};
-//						LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode+" "+paramsMap);
-//						UsersThread_01107B b = new UsersThread_01107B(mode,paramsMap,this);
-//						Thread t = new Thread(b.runnable);
-//						t.start();
-
                         String coverUrl = (String) msg.obj;
                         txtMsg.setText("上传完成");
                         if (price.equals("")) {
                             Toast.makeText(ActivityUploadVideo_FF.this, "请输入打赏金额", Toast.LENGTH_SHORT).show();
                         } else {
-                            String a = (String) price.subSequence(0, price.length() - 2);
-                            String mode = "addvideo_ff";
-//												"对方的id，礼物的id,礼物的数量"//Util.userid,
-                            String[] paramsMap = {"", videoId, coverUrl, a};    //"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg",a};
-                            LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode + " " + paramsMap);
-                            UsersThread_01107B b = new UsersThread_01107B(mode, paramsMap, this);
-                            Thread t = new Thread(b.runnable);
-                            t.start();
+                            addVideo(coverUrl);
                         }
                         break;
                 }
             }
         };
 
-        btnUpload.setOnClickListener(new View.OnClickListener() {
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_uploadvideo_ff;
+    }
+
+    @OnClick(R.id.btn_upload)
+    public void uploadClick(){
+        layWait.setVisibility(View.VISIBLE);
+        Message.obtain(handler, 1, "获取上传凭证...").sendToTarget();
+        DianboUtil.uploadVideo(file, new Callback() {
 
             @Override
-            public void onClick(View view) {
-                /*String title = editTitle.getText().toString();*/
-                Log.e("YT", "开始上传");
-                /*if(title.isEmpty()) {
-                    Toast.makeText(ActivityUploadVideo.this,"请输入标题",Toast.LENGTH_SHORT).show();
-                    return;
-                }*/
-                layWait.setVisibility(View.VISIBLE);
-                Message.obtain(handler, 1, "获取上传凭证...").sendToTarget();
-                DianboUtil.uploadVideo(file, new Callback() {
+            public void onFailure(Call call, IOException e) {
 
-                    @Override
-                    public void onFailure(Call call, IOException e) {
+            }
 
-                    }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String json = response.body().string();
+                Log.v("TT", "json: " + json);
+                JSONObject jsonObj = JSONObject.fromObject(json);
+                uploadAddress = jsonObj.getString("UploadAddress");
+                videoId = jsonObj.getString("VideoId");
+                uploadAuth = jsonObj.getString("UploadAuth");
 
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        String json = response.body().string();
-                        Log.v("TT", "json: " + json);
-                        JSONObject jsonObj = JSONObject.fromObject(json);
-                        uploadAddress = jsonObj.getString("UploadAddress");
-                        videoId = jsonObj.getString("VideoId");
-                        uploadAuth = jsonObj.getString("UploadAuth");
-
-                        Message.obtain(handler, 1, "开始上传").sendToTarget();
-                        Message.obtain(handler, 2).sendToTarget();
-                    }
-                });
+                Message.obtain(handler, 1, "开始上传").sendToTarget();
+                Message.obtain(handler, 2).sendToTarget();
             }
         });
+    }
 
+    public void addVideo(String coverUrl) {
+        OkHttpUtils
+                .post(this)
+                .url(URL.URL_ADDVIDEOFF)
+                .addParams("param1", Util.userid)
+                .addParams("param2", videoId)
+                .addParams("param3", coverUrl)
+                .addParams("param4", (String) price.subSequence(0, price.length() - 2))
+                .build()
+                .execute(new StringCallback() {
 
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        String result = JSON.parseObject(response).getString("result");
+                        if ("success".equals(result)) {
+                            showToast("上传成功");
+                            Intent intent = new Intent("freevideoNumber");
+                            sendBroadcast(intent);
+                            app.closeManageActivity();
+                            finish();
+                        } else if ("fail".equals(result)) {
+                            showToast("上传失败");
+                        }
+                    }
+
+                });
     }
 
     public void initTextViewBackgroudColor() {

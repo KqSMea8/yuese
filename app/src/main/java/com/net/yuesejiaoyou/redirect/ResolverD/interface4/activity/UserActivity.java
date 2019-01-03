@@ -7,17 +7,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -34,7 +31,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,14 +61,12 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapterqm_01066;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserInfoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoFragment;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
@@ -80,7 +74,7 @@ import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.youth.banner.Banner;
@@ -190,9 +184,6 @@ public class UserActivity extends BaseActivity {
         };
         relative_layout_intimacy.setOnClickListener(relative_layout_intimacy_listener);
 
-        /////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "UserActivity:", "777777777");
-        //////////////////////////////
 
         tvCall = findViewById(R.id.tv_call);
 
@@ -328,9 +319,9 @@ public class UserActivity extends BaseActivity {
                         ratingbar.setRating((float) userinfo.getStar());
 
                         if (userinfo.getIslike() == 0) {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu);
+                            ib_focus.setImageResource(R.drawable.guanzhu);
                         } else {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                            ib_focus.setImageResource(R.drawable.guanzhu_on);
                         }
                         isguanzhu = userinfo.getIslike();
                         flow_img.setText(userinfo.getLab_tab());
@@ -343,25 +334,34 @@ public class UserActivity extends BaseActivity {
                         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
                         //设置图片加载器
 
-                        //实例化图片集合
                         mListImage = new ArrayList<>();
-                        //实例化Title集合
-                        ArrayList mListTitle = new ArrayList<>();
-                        String[] a = userinfo.getPicture().split(",");
-                        for (int i = 0; i < a.length; i++) {
-                            mListImage.add(a[i]);
-                            mListTitle.add("");
-                        }
+                        LogUtil.i("ttt", "---" + userinfo.getPictures());
+                        if (!TextUtils.isEmpty(userinfo.getPictures())) {
+                            ArrayList mListTitle = new ArrayList<>();
+                            if (userinfo.getPictures().contains(",")) {
+                                String[] a = userinfo.getPictures().split(",");
+                                for (int i = 0; i < a.length; i++) {
+                                    mListImage.add(a[i]);
+                                    mListTitle.add("");
+                                }
+                            } else {
+                                mListImage.add(userinfo.getPictures());
+                                mListTitle.add("");
+                            }
 
-                        banner.setImages(mListImage);
-                        banner.setImageLoader(new GlideImageLaoder());
-                        banner.setBannerAnimation(Transformer.Tablet);
-                        //设置Banner标题集合（当banner样式有显示title时）
-                        banner.setBannerTitles(mListTitle);
-                        banner.setDelayTime(3000);
-                        banner.setBackgroundColor(UserActivity.this.getResources().getColor(R.color.white));
-                        banner.setIndicatorGravity(BannerConfig.CIRCLE_INDICATOR);
-                        banner.start();
+                            banner.setImages(mListImage);
+                            banner.setImageLoader(new GlideImageLaoder());
+                            banner.setBannerAnimation(Transformer.Tablet);
+                            //设置Banner标题集合（当banner样式有显示title时）
+                            banner.setBannerTitles(mListTitle);
+                            banner.setDelayTime(3000);
+                            banner.setBackgroundColor(UserActivity.this.getResources().getColor(R.color.white));
+                            banner.setIndicatorGravity(BannerConfig.CIRCLE_INDICATOR);
+                            banner.start();
+                        }
+                        //实例化图片集合
+
+                        //实例化Title集合
 
 
                         ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
@@ -424,11 +424,11 @@ public class UserActivity extends BaseActivity {
                         isguanzhu = jsonObject.getIntValue("success");
 
                         if (isguanzhu == 0) {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu);
+                            ib_focus.setImageResource(R.drawable.guanzhu);
                             fannum = fannum - 1;
                             tv_focus_count.setText(fannum + " 粉丝");
                         } else {
-                            ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                            ib_focus.setImageResource(R.drawable.guanzhu_on);
                             fannum = fannum + 1;
                             tv_focus_count.setText(fannum + " 粉丝");
                         }
@@ -479,7 +479,7 @@ public class UserActivity extends BaseActivity {
                 ///////////////////////////
                 case 1000:
                     isguanzhu = 1;
-                    ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                    ib_focus.setImageResource(R.drawable.guanzhu_on);
                     fannum = fannum + 1;
                     tv_focus_count.setText(fannum + " 粉丝");
                     break;
@@ -525,9 +525,9 @@ public class UserActivity extends BaseActivity {
                     ratingbar.setRating((float) userinfo.getStar());
 
                     if (userinfo.getIslike() == 0) {
-                        ib_focus.setBackgroundResource(R.drawable.guanzhu);
+                        ib_focus.setImageResource(R.drawable.guanzhu);
                     } else {
-                        ib_focus.setBackgroundResource(R.drawable.guanzhu_on);
+                        ib_focus.setImageResource(R.drawable.guanzhu_on);
                     }
                     isguanzhu = userinfo.getIslike();
                     flow_img.setText(userinfo.getLab_tab());
@@ -544,7 +544,7 @@ public class UserActivity extends BaseActivity {
                     mListImage = new ArrayList<>();
                     //实例化Title集合
                     ArrayList mListTitle = new ArrayList<>();
-                    String[] a = userinfo.getPicture().split(",");
+                    String[] a = userinfo.getPictures().split(",");
                     for (int i = 0; i < a.length; i++) {
                         mListImage.add(a[i]);
                         mListTitle.add("");
@@ -737,6 +737,7 @@ public class UserActivity extends BaseActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         super.onResponse(response, id);
+                        tvCall.setEnabled(true);
                         if (TextUtils.isEmpty(response)) {
                             showToast("拨打失败");
                             return;
@@ -989,7 +990,7 @@ public class UserActivity extends BaseActivity {
             @Override
             public void onClick(View arg0) {
                 Intent intent1 = new Intent();
-                intent1.setClass(UserActivity.this, Chongzhi_01178.class);//充值页面
+                intent1.setClass(UserActivity.this, RechargeActivity.class);//充值页面
                 startActivity(intent1);
                 popupWindow.dismiss();
             }

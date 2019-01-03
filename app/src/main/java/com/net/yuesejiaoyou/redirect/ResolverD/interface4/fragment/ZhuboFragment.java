@@ -5,7 +5,6 @@ import java.util.List;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,10 +30,10 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CleanCacheManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ModifyAvaterActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_mytimeprice_01178;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodefensi_01168;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ModifyAvaterActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.PriceActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.FansActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
@@ -43,13 +42,13 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.MineBean;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.YDDialog;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GridItemDecoration;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 
 ///////////////////////A区调用C区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.EditActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.EditActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodeqinmibang_01178;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_agmentup_01066;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity;
 ///////////////////////A区调用B区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MyVideoActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.GroupMessageActivity;
@@ -83,9 +82,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
     @BindView(R.id.v_currency)
     TextView tvCoin;
 
-    private Context mContext;
     private View mBaseView;
-    private Intent intent;
 
     private MineAdapter adapter;
     private MineBean wuraoBean;
@@ -97,8 +94,6 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.fragment_zhubo, null);
         ButterKnife.bind(this, mBaseView);
-        mContext = getActivity();
-
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         adapter = new MineAdapter(getItems());
@@ -148,7 +143,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
                     public void onResponse(String response, int id) {
                         List<Member_01152> list = JSON.parseArray(response, Member_01152.class);
                         if (list == null || list.size() == 0) {
-                            Toast.makeText(mContext, "网络出错", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "网络出错", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         if (list.get(0).getPhoto().contains("http")) {
@@ -164,8 +159,8 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
                         tvPrice.setText(list.get(0).getPrice() + "悦币/分钟");
                         tvCoin.setText(list.get(0).getMoney() + "");
 
-                        ybprice=list.get(0).getPrice();
-                        reward_percent=list.get(0).getReward_percent();
+                        ybprice = list.get(0).getPrice();
+                        reward_percent = list.get(0).getReward_percent();
                     }
                 });
     }
@@ -182,20 +177,18 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
 
     @OnClick(R.id.user_my_like_layout)
     public void fansClick() {
-        startActivity(Vliao_wodefensi_01168.class);
+        startActivity(FansActivity.class);
     }
 
     @OnClick(R.id.vmin)
     public void priceClick() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(getContext(), PriceActivity.class);
         intent.putExtra("ybprice", ybprice);
         intent.putExtra("reward_percent", reward_percent);
-        intent.setClass(mContext, Vliao_mytimeprice_01178.class);//价值
-        startActivity(intent);
+        startActivityForResult(intent, 111);
     }
 
     private void wdarao() {
-
         OkHttpUtils.post(this)
                 .url(URL.URL_GETWURAO)
                 .addParams("param1", Util.userid)
@@ -252,13 +245,13 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
 
     @OnClick(R.id.dailishang)
     public void dailiClick() {
-        startActivity(Vliao_agmentup_01066.class);
+        startActivity(DailiActivity.class);
     }
 
     @OnClick(R.id.chongzhi)
     public void chongzhiClick() {
         if (Util.iszhubo.equals("0")) {
-            startActivity(Chongzhi_01178.class);
+            startActivity(RechargeActivity.class);
         } else {
             Toast.makeText(getActivity(), "主播暂无此功能", Toast.LENGTH_SHORT).show();
         }
@@ -362,7 +355,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         share.edit().putString("openid", "").apply();
         share.edit().putString("username", "").apply();
         share.edit().putString("password", "").apply();
-        JPushInterface.setAlias(mContext.getApplicationContext(), 1, "0");    // 退出登录后，撤销极光别名，就收不到一对一视频推送了
+        JPushInterface.setAlias(getActivity().getApplicationContext(), 1, "0");    // 退出登录后，撤销极光别名，就收不到一对一视频推送了
         ShareHelp share1 = new ShareHelp();
         share1.wx_delete();
         LogDetect.send(LogDetect.DataType.specialType, "share: ", share.getString("userid", ""));
@@ -374,5 +367,13 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         intent1.setClass(getActivity(), LoginActivity.class);
         startActivity(intent1);
         getActivity().finish();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK) {
+            getData();
+        }
     }
 }

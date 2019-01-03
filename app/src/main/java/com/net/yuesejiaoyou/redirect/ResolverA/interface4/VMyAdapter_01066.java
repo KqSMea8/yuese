@@ -131,11 +131,11 @@ public class VMyAdapter_01066 extends RecyclerView.Adapter<RecyclerView.ViewHold
             ((NormalHolder) holder).tv_price.setText(articles.get(pos).getPrice());
             //((NormalHolder) holder).note.setTypeface(tf);
             ((NormalHolder) holder).note.setText(articles.get(pos).getSignature());
-            LogDetect.send(LogDetect.DataType.specialType, "mHeaderView ——（）返回数据 : ", articles.get(pos).getPicture().split(",")[0]);
+            LogDetect.send(LogDetect.DataType.specialType, "mHeaderView ——（）返回数据 : ", articles.get(pos).getPictures().split(",")[0]);
             ((NormalHolder) holder).photo.setImageResource(R.drawable.moren);
             //if(!isScrolling){
                 ImageLoader.getInstance().displayImage(
-                        articles.get(pos).getPicture().split(",")[0], ((NormalHolder) holder).photo,
+                        articles.get(pos).getPictures().split(",")[0], ((NormalHolder) holder).photo,
                         options);
             //}
 

@@ -72,23 +72,10 @@ public class UsersManageInOut_01160A {
 		handler.sendMessage(handler.obtainMessage(209,(Object) getdata));
     }
 
-    /*public void i_like(String[] params, Handler handler) {
-		Page getdata=usersManage.i_like(params);
-		handler.sendMessage(handler.obtainMessage(201,(Object) getdata));
-    }
 
-	public void i_buy(String[] params, Handler handler) {
-		Page getdata=usersManage.i_buy(params);
-		handler.sendMessage(handler.obtainMessage(201,(Object) getdata));
-	}
-*/
     public void insert_reservation(String[] params, Handler handler) {
 		String getdate =  usersManage.insert_reservation(params);
 		handler.sendMessage(handler.obtainMessage(210, (Object) getdate));
     }
-/*
-    public void del_video(String[] params, Handler handler) {
-		String getdate =  usersManage.del_video(params);
-		handler.sendMessage(handler.obtainMessage(211, (Object) getdate));
-    }*/
+
 }

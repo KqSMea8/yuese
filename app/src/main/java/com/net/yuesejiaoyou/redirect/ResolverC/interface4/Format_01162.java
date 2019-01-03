@@ -8,7 +8,13 @@ import java.text.DecimalFormat;
 
 public class Format_01162 {
 
-	public static String formatString(int data) {
-		DecimalFormat df = new DecimalFormat("#,###");
-		return df.format(data);}
-	}
+    public static String formatString(int data) {
+        DecimalFormat df = new DecimalFormat("#,###");
+        return df.format(data);
+    }
+
+    public static String formatString(String data) {
+        DecimalFormat df = new DecimalFormat("#,###");
+        return df.format(data);
+    }
+}

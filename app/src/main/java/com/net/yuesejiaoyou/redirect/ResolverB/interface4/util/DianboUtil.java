@@ -33,6 +33,9 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.NoSkinActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 //import com.aliyun.demo.recorder.AliyunVideoRecorder;
 //import com.example.tongchengqo.uiface.NoSkinActivity;
 
@@ -54,21 +57,6 @@ public class DianboUtil {
     private final static String HMAC_SHA1_ALGORITHM = "HmacSHA1";
     private final static String UTF_8 = "utf-8";
 
-
-    public static final int REQUEST_RECORD = 2001;
-
-//    public static void MainActivity(String[] args) throws IOException {
-//        //生成私有参数，不同API需要修改
-//        Map<String, String> privateParams = generatePrivateParamters();
-//        //生成公共参数，不需要修改
-//        Map<String, String> publicParams = generatePublicParamters();
-//        //生成OpenAPI地址，不需要修改
-//        String URL = generateOpenAPIURL(publicParams, privateParams);
-//        //发送HTTP GET 请求
-//        //httpGet(URL);
-//
-//        System.out.println(URL);
-//    }
 
     public static void uploadVideo(String title, Callback callback) {
         // 接口私有参数列表, 不同API请替换相应参数
@@ -100,6 +88,34 @@ public class DianboUtil {
         Request request = new Request.Builder().url(URL).post(body).build();
         Call call = client.newCall(request);
         call.enqueue(callback);
+    }
+
+    public static void uploadVideo(DialogCallback callback) {
+        // 接口私有参数列表, 不同API请替换相应参数
+        Map<String, String> privateParams = new HashMap<>();
+
+        // API名称
+        privateParams.put("Action", "CreateUploadVideo");
+        privateParams.put("Title", "标题0");
+        privateParams.put("FileName", "1510130201331.mp4");
+        // 接口公共参数
+        Map<String, String> publicParams = new HashMap<>();
+        publicParams.put("Format", "JSON");
+        publicParams.put("Version", "2017-03-21");
+        publicParams.put("AccessKeyId", access_key_id);
+        publicParams.put("SignatureMethod", "HMAC-SHA1");
+        //publicParams.put("Timestamp", generateTimestamp());
+        publicParams.put("SignatureVersion", "1.0");
+        publicParams.put("SignatureNonce", generateRandom());
+        if (security_token != null && security_token.length() > 0) {
+            publicParams.put("SecurityToken", security_token);
+        }
+
+        OkHttpUtils
+                .post()
+                .url(generateOpenAPIURL(publicParams, privateParams))
+                .build()
+                .execute(callback);
     }
 
     /**

@@ -22,13 +22,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.Page;
-import com.example.vliao.getset.Videoinfo;
-import com.example.vliao.interface3.UsersThread_01160;
-import com.example.vliao.interface4.LogDetect;
-import com.example.vliao.interface4.VideoMyAdapter_01066;
-import com.example.vliao.util.Util;*/
+
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;

@@ -85,21 +85,6 @@ public class ActivityUploadVideo_01160 extends Activity {
 						});
 
 
-        //                String mode = "addvideo";
-					//						"对方的id，礼物的id,礼物的数量"//Util.userid,
-//                       String[] paramsMap = {"",videoId,"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg"};
-//                        LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode+" "+paramsMap);
-//                        UsersThread_01107 b = new UsersThread_01107(mode,paramsMap,this);
-//                        Thread t = new Thread(b.runnable);
-//                        t.start();
-
-//                        txtMsg.setText("拍摄完成");
-//                        Intent intent = new Intent();
-//                        intent.putExtra("videoid", videoId);
-//                        intent.putExtra("videophoto", "http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg");
-//                        //intent.setClass(ActivityUploadVideo.this,ImageselActivity2.class);
-//                        startActivity(intent);
-
                         break;
                     case 4: // 上传失败
                         txtMsg.setText("上传失败!");
@@ -119,7 +104,7 @@ public class ActivityUploadVideo_01160 extends Activity {
                             
                           
 //                            Intent intent = new Intent();
-//                            intent.setClass(ActivityUploadVideo.this,ActivityVideo.class);
+//                            intent.setClass(UploadVideoActivity.this,ActivityVideo.class);
 //                            startActivity(intent);
                             finish();
                             //Fragment_guangchang_01150.freshList();
@@ -131,16 +116,6 @@ public class ActivityUploadVideo_01160 extends Activity {
 						Toast.makeText(ActivityUploadVideo_01160.this, "获取视频封面失败", Toast.LENGTH_SHORT).show();
 						break;
 					case 8: // 成功获取短视频封面，更新封面信息和videoid到app服务端
-//						String coverUrl = (String)msg.obj;
-//						txtMsg.setText("上传完成");
-//						String mode = "addvideo";
-//						String[] paramsMap = {"",videoId,coverUrl};	//"http://ppt1.mingweishipin.com/snapshot/"+videoId+"00001.jpg"};
-//						LogDetect.send(LogDetect.DataType.specialType, "107ActivityUploadVideo: ", mode+" "+paramsMap);
-//						UsersThread_01107B b = new UsersThread_01107B(mode,paramsMap,this);
-//						Thread t = new Thread(b.runnable);
-//						t.start();
-
-
 						String coverUrl = (String)msg.obj;
 						txtMsg.setText("上传完成");
 
@@ -148,7 +123,6 @@ public class ActivityUploadVideo_01160 extends Activity {
 						intent.putExtra("result", coverUrl);// 把返回数据存入Intent
 						ActivityUploadVideo_01160.this.setResult(1006, intent);
 						LogDetect.send(DataType.specialType, "01160 upload ",videoId);
-						//application.closeManageActivity_01160();
 						finish();
 						break;
                 }
@@ -162,7 +136,7 @@ public class ActivityUploadVideo_01160 extends Activity {
                 /*String title = editTitle.getText().toString();*/
                 Log.e("YT","开始上传");
                 /*if(title.isEmpty()) {
-                    Toast.makeText(ActivityUploadVideo.this,"请输入标题",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadVideoActivity.this,"请输入标题",Toast.LENGTH_SHORT).show();
                     return;
                 }*/
                 layWait.setVisibility(View.VISIBLE);

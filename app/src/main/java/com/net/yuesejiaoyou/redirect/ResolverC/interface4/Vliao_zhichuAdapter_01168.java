@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.Vliao2_01168;*/
+import com.example.vliao.getset.BillBean;*/
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -19,12 +19,12 @@ import java.util.List;
 
 
 public class Vliao_zhichuAdapter_01168 extends BaseAdapter {
-List<Vliao2_01168> list1;
+List<BillBean> list1;
 Context context;
 	private DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
 			.cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 HolderView holderview;
-	public Vliao_zhichuAdapter_01168(List<Vliao2_01168> list1, Context context) {
+	public Vliao_zhichuAdapter_01168(List<BillBean> list1, Context context) {
 	super();
 	this.list1 = list1;
 	this.context = context;

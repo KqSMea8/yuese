@@ -64,7 +64,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import org.json.JSONArray;
@@ -74,6 +75,7 @@ import io.agora.rtc.Constants;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
+import okhttp3.Call;
 import pl.droidsonroids.gif.GifImageView;
 import static io.agora.rtc.Constants.RAW_AUDIO_FRAME_OP_MODE_READ_ONLY;
 
@@ -94,11 +96,12 @@ import com.net.yuesejiaoyou.redirect.ResolverB.getset.Tag;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01162B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01165B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyAdapter_01162_1;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyLayoutmanager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.io.agora.propeller.preprocessing.VideoPreProcessing;
 
 
@@ -301,7 +304,7 @@ public class VideoChatViewActivity extends Activity implements OnLayoutChangeLis
 			@Override
 			public void onClick(View view) {
 				Intent intent = new Intent();
-				intent.setClass(VideoChatViewActivity.this, Chongzhi_01178.class);
+				intent.setClass(VideoChatViewActivity.this, RechargeActivity.class);
 				startActivity(intent);
 
 			}
@@ -1827,12 +1830,40 @@ public class VideoChatViewActivity extends Activity implements OnLayoutChangeLis
 	public void songhongbao(int coin) {
 		LogDetect.send(LogDetect.DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
 		sendMsgText2(String.valueOf(coin));
-		String mode = "red_envelope";
-		//userid,---用户id，“2”----主播id，coin----红包大小
-		String[] params = {Util.userid, yid_guke, Integer.toString(coin)};
-		UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
-		Thread thread = new Thread(b.runnable);
-		thread.start();
+//		String mode = "red_envelope";
+//		//userid,---用户id，“2”----主播id，coin----红包大小
+//		String[] params = {Util.userid, yid_guke, Integer.toString(coin)};
+//		UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
+//		Thread thread = new Thread(b.runnable);
+//		thread.start();
+
+		OkHttpUtils.post(this)
+				.url(URL.URL_HONGBAO)
+				.addParams("param1", Util.userid)
+				.addParams("param2", yid_guke)
+				.addParams("param3", coin)
+				.build()
+				.execute(new StringCallback() {
+					@Override
+					public void onError(Call call, Exception e, int id) {
+
+					}
+
+					@Override
+					public void onResponse(String response, int id) {
+						try {
+							JSONObject jsonObject = new JSONObject(response);
+							if ("1".equals(jsonObject.getString("success"))) {
+								String value = jsonObject.getString("value");
+								sendMsgText2(value);
+							} else if ("0".equals(jsonObject.getString("success"))) {
+								Toast.makeText(VideoChatViewActivity.this, "余额不足", Toast.LENGTH_LONG).show();
+							}
+						} catch (JSONException e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
 	}
 
 	/************************************************************************************************

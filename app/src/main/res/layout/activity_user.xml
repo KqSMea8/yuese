@@ -308,7 +308,7 @@
                             android:layout_centerHorizontal="true"
                             android:text="0 粉丝"
                             android:textColor="@color/white"
-                            android:textSize="12.0dip" />
+                            android:textSize="12sp" />
 
                         <ImageView
                             android:id="@+id/imageview_animation"

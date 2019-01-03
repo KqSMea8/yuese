@@ -124,7 +124,7 @@ public class Tools {
                     bean.setPhoto(item.getString("photo"));
                     bean.setPrice(item.getString("price"));
                     bean.setStar(item.getInt("star"));
-                    bean.setPicture(item.getString("pictures"));
+                    bean.setPictures(item.getString("pictures"));
                     list.add(bean);
                 }
             }

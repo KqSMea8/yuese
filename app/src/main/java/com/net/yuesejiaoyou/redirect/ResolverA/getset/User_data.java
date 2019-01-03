@@ -202,8 +202,15 @@ public class User_data {
 	private String his_marital;
 	private String his_education;
 	private String his_identify;
-	private String picture;
+	private String pictures;
 
+	public String getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(String pictures) {
+		this.pictures = pictures;
+	}
 
 	public int getId() {
 		return id;
@@ -445,11 +452,4 @@ public class User_data {
 		this.his_identify = his_identify;
 	}
 
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
 }

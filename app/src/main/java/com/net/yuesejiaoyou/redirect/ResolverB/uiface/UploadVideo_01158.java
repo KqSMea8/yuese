@@ -18,7 +18,6 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +39,7 @@ import android.widget.Toast;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UploadVideoActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.Common;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_FF;
@@ -730,7 +730,7 @@ public class UploadVideo_01158 extends Activity implements View.OnClickListener 
                 cursor.close();
 
                 if(requestCode == FREE_REQUEST_LOCAL_VIDEO) {
-                    Intent intent = new Intent(UploadVideo_01158.this, ActivityUploadVideo.class);
+                    Intent intent = new Intent(UploadVideo_01158.this, UploadVideoActivity.class);
                     intent.putExtra("file",videoPath);
                     startActivity(intent);
                 } else if(requestCode == AWARD_REQUEST_LOCAL_VIDEO) {
@@ -747,7 +747,7 @@ public class UploadVideo_01158 extends Activity implements View.OnClickListener 
                 String purePath = s.replace("file:","");
 
                 if(requestCode == FREE_REQUEST_RECORD_VIDEO) {
-                    Intent intent = new Intent(UploadVideo_01158.this, ActivityUploadVideo.class);
+                    Intent intent = new Intent(UploadVideo_01158.this, UploadVideoActivity.class);
                     intent.putExtra("file", purePath);
                     startActivity(intent);
                 } else if(requestCode == AWARD_REQUEST_RECORD_VIDEO) {

@@ -250,7 +250,7 @@ public class HelpManager_01066A {
                         bean.setPhoto(item.getString("photo"));
                         bean.setPrice(item.getString("price"));
                         bean.setStar(item.getInt("star"));
-                        bean.setPicture(item.getString("pictures"));
+                        bean.setPictures(item.getString("pictures"));
                         list.add(bean);
                     }
                 }
@@ -394,7 +394,7 @@ public class HelpManager_01066A {
                     bean.setPrice(item.getString("price"));
                     bean.setStar(item.getInt("star"));
                     bean.setLab_tab(item.getString("lab_tab"));
-                    bean.setPicture(item.getString("pictures"));
+                    bean.setPictures(item.getString("pictures"));
                     bean.setIslike(item.getInt("isguanzhu"));
                     bean.setLikep(item.getString("likep"));
                     bean.setFans_num(item.getString("fans_num"));

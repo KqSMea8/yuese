@@ -1,15 +1,10 @@
 package com.net.yuesejiaoyou.redirect.ResolverC.core;
 
 
-//import com.example.vliao.getset.Page;
-//import com.example.vliao.getset.vliaofans_01168;
-//import com.example.vliao.interface2.OkHttp;
-//import com.example.vliao.interface4.HelpManager_vliao_01178;
-//import com.example.vliao.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface2.OkHttp;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.HelpManager_vliao_01178C;
 
 import java.util.ArrayList;
@@ -53,10 +48,10 @@ public class UsersManage_vliao_01178C {
 		String json = okhttp.requestPostBySyn(a, params);
 		return json;
 	}
-	public ArrayList<vliaofans_01168> payprice(String[] params) {
+	public ArrayList<FansBean> payprice(String[] params) {
 		String a = "memberC01178?mode=A-user-search&mode2=payprice";
 		String json = okhttp.requestPostBySyn(a, params);
-		ArrayList<vliaofans_01168> mblist = helpmanager.payprice(json);
+		ArrayList<FansBean> mblist = helpmanager.payprice(json);
 		return mblist;
 	}
 
@@ -65,10 +60,10 @@ public class UsersManage_vliao_01178C {
 
 
 
-	public ArrayList<vliaofans_01168> vcurrency(String[] params) {
+	public ArrayList<FansBean> vcurrency(String[] params) {
 		String a = "vliaopay?mode=A-user-search&mode2=vcurrency";
 		String json = okhttp.requestPostBySyn(a, params);
-		ArrayList<vliaofans_01168> mblist = helpmanager.vcurrency(json);
+		ArrayList<FansBean> mblist = helpmanager.vcurrency(json);
 		return mblist;
 	}
 

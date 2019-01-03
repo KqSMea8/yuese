@@ -2,9 +2,9 @@ package com.net.yuesejiaoyou.redirect.ResolverC.core;
 
 
 import com.net.yuesejiaoyou.classroot.interface2.OkHttp;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao1_01168;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.HelpManager_01168C;
 
 import java.io.IOException;
@@ -22,24 +22,24 @@ public class UsersManage_01168C {
 	}
 
 	//收入明细
-	public ArrayList<Vliao2_01168> shourumingxi(String[] params) throws IOException {
+	public ArrayList<BillBean> shourumingxi(String[] params) throws IOException {
 		String a = "memberC01178?mode=A-user-search&mode2=shourumingxi";
 		String json = okhttp.requestPostBySyn(a, params);
-		ArrayList<Vliao2_01168> mblist = helpmanager.shourumingxi(json);
+		ArrayList<BillBean> mblist = helpmanager.shourumingxi(json);
 		return mblist;
 	}
 	//支出明细
-	public ArrayList<Vliao2_01168> zhichumingxi(String[] params) throws IOException {
+	public ArrayList<BillBean> zhichumingxi(String[] params) throws IOException {
 		String a = "memberC01178?mode=A-user-search&mode2=zhichumingxi";
 		String json = okhttp.requestPostBySyn(a, params);
-		ArrayList<Vliao2_01168> mblist = helpmanager.zhichumingxi(json);
+		ArrayList<BillBean> mblist = helpmanager.zhichumingxi(json);
 		return mblist;
 	}
 	//提现明细
-	public ArrayList<Vliao2_01168> tixianmingxi(String[] params) throws IOException {
+	public ArrayList<BillBean> tixianmingxi(String[] params) throws IOException {
 		String a = "memberC01178?mode=A-user-search&mode2=tixianmingxi";
 		String json = okhttp.requestPostBySyn(a, params);
-		ArrayList<Vliao2_01168> mblist = helpmanager.tixianmingxi(json);
+		ArrayList<BillBean> mblist = helpmanager.tixianmingxi(json);
 		return mblist;
 	}
 

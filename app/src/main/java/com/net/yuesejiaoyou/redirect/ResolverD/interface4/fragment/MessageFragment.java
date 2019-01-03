@@ -43,10 +43,11 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionD
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 
 //////////////////A区对接C区
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.CallHistoryActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.CallHistoryActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.RecomeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RecomeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.MessageAdapter;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
@@ -121,6 +122,16 @@ public class MessageFragment extends Fragment implements OnClickListener {
                         startActivity(intent);
                     }
                 }
+            }
+        });
+        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter1, View view, int position) {
+                Intent intent = new Intent(getContext(), UserActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", "" + adapter.getData().get(position).getFrom());
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

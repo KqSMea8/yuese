@@ -219,7 +219,6 @@ public class HelpManager_01165B {
 				}
 				else{
 					Bills_01165 bean = new Bills_01165();
-					//bean.setPhoto(item.getString("baby_photo"));	//娃娃图片
 					bean.setTouxiang(item.getString("photo"));
 					bean.setLevel(item.getString("dengji"));
 					list.add(bean);

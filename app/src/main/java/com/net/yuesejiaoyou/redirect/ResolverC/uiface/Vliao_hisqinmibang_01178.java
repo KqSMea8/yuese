@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.FansBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.vliaofans_01168;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_vliao_01178C;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.vliao_wodeqinmibangAdapter_01178;
 
@@ -29,7 +29,7 @@ import com.net.yuesejiaoyou.redirect.ResolverC.interface4.vliao_wodeqinmibangAda
 
 public class Vliao_hisqinmibang_01178 extends Activity implements OnClickListener {
 
-	ArrayList<vliaofans_01168> list1 = new ArrayList<vliaofans_01168>();
+	ArrayList<FansBean> list1 = new ArrayList<FansBean>();
 	String userid = "";
 	private int pageno = 0, totlepage = 0;
 	private boolean canPull = true;
@@ -101,7 +101,7 @@ public class Vliao_hisqinmibang_01178 extends Activity implements OnClickListene
 				LogDetect.send(LogDetect.DataType.specialType, "他的亲密榜-01168:",pageno);
 				///////////////////////////--------------->>>>>
 				if (pageno == 1) {
-					list1 = (ArrayList<vliaofans_01168>) page.getList();
+					list1 = (ArrayList<FansBean>) page.getList();
 					///////////////////////////////
 					LogDetect.send(LogDetect.DataType.specialType, "他的亲密榜-01168:",list1);
 					//////////////////////////////
@@ -138,7 +138,7 @@ public class Vliao_hisqinmibang_01178 extends Activity implements OnClickListene
 					///////////////////////////////
 					LogDetect.send(LogDetect.DataType.specialType, "他的亲密榜-01168:12342-----",page);
 					//////////////////////////////
-					List<vliaofans_01168> list2 = new ArrayList<vliaofans_01168>();
+					List<FansBean> list2 = new ArrayList<FansBean>();
 					list2 = page.getList();
 					///////////////////////////////
 					LogDetect.send(LogDetect.DataType.specialType, "他的亲密榜-01168:12342-----",list2.get(2));

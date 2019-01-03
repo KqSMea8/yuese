@@ -74,7 +74,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActiv
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AudioRecoderUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1591,7 +1591,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 			public void onClick(View arg0) {
 				//点击确定，跳转到充币页面
 				Intent intent = new Intent();
-				intent.setClass(ChatActivity.this,Chongzhi_01178.class);
+				intent.setClass(ChatActivity.this,RechargeActivity.class);
 				startActivity(intent);
 				
 				LogDetect.send(DataType.specialType,"01160 跳转到充币页面:",intent);
@@ -1846,7 +1846,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 			public void onClick(View v) {
 				//点击确定，跳转到充币页面
 				Intent intent = new Intent();
-				intent.setClass(ChatActivity.this,Chongzhi_01178.class);
+				intent.setClass(ChatActivity.this,RechargeActivity.class);
 				startActivity(intent);
 				
 				LogDetect.send(DataType.specialType,"01160 跳转到充币页面:",intent);
@@ -1891,7 +1891,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 			@Override
 			public void onClick(View arg0) {
 				Intent intent1=new Intent();
-				intent1.setClass(ChatActivity.this,Chongzhi_01178.class );//充值页面
+				intent1.setClass(ChatActivity.this,RechargeActivity.class );//充值页面
 				startActivity(intent1);
 				finish();
 			}

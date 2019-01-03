@@ -4,7 +4,6 @@ package com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,18 +22,16 @@ import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
 
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.photo_01162;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WebActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.Find2Adapter;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.MyLoadMoreView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -51,31 +48,23 @@ import okhttp3.Call;
 @SuppressLint("ValidFragment")
 public class RecommendFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private Context mContext;
-    String sort;
     private RecyclerView recyclerView;
     private List<User_data> articles = new ArrayList<User_data>();
     private View view;
     private int pageno = 1;
     Find2Adapter adapter;
     SwipeRefreshLayout refreshLayout;
-    private DisplayImageOptions options = null;
-    private boolean a = false;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mContext = getActivity();
-        view = inflater.inflate(R.layout.fragment1_01066, null);
-        LogDetect.send(LogDetect.DataType.specialType, "this0", "??");
+        view = inflater.inflate(R.layout.fragment_focus, null);
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                .cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
         refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
                 android.R.color.holo_orange_light, android.R.color.holo_green_light);
         refreshLayout.setOnRefreshListener(this);
 
         recyclerView = view.findViewById(R.id.theme_grre);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        adapter = new Find2Adapter(mContext, articles);
+        adapter = new Find2Adapter(getContext(), articles);
         recyclerView.setAdapter(adapter);
         adapter.setLoadMoreView(new MyLoadMoreView());
         adapter.setPreLoadNumber(1);
@@ -136,7 +125,7 @@ public class RecommendFragment extends Fragment implements SwipeRefreshLayout.On
                             return;
                         }
                         ArrayList<String> mListImage = new ArrayList<String>();
-                        headview = LayoutInflater.from(mContext).inflate(R.layout.activity_banner, null);
+                        headview = LayoutInflater.from(getContext()).inflate(R.layout.activity_banner, null);
                         Banner banner = headview.findViewById(R.id.header);
                         for (int i = 0; i < list1.size(); i++) {
                             mListImage.add(list1.get(i).getPhoto());
@@ -146,7 +135,7 @@ public class RecommendFragment extends Fragment implements SwipeRefreshLayout.On
                         banner.setImageLoader(new GlideImageLaoder());
                         banner.setBannerAnimation(Transformer.Tablet);
                         banner.setDelayTime(3000);
-                        banner.setBackgroundColor(mContext.getResources().getColor(R.color.black));
+                        banner.setBackgroundColor(getContext().getResources().getColor(R.color.black));
                         banner.setIndicatorGravity(BannerConfig.CENTER);
                         banner.start();
 

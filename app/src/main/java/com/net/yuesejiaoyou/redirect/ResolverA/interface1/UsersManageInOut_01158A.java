@@ -64,33 +64,5 @@ public class UsersManageInOut_01158A {
 		handler.sendMessage(handler.obtainMessage(111,(Object)getdate));
 	}
 
-	/*public void getfreevideo(String[] params,Handler handler){
-		String getdate = usersManage.getfreevideo(params);
-		handler.sendMessage(handler.obtainMessage(100,(Object)getdate));
-	}
 
-	public void getrewardvideo(String[] params,Handler handler){
-		String getdate = usersManage.getrewardvideo(params);
-		handler.sendMessage(handler.obtainMessage(110,(Object)getdate));
-	}
-
-	public void getmyvideo(String[] params,Handler handler){
-        Page getdata = usersManage.getmyvideo(params);
-		handler.sendMessage(handler.obtainMessage(201,(Object)getdata));
-	}
-
-	public void mod_mang(String[] params, Handler handler) {
-		String getdate = usersManage.mod_mang(params);
-		handler.sendMessage(handler.obtainMessage(202,(Object)getdate));
-	}
-
-    public void guke_online(String[] params, Handler handler) {
-		String getdate = usersManage.guke_online(params);
-		handler.sendMessage(handler.obtainMessage(240,(Object)getdate));
-    }
-
-    public void mod_return(String[] params, Handler handler) {
-		String getdate = usersManage.mod_return(params);
-		handler.sendMessage(handler.obtainMessage(300,(Object)getdate));
-    }*/
 }

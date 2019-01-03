@@ -10,6 +10,7 @@
 	<color name="transparent1">#80000000</color>
      <color name="pink">#ffFF89AB</color>
     <color name="white">#ffffffff</color>
+    <color name="line_color">#f2f2f2</color>
     <color name="text_color_grey">#b9baba</color>
     <color name="transparent">#00000000</color>
     <color name="whites">#ffffff</color>
@@ -17,6 +18,7 @@
     <color name="agora_blue">#FF00A0EB</color>
     <color name="progressbar_color">#ffff508f</color>
 	<color name="vheise">#8C8C8C</color>
+	<color name="wallet">#6874DA</color>
 	<color name="vhongse">#FF5C5C</color>
 	<color name="abc_hint_foreground_material_dark">#7f0e0135</color>
 	<color name="abc_hint_foreground_material_light">#7f0e0136</color>

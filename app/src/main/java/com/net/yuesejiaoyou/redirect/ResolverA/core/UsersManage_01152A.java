@@ -77,42 +77,6 @@ public class UsersManage_01152A {
 		return json;
 	}
 
-	/*public ArrayList<Member_01152> tuiguang(String[] params) {
-		String a = "vl?mode=A-user-search&mode2=promote_income";
-		String json = okhttp.requestPostBySyn(a, params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:json", json);
-		ArrayList<Member_01152> list=helpmanager.Json_info(json);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:集合", list);
-		return list;
-	}*/
-
-/*	public Page xiaofei(String[] params) {
-		String a = "vl?mode=A-user-search&mode2=xiaofei";
-		String json = okhttp.requestPostBySyn(a, params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsefrsManage_01152:json", json);
-		Page list=helpmanager.Json_mbinfo(json);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:集合", list);
-		return list;
-	}*/
-
-	/*public String shenqing(String[] params) {
-		String a = "vl?mode=A-user-mod&mode2=shenqing";
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:a==", a);
-		String json = okhttp.requestPostBySyn(a, params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:json==", json);
-		return json;
-	}*/
-
-	/*public Page tuiguangrenshu(String[] params) {
-		String a = "vl?mode=A-user-search&mode2=renshu";
-		String json = okhttp.requestPostBySyn(a, params);
-		LogDetect.send(LogDetect.DataType.specialType, "UsefrsManage_01152:json", json);
-		Page list=helpmanager.Json_fo(json);
-		LogDetect.send(LogDetect.DataType.specialType, "UsersManage_01152A:集合", list);
-		return list;
-	}*/
-	
-	
 	
 	
 	

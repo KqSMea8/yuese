@@ -6,9 +6,9 @@ import android.os.Handler;
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.core.UsersManage_01168C;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao1_01168;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,17 +42,17 @@ public class UsersManageInOut_01168C {
 	}
 	//收入明细
 	public void shourumingxi(String[] params, Handler handler)throws IOException {
-		ArrayList<Vliao2_01168> getdata=usersManage.shourumingxi(params);
+		ArrayList<BillBean> getdata=usersManage.shourumingxi(params);
 		handler.sendMessage(handler.obtainMessage(202,(Object)getdata));
 	}
 	//支出明细
 	public void zhichumingxi(String[] params, Handler handler)throws IOException {
-		ArrayList<Vliao2_01168> getdata=usersManage.zhichumingxi(params);
+		ArrayList<BillBean> getdata=usersManage.zhichumingxi(params);
 		handler.sendMessage(handler.obtainMessage(203,(Object)getdata));
 	}
 	//提现明细
 	public void tixianmingxi(String[] params, Handler handler)throws IOException {
-		ArrayList<Vliao2_01168> getdata=usersManage.tixianmingxi(params);
+		ArrayList<BillBean> getdata=usersManage.tixianmingxi(params);
 		handler.sendMessage(handler.obtainMessage(204,(Object)getdata));
 	}
 	//黑名单

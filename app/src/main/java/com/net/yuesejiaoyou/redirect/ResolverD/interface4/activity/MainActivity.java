@@ -32,7 +32,6 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.MineFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.ZhuboFragment;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.UpdateManager;

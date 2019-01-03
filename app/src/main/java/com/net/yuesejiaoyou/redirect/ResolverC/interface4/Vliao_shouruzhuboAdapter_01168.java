@@ -9,9 +9,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.Vliao2_01168;*/
+import com.example.vliao.getset.BillBean;*/
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -20,12 +20,12 @@ import java.util.List;
 
 
 public class Vliao_shouruzhuboAdapter_01168 extends BaseAdapter {
-List<Vliao2_01168> list1;
+List<BillBean> list1;
 Context context;
 private ListView lv;
 private DisplayImageOptions options;
 HolderView holderview;
-	public Vliao_shouruzhuboAdapter_01168(List<Vliao2_01168> list1, Context context, ListView lv) {
+	public Vliao_shouruzhuboAdapter_01168(List<BillBean> list1, Context context, ListView lv) {
 	super();
 	this.list1 = list1;
 	this.context = context;
@@ -51,7 +51,7 @@ HolderView holderview;
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
 		if(arg1==null){
-			arg1= LayoutInflater.from(context).inflate(R.layout.vliao_shourulistzhubo_01168, null);
+			arg1= LayoutInflater.from(context).inflate(R.layout.item_bill, null);
 		  //初始化控件
 			holderview=new HolderView();
 			holderview.tujing=(TextView) arg1.findViewById(R.id.tujing);

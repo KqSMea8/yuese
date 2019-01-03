@@ -23,7 +23,6 @@ import android.widget.ImageView;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.SearchActivity;
-import com.net.yuesejiaoyou.redirect.ResolverA.uiface.VFragment_attend_01066;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ public class UserFragment extends Fragment {
             fragments.add(new ActiveFragment());
             fragments.add(new RecommendFragment());
             fragments.add(new NewFragment());
-            fragments.add(new VFragment_attend_01066());
+            fragments.add(new FocusFragment());
         } else {
             fragments.add(new BoyFragment());
             fragments.add(new RecommendFragment());
@@ -87,6 +86,7 @@ public class UserFragment extends Fragment {
         ViewPager viewpager = mBaseView.findViewById(R.id.viewpager1);
         FragAdapter adapter = new FragAdapter(getActivity().getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
+        viewpager.setOffscreenPageLimit(4);
         TabLayout mTabLayout = mBaseView.findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(viewpager);
         viewpager.setCurrentItem(0);

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01168C;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.Vliao_shouruAdapter_01168;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.Vliao_tixianzhuboAdapter_01168;
@@ -55,11 +55,11 @@ private Vliao_shouruAdapter_01168 adapter1;
 			switch(msg.what){
 			case 214:
 				Page page= (Page) msg.obj;
-	    	 // 	LogDetect.send(LogDetect.DataType.specialType, "Vliao_zhichumingxizhubo_01168","进入支出明细");
-	    	 // 	LogDetect.send(LogDetect.DataType.specialType, "Vliao_zhichumingxizhubo_01168",page.getTotlePage()+"");
+	    	 // 	LogDetect.send(LogDetect.DataType.specialType, "BillActivity","进入支出明细");
+	    	 // 	LogDetect.send(LogDetect.DataType.specialType, "BillActivity",page.getTotlePage()+"");
 	    	  	shourujine.setText(page.getTotlePage()+"");
-	    	  	ArrayList<Vliao2_01168> list2=(ArrayList<Vliao2_01168>) page.getList();
-			//	LogDetect.send(LogDetect.DataType.specialType, "Vliao_zhichumingxizhubo_01168",list2);
+	    	  	ArrayList<BillBean> list2=(ArrayList<BillBean>) page.getList();
+			//	LogDetect.send(LogDetect.DataType.specialType, "BillActivity",list2);
 	    	  	
 	    	  	/*if(!list2.isEmpty()){
 	    	  		time.setVisibility(View.VISIBLE);

@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -36,8 +35,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aliyun.vodplayer.downloader.AliyunDownloadManager;
-import com.aliyun.vodplayer.downloader.AliyunDownloadMediaInfo;
 import com.aliyun.vodplayer.media.AliyunLocalSource;
 import com.aliyun.vodplayer.media.AliyunPlayAuth;
 import com.aliyun.vodplayer.media.AliyunVidSource;
@@ -59,10 +56,10 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01165B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
@@ -71,9 +68,11 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoPlayListener
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
-import com.net.yuesejiaoyou.redirect.ResolverD.uiface.Chongzhi_01178;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -91,6 +90,7 @@ import java.util.List;
 import java.util.Map;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
+import okhttp3.Call;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -937,7 +937,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             @Override
             public void onClick(View arg0) {
                 Intent intent1 = new Intent();
-                intent1.setClass(mContext, Chongzhi_01178.class);//充值页面
+                intent1.setClass(mContext, RechargeActivity.class);//充值页面
                 startActivity(intent1);
                 getActivity().finish();
             }
@@ -1384,10 +1384,38 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         LogDetect.send(DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
         String mode = "red_envelope";
         //userid,---用户id，“2”----主播id，coin----红包大小
-        String[] params = {Util.userid, videoinfo1.getUserid() + "", Integer.toString(coin)};
-        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
+//        String[] params = {Util.userid, videoinfo1.getUserid() + "", Integer.toString(coin)};
+//        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
+//        Thread thread = new Thread(b.runnable);
+//        thread.start();
+
+        OkHttpUtils.post(this)
+                .url(URL.URL_HONGBAO)
+                .addParams("param1", Util.userid)
+                .addParams("param2", videoinfo1.getUserid())
+                .addParams("param3", coin)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try { //如果服务端返回1，说明个人信息修改成功了
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.getString("success").equals("1")) {
+                                sendSongLi("[" + "☆" + Util.nickname + "给" + info.getNickname() + "赠送了" + price + "元红包☆" + "]");
+                                Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
+                            } else {
+                                showPopupspWindow_chongzhi(id_head_layout);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
     }
 
     /************************************************************************

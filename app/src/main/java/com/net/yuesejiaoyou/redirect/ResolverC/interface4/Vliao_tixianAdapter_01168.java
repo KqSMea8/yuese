@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /*import com.net.yuesejiaoyou.R;
-import com.example.vliao.getset.Vliao2_01168;*/
+import com.example.vliao.getset.BillBean;*/
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,10 +21,10 @@ import java.util.List;
 
 
 public class Vliao_tixianAdapter_01168 extends BaseAdapter {
-List<Vliao2_01168> list1;
+List<BillBean> list1;
 Context context;
 HolderView holderview;
-	public Vliao_tixianAdapter_01168(List<Vliao2_01168> list1, Context context) {
+	public Vliao_tixianAdapter_01168(List<BillBean> list1, Context context) {
 	super();
 	this.list1 = list1;
 	this.context = context;

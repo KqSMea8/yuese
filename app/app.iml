@@ -94,6 +94,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
@@ -145,6 +146,7 @@
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\jcore-android-1.2.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\Msc.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.github.dkzwm.SmoothRefreshLayout:ext-material-1.6.2" level="project" />
+    <orderEntry type="library" name="com.squareup.okhttp3:okhttp:3.8.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:design-28.0.0" level="project" />
     <orderEntry type="library" name="android.arch.core:common:1.1.1@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\aliyun-sdk-oss-3.1.0.jar:unspecified@jar" level="project" />
@@ -164,7 +166,6 @@
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\afinal_0.5.1_bin.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.github.dkzwm.SmoothRefreshLayout:ext-utils-1.6.2" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-28.0.0" level="project" />
-    <orderEntry type="library" name="com.squareup.okio:okio:1.9.0@jar" level="project" />
     <orderEntry type="library" name="android.arch.core:runtime-1.1.1" level="project" />
     <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\ShareSDK-Wechat-Core-3.1.2.jar:unspecified@jar" level="project" />
@@ -189,12 +190,12 @@
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:cursoradapter-28.0.0" level="project" />
     <orderEntry type="library" name="aliyunVodPlayerView:@aar" level="project" />
+    <orderEntry type="library" name="com.gyf.barlibrary:barlibrary-2.3.0" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\commons-lang3-3.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.paypal.sdk:paypal-android-sdk-2.15.1" level="project" />
     <orderEntry type="library" name="com.android.support:support-media-compat-28.0.0" level="project" />
     <orderEntry type="library" name="com.github.siyamed:android-shape-imageview-0.9.3" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\Sunflower.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.squareup.okhttp3:okhttp:3.4.2@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\ShareSDK-Core-3.1.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.liulishuo.filedownloader:library-1.4.1" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\ShareSDK-Wechat-3.1.2.jar:unspecified@jar" level="project" />
@@ -212,6 +213,7 @@
     <orderEntry type="library" name="com.github.dkzwm.SmoothRefreshLayout:ext-classic-1.6.2" level="project" />
     <orderEntry type="library" name="__local_aars__:E.\webwork\yuese_android\app\libs\universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:loader-28.0.0" level="project" />
+    <orderEntry type="library" name="com.squareup.okio:okio:1.13.0@jar" level="project" />
     <orderEntry type="library" name="com.chensl.rotatephotoview:rotatephotoview-1.0.5" level="project" />
     <orderEntry type="library" name="com.android.support:documentfile-28.0.0" level="project" />
     <orderEntry type="library" name="com.github.castorflex.verticalviewpager:library-19.0.1" level="project" />

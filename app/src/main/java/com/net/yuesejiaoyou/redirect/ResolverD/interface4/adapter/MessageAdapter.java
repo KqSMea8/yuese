@@ -57,6 +57,7 @@ public class MessageAdapter extends BaseQuickAdapter<Session, com.chad.library.a
         helper.setText(R.id.user_name, item.getName());
         helper.setText(R.id.content, ExpressionUtil.prase(mContext, (TextView) helper.getView(R.id.content), item.getContent() == null ? "" : item.getContent()));
 
+        helper.addOnClickListener(R.id.user_head);
     }
 
 }

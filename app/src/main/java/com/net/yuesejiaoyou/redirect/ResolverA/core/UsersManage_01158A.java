@@ -85,41 +85,5 @@ public class UsersManage_01158A {
 		return json;
 	}
 
-	/*public String getfreevideo(String[] params){
-		String a = "qiuou?mode=A-user-search&mode2=getfreevideo";
-		String json = okhttp.requestPostBySyn(a,params);
-		return json;
-	}*/
 
-	/*public String getrewardvideo(String[] params){
-		String a = "qiuou?mode=A-user-search&mode2=getrewardvideo";
-		String json = okhttp.requestPostBySyn(a,params);
-		return json;
-	}*/
-
-	/*public Page getmyvideo(String[] params){
-        String a="qiuou?mode=A-user-search&mode2=getmyvideo";
-        String json=okhttp.requestPostBySyn(a,params);
-        Page mblist = helpmanager.videolist(json);
-        return  mblist;
-	}
-	public String mod_mang(String[] params){
-		String a="qiuou?mode=A-user-mod&mode2=mod_mang";
-		String json=okhttp.requestPostBySyn(a,params);
-
-		return  json;
-	}*/
-
-	/*public String guke_online(String[] params) {
-		String a="qiuou?mode=A-user-search&mode2=guke_online";
-		String json=okhttp.requestPostBySyn(a,params);
-		return  json;
-	}
-
-    public String mod_return(String[] params) {
-		String a="qiuou?mode=A-user-mod&mode2=mod_return";
-		String json=okhttp.requestPostBySyn(a,params);
-
-		return  json;
-    }*/
 }

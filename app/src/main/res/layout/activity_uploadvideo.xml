@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical"
         android:layout_margin="20dip"
+        android:orientation="vertical"
         android:visibility="visible">
-        <!--<EditText
-            android:id="@+id/edttitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请输入标题"
-            android:textColorHint="#aaa"/>-->
+
         <TextView
             android:id="@+id/txt_file"
             android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:layout_height="40dp" />
 
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
             android:background="@drawable/border_radius_qb_2"
-            android:textColor="#ffffff"
-            android:text="上传"/>
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="上传"
+            android:textColor="#ffffff" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/lay_wait"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="#aaaaaa">
+        android:background="#aaaaaa"
+        android:visibility="gone">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,27 +45,29 @@
             android:background="#fff"
             android:orientation="vertical"
             android:padding="50dip">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="上传中，请稍等..."/>
+                android:text="上传中，请稍等..." />
+
             <TextView
                 android:id="@+id/txt_msg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_gravity="center"
-                android:text="进度信息"
-                />
+                android:layout_marginTop="10dip"
+                android:text="进度信息" />
+
             <ProgressBar
                 android:id="@+id/pgb_update"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:visibility="gone"
+                android:max="100"
 
-                android:max="100"/>
+                android:visibility="gone" />
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

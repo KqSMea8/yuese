@@ -109,7 +109,6 @@ public class VideoInfoUtil {
 	 */
 	public static void getVideoInfo(final String videoid, final CoverUrlCallback callback) {
 
-
 		new Thread(new Runnable() {
 
 			@Override

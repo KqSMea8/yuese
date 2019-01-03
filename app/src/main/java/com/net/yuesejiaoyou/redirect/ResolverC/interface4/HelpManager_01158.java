@@ -2,10 +2,7 @@ package com.net.yuesejiaoyou.redirect.ResolverC.interface4;
 
 import android.util.Log;
 
-/*import com.example.vliao.getset.Page;
-import com.example.vliao.getset.User_data;
-import com.example.vliao.getset.Videoinfo;
-import com.example.vliao.getset.photo_01162;*/
+
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;

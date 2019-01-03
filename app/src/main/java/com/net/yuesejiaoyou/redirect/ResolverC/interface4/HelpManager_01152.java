@@ -2,9 +2,6 @@ package com.net.yuesejiaoyou.redirect.ResolverC.interface4;
 
 import android.util.Log;
 
-/*import com.example.vliao.getset.Member_01152;
-import com.example.vliao.getset.Page;
-import com.example.vliao.interface4.LogDetect;*/
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Member_01152;
@@ -114,7 +111,7 @@ public class HelpManager_01152 {
   				Member_01152 bean = new Member_01152();
   				bean.setId(item.getInt("id"));
   				bean.setNickname(item.getString("nickname"));				
-  				bean.setMoney(item.getInt("money"));
+  				bean.setMoney(item.getString("money"));
   				bean.setPhoto(item.getString("photo"));
   				bean.setTixian_account(item.getString("tixian_account"));
   				bean.setAccount_name(item.getString("account_name"));

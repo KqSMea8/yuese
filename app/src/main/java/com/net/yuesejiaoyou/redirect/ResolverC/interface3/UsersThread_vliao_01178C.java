@@ -5,7 +5,6 @@ import android.os.Handler;
 
 import com.net.yuesejiaoyou.redirect.ResolverC.interface1.UsersManageInOut_vliao_01178C;
 
-//import com.example.vliao.interface1.UsersManageInOut_vliao_01178;
 
 public class UsersThread_vliao_01178C {
 	private Handler handler;

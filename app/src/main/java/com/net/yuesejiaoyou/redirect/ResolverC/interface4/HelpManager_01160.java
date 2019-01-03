@@ -2,9 +2,7 @@ package com.net.yuesejiaoyou.redirect.ResolverC.interface4;
 
 import android.util.Log;
 
-/*import com.example.vliao.getset.Page;
-import com.example.vliao.getset.Videoinfo;
-import com.example.vliao.getset.UserBean;*/
+
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;

@@ -3,9 +3,9 @@ package com.net.yuesejiaoyou.redirect.ResolverC.getset;
 
 public class Member_01152 {
 	private int id;//用户id
-	private String photo;//照片
+	String photo;//照片
 	private String nickname;//昵称
-	private int money;//v币
+	String money;//v币
 	private int fans_num;//粉丝量
 	private String price;//聊天的价格
 	private String star_ranking;//星级等级
@@ -31,6 +31,16 @@ public class Member_01152 {
 	private String cash_twofee;
 	private String dvcash_onefee;
 	private String dvcash_twofee;
+
+	String pictures;
+
+	public String getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(String pictures) {
+		this.pictures = pictures;
+	}
 
 	public String getCash_onefee() {
 		return cash_onefee;
@@ -177,10 +187,10 @@ public class Member_01152 {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public int getMoney() {
+	public String getMoney() {
 		return money;
 	}
-	public void setMoney(int money) {
+	public void setMoney(String money) {
 		this.money = money;
 	}
 

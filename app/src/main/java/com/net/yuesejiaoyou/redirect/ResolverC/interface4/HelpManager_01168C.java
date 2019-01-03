@@ -4,9 +4,9 @@ import android.util.Log;
 
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao1_01168;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Vliao2_01168;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -128,13 +128,13 @@ public class HelpManager_01168C {
     
     
 		//收入明细
-		public ArrayList<Vliao2_01168> shourumingxi(String rev) {
-			ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+		public ArrayList<BillBean> shourumingxi(String rev) {
+			ArrayList<BillBean> list = new ArrayList<BillBean>();
 			try {
 				JSONArray jsonArray = new JSONArray(rev);
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject item = jsonArray.getJSONObject(i);
-	                Vliao2_01168 pay=new Vliao2_01168();
+	                BillBean pay=new BillBean();
 	                //pay.setMoney(item.getDouble("money"));
 	                pay.setMoney(item.getString("money"));
 	                LogDetect.send(LogDetect.DataType.basicType,"01162---钱",item.getString("money"));
@@ -148,13 +148,13 @@ public class HelpManager_01168C {
 		}
 		
     //支出明细
-		public ArrayList<Vliao2_01168> zhichumingxi(String rev) {
-			ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+		public ArrayList<BillBean> zhichumingxi(String rev) {
+			ArrayList<BillBean> list = new ArrayList<BillBean>();
 			try {
 				JSONArray jsonArray = new JSONArray(rev);
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject item = jsonArray.getJSONObject(i);
-	                Vliao2_01168 pay=new Vliao2_01168();
+	                BillBean pay=new BillBean();
 	                pay.setNum(item.getString("num"));
 	                pay.setTime(item.getString("time"));
 	                pay.setType(item.getString("type"));
@@ -167,13 +167,13 @@ public class HelpManager_01168C {
 		}
     
 		//提现明细
-				public ArrayList<Vliao2_01168> tixianmingxi(String rev) {
-					ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+				public ArrayList<BillBean> tixianmingxi(String rev) {
+					ArrayList<BillBean> list = new ArrayList<BillBean>();
 					try {
 						JSONArray jsonArray = new JSONArray(rev);
 						for (int i = 0; i < jsonArray.length(); i++) {
 							JSONObject item = jsonArray.getJSONObject(i);
-			                Vliao2_01168 pay=new Vliao2_01168();
+			                BillBean pay=new BillBean();
 			                /*time:		提现时间
 			                cash:		提现金额
 			                status: 	提现状态*/
@@ -211,7 +211,7 @@ public class HelpManager_01168C {
 				}
 				
 				public Page zhichuzhubo(String rev) {
-					ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+					ArrayList<BillBean> list = new ArrayList<BillBean>();
 					Page page = new Page();
 					try {
 						JSONArray jsonArray = new JSONArray(rev);
@@ -221,7 +221,7 @@ public class HelpManager_01168C {
 							if(i==jsonArray.length()-1){
 								page.setTotlePage(item.getInt("totlePage"));		
 							}else{
-								Vliao2_01168 bean = new Vliao2_01168();
+								BillBean bean = new BillBean();
 								bean.setPhoto(item.getString("photo"));
 								//bean.setJinqian(item.getString("num"));
 								bean.setType(item.getString("type"));
@@ -241,7 +241,7 @@ public class HelpManager_01168C {
     
     
 				public Page tixianzhubo(String rev) {
-					ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+					ArrayList<BillBean> list = new ArrayList<BillBean>();
 					Page page = new Page();
 					try {
 						JSONArray jsonArray = new JSONArray(rev);
@@ -251,7 +251,7 @@ public class HelpManager_01168C {
 							if(i==jsonArray.length()-1){
 								page.setTotlePage(item.getInt("totlePage"));		
 							}else{
-								Vliao2_01168 bean = new Vliao2_01168();
+								BillBean bean = new BillBean();
 								bean.setPhoto(item.getString("photo"));
 								bean.setTime(item.getString("time"));
 								//bean.setCash(item.getDouble("cash"));
@@ -275,7 +275,7 @@ public class HelpManager_01168C {
     
     
 				public Page shouruzhubo(String rev) {
-					ArrayList<Vliao2_01168> list = new ArrayList<Vliao2_01168>();
+					ArrayList<BillBean> list = new ArrayList<BillBean>();
 					Page page = new Page();
 					try {
 						JSONArray jsonArray = new JSONArray(rev);
@@ -285,7 +285,7 @@ public class HelpManager_01168C {
 							if(i==jsonArray.length()-1){
 								page.setTotlePage(item.getInt("totlePage"));		
 							}else{
-								Vliao2_01168 bean = new Vliao2_01168();
+								BillBean bean = new BillBean();
 								bean.setPhoto(item.getString("photo"));
 								bean.setTime(item.getString("time"));
 								bean.setType(item.getString("type"));
