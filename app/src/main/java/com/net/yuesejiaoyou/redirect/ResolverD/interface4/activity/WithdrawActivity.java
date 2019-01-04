@@ -69,16 +69,12 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
 
 
         getDatas();
-
-//		String mode = "withdraw_init";
-//		String[] paramsMap = {Util.userid};
-//		UsersThread_01156 b = new UsersThread_01156(mode,paramsMap,requestHandler);
-//		Thread thread = new Thread(b.runnable);
-//		thread.start();
-
     }
 
-
+    @Override
+    public int statusBarColor() {
+        return R.color.vhongse;
+    }
 
     @Override
     protected int getContentView() {

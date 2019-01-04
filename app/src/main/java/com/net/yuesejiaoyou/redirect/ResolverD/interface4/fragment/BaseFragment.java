@@ -1,6 +1,8 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -22,6 +24,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
     View rootView;
+    SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
@@ -31,6 +34,10 @@ public abstract class BaseFragment extends Fragment {
             return super.onCreateView(inflater, container, savedInstanceState);
         }
         ButterKnife.bind(this, rootView);
+
+        //私有数据
+        sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE);
+
         return rootView;
     }
 

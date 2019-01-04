@@ -42,6 +42,8 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageMana
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.CallingFragment;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.GukeFromCallingFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -86,22 +88,20 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
         Bundle bundle = getIntent().getExtras();
         gukeInfo = bundle.getParcelable("guke");
 
+        LogUtil.i("ttt","---"+gukeInfo.toString());
         // 初始化IM消息
         initIM();
 
         // 如果是主播回拨则先初始化声网
         if (gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-            Log.v("TTT", "before initVideo()");
             initVideo();
-        } else {
-            Log.v("TTT", "else initVideo()");
         }
 
         // 显示默认fragment
         if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
-            startFragment(new FromCallingFragment());
+            startFragment(new GukeFromCallingFragment());
         } else if (gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-            startFragment(new ZhuboCallingFragment());
+            startFragment(new CallingFragment());//被叫
         } else {
             Toast.makeText(this, "没有适合的接听页面类型", Toast.LENGTH_SHORT).show();
         }
@@ -111,6 +111,16 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     @Override
     protected int getContentView() {
         return R.layout.activity_zhubo;
+    }
+
+    @Override
+    public boolean statusBarFont() {
+        return false;
+    }
+
+    @Override
+    public int statusBarColor() {
+        return R.color.transparent;
     }
 
     private void startFragment(Fragment fragment) {
@@ -147,13 +157,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
         }
         return super.onKeyUp(keyCode, event);
     }
-    // keyup 监听时间 提供给下级fragment使用 end
-    //----------------------------------------------------------------------------------------------
 
-
-    //----------------------------------------------------------------------------------------------
-    // 控制消息(命令)相关 start
-    //初始化一对一视频控制消息
     private void initIM() {
         VideoMessageManager.initIM(gukeInfo.getGukeId());
         // 注册消息监听,并发送一对一视频邀请消息
@@ -182,7 +186,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
                     break;
                 case VideoMessageManager.VIDEO_U2A_USER_HANGUP:    // 用户邀请-用户挂断
-
                     gukeCmdListener.onCmdHangup();
                     break;
                 case VideoMessageManager.VIDEO_U2A_USER_TIMEUP:    // 用户邀请-用户超时
@@ -374,7 +377,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
     @Override
     public void startVideo() {
-
         runOnUiThread(new Runnable() {
 
             @Override
@@ -386,20 +388,12 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
                 if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     initVideo();
                 }
-                Log.e("TTT", "-----------------  after initVideo");
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.lay_content, fragment);
                 transaction.commit();
-
-
-                Log.e("TTT", "-----------------  after ZhuboVideoFragment commit");
             }
         });
-
-        // TODO: 2018\8\17 0017 这个地方初始化声网会不会造成 ZhuboVideoFragment 中声网事件的丢失,或者ZhuboVideoFragment获取surface为null
-        // 主播在切换fragment的时候初始化声网
-
     }
 
     @Override
@@ -504,7 +498,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     }
 
     public static void startCallGuke(final Context context, final GukeInfo guke) {
-
         OkHttpUtils
                 .post()
                 .url(URL.URL_PUSHVIDEO)
@@ -521,7 +514,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(context,"拨打失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "拨打失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -530,7 +523,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
                             final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ZB_RESERVE
                                     + Const.SPLIT + guke.getRoomid() + Const.SPLIT + Util.nickname + Const.SPLIT + Util.headpic;
                             Utils.sendmessage(Utils.xmppConnection, message, guke.getGukeId());
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         startActivity(context, guke, P2PVideoConst.ZHUBO_CALL_GUKE);
@@ -576,10 +569,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     }
 
     public static void callFromGuke(Context context, GukeInfo guke) {
-
         startActivity(context, guke, P2PVideoConst.GUKE_CALL_ZHUBO);
     }
-    // 页面跳转相关 end
-    //----------------------------------------------------------------------------------------------
 
 }

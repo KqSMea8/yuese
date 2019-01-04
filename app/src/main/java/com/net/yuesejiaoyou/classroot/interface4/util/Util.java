@@ -157,64 +157,6 @@ public class Util {
 
 
 
-	private static Msg getChatInfoTo(Context context,SimpleDateFormat sd, String msgtype,String you ) {
-		String time = sd.format(new Date());
-		Msg msg = new Msg();
-		msg.setFromUser(you);
-		msg.setToUser(Util.userid);
-		msg.setType(msgtype);
-		msg.setIsComing(1);
-		msg.setContent("");
-		msg.setDate(time);
-		LogDetect.send(LogDetect.DataType.nonbasicType, "01160 time:", time);
-		ChatMsgDao msgDao = new ChatMsgDao(context);
-		msg.setMsgId(msgDao.insert(msg));
-
-		return msg;
-	}
-	private static void  updateSession1(String type,SimpleDateFormat sd,Context context,String touser,String nickname,String headpic) {
-		Session session = new Session();
-		session.setFrom(touser);
-		session.setTo(Util.userid);
-		session.setNotReadCount("");// 未读消息数量
-		session.setContent("[视频请求]");
-		session.setTime(sd.format(new Date()));
-		session.setType(type);
-		session.setName(nickname);
-		session.setHeadpic(headpic);
-		SessionDao sessionDao = new SessionDao(context);
-		if (sessionDao.isContent(touser, Util.userid)) {
-			sessionDao.updateSession(session);
-		} else {
-			sessionDao.insertSession(session);
-		}
-		Intent intent = new Intent(Const.ACTION_ADDFRIEND);// 发送广播，通知消息界面更新
-		context.sendBroadcast(intent);
-	}
-
-
-	public static void sendMessage1(XMPPTCPConnection mXMPPConnection, String content,
-								   String touser) throws XMPPException, SmackException.NotConnectedException {
-		if (mXMPPConnection == null || !mXMPPConnection.isConnected()) {
-			// throw new XMPPException();
-		}
-		// ChatManager chatmanager = mXMPPConnection.getChatManager();
-		// hatManager chatmanager = new ChatManager(mXMPPConnection);
-		ChatManager chatmanager = com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils.xmppchatmanager;
-		//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+chatmanager);
-		// Chat chat =chatmanager.createChat(touser + "@" + Const.XMPP_HOST,
-		// null);
-		Chat chat = chatmanager.createChat(touser + "@" + Const.XMPP_HOST, null);
-		if (chat != null) {
-			// chat.sendMessage(content);
-			chat.sendMessage(content, Util.userid+ "@" + Const.XMPP_HOST);
-			Log.e("jj", "发送成功");
-			//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"send success");
-		}else{
-			//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"send fail:chat is null");
-		}
-	}
-
 
 
 }

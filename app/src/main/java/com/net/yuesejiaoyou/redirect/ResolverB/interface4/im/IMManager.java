@@ -35,6 +35,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException.NotConnectedException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.listener.managerlistener;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 
 public class IMManager {
 
@@ -112,7 +113,7 @@ public class IMManager {
         session.setTo(I);
         session.setNotReadCount("");// 未读消息数量
         session.setContent(content);
-        session.setTime(sd.format(new Date()));
+        session.setTime(Tools.currentTime());
         session.setType(type);
         session.setName(name);
         session.setHeadpic(logo);

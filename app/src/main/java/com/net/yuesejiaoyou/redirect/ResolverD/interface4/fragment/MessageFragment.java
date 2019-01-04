@@ -50,6 +50,7 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RecomeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.MessageAdapter;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
@@ -62,7 +63,6 @@ public class MessageFragment extends Fragment implements OnClickListener {
     private boolean isGetData = false;
 
     private View mBaseView;
-    private Context mContext;
     private LinearLayout rl1, rl, rl11, rl111;
     private MsgOperReciver msgOperReciver;
     private SessionDao sessionDao;
@@ -75,11 +75,9 @@ public class MessageFragment extends Fragment implements OnClickListener {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        mContext = getActivity();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.fragment_message, null);
-        SharedPreferences share = mContext.getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
+        SharedPreferences share = getActivity().getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
         id = share.getString("userid", "");
 
         recyclerView = mBaseView.findViewById(R.id.recyclerView);
@@ -94,7 +92,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
                 showPopupspWindow2(mBaseView, position);
-                return false;
+                return true;
             }
         });
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -102,20 +100,20 @@ public class MessageFragment extends Fragment implements OnClickListener {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 final Session session = sessionList.get(position);
                 if (session.getTo().equals("40")) {
-                    Intent intent = new Intent(mContext, CoustomerActivity.class);
+                    Intent intent = new Intent(getContext(), CoustomerActivity.class);
                     intent.putExtra("id", session.getFrom());
                     intent.putExtra("name", session.getName());
                     intent.putExtra("headpic", session.getHeadpic());
                     startActivity(intent);
                 } else {
                     if (session.getFrom().equals("40")) {
-                        Intent intent = new Intent(mContext, CoustomerActivity.class);
+                        Intent intent = new Intent(getContext(), CoustomerActivity.class);
                         intent.putExtra("id", "40");
                         intent.putExtra("name", "小客服");
                         intent.putExtra("headpic", "http://116.62.220.67:8090/img/imgheadpic/launch_photo.png");
                         startActivity(intent);
                     } else {
-                        Intent intent = new Intent(mContext, ChatActivity.class);
+                        Intent intent = new Intent(getContext(), ChatActivity.class);
                         intent.putExtra("id", session.getFrom());
                         intent.putExtra("name", session.getName());
                         intent.putExtra("headpic", session.getHeadpic());
@@ -162,12 +160,12 @@ public class MessageFragment extends Fragment implements OnClickListener {
 		/*rl4 = (RelativeLayout)mBaseView.findViewById(R.id.rl4);
         rl4.setOnClickListener(this);*/
         /////////////////////接收聊天,消息页面下面的适配
-        sessionDao = new SessionDao(mContext);
+        sessionDao = new SessionDao(getContext());
         msgOperReciver = new MsgOperReciver();
         IntentFilter intentFilter1 = new IntentFilter(Const.ACTION_MSG_OPER);
         IntentFilter intentFilter2 = new IntentFilter(Const.ACTION_ADDFRIEND);
-        mContext.registerReceiver(msgOperReciver, intentFilter1);
-        mContext.registerReceiver(msgOperReciver, intentFilter2);
+        getContext().registerReceiver(msgOperReciver, intentFilter1);
+        getContext().registerReceiver(msgOperReciver, intentFilter2);
         //////////////////////////////////////////
 
         th_note = (TextView) mBaseView.findViewById(R.id.th_note);
@@ -186,22 +184,19 @@ public class MessageFragment extends Fragment implements OnClickListener {
             chattip.setVisibility(View.GONE);
         }
 
-
         initNetData();
 
         initData(id);
 
-
         return mBaseView;
     }
-
 
     private void initNetData() {
         OkHttpUtils.post(this)
                 .url(URL.URL_XIAOXI)
                 .addParams("param1", Util.userid)
                 .build()
-                .execute(new DialogCallback(mContext, false) {
+                .execute(new DialogCallback(getActivity(), false) {
                     @Override
                     public void onError(Call call, Exception e, int id) {
 
@@ -273,25 +268,25 @@ public class MessageFragment extends Fragment implements OnClickListener {
             //点击我的通话，跳转
             case R.id.rl:
                 Intent intent = new Intent();
-                intent.setClass(mContext, CallHistoryActivity.class);
+                intent.setClass(getActivity(), CallHistoryActivity.class);
                 startActivity(intent);
                 break;
             //点击我的v币，跳转
             case R.id.rl1:
                 intent = new Intent();
-                intent.setClass(mContext, RecomeActivity.class);
+                intent.setClass(getActivity(), RecomeActivity.class);
                 startActivity(intent);
                 break;
             //点击预约，跳转
             case R.id.rl11:
                 intent = new Intent();
-                intent.setClass(mContext, YuyueActivity.class);
+                intent.setClass(getActivity(), YuyueActivity.class);
                 startActivity(intent);
                 break;
             //点击我的评价，跳转
             case R.id.rl111:
                 intent = new Intent();
-                intent.setClass(mContext, AppariseActivity.class);
+                intent.setClass(getActivity(), AppariseActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -301,13 +296,17 @@ public class MessageFragment extends Fragment implements OnClickListener {
 
     private void initData(String shopid) {
         sessionList = sessionDao.queryAllSessions(shopid);
+        for (int i = 0; i < sessionList.size(); i++) {
+            LogUtil.i("ttt", "message---" + sessionList.get(i).getTime()+"----"+sessionList.get(i).getName());
+        }
+        LogUtil.i("ttt","---initdata--"+sessionList.size());
         adapter.setNewData(sessionList);
     }
 
     //点击拒绝此条邀请
     public void showPopupspWindow2(View parent, final int position) {
         // 加载布局
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LayoutInflater inflater = LayoutInflater.from(getContext());
         View layout = inflater.inflate(R.layout.pop_del_01160, null);
 
         LogDetect.send(LogDetect.DataType.specialType, "01160 加载弹窗:", layout);
@@ -345,7 +344,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
         lp.alpha = 0.4f;
         getActivity().getWindow().setAttributes(lp);
         popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager manager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         @SuppressWarnings("deprecation")
         // 获取xoff
                 int xpos = manager.getDefaultDisplay().getWidth() / 2
@@ -380,9 +379,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 
-    /***************
-     *恢复方法
-     ***************/
+
     @Override
     public void onResume() {
         super.onResume();
@@ -392,9 +389,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
         }
     }
 
-    /**************
-     * 暂停方法
-     **************/
+
     @Override
     public void onPause() {
         super.onPause();
@@ -402,11 +397,6 @@ public class MessageFragment extends Fragment implements OnClickListener {
     }
 
     private class MsgOperReciver extends BroadcastReceiver {
-        /********************
-         * 接收方法
-         * @param context
-         * @param intent
-         *******************/
         @Override
         public void onReceive(Context context, Intent intent) {
             getActivity().runOnUiThread(new Runnable() {

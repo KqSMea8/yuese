@@ -1,256 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:paddingRight="20dp"
-    android:paddingLeft="20dp"
-    android:paddingTop="30dp"
+    android:layout_height="match_parent"
     android:paddingBottom="30dp"
-    >
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="30dp">
 
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/border_01162_2"
-    android:layout_margin="10dp"
-    >
-
-
-
-
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@drawable/border_01162_11"
-        >
-     <ImageView
-         android:id="@+id/close11"
-         android:layout_width="wrap_content"
-         android:layout_height="match_parent"
-         android:src="@drawable/close"
-         android:layout_alignParentRight="true"
-         android:layout_marginRight="10dp"
-         />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/border_01162_2">
 
-        >
-
-        <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
-            android:id="@+id/headpic"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/headpic"
-            android:layout_marginLeft="10dp"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/nickname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:textSize="17dp"
-                android:textColor="#000000" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/border_01162_11">
 
-            <ImageView
-                android:id="@+id/star1"
-                android:layout_width="80dp"
-                android:layout_gravity="left"
+                <ImageView
+                    android:id="@+id/close11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/close" />
+            </RelativeLayout>
 
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </RelativeLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:layout_weight="1"
-    >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginTop="8dp">
 
-     <ImageView
-       android:layout_width="50dp"
-        android:layout_height="50dp"
-         android:padding="10dp"
-         android:layout_gravity="center"
-         android:src="@drawable/comment_bills"
+                <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+                    android:id="@+id/headpic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp" />
 
-         />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/headpic"
+                    android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            >
-            <TextView
-                android:id="@+id/txt1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Call: 0 minute"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:layout_marginBottom="3dp"
-                />
-            <TextView
-                android:id="@+id/txt2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cost: 0 coins"
-                android:gravity="center"
-                android:textColor="#000000"
-                />
-        </LinearLayout>
-</LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            >
+                    <TextView
+                        android:id="@+id/nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:src="@drawable/comment_heart"
-                />
+                        android:textColor="#000000"
+                        android:textSize="17dp" />
+
+                    <ImageView
+                        android:id="@+id/star1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="left" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center_vertical"
-                >
-                <TextView
-                    android:id="@+id/txt3"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#000000"
-                    android:text="intimacy: 0"
-                    />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:src="@drawable/comment_bills"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:gravity="center"
+                            android:text="Call: 0 minute"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/txt2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Cost: 0 coins"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:src="@drawable/comment_heart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="intimacy: 0"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="我的感觉"
-        android:textColor="#000000"
-        android:layout_marginLeft="10dp"
-        android:textSize="17dp"
-        />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        >
-
-    <LinearLayout
-        android:id="@+id/dislike1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        >
-        <ImageView
-            android:id="@+id/dislike_img"
-            android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:src="@drawable/un_love"
-            />
-       <TextView
-           android:id="@+id/dislike"
-           android:layout_width="match_parent"
-           android:layout_height="33dp"
-           android:textColor="#000000"
-           android:text="不喜欢"
-           android:gravity="center"
-     />
-
-
-    </LinearLayout>
-        <LinearLayout
-            android:id="@+id/like1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            >
-            <ImageView
-                android:id="@+id/like_img"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:src="@drawable/love"
-                />
             <TextView
-                android:id="@+id/like"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:text="喜欢"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="我的感觉"
                 android:textColor="#000000"
-                android:gravity="center"
-                />
+                android:textSize="17dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/dislike1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/dislike_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:src="@drawable/un_love" />
+
+                    <TextView
+                        android:id="@+id/dislike"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:gravity="center"
+                        android:text="不喜欢"
+                        android:textColor="#000000" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/like1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/like_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:src="@drawable/love" />
+
+                    <TextView
+                        android:id="@+id/like"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:gravity="center"
+                        android:text="喜欢"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="我的评价"
+                android:textColor="#000000"
+                android:textSize="17dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/grview"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="5dp"></android.support.v7.widget.RecyclerView>
+
+
         </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="我的评价"
-        android:textColor="#000000"
-        android:layout_marginLeft="10dp"
-        android:textSize="17dp"
-        />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/grview"
-        android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_height="180dp"
-        >
-    </android.support.v7.widget.RecyclerView>
-
-
-</LinearLayout>
-    <TextView
-        android:id="@+id/besure"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="提交"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/border_01162_10"
-        android:textSize="20dp"
-        android:padding="5dp"
-        android:gravity="center"
-        android:layout_alignParentBottom="true"
-        />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/besure"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/border_01162_10"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="提交"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+    </RelativeLayout>
 </RelativeLayout>

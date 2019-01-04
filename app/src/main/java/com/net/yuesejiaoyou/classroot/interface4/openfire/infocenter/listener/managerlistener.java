@@ -29,7 +29,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
@@ -102,7 +102,7 @@ public class managerlistener implements MessageListener {
         final String msgBody = message.getBody();
         if (TextUtils.isEmpty(msgBody))
             return;
-        Log.v("TT", "playmessage-: " + msgBody);
+        Log.v("ttt", "playmessage-: " + msgBody);
         LogDetect.send(LogDetect.DataType.specialType, "playmessage: ", msgBody);
         // 普通用户向主播发送一对一视频请求
         if (msgBody.contains(Const.ACTION_MSG_ONEINVITE + "卍")) {
@@ -162,7 +162,6 @@ public class managerlistener implements MessageListener {
                 YhApplicationA application = (YhApplicationA) mContext.getApplicationContext();
                 Activity curActivity = application.getCurrentActivity();
                 GukeActivity.callFromZhubo(curActivity, new ZhuboInfo(froms[0], msgs[3], msgs[4], msgs[2], P2PVideoConst.ZHUBO_CALL_GUKE, P2PVideoConst.NONE_YUYUE));
-
             } else if (msgBody.contains("拒0绝1邀2请")) {
                 Log.v("TTT", "收到顾客挂断: " + msgBody);
 //				MyThreadZB myThread1 = new MyThreadZB(froms[0], msgBody);
@@ -285,14 +284,9 @@ public class managerlistener implements MessageListener {
             session.setNotReadCount("");// 未读消息数量
             session.setTime(system[2]);
 
-		/*	if(Util.gender.equals("女")){
-				session.setName("优小蜜");
-			}else{*/
-            session.setName("系统消息");
-	/*		}*/
-		/*	session.setName("优觅客服");*/
-            session.setHeadpic("http://116.62.220.67:8090/img/imgheadpic/launch_photo.png");
 
+            session.setName("系统消息");
+            session.setHeadpic("http://116.62.220.67:8090/img/imgheadpic/launch_photo.png");
 
             Msg msg = new Msg();
             msg.setToUser(tos[0]);
@@ -774,14 +768,7 @@ public class managerlistener implements MessageListener {
             } else {
                 sessionDao.insertSession(session);
             }
-            //playSound(1, 0);
 
-            //String title = null,content = null;
-            //title="系统通知";
-            //String[] content1=msg.getContent().split("\\$");
-            //content=content1[0];
-            //MyThreadnot myThreadmot = new MyThreadnot(title,content);
-            //myThreadmot.start();
 
         }
 

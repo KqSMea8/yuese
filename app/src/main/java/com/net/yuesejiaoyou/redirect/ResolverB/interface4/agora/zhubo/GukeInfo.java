@@ -119,4 +119,15 @@ public class GukeInfo implements Parcelable {
         }
     };
 
+    @Override
+    public String toString() {
+        return "GukeInfo{" +
+                "gukeId='" + gukeId + '\'' +
+                ", gukeName='" + gukeName + '\'' +
+                ", gukeHeadpic='" + gukeHeadpic + '\'' +
+                ", roomid='" + roomid + '\'' +
+                ", direct=" + direct +
+                ", yuyue='" + yuyue + '\'' +
+                '}';
+    }
 }

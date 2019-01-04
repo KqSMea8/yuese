@@ -48,7 +48,7 @@ import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
 
-public class LoginActivity extends BaseActivity implements PlatformActionListener,EasyPermissions.PermissionCallbacks {
+public class LoginActivity extends BaseActivity implements PlatformActionListener, EasyPermissions.PermissionCallbacks {
 
     private String[] permissions = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -68,9 +68,6 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
         SpannableStringBuilder style = new SpannableStringBuilder(xieyi.getText().toString());
         style.setSpan(new ForegroundColorSpan(Color.YELLOW), 11, style.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         xieyi.setText(style);
@@ -78,7 +75,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         OpenInstall.getInstall(new AppInstallAdapter() {
             @Override
             public void onInstall(AppData appData) {
-                LoginActivity.this.channelCode = appData.getChannel();
+                channelCode = appData.getChannel();
                 String bindData = appData.getData();
                 if (!appData.isEmpty()) {
                     if (bindData.contains("code")) {
@@ -98,10 +95,9 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         }
     }
 
-    private void init(){
+    private void init() {
         String username = sp.getString("username", "");
         String password = sp.getString("password", "");
-        String logintype = sp.getString("logintype", "");
         String openid = sp.getString("openid", "1");
         if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
             login(username, password);
@@ -110,23 +106,20 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         }
     }
 
-    @TargetApi(19)
-    protected void initWindow() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setNavigationBarTintEnabled(false);
-            tintManager.setStatusBarTintColor(Color.TRANSPARENT);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            }
-        }
-    }
 
     @Override
     protected int getContentView() {
         return R.layout.activity_login;
+    }
+
+    @Override
+    public boolean statusBarFont() {
+        return false;
+    }
+
+    @Override
+    public int statusBarColor() {
+        return R.color.transparent;
     }
 
     private void login(String usernem, String password) {
@@ -198,6 +191,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 String zhubo = jsonObject.getString("is_v");
                 String zh = jsonObject.getString("username");
                 String pwd = jsonObject.getString("password");
+                String wxopenid=jsonObject.getString("openid");
                 String invite_num = jsonObject.getString("invite_num");
                 Util.invite_num = invite_num;
                 //share = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
@@ -210,6 +204,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                         .putString("headpic", headpic)
                         .putString("sex", gender)
                         .putString("zhubo_bk", zhubo)
+                        .putString("openid",wxopenid)
                         .putBoolean("FIRST", false).apply();
                 Util.userid = a;
                 Util.headpic = headpic;
@@ -218,15 +213,12 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 Util.iszhubo = zhubo.equals("0") ? "0" : "1";
 
 
-                /////////////////////给openfire通入信息，连接B区的opnefire实时通道。
                 if (Util.imManager == null) {
                     Util.imManager = new com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager();
                     Util.imManager.initIMManager(jsonObject, getApplicationContext());
                 }
 
-                LogDetect.send(LogDetect.DataType.basicType, "01107", "before 绑定极光别名： " + Util.userid);
                 JPushInterface.setAlias(getApplicationContext(), 1, Util.userid);    // 设置极光别名
-                LogDetect.send(LogDetect.DataType.basicType, "01107", "after 绑定极光别名： " + Util.userid);
 
                 final String gukeid = jsonObject.get("gukeid").toString();
 
@@ -314,7 +306,6 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        LogUtil.i("ttt", "---" + hashMap);
 
         String openid = (String) hashMap.get("openid");
         String nickname = (String) hashMap.get("nickname");

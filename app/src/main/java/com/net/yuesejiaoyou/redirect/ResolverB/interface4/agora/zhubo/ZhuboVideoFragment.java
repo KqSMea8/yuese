@@ -80,6 +80,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuAdapter;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuBean;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ZIP;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.BaseFragment;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 
 import org.json.JSONException;
@@ -104,7 +105,7 @@ import java.util.concurrent.ScheduledExecutorService;
  * Created by Administrator on 2018\8\17 0017.
  */
 
-public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener, View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
+public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
 
     private View fragmentView;
     private Activity baseActivity;
@@ -152,16 +153,17 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     private redpkTimer showRedpkThread;
 
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // 获取上层获取用户信息与操作一对一视频的接口
         baseActivity = getActivity();
         userInfoHandler = (IUserInfoHandler) baseActivity;
         videoHandler = (IVideoHandler) baseActivity;
 
-        fragmentView = inflater.inflate(R.layout.activity_agora_rtc_zhubo, null);
+        fragmentView = view;
 
 
         // 获取远程surfaceView
@@ -192,7 +194,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         fragmentView.findViewById(R.id.btn_endcall).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onEncCallClicked(view);
+                onEncCallClicked();
             }
         });
 
@@ -209,7 +211,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
             @Override
             public void onClick(View view) {
                 onLocalVideoMuteClicked(guanbi);
-                //takePhoto();
             }
         });
 
@@ -298,9 +299,11 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         mFaceSurgeryFaceShapeSeek.setProgress(shouLian);
         mFaceSurgeryBigEyeSeek.setProgress(daYan);
 
-        Log.e("TTT", "ZhuboVideoFragment-onCreateView end");
+    }
 
-        return fragmentView;
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_agora_rtc_zhubo;
     }
 
     @Override
@@ -370,32 +373,24 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
 
         final int x = (int) event.getRawX();
         final int y = (int) event.getRawY();
-        Log.d("TT", "onTouch: x= " + x + "y=" + y);
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view
                         .getLayoutParams();
                 xDelta = sWidth - x - params.rightMargin;
                 yDelta = y - params.topMargin;
-                Log.d("TT", "ACTION_DOWN: xDelta= " + xDelta + "yDelta=" + yDelta);
                 break;
             case MotionEvent.ACTION_MOVE:
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view
                         .getLayoutParams();
                 int xDistance = sWidth - x - xDelta;
                 int yDistance = y - yDelta;
-                Log.d("TT", "ACTION_MOVE: xDistance= " + xDistance + "yDistance=" + yDistance);
                 layoutParams.rightMargin = xDistance;
                 layoutParams.topMargin = yDistance;
                 view.setLayoutParams(layoutParams);
                 break;
         }
-        //localView.invalidate();
         return false;
-    }
-
-
-    public void onMeiyanClicked(View view) {
     }
 
     private void addGrpChat(String txt) {
@@ -557,11 +552,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.v("TT", "zhubo_bk  onDestroy()");
         stopAwake();    // 解除屏幕常亮
-
-        Log.v("TT", "before disableAudioFrame()");
-        Log.v("TT", "after disableAudioFrame()");
         leaveChannel();
 
         timer.cancel();//关闭定时器
@@ -602,8 +593,7 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     }
 
     // Tutorial Step 6
-    public void onEncCallClicked(View view) {
-        //修改主播 活跃状态
+    public void onEncCallClicked() {
         String mode1 = "modezhubostate";
         String[] paramsMap1 = {Util.userid, yid_zhubo};
         LogDetect.send(LogDetect.DataType.specialType, "01160 主播挂断 video:", Util.userid);
@@ -676,9 +666,6 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
         UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
         Thread c = new Thread(a.runnable);
         c.start();
-
-        //View tipMsg = findViewById(R.id.quick_tips_when_use_agora_sdk); // optional UI
-        //tipMsg.setVisibility(View.VISIBLE);
         baseActivity.finish();
     }
 
@@ -884,27 +871,11 @@ public class ZhuboVideoFragment extends Fragment implements View.OnTouchListener
     }
 
     //连点两次退出
-    private long firstTime = 0;
 
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        // TODO Auto-generated method stub
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                long secondTime = System.currentTimeMillis();
-                if (secondTime - firstTime > 2000) {
-                    Toast.makeText(baseActivity, "再次点击可以挂断电话", Toast.LENGTH_SHORT).show();
-                    firstTime = secondTime;// 更新firstTime
-                } else {// 两次按键小于2秒时，退出应用
-                    //改变主播状态
-                    //hideSoftInputView();
-                    String mode1 = "modezhubostate";
-                    String[] paramsMap1 = {Util.userid, yid_zhubo};
-                    LogDetect.send(LogDetect.DataType.specialType, "01160 主播改变在线状态 video:", Util.userid);
-                    UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, handler);
-                    Thread c = new Thread(a.runnable);
-                    c.start();
-                    baseActivity.finish();
-                }
+                showToast("正在通话...");
                 return true;
         }
         return false;

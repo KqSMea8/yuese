@@ -88,6 +88,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
 import com.net.yuesejiaoyou.classroot.interface4.util.AudioRecoderUtils;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.Common;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_01160;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder_01160;
@@ -1169,25 +1170,13 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 		return msg;
 	}
 	
-//	private Msg getChatInfoTo3(String message, String msgtype) {
-//		String time = sd.format(new Date());
-//		Msg msg = new Msg();
-//		msg.setFromUser(YOU);
-//		msg.setToUser(I);
-//		msg.setType(msgtype);
-//		msg.setIsComing(1);
-//		msg.setContent(message);
-//		msg.setDate(time);
-//		return msg;
-//	}
-	
 	void updateSession1(String type, String content,String name,String logo) {
 		Session session = new Session();
 		session.setFrom(YOU);
 		session.setTo(I);
 		session.setNotReadCount("");// 未读消息数量
 		session.setContent(content);
-		session.setTime(sd.format(new Date()));
+		session.setTime(Tools.currentTime());
 		session.setType(type);
 		session.setName(name);
 		session.setHeadpic(logo);
@@ -1200,22 +1189,7 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 		Intent intent = new Intent(Const.ACTION_ADDFRIEND);// 发送广播，通知消息界面更新
 		sendBroadcast(intent);
 	}
-	void updateSession(String type, String content) {
-		Session session = new Session();
-		session.setFrom(YOU);
-		session.setTo(I);
-		session.setNotReadCount("");// 未读消息数量
-		session.setContent(content);
-		session.setTime(sd.format(new Date()));
-		session.setType(type);
-		if (sessionDao.isContent(YOU, I)) {
-			sessionDao.updateSession(session);
-		} else {
-			sessionDao.insertSession(session);
-		}
-		Intent intent = new Intent(Const.ACTION_ADDFRIEND);// 发送广播，通知消息界面更新
-		sendBroadcast(intent);
-	}
+
 
 	/**
 	 * 表情页改变时，dots效果也要跟着改变

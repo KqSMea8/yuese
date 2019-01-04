@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     useLibrary 'org.apache.http.legacy'
 
@@ -63,8 +63,6 @@ android {
         }
     }
 
-
-
 }
 
 repositories {
@@ -76,12 +74,12 @@ dependencies {
     implementation 'com.paypal.sdk:paypal-android-sdk:2.15.1'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.youth.banner:banner:1.4.9'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:support-annotations:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
     // aliyun start
     // 阿里云播放器相关
     implementation(name: 'aliyunVodPlayer', ext: 'aar')
@@ -141,7 +139,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     implementation 'com.alibaba:fastjson:1.2.14'
-    implementation 'pub.devrel:easypermissions:2.0.0'
+    implementation 'pub.devrel:easypermissions:1.2.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
     implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
@@ -150,6 +148,7 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
+    implementation 'com.tencent.bugly:crashreport:latest.release'
 }
 
 

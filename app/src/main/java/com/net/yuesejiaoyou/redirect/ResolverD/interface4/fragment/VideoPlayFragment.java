@@ -61,7 +61,7 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AliVideoPlayer;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoPlayListener;
@@ -744,7 +744,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
                                 SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 final String timestamp = new Date().getTime() + "";
-
 
                                 GukeActivity.startCallZhubo(getActivity(), new ZhuboInfo(videoinfo1.getUserid(), videoinfo1.getNickname(), videoinfo1.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
 
@@ -1519,13 +1518,13 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 }
                 if (debugInfo.get("find-stream") != null) {
                     String time = debugInfo.get("find-stream");
-                    //VcPlayerLog.d(TAG + "lfj0914","find-Stream time =" + time + " , createpts = " + createPts);
+                    //VcPlayerLog.d(TAG + "lfj0914","find-Stream tvTime =" + tvTime + " , createpts = " + createPts);
                     long findPts = (long) Double.parseDouble(time) + createPts;
                     //logStrs.add(format.format(new Date(findPts)) + getString(R.string.log_request_stream_success));
                 }
                 if (debugInfo.get("open-stream") != null) {
                     String time = debugInfo.get("open-stream");
-                    //VcPlayerLog.d(TAG + "lfj0914","open-Stream time =" + time + " , createpts = " + createPts);
+                    //VcPlayerLog.d(TAG + "lfj0914","open-Stream tvTime =" + tvTime + " , createpts = " + createPts);
                     long openPts = (long) Double.parseDouble(time) + createPts;
                     //logStrs.add(format.format(new Date(openPts)) + getString(R.string.log_start_open_stream));
                 }
@@ -1959,7 +1958,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         session.setTo(I);
         session.setNotReadCount("");// 未读消息数量
         session.setContent(content);
-        session.setTime(sd.format(new Date()));
+        session.setTime(Tools.currentTime());
         session.setType(type);
         session.setName(name);
         session.setHeadpic(logo);

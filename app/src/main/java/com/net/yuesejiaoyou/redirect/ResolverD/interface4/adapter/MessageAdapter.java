@@ -39,7 +39,6 @@ public class MessageAdapter extends BaseQuickAdapter<Session, com.chad.library.a
 
         ImageUtils.loadImage(item.getHeadpic().trim(), (ImageView) helper.getView(R.id.user_head));
 
-
         if (!item.getNotReadCount().equals("0")) {
             helper.setVisible(R.id.tv_noread, true);
             helper.setText(R.id.tv_noread, item.getNotReadCount());

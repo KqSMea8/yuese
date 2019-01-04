@@ -27,6 +27,16 @@ public class URL {
     public static final String URL_FOCUS = BASE_URL + "/memberC01178?mode=A-user-search&mode2=getfocusdetail";
 
     public static final String URL_CALL = BASE_URL + "/memberB?mode=A-user-search&mode2=zhubo_online";
+    public static final String URL_PUSHCMD = BASE_URL + "/memberB?mode=A-user-add&mode2=pushcmdmsg";
+    public static final String URL_CALLVIDEO = BASE_URL + "/memberB?mode=A-user-add&mode2=pushp2pvideo";
+    public static final String URL_UPDATESTATE = BASE_URL + "/memberB?mode=A-user-mod&mode2=modezhubostate";
+    public static final String URL_REMOVECALL = BASE_URL + "/memberB?mode=A-user-delete&mode2=removep2pvideo";
+    public static final String URL_ONLINE = BASE_URL + "/memberB?mode=A-user-mod&mode2=mod_online";
+    public static final String URL_MOD_RETURN = BASE_URL + "/memberB?mode=A-user-mod&mode2=mod_return";
+    public static final String URL_MOD_MANG = BASE_URL + "/memberB?mode=A-user-mod&mode2=mod_mang";
+    public static final String URL_EVELUE_SEARCH = BASE_URL + "/memberB?mode=A-user-search&mode2=evalue_search";
+    public static final String URL_REPORT = BASE_URL + "/memberB?mode=A-user-mod&mode2=report";
+    public static final String URL_SAVE_EVALUE = BASE_URL + "/memberB?mode=A-user-add&mode2=save_evalue";
 
     public static final String URL_VIDEO_NEW = BASE_URL + "/ar?mode=A-user-search&mode2=newvideolist";
     public static final String URL_VIDEO_HOT = BASE_URL + "/ar?mode=A-user-search&mode2=hotvideolist";

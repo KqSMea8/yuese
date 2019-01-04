@@ -245,7 +245,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />

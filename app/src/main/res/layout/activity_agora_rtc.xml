@@ -110,9 +110,7 @@
         android:layout_marginBottom="150dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="70dp"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/meiyan"
@@ -130,7 +128,6 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/meiyan"
             android:max="600"
-
             android:maxHeight="27dp"
             android:minHeight="27dp"
             android:progressDrawable="@drawable/seekbar_style_1"
@@ -192,23 +189,6 @@
 
     </RelativeLayout>
 
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
-        android:layout_marginLeft="15dp"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/btn_chat"
-            android:layout_width="100dp"
-            android:layout_height="22dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/ic_send_text" />
-    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ly1"
@@ -375,41 +355,6 @@
             android:text="00:00"
             android:textColor="#ffffff"
             android:textSize="15dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="#F5F6F7"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/input_sms"
-            android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="5dip"
-            android:layout_toLeftOf="@+id/send_sms"
-            android:background="@drawable/caht_input_bg"
-            android:maxLength="240"
-            android:padding="2dip"
-            android:singleLine="true"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/send_sms"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/border_radius_qb_2"
-            android:gravity="center"
-            android:text="发 送"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
     </RelativeLayout>
 
     <ImageView

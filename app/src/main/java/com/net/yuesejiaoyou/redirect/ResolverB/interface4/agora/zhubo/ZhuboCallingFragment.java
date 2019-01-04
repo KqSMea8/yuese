@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -42,36 +41,6 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageMana
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
-import com.net.yuesejiaoyou.classroot.interface4.util.GeneralTimer;
-import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2018\8\17 0017.
@@ -141,29 +110,7 @@ public class ZhuboCallingFragment extends Fragment implements ICmdListener, IAct
                 } else {
                     strCmd = VideoMessageManager.VIDEO_NONE;
                 }
-//                VideoMessageManager.sendCmdMessage(Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), strCmd, new VideoMessageManager.SendMsgCallback() {
-//                    @Override
-//                    public void onSendSuccess() {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "挂断消息发送成功", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//
-//                    @Override
-//                    public void onSendFail(int code, String reason) {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "挂断消息发送失败", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//                });
+
 
                 String mode1 = "pushcmdmsg";
                 String[] paramsMap1 = {"", Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
@@ -240,29 +187,7 @@ public class ZhuboCallingFragment extends Fragment implements ICmdListener, IAct
                 } else {
                     strCmd = VideoMessageManager.VIDEO_NONE;
                 }
-//                VideoMessageManager.sendCmdMessage(Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), strCmd, new VideoMessageManager.SendMsgCallback() {
-//                    @Override
-//                    public void onSendSuccess() {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "超时消息发送成功", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//
-//                    @Override
-//                    public void onSendFail(int code, String reason) {
-//                        baseActivity.runOnUiThread(new Runnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(baseActivity, "超时消息发送失败", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-//                    }
-//                });
+
                 String mode1 = "pushcmdmsg";
                 String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
                 UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handler);
@@ -348,29 +273,7 @@ public class ZhuboCallingFragment extends Fragment implements ICmdListener, IAct
                     } else {
                         strCmd = VideoMessageManager.VIDEO_NONE;
                     }
-//                    VideoMessageManager.sendCmdMessage(Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), strCmd, new VideoMessageManager.SendMsgCallback() {
-//                        @Override
-//                        public void onSendSuccess() {
-//                            baseActivity.runOnUiThread(new Runnable() {
-//
-//                                @Override
-//                                public void run() {
-//                                    Toast.makeText(baseActivity, "挂断消息发送成功", Toast.LENGTH_SHORT).show();
-//                                }
-//                            });
-//                        }
-//
-//                        @Override
-//                        public void onSendFail(int code, String reason) {
-//                            baseActivity.runOnUiThread(new Runnable() {
-//
-//                                @Override
-//                                public void run() {
-//                                    Toast.makeText(baseActivity, "挂断消息发送失败", Toast.LENGTH_SHORT).show();
-//                                }
-//                            });
-//                        }
-//                    });
+
                     String mode1 = "pushcmdmsg";
                     String[] paramsMap1 = {"",Util.userid, Util.nickname, Util.headpic, userInfoHandler.getFromUserId(), userInfoHandler.getRoomid(), strCmd};
                     UsersThread_01158B a = new UsersThread_01158B(mode1,paramsMap1,handler);

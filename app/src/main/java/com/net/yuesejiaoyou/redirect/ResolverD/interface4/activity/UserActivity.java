@@ -1,7 +1,6 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -68,15 +66,14 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserInfoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -235,13 +232,6 @@ public class UserActivity extends BaseActivity {
         userid = bundle.getString("id");
 
 
-//        String mode = "userinfo";
-//        String[] params = {"13", userid};
-//        UsersThread_01066A b = new UsersThread_01066A(mode, params, handler);
-//        Thread thread = new Thread(b.runnable);
-//        thread.start();
-
-
         msgOperReciver1 = new MsgOperReciver1();
         IntentFilter intentFilter = new IntentFilter("userguanzhu");
         registerReceiver(msgOperReciver1, intentFilter);
@@ -254,14 +244,14 @@ public class UserActivity extends BaseActivity {
         return R.layout.activity_user;
     }
 
-    @TargetApi(19)
-    protected void initWindow() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setNavigationBarTintEnabled(false);
-            tintManager.setStatusBarTintColor(getResources().getColor(R.color.transparent));
-        }
+    @Override
+    public int statusBarColor() {
+        return R.color.transparent;
+    }
+
+    @Override
+    public boolean statusBarFont() {
+        return false;
     }
 
     public void getUserData() {
@@ -720,6 +710,14 @@ public class UserActivity extends BaseActivity {
             Toast.makeText(this, "主播不能跟主播通话", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (userid.equals(Util.userid)) {
+            showToast("不能跟自己通话");
+            return;
+        }
+        if (userInfo == null) {
+            showToast("用户不存在");
+            return;
+        }
 
         OkHttpUtils.post(this)
                 .url(URL.URL_CALL)
@@ -746,13 +744,9 @@ public class UserActivity extends BaseActivity {
                         String success_ornot = jsonObject.getString("success");
                         if (success_ornot.equals("1")) {
                             final String timestamp = new Date().getTime() + "";
-                            if (userid.equals(Util.userid)) {
-                            } else {
-                                if (userInfo != null) {
-                                    yid = userInfo.getId() + "";
-                                    GukeActivity.startCallZhubo(UserActivity.this, new ZhuboInfo(yid, userInfo.getNickname(), userInfo.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
-                                }
-                            }
+                            yid = userInfo.getId() + "";
+                            ZhuboInfo zhuboInfo = new ZhuboInfo(yid, userInfo.getNickname(), userInfo.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE);
+                            GukeActivity.startCallZhubo(UserActivity.this, zhuboInfo);
                         } else if (success_ornot.equals("2")) {
                             showPopupspWindow_reservation(getWindow().getDecorView(), 2);
                             showToast("主播忙碌，请稍后再试");
@@ -1224,7 +1218,7 @@ public class UserActivity extends BaseActivity {
         session.setTo(I);
         session.setNotReadCount("");// 未读消息数量
         session.setContent(content);
-        session.setTime(sd.format(new Date()));
+        session.setTime(Tools.currentTime());
         session.setType(type);
         session.setName(name);
         session.setHeadpic(logo);

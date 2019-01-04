@@ -10,9 +10,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
@@ -27,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by admin on 2018/12/21.
@@ -62,7 +65,7 @@ public class Tools {
         textView.setCompoundDrawables(null, null, null, drawable);
     }
 
-    public static void setNullDrawable(TextView textView){
+    public static void setNullDrawable(TextView textView) {
         textView.setCompoundDrawables(null, null, null, null);
     }
 
@@ -111,11 +114,11 @@ public class Tools {
             JSONArray jsonArray = new JSONArray(json);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
-                if(i==jsonArray.length()-1){
+                if (i == jsonArray.length() - 1) {
                     page.setTotlePage(item.getInt("totlePage"));
                     page.setCurrent(item.getInt("pagenum"));
-                }else{
-                    User_data bean=new User_data();
+                } else {
+                    User_data bean = new User_data();
                     bean.setNickname(item.getString("nickname"));
                     bean.setId(item.getInt("id"));
                     bean.setIdentify_check(item.getInt("is_anchor"));
@@ -131,10 +134,16 @@ public class Tools {
             page.setList(list);
         } catch (Exception e) {
             e.printStackTrace();
-            LogDetect.send(LogDetect.DataType.specialType, "this0",e);
+            LogDetect.send(LogDetect.DataType.specialType, "this0", e);
         }
         return page;
     }
+
+    public static int getScreenWidth(Context context) {
+        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        return display.getWidth();
+    }
+
     public static String currentVersion(Context context) {
         String versionName = "";
         try {
@@ -150,7 +159,7 @@ public class Tools {
         return versionName;
     }
 
-    public static boolean checkVersion(String newVersionName,String oldVersionName) {
+    public static boolean checkVersion(String newVersionName, String oldVersionName) {
         String[] split = newVersionName.split("\\.");
         String[] split1 = oldVersionName.split("\\.");
 
@@ -174,6 +183,7 @@ public class Tools {
 
         return false;
     }
+
     @SuppressLint("SimpleDateFormat")
     public static String format(Date date, String pattern) {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -219,5 +229,32 @@ public class Tools {
             result = "夜晚";
         }
         return result;
+    }
+
+    public static String currentTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
+        return sdf.format(new Date());
+    }
+
+    public static String checkTime(String time){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
+
+        return sdf.format(new Date());
+    }
+
+    public static String getTimerStr(int time) {
+        if (time / 60 < 10) {
+            if (time % 60 < 10) {
+                return "0" + time / 60 + ":0" + time % 60;
+            } else {
+                return "0" + time / 60 + ":" + time % 60;
+            }
+        } else {
+            if (time % 60 < 10) {
+                return time / 60 + ":0" + time % 60;
+            } else {
+                return time / 60 + ":" + time % 60;
+            }
+        }
     }
 }

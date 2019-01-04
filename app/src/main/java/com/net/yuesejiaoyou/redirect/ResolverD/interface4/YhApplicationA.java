@@ -27,6 +27,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 
 
@@ -82,10 +83,8 @@ public class YhApplicationA extends Application {
 		});
 	}
 
-	public Vibrator mVibrator;
 
 	private ArrayList<Activity> ActivityList = new ArrayList<Activity>();
-	private Activity currentActivity;
 	private ActivityLifecycleCallbacks activityCallback;
 	private static YhApplicationA instance;
 	public boolean ishave=true;
@@ -97,42 +96,20 @@ public class YhApplicationA extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		// 网易云信初始化
-//		VideoMessageManager.appInit(this);
-
 		instance = this;
-		/***
-		 * 初始化定位sdk，建议在Application中创建
-		 */
 
 
-		String a = "Product Model: " + android.os.Build.MODEL + ","
-				+ android.os.Build.VERSION.SDK + ","
-				+ android.os.Build.VERSION.RELEASE+ ","+"1.0  ";
-
-
-		mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
 		SDKInitializer.initialize(getApplicationContext());
 		//初始化图片加载器相关配置
 		initImageLoader(getApplicationContext());
 		//////初始化B区的拨通音乐
 		MusicUtil.init(getApplicationContext());
-		/////////////////////////
+
 		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
 		StrictMode.setVmPolicy(builder.build());
 		builder.detectFileUriExposure();
-		//---------------------158---------------------------
-//		loadLibs();
-//		QupaiHttpFinal.getInstance().initOkHttpFinal();
-//		initDownLoader();
-//		VideoUploadUtil.init(getApplicationContext());
 
-//		loadLibs();
-//		QupaiHttpFinal.getInstance().initOkHttpFinal();
-//		initDownLoader();
-
-		//VideoUploadUtil.init(getApplicationContext());
-		//---------------------158---------------------------
+		CrashReport.initCrashReport(getApplicationContext(), "78d25f004b", false);
 
 		activityCallback = new ActivityLifecycleCallbacks() {
 
@@ -178,39 +155,22 @@ public class YhApplicationA extends Application {
 		};
 
 		registerActivityLifecycleCallbacks(activityCallback);
+
 		IBoxingMediaLoader loader = new BoxingGlideLoader();
 		BoxingMediaLoader.getInstance().init(loader);
 		BoxingCrop.getInstance().init(new BoxingUcrop());
 
 		// 极光推送
 		if (isMainProcess()) {
-
 			OpenInstall.init(this);
 		}
+
 		jpushInit();
-		LogDetect.init(new WeakReference(this), "01162", "android");
-		LogDetect.send(LogDetect.DataType.specialType, "Memory: ", a);
 
 		xiaojigouInit();
 
-		//setupAgoraEngine();
 	}
 
-//	private AgoraAPIOnlySignal m_agoraAPI;
-//
-//	public AgoraAPIOnlySignal getmAgoraAPI() {
-//		return m_agoraAPI;
-//	}
-//
-//
-//	private void setupAgoraEngine() {
-//		String appID = getString(R.string.agora_app_id);
-//		try {
-//			m_agoraAPI = AgoraAPIOnlySignal.getInstance(this, appID);
-//		} catch (Exception e) {
-//
-//		}
-//	}
 
 	private void xiaojigouInit() {
 		String licenseText = "hMPthC0oBIbtMp515TWb9jZvrLAKWIMvA4Dhf03n51QvnJr7jZowVe86d0WwU0NK9QGRFaXQn628fRu941qyr3FtsI5R7Y6v1XEpL6YvQNWQCkFEt1SAb0hyawimOYf1tfG2lIaNE63c5e+OxXssOVUWvw8tOr2glVwWVzh79NmZMahrnS8l69SoeoXLMKCYlvAt/qJFFk4+6Aq3QvOv3o72fq5p90yty+YWg7o0HirZpMSP9P5/DHYPFqR/ud7twTJ+Yo2+ZzYvodqRQbGG0HseZn8Xpt7fZdFuZbc2HGRMVk56vNDMRlcGZZXAjENk7m2UMhi1ohhuSf4WmIgXCZFiJXvYFByaY625gXKtEI7+b7t81nWQYHP9BEbzURwL";
@@ -226,10 +186,7 @@ public class YhApplicationA extends Application {
 		}
 	}
 
-	/**
-	 * 判断当前Activity是否一对一顾客页面
-	 * @return
-	 */
+
 	public boolean isCurrentP2PGukeActivity() {
 		Activity curActivity = getCurrentActivity();
 		if(curActivity != null) {
@@ -239,10 +196,7 @@ public class YhApplicationA extends Application {
 		}
 	}
 
-	/**
-	 * 判断当前Activity是否一对一主播页面
-	 * @return
-	 */
+
 	public boolean isCurrentP2PZhuboActivity() {
 		Activity curActivity = getCurrentActivity();
 		if(curActivity != null) {
@@ -265,9 +219,7 @@ public class YhApplicationA extends Application {
 		return false;
 	}
 
-	private void initDownLoader() {
-//		DownloaderManager.getInstance().init(this);
-	}
+
 
 	public static void initImageLoader(Context context) {
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
@@ -282,22 +234,6 @@ public class YhApplicationA extends Application {
 				.build();
 		ImageLoader.getInstance().init(config);
 	}
-
-//	private void loadLibs(){
-////		System.loadLibrary("openh264");
-////		System.loadLibrary("encoder");
-////		System.loadLibrary("AliFaceAlignmentModule");
-////		System.loadLibrary("aliface_jni");
-////		System.loadLibrary("QuCore-ThirdParty");
-////		System.loadLibrary("QuCore");
-//
-//		System.loadLibrary("fdk-aac");
-//		System.loadLibrary("live-openh264");
-//		System.loadLibrary("QuCore-ThirdParty");
-//		System.loadLibrary("QuCore");
-//		System.loadLibrary("FaceAREngine");
-//		System.loadLibrary("AliFaceAREngine");
-//	}
 
 
 
@@ -318,58 +254,13 @@ public class YhApplicationA extends Application {
 		}
 	}
 
-	public void closeManageActivity_ff(){//关闭付费模式下
-		for(Activity act : ActivityList) {
-			String className = act.getClass().getName();
-			if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder".equals(className)) {
-				Log.e("YB","close AliyunVideoRecorder");
-				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity_FF".equals(className)) {
-				Log.e("YB","close EditorActivity");
-				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_FF".equals(className)) {
-				Log.e("YB","close MediaActivity");
-				act.finish();
-			}else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder_FF".equals(className)){
-				Log.e("YB","close AliyunVideoRecorder_FF");
-				act.finish();
-			}
-		}
-	}
-
-	public void closeManageActivity_01160(){
-		for(Activity act : ActivityList) {
-			String className = act.getClass().getName();
-			if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder_01160".equals(className)) {
-				Log.e("YB","close AliyunVideoRecorder");
-				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity_01160".equals(className)) {
-				Log.e("YB","close EditorActivity");
-				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.uiface.MediaActivity_01160".equals(className)) {
-				Log.e("YB","close MediaActivity");
-				act.finish();
-			}
-		}
-	}
-
 	public void close() {
 		for(Activity act : ActivityList) {
 			act.finish();
 		}
 	}
 
-	public void closeBeyond(Activity act) {
 
-		String beyondClassname = act.getClass().getName();
-		for(Activity activity: ActivityList) {
-			String actName = activity.getClass().getName();
-
-			if(!actName.equals(beyondClassname)) {
-				activity.finish();
-			}
-		}
-	}
 	@Override
 	protected void attachBaseContext(Context base) {
 		super.attachBaseContext(base);
@@ -380,16 +271,5 @@ public class YhApplicationA extends Application {
 		JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
 		JPushInterface.init(this);     		// 初始化 JPush
 	}
-	// 信令
-//	public AgoraAPIOnlySignal m_agoraAPI;
-//	public String APPID = "ddc51c14372640e3b5d404983c307010";
-//	public String APPCERT = "c28483898439479fb0d441d5f130a1f3";
-//	private void agoraInit() {
-//		// 信令
-//		//final String APPID = "ddc51c14372640e3b5d404983c307010";
-//		//final String APPCERT = "c28483898439479fb0d441d5f130a1f3";
-//		m_agoraAPI = AgoraAPIOnlySignal.getInstance(this, APPID);
-//
-//	}
 
 }

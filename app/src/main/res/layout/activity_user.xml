@@ -44,7 +44,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="47dp"
+                    android:layout_marginTop="71dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -77,12 +77,12 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="110.0dip"
-                    android:layout_marginRight="16dip" />
+                <!--<RelativeLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="bottom|right"-->
+                <!--android:layout_marginBottom="110dp"-->
+                <!--android:layout_marginRight="16dp" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -176,9 +176,9 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_height="74dp"
                     android:background="@drawable/big_v_home_mask_s"
+                    android:paddingTop="24dp"
                     app:layout_collapseMode="pin"
                     app:layout_scrollFlags="enterAlways|scroll">
 
@@ -188,10 +188,10 @@
 
                         <ImageView
                             android:id="@+id/fanhui"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_centerVertical="true"
-                            android:padding="15dp"
+                            android:padding="5dp"
                             android:src="@drawable/arrow_left_white" />
 
                         <TextView
@@ -217,16 +217,17 @@
                 </android.support.v7.widget.Toolbar>
 
                 <RelativeLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginBottom="110.0dip">
+                    android:layout_marginBottom="110dp"
+                    android:background="@drawable/big_v_home_mask_x">
 
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:background="@drawable/big_v_home_mask_x" />
+                    <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:background="@drawable/big_v_home_mask_x" />-->
 
                     <TextView
                         android:id="@+id/flow_img"
@@ -242,8 +243,8 @@
 
                     <View
                         android:id="@+id/view_image_view"
-                        android:layout_width="fill_parent"
-                        android:layout_height="1.0px"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:layout_above="@id/flow_img"
                         android:layout_marginBottom="8.0dip"
                         android:layout_marginLeft="16.0dip"
@@ -263,29 +264,9 @@
                         android:textColor="@color/white"
                         android:textSize="16.0dip" />
 
-                    <!--<com.vliao.vchat.widget.RatingBar
-                        android:id="@id/ratingbar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/relativeLayout"
-                        android:layout_marginLeft="6.0dip"
-                        android:layout_toRightOf="@id/tv_dv"
-                        android:background="@drawable/vdengji_bg"
-                        android:paddingBottom="4.0dip"
-                        android:paddingLeft="8.5dip"
-                        android:paddingRight="6.0dip"
-                        android:paddingTop="4.0dip"
-                        app:clickable="false"
-                        app:starCount="5"
-                        app:starEmpty="@drawable/rating_empty_bg"
-                        app:starFill="@drawable/vdengji_xingxing_on"
-                        app:starImageSize="10.0dip"
-                        app:starPadding="3.0dip"
-                        app:stepSize="Full" />-->
-
                     <RelativeLayout
                         android:id="@+id/relativeLayout"
-                        android:layout_width="84.0dip"
+                        android:layout_width="84dip"
                         android:layout_height="wrap_content"
                         android:layout_above="@id/view_image_view"
                         android:layout_alignParentRight="true"
@@ -333,22 +314,7 @@
                         android:background="@drawable/leave_ratingbar_bg"
                         android:numStars="5"
                         android:paddingBottom="4.0dip"
-
                         android:paddingTop="4.0dip" />
-
-
-                    <!--<TextView-->
-                    <!--android:id="@+id/tv_focus_count_bigv"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_above="@id/view_image_view"-->
-                    <!--android:layout_alignParentRight="true"-->
-                    <!--android:layout_centerHorizontal="true"-->
-                    <!--android:layout_marginBottom="9.5dip"-->
-                    <!--android:layout_marginRight="16.0dip"-->
-                    <!--android:text="s"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:textSize="12.0dip" />-->
 
 
                 </RelativeLayout>
@@ -360,7 +326,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"

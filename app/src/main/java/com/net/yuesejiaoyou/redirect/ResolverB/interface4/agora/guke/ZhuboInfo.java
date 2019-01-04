@@ -114,4 +114,16 @@ public class ZhuboInfo implements Parcelable {
             return new ZhuboInfo[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "ZhuboInfo{" +
+                "zhuboId='" + zhuboId + '\'' +
+                ", zhuboName='" + zhuboName + '\'' +
+                ", zhuboHeadpic='" + zhuboHeadpic + '\'' +
+                ", roomid='" + roomid + '\'' +
+                ", direct=" + direct +
+                ", yuyue='" + yuyue + '\'' +
+                '}';
+    }
 }
