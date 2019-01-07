@@ -1,165 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:padding="3dp">
+    android:padding="1dp">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/item_onev_list_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="180.0dip">
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
 
-        <com.net.yuesejiaoyou.redirect.ResolverA.interface4.YuanJiaoImageView
+        <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/sd_home_avatar_img"
             android:layout_width="match_parent"
-            android:layout_height="180.0dip"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="0dp"
+            app:siRadius="6dp" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_home_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10.0dip"
-            android:layout_marginTop="10.0dip"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/zt_bg"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="2.0dip"
-            android:paddingLeft="6.0dip"
-            android:paddingRight="6.0dip"
-            android:paddingTop="2.0dip"
-            android:visibility="gone">
+            android:drawableLeft="@drawable/zt_lixian"
+            android:drawablePadding="3dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="2dp"
+            android:text="离线"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
 
-            <ImageView
-                android:id="@+id/iv_zt_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/zt_zailiao" />
-
-            <TextView
-                android:id="@+id/tv_home_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3.0dip"
-                android:text="活跃"
-                android:textColor="#ffffffff"
-                android:textSize="10.0sp" />
-        </LinearLayout>
-
-        <RatingBar
-            android:id="@+id/rb_home_leave"
-            style="@style/roomRatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dip"
-            android:background="@drawable/leave_ratingbar_bg"
-            android:numStars="5"
-            android:paddingBottom="4.0dip"
-            android:paddingTop="4.0dip" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff">
 
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="45.0dip"
-            android:background="@drawable/shouyeyuanjiao">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@mipmap/mb_fx_yhm">
 
-            <RelativeLayout
+            <RatingBar
+                android:id="@+id/rb_home_leave"
+                style="@style/roomRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="0.0dip"
-                android:layout_marginLeft="10dip"
-                android:orientation="horizontal">
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/leave_ratingbar_bg"
+                android:numStars="5"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp" />
 
-                <TextView
-                    android:id="@+id/tv_topic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:singleLine="true"
-                    android:text="陪你开M度过每一天"
-                    android:textColor="#707070"
-                    android:textSize="14.0dip" />
+            <TextView
+                android:id="@+id/tv_home_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rb_home_leave"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:maxLength="4"
+                android:text="王瑞儿王瑞儿"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rb_home_leave"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:text="100"
+                android:textColor="#777777"
+                android:textSize="12sp" />
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
+            <TextView
+                android:id="@+id/tv_topic"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="26.0dip"
-                android:layout_marginLeft="10dip">
-
-                <TextView
-                    android:id="@+id/tv_home_nickname"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="王瑞儿王瑞儿"
-                    android:textColor="#000000"
-                    android:textSize="16.0dip" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10.0dip"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="2dip"
-                        android:background="@drawable/home_video"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5.0dip"
-                        android:layout_marginTop="1.0dip"
-                        android:text="100"
-                        android:textColor="#777777"
-                        android:textSize="12.0dip"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:layout_marginLeft="1.0dip"
-                        android:layout_marginTop="1.0dip"
-                        android:text="悦币/分钟"
-                        android:textColor="#777777"
-                        android:textSize="12.0dip" />
-                </LinearLayout>
-
-                <!--android:paddingLeft="6dip"-->
-                <!--android:paddingRight="6dip"-->
-            </RelativeLayout>
-
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:singleLine="true"
+                android:text="陪你开M度过每一天"
+                android:textColor="#707070"
+                android:textSize="14sp"
+                android:visibility="invisible" />
 
         </RelativeLayout>
-    </RelativeLayout>
+    </FrameLayout>
+
+
 </LinearLayout>

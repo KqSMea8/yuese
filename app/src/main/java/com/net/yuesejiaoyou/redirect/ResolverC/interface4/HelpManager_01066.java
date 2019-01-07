@@ -288,7 +288,7 @@ public class HelpManager_01066 {
                     bean.setId(item.getInt("id"));
                     bean.setIspay(item.getInt("ispay"));
                     bean.setIszan(item.getInt("iszan"));
-                    bean.setUserid(item.getString("user_id"));
+                    bean.setUser_id(item.getString("user_id"));
                     bean.setStatus(item.getInt("status"));
                     bean.setLike_num(item.getString("like_num"));
                     bean.setPrice(item.getString("price"));
@@ -322,7 +322,7 @@ public class HelpManager_01066 {
 
                     bean.setId(item.getInt("id"));
 
-                    bean.setUserid(item.getString("user_id"));
+                    bean.setUser_id(item.getString("user_id"));
 
                     bean.setIspay(item.getInt("ispay"));
 

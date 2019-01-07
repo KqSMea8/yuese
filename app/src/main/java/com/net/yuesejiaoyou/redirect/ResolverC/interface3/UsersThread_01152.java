@@ -34,20 +34,6 @@ public class UsersThread_01152 {
 					usersManageInOut.save_personal_information(params, handler);
 					break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				case "gerenzhongxin":
 					usersManageInOut.gerenzhongxin(params, handler);
 				break;

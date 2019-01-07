@@ -43,7 +43,7 @@ import okhttp3.Call;
  * Created by Administrator on 2018\8\17 0017.
  */
 
-public class GukeFromCallingFragment extends BaseFragment implements ICmdListener, IActivityListener, IAgoraVideoEventListener {
+public class GukeFromCallingFragment extends BaseFragment implements ICmdListener, IAgoraVideoEventListener {
 
 
     private IUserInfoHandler userInfoHandler;
@@ -319,16 +319,6 @@ public class GukeFromCallingFragment extends BaseFragment implements ICmdListene
                     }
                 });
         //finish();
-    }
-
-
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                showToast("正在通话...");
-                return true;
-        }
-        return false;
     }
 
 

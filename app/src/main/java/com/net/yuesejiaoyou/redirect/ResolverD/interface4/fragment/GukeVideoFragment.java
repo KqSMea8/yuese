@@ -3,12 +3,10 @@ package com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -37,7 +35,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -50,8 +47,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Msg;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
@@ -62,9 +60,6 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Tag;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01162B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyAdapter_01162_1;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.MyLayoutmanager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.Recycle_item;
@@ -74,27 +69,18 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IUserInfoHandler
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -114,14 +100,13 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private Activity baseActivity;
     private IUserInfoHandler userInfoHandler;
     private IVideoHandler videoHandler;
-    //----------------------------------------------------------------------------------------------
-    //private static final String LOG_TAG = VideoChatViewActivity.class.getSimpleName();
+
     private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
     private static final int PERMISSION_REQ_ID_CAMERA = PERMISSION_REQ_ID_RECORD_AUDIO + 1;
 
     private ScheduledExecutorService service;
     private boolean serviceRunning = false;
-    private String I, YOU, name, logo, headpicture, username;
+    private String YOU, headpicture, username;
     private String record_id = "";
     @BindView(R.id.ly1)
     LinearLayout ly1;
@@ -129,7 +114,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private boolean is_evalue = true;
     private PopupWindow mPopWindow;
     RecyclerView grview;
-    TextView like, disilike, txt1, txt2, txt3, txt4;
+    TextView like, disilike, txt1, txt2, txt3;
     ImageView like_img, dislike_img, star1;
     TextView besure, nickname1;
     List<Tag> list;
@@ -147,7 +132,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private CountDownTimer c;
     private int num = 0;
 
-    private String roomid, yid_guke;
+    private String yid_guke;
 
     MsgOperReciver_shouzhubo msgOperReciver;
     private int xDelta;
@@ -192,13 +177,13 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
             super.handleMessage(msg);
             if (msg.what == 119) {
                 startReduceTimer();
-            }else if(msg.what == 199){
+            } else if (msg.what == 199) {
                 timeCount++;
                 tvTime.setText(Tools.getTimerStr(timeCount));
                 if (timeCount % 60 == 0) {
                     charge();
                 }
-                if(timeCount == 6){
+                if (timeCount == 3) {
                     charge();
                 }
                 handler.sendEmptyMessageDelayed(199, 1000);
@@ -223,19 +208,19 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
             remoteSurface = surfaceView;    //videoHandler.getRemoteSurfaceView();
             if (remoteSurface != null) {
                 remoteContainer.addView(remoteSurface);
+            } else {
+                LogUtil.i("ttt", "-----------------remoteSurface is null");
             }
         }
 
 
         sWidth = Tools.getScreenWidth(getContext());
 
-        roomid = userInfoHandler.getRoomid();   //getIntent().getStringExtra("roomid");
         yid_guke = userInfoHandler.getFromUserId(); //getIntent().getStringExtra("yid_guke");
 
         YOU = yid_guke;
 
 
-        I = sharedPreferences.getString("id", "");
         username = sharedPreferences.getString("name", "");
         headpicture = sharedPreferences.getString("headpic", "");
 
@@ -335,16 +320,16 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        //onEncCallClicked();
+                        onEncCallClicked();
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         if (TextUtils.isEmpty(response)) {
-                            //onEncCallClicked();
+                            onEncCallClicked();
                             return;
                         }
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
+                        JSONObject jsonObject = JSON.parseObject(response);
                         String success = jsonObject.getString("success");
                         if (success.equals("1")) {
                             ly1.setVisibility(View.GONE);
@@ -355,6 +340,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                                     .addParams("param2", userInfoHandler.getFromUserId())
                                     .addParams("param3", "1")
                                     .addParams("param4", num)
+                                    .addParams("param5", tvTime.getText().toString())
                                     .build()
                                     .execute(new StringCallback() {
                                         @Override
@@ -363,12 +349,8 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                                         @Override
                                         public void onResponse(String response, int id) {
-                                            try {
-                                                JSONObject object = new JSONObject(response);
-                                                record_id = object.getString("success");
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
+                                            JSONObject object = JSON.parseObject(response);
+                                            record_id = object.getString("success");
                                             leaveChannel();
                                             getLabelData();
                                         }
@@ -440,6 +422,19 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     @OnClick(R.id.id_send_red_packet)
     public void giftClick() {
         is_open = false;
+
+        new GiftDialog(getActivity(), yid_guke).setLishener(new GiftDialog.OnGiftLishener() {
+            @Override
+            public void onSuccess(int gid, int num) {
+                sendMsgText1("[" + "☆" + Util.nickname + "给" +
+                        userInfoHandler.getFromUserName() + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
+            }
+
+            @Override
+            public void onFail() {
+                showPopupspWindow_chongzhi();
+            }
+        }).show();
         showPopupspWindow_sendred(id_send_red_packet);
     }
 
@@ -575,17 +570,13 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                             showToast("网络异常");
                             return;
                         }
-                        try {
-                            JSONObject jsonObject1 = new JSONObject(response);
-                            String success_ornot = jsonObject1.getString("success");
-                            if (success_ornot.equals("1")) {
-                                popupWindow.dismiss();
-                                showToast("举报成功");
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
 
+                        JSONObject jsonObject = JSON.parseObject(response);
+                        String success = jsonObject.getString("success");
+                        if (success.equals("1")) {
+                            popupWindow.dismiss();
+                            showToast("举报成功");
+                        }
                     }
                 });
     }
@@ -745,6 +736,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                     .addParams("param2", userInfoHandler.getFromUserId())
                     .addParams("param3", "1")
                     .addParams("param4", num)
+                    .addParams("param5", tvTime.getText().toString())
                     .build()
                     .execute(new StringCallback() {
                         @Override
@@ -753,12 +745,13 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                         @Override
                         public void onResponse(String response, int id) {
-                            try {
-                                JSONObject object = new JSONObject(response);
-                                record_id = object.getString("success");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                            if (TextUtils.isEmpty(response)) {
+                                leaveChannel();
+                                getLabelData();
+                                return;
                             }
+                            JSONObject jsonObject = JSON.parseObject(response);
+                            record_id = jsonObject.getString("success");
                             leaveChannel();
                             getLabelData();
                         }
@@ -807,7 +800,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         FrameLayout container = (FrameLayout) fragmentView.findViewById(R.id.remote_video_view_container);
         remoteContainer = container;
         remoteContainer.setTag("remote");
-
     }
 
     // Tutorial Step 6
@@ -835,6 +827,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                 .addParams("param2", userInfoHandler.getFromUserId())
                 .addParams("param3", "1")
                 .addParams("param4", num)
+                .addParams("param5", tvTime.getText().toString())
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -843,12 +836,8 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                     @Override
                     public void onResponse(String response, int id) {
-                        try {
-                            JSONObject object = new JSONObject(response);
-                            record_id = object.getString("success");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        JSONObject jsonObject = JSON.parseObject(response);
+                        record_id = jsonObject.getString("success");
                         leaveChannel();
                         getLabelData();
                     }
@@ -869,101 +858,96 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                     @Override
                     public void onResponse(String response, int id) {
                         showPopupspWindow4();
-                        try {
-                            list = new ArrayList<Tag>();
-                            JSONArray jsonArray = new JSONArray(response);
-                            JSONObject object = jsonArray.getJSONObject(0);
-                            String aa = object.getString("headpic");
-                            String price = object.getString("price");
-                            String star = object.getString("star");
-                            String nickname = object.getString("nickname");
-                            //int c1=Integer.parseInt(num);
-                            if (!TextUtils.isEmpty(price)) {
-                                int c2 = Integer.parseInt(price);
-                                if (num == 1) {
-                                    txt1.setText("通话: " + num + " 分钟");
-                                    txt2.setText("花费: " + num * c2 + "悦币");
-                                    txt3.setText("亲密度: " + num * c2);
-                                } else {
-                                    txt1.setText("通话: " + num + " 分钟");
-                                    txt2.setText("花费: " + num * c2 + "悦币");
-                                    txt3.setText("亲密度: " + num * c2);
-                                }
+                        list = new ArrayList<Tag>();
+                        JSONArray jsonArray = JSON.parseArray(response);
+                        JSONObject object = jsonArray.getJSONObject(0);
+                        String aa = object.getString("headpic");
+                        String price = object.getString("price");
+                        String star = object.getString("star");
+                        String nickname = object.getString("nickname");
+                        //int c1=Integer.parseInt(num);
+                        if (!TextUtils.isEmpty(price)) {
+                            int c2 = Integer.parseInt(price);
+                            if (num == 1) {
+                                txt1.setText("通话: " + num + " 分钟");
+                                txt2.setText("花费: " + num * c2 + "悦币");
+                                txt3.setText("亲密度: " + num * c2);
+                            } else {
+                                txt1.setText("通话: " + num + " 分钟");
+                                txt2.setText("花费: " + num * c2 + "悦币");
+                                txt3.setText("亲密度: " + num * c2);
                             }
-
-                            nickname1.setText(nickname);
-                            if (star.equals("1")) {
-                                star1.setImageResource(R.drawable.star1);
-                            } else if (star.equals("2")) {
-                                star1.setImageResource(R.drawable.star2);
-                            } else if (star.equals("3")) {
-                                star1.setImageResource(R.drawable.star3);
-                            } else if (star.equals("4")) {
-                                star1.setImageResource(R.drawable.star4);
-                            } else if (star.equals("5")) {
-                                star1.setImageResource(R.drawable.star5);
-                            }
-                            options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
-                            ImageLoader.getInstance().displayImage(aa, headpic, options);
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject object1 = jsonArray.getJSONObject(i);
-                                Tag bean = new Tag();
-                                bean.setRecord(object1.getString("lab_name"));
-                                bean.setColor(object1.getString("labcolor"));
-                                list.add(bean);
-                            }
-                            MyLayoutmanager layoutmanager = new MyLayoutmanager();
-                            grview.setLayoutManager(layoutmanager);
-                            final MyAdapter_01162_1 adapter1 = new MyAdapter_01162_1(null, baseActivity, false, list);
-                            grview.addItemDecoration(new Recycle_item(20));
-                            //LogDetect.send(LogDetect.DataType.basicType,"01162---json返回","准备进入适配器");
-                            grview.setAdapter(adapter1);
-                            adapter1.setOnItemClickLitsener(new MyAdapter_01162_1.onItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-                                    for (int i = 0; i < list.size(); i++) {
-                                        if (list.get(i).isIs_check() && t1 < 3) {
-                                            t1++;
-                                        }
-                                    }
-                                    if (!list.get(position).isIs_check()) {
-                                        GradientDrawable drawable = (GradientDrawable) view.getBackground();
-                                        list1.add(position + "");
-                                        //LogDetect.send(LogDetect.DataType.basicType,"01162-----list1长度和内容","list1长度"+list1.size()+"--list1内容"+list);
-                                        if (list1.size() > 4) {
-                                            //drawable.setColor(Color.parseColor(list.get(Integer.parseInt(list1.get(0))).getColor()));
-                                            GradientDrawable drawable1 = (GradientDrawable) grview.getChildAt(Integer.parseInt(list1.get(0))).getBackground();
-                                            drawable1.setColor(Color.parseColor("#CCD7DB"));
-                                            drawable.setColor(Color.parseColor(list.get(position).getColor()));
-                                            list.get(Integer.parseInt(list1.get(0))).setIs_check(false);
-                                            list.get(position).setIs_check(true);
-                                            list1.remove(0);
-                                        } else {
-                                            drawable.setColor(Color.parseColor(list.get(position).getColor()));
-                                            list.get(position).setIs_check(true);
-                                        }
-                                    } else {
-                                        for (int i1 = 0; i1 < list1.size(); i1++) {
-                                            if (list1.get(i1).equals(String.valueOf(position))) {
-                                                list1.remove(String.valueOf(position));
-                                            }
-                                        }
-                                        GradientDrawable drawable = (GradientDrawable) view.getBackground();
-                                        drawable.setColor(Color.parseColor("#CCD7DB"));
-                                        list.get(position).setIs_check(false);
-                                    }
-                                }
-
-                                @Override
-                                public void onItemLongClick(View view, int position) {
-
-                                }
-                            });
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-
                         }
+
+                        nickname1.setText(nickname);
+                        if (star.equals("1")) {
+                            star1.setImageResource(R.drawable.star1);
+                        } else if (star.equals("2")) {
+                            star1.setImageResource(R.drawable.star2);
+                        } else if (star.equals("3")) {
+                            star1.setImageResource(R.drawable.star3);
+                        } else if (star.equals("4")) {
+                            star1.setImageResource(R.drawable.star4);
+                        } else if (star.equals("5")) {
+                            star1.setImageResource(R.drawable.star5);
+                        }
+                        options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+                        ImageLoader.getInstance().displayImage(aa, headpic, options);
+                        for (int i = 0; i < jsonArray.size(); i++) {
+                            JSONObject object1 = jsonArray.getJSONObject(i);
+                            Tag bean = new Tag();
+                            bean.setRecord(object1.getString("lab_name"));
+                            bean.setColor(object1.getString("labcolor"));
+                            list.add(bean);
+                        }
+                        MyLayoutmanager layoutmanager = new MyLayoutmanager();
+                        grview.setLayoutManager(layoutmanager);
+                        final MyAdapter_01162_1 adapter1 = new MyAdapter_01162_1(null, baseActivity, false, list);
+                        grview.addItemDecoration(new Recycle_item(20));
+                        //LogDetect.send(LogDetect.DataType.basicType,"01162---json返回","准备进入适配器");
+                        grview.setAdapter(adapter1);
+                        adapter1.setOnItemClickLitsener(new MyAdapter_01162_1.onItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                for (int i = 0; i < list.size(); i++) {
+                                    if (list.get(i).isIs_check() && t1 < 3) {
+                                        t1++;
+                                    }
+                                }
+                                if (!list.get(position).isIs_check()) {
+                                    GradientDrawable drawable = (GradientDrawable) view.getBackground();
+                                    list1.add(position + "");
+                                    //LogDetect.send(LogDetect.DataType.basicType,"01162-----list1长度和内容","list1长度"+list1.size()+"--list1内容"+list);
+                                    if (list1.size() > 4) {
+                                        //drawable.setColor(Color.parseColor(list.get(Integer.parseInt(list1.get(0))).getColor()));
+                                        GradientDrawable drawable1 = (GradientDrawable) grview.getChildAt(Integer.parseInt(list1.get(0))).getBackground();
+                                        drawable1.setColor(Color.parseColor("#CCD7DB"));
+                                        drawable.setColor(Color.parseColor(list.get(position).getColor()));
+                                        list.get(Integer.parseInt(list1.get(0))).setIs_check(false);
+                                        list.get(position).setIs_check(true);
+                                        list1.remove(0);
+                                    } else {
+                                        drawable.setColor(Color.parseColor(list.get(position).getColor()));
+                                        list.get(position).setIs_check(true);
+                                    }
+                                } else {
+                                    for (int i1 = 0; i1 < list1.size(); i1++) {
+                                        if (list1.get(i1).equals(String.valueOf(position))) {
+                                            list1.remove(String.valueOf(position));
+                                        }
+                                    }
+                                    GradientDrawable drawable = (GradientDrawable) view.getBackground();
+                                    drawable.setColor(Color.parseColor("#CCD7DB"));
+                                    list.get(position).setIs_check(false);
+                                }
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
+
                     }
                 });
     }
@@ -1026,21 +1010,16 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
     //发送倒计时消息
     void sendMsgText1(String content) {
-        edtInput.setText("");
         final String message = content + Const.SPLIT + Const.ACTION_MSG_ONECHAT
                 + Const.SPLIT + Tools.currentTime() + Const.SPLIT + username + Const.SPLIT + num;
-        //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
                     sendMessage(Utils.xmppConnection, message, yid_guke);
                 } catch (XMPPException | SmackException.NotConnectedException e) {
                     e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
                     Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
                 }
             }
@@ -1048,20 +1027,15 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     }
 
     void sendMsgText2(String content) {
-        //edtInput.setText("");
         final String message = content + Const.SPLIT + Const.REWARD_ANCHOR;
-        //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
                     sendMessage(Utils.xmppConnection, message, yid_guke);
                 } catch (XMPPException | SmackException.NotConnectedException e) {
                     e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
                     Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
                 }
             }
@@ -1242,18 +1216,14 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                     @Override
                     public void onResponse(String response, int id) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if ("1".equals(jsonObject.getString("success"))) {
-                                String value = jsonObject.getString("value");
-                                sendMsgText2(value);
-                                showRedpkLayout(Util.nickname, value);
-                            } else if ("0".equals(jsonObject.getString("success"))) {
-                                Toast.makeText(getContext(), "余额不足", Toast.LENGTH_LONG).show();
-                                showPopupspWindow_chongzhi();
-                            }
-                        } catch (JSONException e1) {
-                            e1.printStackTrace();
+                        JSONObject jsonObject = JSON.parseObject(response);
+                        if ("1".equals(jsonObject.getString("success"))) {
+                            String value = jsonObject.getString("value");
+                            sendMsgText2(value);
+                            showRedpkLayout(Util.nickname, value);
+                        } else if ("0".equals(jsonObject.getString("success"))) {
+                            Toast.makeText(getContext(), "余额不足", Toast.LENGTH_LONG).show();
+                            showPopupspWindow_chongzhi();
                         }
                     }
                 });

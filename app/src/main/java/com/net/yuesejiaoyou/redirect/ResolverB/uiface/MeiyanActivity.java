@@ -4,7 +4,6 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -16,8 +15,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,15 +28,16 @@ import android.widget.Toast;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.Downloader;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ClickUtils;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterRecyclerViewAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterTypeHelper;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuBean;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ZIP;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.xiaojigou.luo.activity.ClickUtils;
+import com.xiaojigou.luo.activity.MenuAdapter;
+import com.xiaojigou.luo.activity.MenuBean;
+import com.xiaojigou.luo.camfilter.FilterRecyclerViewAdapter;
+import com.xiaojigou.luo.camfilter.FilterTypeHelper;
+import com.xiaojigou.luo.camfilter.GPUCamImgOperator;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
+import com.xiaojigou.luo.xjgarsdk.ZIP;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,20 +46,11 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
-import javax.microedition.khronos.egl.EGLContext;
-
-import io.agora.rtc.Constants;
-import io.agora.rtc.IRtcEngineEventHandler;
-import io.agora.rtc.RtcEngine;
-import io.agora.rtc.video.AgoraVideoFrame;
-import io.agora.rtc.video.VideoCanvas;
-
-//import com.xiaojigou.luo.faceEff.R;
 
 /**
  * Created by jianxin luo on 2017/10/7.
  */
-public class MeiyanActivity extends Activity{
+public class MeiyanActivity extends BaseActivity{
     private LinearLayout mFilterLayout;
     private LinearLayout mFaceSurgeryLayout;
     protected SeekBar mFaceSurgeryFaceShapeSeek;
@@ -76,7 +67,7 @@ public class MeiyanActivity extends Activity{
 
     private RecyclerView mFilterListView;
     private FilterRecyclerViewAdapter mAdapter;
-    private GPUCamImgOperator GPUCamImgOperator;
+    private GPUCamImgOperator gpuCamImgOperator;
     private boolean isRecording = false;
     private final int MODE_PIC = 1;
     private final int MODE_VIDEO = 2;
@@ -87,14 +78,14 @@ public class MeiyanActivity extends Activity{
 
     private ObjectAnimator animator;
 
-    private final com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NONE,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.HEALTHY,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.COOL,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EMERALD,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.CRAYON
+    private final GPUCamImgOperator.GPUImgFilterType[] types = new com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType[]{
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.NONE,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.HEALTHY,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.COOL,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.EMERALD,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
+            com.xiaojigou.luo.camfilter.GPUCamImgOperator.GPUImgFilterType.CRAYON
     };
 
     // 美颜参数
@@ -111,29 +102,16 @@ public class MeiyanActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera_with_filter_zhubo);
-        GPUCamImgOperator =  new GPUCamImgOperator();
+        gpuCamImgOperator =  new GPUCamImgOperator();
         LuoGLCameraView luoGLCameraView = (LuoGLCameraView)findViewById(R.id.glsurfaceview_camera);
-        mCustomizedCameraRenderer = luoGLCameraView;
-        GPUCamImgOperator.context = luoGLCameraView.getContext();
-        GPUCamImgOperator.luoGLBaseView = luoGLCameraView;
+        gpuCamImgOperator.context = luoGLCameraView.getContext();
+        gpuCamImgOperator.luoGLBaseView = luoGLCameraView;
         initView();
 
-
-        //options
-//        //optimization mode for video
-//        XJGArSdkApi.XJGARSDKSetOptimizationMode(0);
-        //optimization mode for video using asychronized thread
         XJGArSdkApi.XJGARSDKSetOptimizationMode(2);
-        //show sticker papers
-//        XJGArSdkApi.XJGARSDKSetShowStickerPapers(true);
         XJGArSdkApi.XJGARSDKSetShowStickerPapers(false);
 
-        init();
 
-        //=====================================================
-        // 美颜初始化
-        //=====================================================
         sharedPreferences = getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
         // 获取保存在本地的美颜参数
         hongRun = sharedPreferences.getInt("hongrun",0);
@@ -150,10 +128,10 @@ public class MeiyanActivity extends Activity{
         XJGArSdkApi.XJGARSDKSetSkinSmoothParam(moPi);
         XJGArSdkApi.XJGARSDKSetThinChinParam(shouLian);
         XJGArSdkApi.XJGARSDKSetBigEyeParam(daYan);
-        if(vFilter.isEmpty() == false) {
+        if(!TextUtils.isEmpty(vFilter)) {
             XJGArSdkApi.XJGARSDKChangeFilter(vFilter);
         }
-        if(tieZhi.isEmpty() == false) {
+        if(!TextUtils.isEmpty(tieZhi)) {
             String stickerPaperdir = XJGArSdkApi.getPrivateResDataDir(getApplicationContext());
             stickerPaperdir = stickerPaperdir +"/StickerPapers/"+ tieZhi;
             ZIP.unzipAStickPaperPackages(stickerPaperdir);
@@ -167,6 +145,21 @@ public class MeiyanActivity extends Activity{
         mSkinSmoothSeek.setProgress(moPi);
         mFaceSurgeryFaceShapeSeek.setProgress(shouLian);
         mFaceSurgeryBigEyeSeek.setProgress(daYan);
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_meiyan;
+    }
+
+    @Override
+    public boolean statusBarFont() {
+        return false;
+    }
+
+    @Override
+    public int statusBarColor() {
+        return R.color.transparent;
     }
 
     private void initView(){
@@ -184,9 +177,6 @@ public class MeiyanActivity extends Activity{
         mSkinWihtenSeek.setProgress(20);
         mRedFaceSeek = (SeekBar)findViewById(R.id.redFaceValueBar);
         mRedFaceSeek.setProgress(80);
-//        XJGArSdkApi.XJGARSDKSetSkinSmoothParam(100);
-//        XJGArSdkApi.XJGARSDKSetWhiteSkinParam(20);
-//        XJGArSdkApi.XJGARSDKSetRedFaceParam(80);
         mFaceSurgeryFaceShapeSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
             @Override
@@ -396,9 +386,6 @@ public class MeiyanActivity extends Activity{
         initEffectMenu();
     }
 
-
-
-
     //初始化特效按钮菜单
     protected void initEffectMenu() {
 //        "stpaper900224"     ,"草莓猫"
@@ -532,8 +519,7 @@ public class MeiyanActivity extends Activity{
     private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener(){
 
         @Override
-        public void onFilterChanged(com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType filterType) {
-//            GPUCamImgOperator.setFilter(filterType);
+        public void onFilterChanged(GPUCamImgOperator.GPUImgFilterType filterType) {
             String filterName = FilterTypeHelper.FilterType2FilterName(filterType);
             XJGArSdkApi.XJGARSDKChangeFilter(filterName);
             vFilter = filterName;
@@ -541,8 +527,7 @@ public class MeiyanActivity extends Activity{
     };
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         subPermissionsResult(requestCode, permissions, grantResults);
 
@@ -599,7 +584,7 @@ public class MeiyanActivity extends Activity{
                     hideFilters();
             }
             else if (buttonId == R.id.btn_camera_switch) {
-                GPUCamImgOperator.switchCamera();
+                gpuCamImgOperator.switchCamera();
             }
             else if (buttonId == R.id.btn_camera_beauty) {
                 bShowFaceSurgery = ! bShowFaceSurgery;
@@ -628,16 +613,16 @@ public class MeiyanActivity extends Activity{
     }
 
     private void takePhoto(){
-        GPUCamImgOperator.savePicture();
+        gpuCamImgOperator.savePicture();
     }
 
     private void takeVideo(){
         if(isRecording) {
             animator.end();
-            GPUCamImgOperator.stopRecord();
+            gpuCamImgOperator.stopRecord();
         }else {
             animator.start();
-            GPUCamImgOperator.startRecord();
+            gpuCamImgOperator.startRecord();
         }
         isRecording = !isRecording;
     }
@@ -772,12 +757,7 @@ public class MeiyanActivity extends Activity{
         animator.start();
     }
 
-    //==================================================================================================
-    //==================================================================================================
-    //==================================================================================================
-    //==================================================================================================
-    //==================================================================================================
-    //==================================================================================================
+
     private static final String LOG_TAG = MeiyanActivity.class.getSimpleName();
 
     private static final boolean DBG = true;
@@ -785,47 +765,6 @@ public class MeiyanActivity extends Activity{
     private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
     private static final int PERMISSION_REQ_ID_CAMERA = PERMISSION_REQ_ID_RECORD_AUDIO + 1;
 
-    //private CustomizedCameraRenderer mCustomizedCameraRenderer; // Tutorial Step 3
-    private LuoGLCameraView mCustomizedCameraRenderer;
-
-    private RtcEngine mRtcEngine;// Tutorial Step 1
-    private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() { // Tutorial Step 1
-        @Override
-        public void onFirstRemoteVideoDecoded(final int uid, int width, int height, int elapsed) { // Tutorial Step 5
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    setupRemoteVideo(uid);
-                }
-            });
-        }
-
-        @Override
-        public void onUserOffline(int uid, int reason) { // Tutorial Step 7
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    onRemoteUserLeft();
-                }
-            });
-        }
-    };
-
-    private void init() {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_video_chat_view);
-
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
-            initAgoraEngineAndJoinChannel();
-        }
-    }
-
-    private void initAgoraEngineAndJoinChannel() {
-        initializeAgoraEngine();     // Tutorial Step 1
-        setupVideoProfile();         // Tutorial Step 2
-        setupLocalVideo(getApplicationContext()); // Tutorial Step 3
-        //joinChannel();
-    }
 
     public boolean checkSelfPermission(String permission, int requestCode) {
         Log.i(LOG_TAG, "checkSelfPermission " + permission + " " + requestCode);
@@ -859,7 +798,6 @@ public class MeiyanActivity extends Activity{
             case PERMISSION_REQ_ID_CAMERA: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    initAgoraEngineAndJoinChannel();
                 } else {
                     showLongToast("No permission for " + Manifest.permission.CAMERA);
                     finish();
@@ -878,20 +816,6 @@ public class MeiyanActivity extends Activity{
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        leaveChannel();
-        RtcEngine.destroy();
-
-//        if (mCustomizedCameraRenderer != null) {
-//            mCustomizedCameraRenderer.onDestroy();
-//            mCustomizedCameraRenderer = null;
-//        }
-
-        mRtcEngine = null;
-    }
 
     // Tutorial Step 8
     public void onLocalAudioMuteClicked(View view) {
@@ -904,7 +828,7 @@ public class MeiyanActivity extends Activity{
             iv.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
         }
 
-        mRtcEngine.muteLocalAudioStream(iv.isSelected());
+
     }
 
     // Tutorial Step 6
@@ -912,138 +836,8 @@ public class MeiyanActivity extends Activity{
         finish();
     }
 
-    // Tutorial Step 1
-    private void initializeAgoraEngine() {
-        try {
-            mRtcEngine = RtcEngine.create(getBaseContext(), getString(R.string.agora_app_id), mRtcEventHandler);
-        } catch (Exception e) {
-            Log.e(LOG_TAG, Log.getStackTraceString(e));
-
-            throw new RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e));
-        }
-        mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
-    }
-
-    // Tutorial Step 2
-    private void setupVideoProfile() {
-        mRtcEngine.enableVideo();
-
-        if (mRtcEngine.isTextureEncodeSupported()) {
-            mRtcEngine.setExternalVideoSource(true, true, true);
-        } else {
-            throw new RuntimeException("Can not work on device do not supporting texture" + mRtcEngine.isTextureEncodeSupported());
-        }
-        mRtcEngine.setVideoProfile(Constants.VIDEO_PROFILE_480P, true);
-    }
-
-    private volatile boolean mJoined = false;
-
-    // Tutorial Step 3
-    private LuoGLCameraView setupLocalVideo(Context ctx) {
-        //FrameLayout container = (FrameLayout) findViewById(R.id.local_video_view_container);
-        //CustomizedCameraRenderer surfaceV = new CustomizedCameraRenderer(ctx);
-
-        //mCustomizedCameraRenderer = GPUCamImgOperator.luoGLBaseView;
-        mCustomizedCameraRenderer.setOnFrameAvailableHandler(new LuoGLCameraView.OnFrameAvailableListener() {
-            @Override
-            public void onFrameAvailable(int texture, EGLContext eglContext, int rotation) {
-                AgoraVideoFrame vf = new AgoraVideoFrame();
-                vf.format = AgoraVideoFrame.FORMAT_TEXTURE_2D;
-                vf.timeStamp = System.currentTimeMillis();
-                vf.stride = 1080;
-                vf.height = 1920;
-                vf.textureID = texture;
-                vf.syncMode = true;
-                vf.eglContext11 = eglContext;
-                vf.transform = new float[]{
-                        1.0f, 0.0f, 0.0f, 0.0f,
-                        0.0f, 1.0f, 0.0f, 0.0f,
-                        0.0f, 0.0f, 1.0f, 0.0f,
-                        0.0f, 0.0f, 0.0f, 1.0f
-                };
-
-                boolean result = mRtcEngine.pushExternalVideoFrame(vf);
-                if (DBG) {
-                    Log.d(LOG_TAG, "onFrameAvailable " + eglContext + " " + rotation + " " + texture + " " + result);
-                }
-
-            }
-        });
-
-        mCustomizedCameraRenderer.setOnEGLContextHandler(new LuoGLCameraView.OnEGLContextListener() {
-            @Override
-            public void onEGLContextReady(EGLContext eglContext) {
-                Log.d(LOG_TAG, "onEGLContextReady " + eglContext + " " + mJoined);
-
-                if (!mJoined) {
-                    joinChannel(); // Tutorial Step 4
-                    mJoined = true;
-                }
-            }
-        });
-
-//        surfaceV.setZOrderMediaOverlay(true);
-
-        //container.addView(surfaceV);
-        return mCustomizedCameraRenderer;
-    }
-
-    // Tutorial Step 4
-    private void joinChannel() {
-        mRtcEngine.setClientRole(Constants.CLIENT_ROLE_BROADCASTER);    //01107, null);
-        mRtcEngine.joinChannel(null, "123abc", "Extra Optional Data", 0); // if you do not specify the uid, we will generate the uid for you
-    }
-
-    // Tutorial Step 5
-    private void setupRemoteVideo(int uid) {
-//        FrameLayout container = (FrameLayout) findViewById(R.id.remote_video_view_container);
-
-//        if (container.getChildCount() >= 1) {
-//            return;
-//        }
-
-        SurfaceView surfaceView = RtcEngine.CreateRendererView(getBaseContext());
-//        container.addView(surfaceView);
-        mRtcEngine.setupRemoteVideo(new VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_ADAPTIVE, uid));
-        surfaceView.setTag(uid); // for mark purpose
-//        View tipMsg = findViewById(R.id.quick_tips_when_use_agora_sdk); // optional UI
-//        tipMsg.setVisibility(View.GONE);
-    }
-
-    // Tutorial Step 6
-    private void leaveChannel() {
-        mRtcEngine.leaveChannel();
-    }
-
-    // Tutorial Step 7
-    private void onRemoteUserLeft() {
-//        FrameLayout container = (FrameLayout) findViewById(R.id.remote_video_view_container);
-//        container.removeAllViews();
-
-//        View tipMsg = findViewById(R.id.quick_tips_when_use_agora_sdk); // optional UI
-//        tipMsg.setVisibility(View.VISIBLE);
-    }
-
-
-    public void onLocalViewHidden(View view) {
-//        ImageView iv = (ImageView) view;
-//        if (iv.isSelected()) {
-//            iv.setSelected(false);
-//            iv.clearColorFilter();
-//            mCustomizedCameraRenderer.setViewHiddenStatus(false);
-//        } else {
-//            iv.setSelected(true);
-//            iv.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
-//            mCustomizedCameraRenderer.setViewHiddenStatus(true);
-//        }
-    }
 
     private File getStickPaperDir() {
-//        File stickPaperDir = new File(Environment.getExternalStorageDirectory(), "yuesejiaoyou");
-//        if(stickPaperDir.exists() == false) {
-//            stickPaperDir.mkdirs();
-//        }
-
         File rootDir = getDir("Resource", 0);
         return rootDir;
     }
@@ -1070,7 +864,6 @@ public class MeiyanActivity extends Activity{
         try {
             writer.close();
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         return info;

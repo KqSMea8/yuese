@@ -42,7 +42,7 @@ import okhttp3.Call;
  * Created by Administrator on 2018\8\17 0017.
  */
 
-public class CallingFragment extends BaseFragment implements ICmdListener, IActivityListener, IAgoraVideoEventListener {
+public class CallingFragment extends BaseFragment implements ICmdListener, IAgoraVideoEventListener {
 
 
     private IUserInfoHandler userInfoHandler;
@@ -266,16 +266,6 @@ public class CallingFragment extends BaseFragment implements ICmdListener, IActi
                 });
 
         //finish();
-    }
-
-
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                showToast("正在通话...");
-                return true;
-        }
-        return false;
     }
 
     //----------------------------------------------------------------------------------------------

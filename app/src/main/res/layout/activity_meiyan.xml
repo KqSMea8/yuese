@@ -1,0 +1,241 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.xiaojigou.luo.camfilter.widget.LuoGLCameraView
+            android:id="@+id/glsurfaceview_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/btn_camera_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_video"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/btn_camera_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/selector_rewardcamera" />
+        </LinearLayout>
+
+        <!--  动效和滤镜  -->
+        <LinearLayout
+            android:id="@+id/layout_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/mOtherMenu"
+            android:layout_marginBottom="20dip"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mMenuView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/filter_listView"
+                android:layout_width="match_parent"
+                android:layout_height="94.0dip"
+                android:background="@android:color/transparent"
+                android:padding="5.0dip"
+                android:scrollbars="none" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/btn_camera_closefilter"
+                android:layout_width="match_parent"
+                android:layout_height="26dip"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:src="@drawable/btn_layout_filters_bar_close" />
+        </LinearLayout>
+
+        <!--   基本美颜参数   -->
+        <LinearLayout
+            android:id="@+id/layout_facesurgery"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="#44000000"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/redFaceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="红润"
+                android:textColor="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/redFaceValueBar"
+                style="@style/MySeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:paddingLeft="16.0dip"
+                android:paddingRight="16.0dip"
+                android:progressDrawable="@drawable/po_seekbar"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <TextView
+                android:id="@+id/skinWhitenText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="美白"
+                android:textColor="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/skinWhitenValueBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_above="@id/redFaceText"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:paddingLeft="16.0dip"
+                android:paddingRight="16.0dip"
+                android:progressDrawable="@drawable/po_seekbar"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <TextView
+                android:id="@+id/skinsmoothtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="磨皮"
+                android:textColor="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/skinSmoothValueBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_above="@id/skinWhitenText"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:paddingLeft="16.0dip"
+                android:paddingRight="16.0dip"
+                android:progressDrawable="@drawable/po_seekbar"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <TextView
+                android:id="@+id/faceShapetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="廋脸"
+                android:textColor="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/faceShapeValueBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_above="@id/skinSmoothValueBar"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:paddingLeft="16.0dip"
+                android:paddingRight="16.0dip"
+                android:progressDrawable="@drawable/po_seekbar"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <TextView
+                android:id="@+id/bigeyetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="大眼"
+                android:textColor="#FFFFFF" />
+
+            <SeekBar
+                android:id="@+id/bigeyeValueBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_above="@id/faceShapetext"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:paddingLeft="16.0dip"
+                android:paddingRight="16.0dip"
+                android:progressDrawable="@drawable/po_seekbar"
+                android:thumb="@drawable/seekbar_thumb" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/mOtherMenu"
+            android:layout_width="match_parent"
+            android:layout_height="80.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip">
+
+            <ImageView
+                android:id="@+id/btn_camera_beauty"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@android:color/transparent"
+                android:src="@drawable/beautyon" />
+
+            <ImageView
+                android:id="@+id/btn_camera_shutter"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@android:color/transparent"
+                android:src="@drawable/meiyansure" />
+
+
+            <ImageView
+                android:id="@+id/btn_camera_filter"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@android:color/transparent"
+                android:src="@drawable/vfilter" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

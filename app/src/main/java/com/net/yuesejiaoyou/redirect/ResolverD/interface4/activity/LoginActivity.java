@@ -1,18 +1,14 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.fm.openinstall.OpenInstall;
@@ -25,7 +21,7 @@ import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
 
@@ -88,6 +84,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
 
         OpenInstall.getWakeUp(getIntent(), wakeUpAdapter);
 
+
         if (EasyPermissions.hasPermissions(this, permissions)) {
             init();
         } else {
@@ -96,6 +93,11 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     }
 
     private void init() {
+        LogUtil.i("ttt", "--xiaojigouInit--");
+        String licenseText = "hMPthC0oBIbtMp515TWb9jZvrLAKWIMvA4Dhf03n51QvnJr7jZowVe86d0WwU0NK9QGRFaXQn628fRu941qyr3FtsI5R7Y6v1XEpL6YvQNWQCkFEt1SAb0hyawimOYf1tfG2lIaNE63c5e+OxXssOVUWvw8tOr2glVwWVzh79NmZMahrnS8l69SoeoXLMKCYlvAt/qJFFk4+6Aq3QvOv3o72fq5p90yty+YWg7o0HirZpMSP9P5/DHYPFqR/ud7twTJ+Yo2+ZzYvodqRQbGG0HseZn8Xpt7fZdFuZbc2HGRMVk56vNDMRlcGZZXAjENk7m2UMhi1ohhuSf4WmIgXCZFiJXvYFByaY625gXKtEI7+b7t81nWQYHP9BEbzURwL";
+        XJGArSdkApi.XJGARSDKInitialization(this, licenseText, "DoctorLuoInvitedUser:teacherluo", "LuoInvitedCompany:www.xiaojigou.cn");
+
+
         String username = sp.getString("username", "");
         String password = sp.getString("password", "");
         String openid = sp.getString("openid", "1");
@@ -191,7 +193,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 String zhubo = jsonObject.getString("is_v");
                 String zh = jsonObject.getString("username");
                 String pwd = jsonObject.getString("password");
-                String wxopenid=jsonObject.getString("openid");
+                String wxopenid = jsonObject.getString("openid");
                 String invite_num = jsonObject.getString("invite_num");
                 Util.invite_num = invite_num;
                 //share = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
@@ -204,7 +206,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                         .putString("headpic", headpic)
                         .putString("sex", gender)
                         .putString("zhubo_bk", zhubo)
-                        .putString("openid",wxopenid)
+                        .putString("openid", wxopenid)
                         .putBoolean("FIRST", false).apply();
                 Util.userid = a;
                 Util.headpic = headpic;

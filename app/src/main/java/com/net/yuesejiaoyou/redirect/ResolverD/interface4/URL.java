@@ -12,6 +12,9 @@ public class URL {
     public static final String URL_WXLOGIN = BASE_URL + "/ar?mode=A-user-search&mode2=wxlogin";
     public static final String URL_WXLOGIN1 = BASE_URL + "/ar?mode=A-user-search&mode2=wxlogin_1";
     public static final String URL_UPDATE = BASE_URL + "/ar?mode0=A-user-search&mode2=check_update";
+    public static final String URL_UPDATEUSER = BASE_URL + "/memberC01178?mode=A-user-mod&mode2=xiugaiziliao";
+    public static final String URL_USERDETAILE = BASE_URL + "/ar?mode=A-user-search&mode2=gerenzhongxin";
+    public static final String URL_SENDGIFT = BASE_URL + "/memberB?mode=A-user-add&mode2=red_envelope";
 
 
     public static final String URL_REMEMAN = BASE_URL + "/ar?mode=A-user-search&mode2=remenman";

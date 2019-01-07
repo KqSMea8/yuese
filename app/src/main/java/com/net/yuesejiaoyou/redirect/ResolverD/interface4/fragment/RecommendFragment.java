@@ -46,17 +46,23 @@ import okhttp3.Call;
 
 
 @SuppressLint("ValidFragment")
-public class RecommendFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class RecommendFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView recyclerView;
     private List<User_data> articles = new ArrayList<User_data>();
-    private View view;
     private int pageno = 1;
     Find2Adapter adapter;
     SwipeRefreshLayout refreshLayout;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_focus, null);
+    @Override
+    protected int getContentView() {
+        return R.layout.fragment_focus;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
         refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
                 android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -91,13 +97,6 @@ public class RecommendFragment extends Fragment implements SwipeRefreshLayout.On
         pageno = 1;
 
         getBannerDatas();
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 
     public void getBannerDatas() {

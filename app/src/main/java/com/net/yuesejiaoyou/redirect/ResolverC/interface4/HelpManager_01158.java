@@ -190,7 +190,7 @@ public class HelpManager_01158 {
                     bean.setVideo_photo(item.getString("video_photo"));
                     bean.setExplain(item.getString("explain"));
                     bean.setPhoto(item.getString("photo"));
-                    bean.setUserid(item.getString("user_id"));
+                    bean.setUser_id(item.getString("user_id"));
                     list.add(bean);
                 }
             }
@@ -215,7 +215,7 @@ public class HelpManager_01158 {
 
                     bean.setNickname(item.getString("nickname"));
                     bean.setId(item.getInt("id"));
-                    bean.setUserid(item.getString("user_id"));
+                    bean.setUser_id(item.getString("user_id"));
                     bean.setIspay(item.getInt("ispay"));
                     bean.setIszan(item.getInt("iszan"));
                     bean.setStatus(item.getInt("status"));

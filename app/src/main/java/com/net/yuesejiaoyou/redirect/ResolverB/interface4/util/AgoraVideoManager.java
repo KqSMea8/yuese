@@ -12,17 +12,14 @@ import android.view.SurfaceView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-//import com.example.vliao.R;
-//import com.example.vliao.uiface.guke_01160;
-//import com.example.vliao.uiface.zhubo_bk;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity_zhubo;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke_01160;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 
 import java.io.File;

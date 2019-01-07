@@ -343,57 +343,6 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 		}
 	};
 
-	/*
-	private Handler handler = new Handler(new Handler.Callback() {
-		
-		@Override
-		public boolean handleMessage(Message msg) {
-			switch (msg.what) {
-		     case 70 :
-		    	 yuyin.setText(Integer.toString(sj++)+"'' "+st);
-	        	 if((Integer.toString(Timing).equals(Integer.toString(sj)))){
-	        		 if (timer != null) {  
-	        			 timer.cancel();  
-	        			 timer = null;  
-	        	        }  
-	        	  
-        	        if (task != null) {  
-        	        	task.cancel();  
-        	        	task = null;  
-        	        }     
-        	       
-				
-					 yuyin.setText(String.valueOf(sj++)+"'' "+st);
-					 mLvAdapter.notifyDataSetChanged();
-	        		 sj = 0;
-	        		 mLvAdapter.disableAllItemChoser();
-	        		 //yuyin.setEnabled(true);
-	        	 }
-	        	 break;
-	         case 80 :
-	        	 yuyin1.setText(st1+Integer.toString(jishu++)+"'' ");
-				
-	        	 if((Integer.toString(Timing1).equals(Integer.toString(jishu)))){
-	        		 if (timer1 != null) {  
-	        			 timer1.cancel();  
-	        			 timer1 = null;  
-	        	        }  
-	        	  
-        	        if (task1 != null) {  
-        	        	task1.cancel();  
-        	        	task1 = null;  
-        	        }     
-        	        yuyin1.setText(st1+Integer.toString(jishu++)+"'' ");
-        	        jishu = 0;
-					 mLvAdapter.notifyDataSetChanged();
-        	        mLvAdapter.disableAllItemChoser();
-	        		//yuyin1.setEnabled(true);
-	        	 }
-	        	 break;
-			}
-			return false;
-		}
-	}); */
 	
 	private AudioRecoderUtils recorder = new AudioRecoderUtils();
 
@@ -697,21 +646,7 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 			});
 		
 		
-		/*tv_voc.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View view, MotionEvent motionEvent) {
-				int action = motionEvent.getAction();
-				if(action != MotionEvent.ACTION_DOWN) {
-					return false;
-				}
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-				curDate = new Date(System.currentTimeMillis());			
-				l1.setVisibility(View.VISIBLE);
-				recorder.startRecord();
-				return false;
-			}
-		});*/
 	}
 
 	public void initData() {
@@ -909,44 +844,7 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 	}
 
 
-	/**
-	 * 执行发送消息 图片类型
-	 * 
-	 * @param content
-	 */
-	/*void sendMsgImg(String photoPath) {
-		Msg msg = getChatInfoTo(photoPath, Const.MSG_TYPE_IMG);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-		String[] sep = photoPath.split("\\.");
-		String imgpath = Base64.encodeBytes(FileInOut.readFile(new File(
-				photoPath)));
 
-		final String message = imgpath + Const.SPLIT + Const.MSG_TYPE_IMG
-				+ Const.SPLIT + sd.format(new Date()) + Const.SPLIT + sep[1];
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		updateSession(Const.MSG_TYPE_TEXT, "[图片]");
-	}*/
-	/**
-	 * 执行发送消息 图片类型
-	 * 
-
-	 */
 	void sendMsgImg(String photoPath) {
 		//01107m add start
 		// 判断要发送的图片容量是否过大，如果太大就进行1/4按比例缩小
@@ -1120,36 +1018,6 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 		updateSession1(Const.MSG_TYPE_TEXT, content,name,logo);
 	}
 
-	/**
-	 * 执行发送消息 文本类型
-	 * 
-	 * @param content
-	 */
-	void sendMsgLocation(String content) {
-		Msg msg = getChatInfoTo(content, Const.MSG_TYPE_LOCATION);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-		final String message = content + Const.SPLIT + Const.MSG_TYPE_LOCATION
-				+ Const.SPLIT + sd.format(new Date())+ Const.SPLIT+username+Const.SPLIT+headpicture;
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		//updateSession(Const.MSG_TYPE_TEXT, "[位置]");
-		updateSession1(Const.MSG_TYPE_TEXT, "[位置]",name,logo);
-	}
 
 	/**
 	 * 发送的信息 from为收到的消息，to为自己发送的消息
@@ -1268,72 +1136,9 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 			initData();
 
 		}
-		// int type = intent.getIntExtra("type", 0);
-		// final int position = intent.getIntExtra("position", 0);
-		// if (listMsg.size() <= 0) {
-		// return;
-		// }
-		// final Msg msg = listMsg.get(position);
-		// switch (type) {
-		// case 1:// 聊天记录操作
-		// Builder bd = new AlertDialog.Builder(ChatActivity.this);
-		// String[] items = null;
-		// if (msg.getType().equals(Const.MSG_TYPE_TEXT)) {
-		// items = new String[] { "删除记录", "删除全部记录", "复制文字" };
-		// } else {
-		// items = new String[] { "删除记录", "删除全部记录" };
-		// }
-		// bd.setItems(items, new DialogInterface.OnClickListener() {
-		// @Override
-		// public void onClick(DialogInterface arg0, int arg1) {
-		// switch (arg1) {
-		// case 0:// 删除
-		// listMsg.remove(position);
-		// offset = listMsg.size();
-		// mLvAdapter.notifyDataSetChanged();
-		// msgDao.deleteMsgById(msg.getMsgId());
-		// break;
-		// case 1:// 删除全部
-		// listMsg.removeAll(listMsg);
-		// offset = listMsg.size();
-		// mLvAdapter.notifyDataSetChanged();
-		// msgDao.deleteTableData();
-		// break;
-		// case 2:// 复制
-		// ClipboardManager cmb = (ClipboardManager) ChatActivity.this
-		// .getSystemService(ChatActivity.CLIPBOARD_SERVICE);
-		// cmb.setText(msg.getContent());
-		// Toast.makeText(getApplicationContext(), "已复制到剪切板",
-		// Toast.LENGTH_SHORT).show();
-		// break;
-		// }
-		// }
-		// });
-		// bd.show();
-		// break;
-		// }
-		//
-		// }
+
 	}
 
-/*	*//**
-	 * 接收消息记录操作广播：删除复制
-	 * 
-	 * @author baiyuliang
-	 *//*
-	private class MsgOperReciver1 extends BroadcastReceiver {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			String status = intent.getStringExtra("shuru");
-			LogDetect.send(LogDetect.DataType.specialType,"01160 广播", status);
-			if(status.equals("1")){
-				mHandler.sendMessage(mHandler.obtainMessage(20, (Object)status));
-			}else if(status.equals("0")){
-				mHandler.sendMessage(mHandler.obtainMessage(30, (Object)status));
-			}
-
-		}
-	}*/
 	
 	@Override
 	protected void onDestroy() {
@@ -1689,30 +1494,7 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 	
   
    
-	/**
-	 * 执行发送消息 文本类型
-	 * 
-	 * @param content
-	 *//*
-	void sendshuru(String content) {
-		final String message = content + Const.SPLIT + Const.ACTION_INPUT;
-		//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"message: "+message);
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-	}*/
+
 
   
    Runnable a =  new Runnable() {
@@ -1774,52 +1556,6 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
                 }
             }
         }
-//        String path = StorageUtils.getCacheDirectory(this).getAbsolutePath() + File.separator + "AliyunEditorDemo"+File.separator;
-//        Log.e("TT","path: "+path);
-//        String[] eff_dirs = new String[]{
-//                null,
-//                path + "filter/chihuang",
-//                path + "filter/fentao",
-//                path + "filter/hailan",
-//                path + "filter/hongrun",
-//                path + "filter/huibai",
-//                path + "filter/jingdian",
-//                path + "filter/maicha",
-//                path + "filter/nonglie",
-//                path + "filter/rourou",
-//                path + "filter/shanyao",
-//                path + "filter/xianguo",
-//                path + "filter/xueli",
-//                path + "filter/yangguang",
-//                path + "filter/youya",
-//                path + "filter/zhaoyang"
-//        };
-//
-//        AliyunSnapVideoParam recordParam = new AliyunSnapVideoParam.Builder()
-//                .setResulutionMode(AliyunSnapVideoParam.RESOLUTION_720P)
-//                .setRatioMode(AliyunSnapVideoParam.RATIO_MODE_9_16)
-//                .setRecordMode(AliyunSnapVideoParam.RECORD_MODE_AUTO)
-//                .setFilterList(eff_dirs)
-//                .setBeautyLevel(80)
-//                .setBeautyStatus(true)
-//                .setCameraType(CameraType.FRONT)
-//                .setFlashType(FlashType.ON)
-//                .setNeedClip(true)
-//                .setMaxDuration(30000)
-//                .setMinDuration(2000)
-//                .setVideQuality(VideoQuality.SSD)
-//                .setGop(5)
-//                .setVideoBitrate(0)
-//                /**
-//                 * 裁剪参数
-//                 */
-//                .setMinVideoDuration(4000)
-//                .setMaxVideoDuration(29 * 1000)
-//                .setMinCropDuration(3000)
-//                .setFrameRate(25)
-//                .setCropMode(ScaleMode.PS)
-//                .build();
-//        AliyunVideoRecorder_01160.startRecordForResult(this,1006,recordParam);
     }
 
 	/**
@@ -1883,148 +1619,6 @@ public class CoustomerActivity extends BaseActivity implements OnClickListener,
 	}
 
 	private void videoImport() {
-//		Intent intent = new Intent(this,MediaActivity_01160.class);
-//		intent.putExtra(CropKey.VIDEO_RATIO, CropKey.RATIO_MODE_9_16);  // 比例
-//		intent.putExtra(CropKey.VIDEO_SCALE,CropKey.SCALE_FILL);        // 画面填充
-//		intent.putExtra(CropKey.VIDEO_QUALITY , VideoQuality.SSD);       // 视频质量
-//		//String f = frameRateEdit.getText().toString();
-//		int frameRate = 25;
-////        if(f == null || f.isEmpty()){
-////            frameRate = DEFAULT_FRAMR_RATE;
-////        }else{
-////            frameRate = Integer.parseInt(frameRateEdit.getText().toString());
-////        }
-//
-//		intent.putExtra(CropKey.VIDEO_FRAMERATE,frameRate);
-//		//String g = gopEdit.getText().toString();
-//		int gop = 125;
-////        if(g == null || g.isEmpty()){
-////            gop = DEFAULT_GOP;
-////        }else{
-////            gop = Integer.parseInt(gopEdit.getText().toString());
-////        }
-//		intent.putExtra(CropKey.VIDEO_GOP,gop);
-//		int bitrate = 0;
-////        if(!TextUtils.isEmpty(mBitrateEdit.getText())){
-////            bitrate = Integer.parseInt(mBitrateEdit.getText().toString());
-////        }
-//		intent.putExtra(CropKey.VIDEO_BITRATE, bitrate);
-//
-////            intent.putExtra("width",etWidth.getText().toString());
-////            intent.putExtra("height",etHeight.getText().toString());
-//		startActivityForResult(intent,1006);
-	}
 
-	private String[] mEffDirs;
-//	private void initAssetPath(){
-//		String path = com.aliyun.common.utils.StorageUtils.getCacheDirectory(this).getAbsolutePath() + File.separator+ Common.QU_NAME + File.separator;
-//		File filter = new File(new File(path), "filter");
-//
-//		String[] list = filter.list();
-//		if(list == null || list.length == 0){
-//			return ;
-//		}
-//		mEffDirs = new String[list.length + 1];
-//		mEffDirs[0] = null;
-//		for(int i = 0; i < list.length; i++){
-//			mEffDirs[i + 1] = filter.getPath() + "/" + list[i];
-//		}
-////        mEffDirs = new String[]{
-////                null,
-////                path + "filter/chihuang",
-////                path + "filter/fentao",
-////                path + "filter/hailan",
-////                path + "filter/hongrun",
-////                path + "filter/huibai",
-////                path + "filter/jingdian",
-////                path + "filter/maicha",
-////                path + "filter/nonglie",
-////                path + "filter/rourou",
-////                path + "filter/shanyao",
-////                path + "filter/xianguo",
-////                path + "filter/xueli",
-////                path + "filter/yangguang",
-////                path + "filter/youya",
-////                path + "filter/zhaoyang",
-////                path + "filter/mosaic",
-////                path + "filter/blur",
-////                path + "filter/bulge",
-////                path + "filter/false",
-////                path + "filter/gray",
-////                path + "filter/haze",
-////                path + "filter/invert",
-////                path + "filter/miss",
-////                path + "filter/pixellate",
-////                path + "filter/rgb",
-////                path + "filter/sepiatone",
-////                path + "filter/threshold",
-////                path + "filter/tone",
-////                path + "filter/vignette"
-////
-////        };
-//	}
-
-	private void videoRecord() {
-
-//		initAssetPath();
-//
-//		int min = 3000;
-//		int max = 30000;
-//		int gop = 5;
-//		int bitrate = 0;
-////        if(minDurationEt.getText() != null && !minDurationEt.getText().toString().isEmpty()){
-////            try {
-////                min = Integer.parseInt(minDurationEt.getText().toString()) * 1000;
-////            }catch (Exception e){
-////                Log.e("ERROR","input error");
-////            }
-////        }
-////        if(maxDurationEt.getText() != null && !maxDurationEt.getText().toString().isEmpty()){
-////            try {
-////                max = Integer.parseInt(maxDurationEt.getText().toString()) * 1000;
-////            }catch (Exception e){
-////                Log.e("ERROR","input error");
-////            }
-////        }
-////        if(gopEt.getText() != null && !gopEt.getText().toString().isEmpty()){
-////            try {
-////                gop = Integer.parseInt(gopEt.getText().toString());
-////            }catch (Exception e){
-////                Log.e("ERROR","input error");
-////            }
-////        }
-////        if(!TextUtils.isEmpty(mBitrateEdit.getText())){
-////            try{
-////                bitrate = Integer.parseInt(mBitrateEdit.getText().toString());
-////            }catch (Exception e){
-////                e.printStackTrace();
-////            }
-////        }
-//		AliyunSnapVideoParam recordParam = new AliyunSnapVideoParam.Builder()
-//				.setResolutionMode(AliyunSnapVideoParam.RESOLUTION_720P)    // 分辨率
-//				.setRatioMode(AliyunSnapVideoParam.RATIO_MODE_9_16)     // 比例
-//				.setRecordMode(AliyunSnapVideoParam.RECORD_MODE_AUTO)
-//				.setFilterList(mEffDirs)
-//				.setBeautyLevel(80)
-//				.setBeautyStatus(true)
-//				.setCameraType(CameraType.FRONT)
-//				.setFlashType(FlashType.ON)
-//				.setNeedClip(true)
-//				.setMaxDuration(max)
-//				.setMinDuration(min)
-//				.setVideoQuality(VideoQuality.SSD)   // 视频质量
-//				.setGop(gop)
-//				.setVideoBitrate(bitrate)
-//				.setVideoCodec(VideoCodecs.H264_HARDWARE)   // 视频编码
-//				/**
-//				 * 裁剪参数
-//				 */
-//				.setMinVideoDuration(4000)
-//				.setMaxVideoDuration(29 * 1000)
-//				.setMinCropDuration(3000)
-//				.setFrameRate(25)
-//				.setCropMode(ScaleMode.PS)
-//				.build();
-//		AliyunVideoRecorder_01160.startRecordForResult(this,1006,recordParam);
 	}
 }

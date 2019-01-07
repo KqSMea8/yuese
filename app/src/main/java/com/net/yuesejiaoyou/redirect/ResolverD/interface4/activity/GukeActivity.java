@@ -69,7 +69,6 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
 
     private ZhuboInfo zhuboInfo;
     private ICmdListener zhuboCmdListener;
-    private IActivityListener activityListener;
     private IAgoraVideoEventListener videoEventListener;
 
     @Override
@@ -126,7 +125,6 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
         transaction.commit();
 
         zhuboCmdListener = (ICmdListener) fragment;
-        activityListener = (IActivityListener) fragment;
         videoEventListener = (IAgoraVideoEventListener) fragment;
     }
 
@@ -141,23 +139,18 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (activityListener != null) {
-            activityListener.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (activityListener != null) {
-            if (activityListener.onKeyUp(keyCode, event)) {
-                return true;
-            }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                showToast("正在通话中...");
+                break;
+            default:
+                break;
         }
-        return super.onKeyUp(keyCode, event);
+
+        return false;
     }
 
     private void initIM() {
@@ -212,6 +205,7 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
     private volatile boolean mJoined = false;
 
     private void initVideo() {
+        LogUtil.i("ttt","--initVideo--");
         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
             initAgoraEngineAndJoinChannel();
         }
@@ -240,7 +234,6 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
     private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() { // Tutorial Step 1
         @Override
         public void onFirstRemoteVideoDecoded(final int uid, int width, int height, int elapsed) { // Tutorial Step 5
-
             runOnUiThread(new Runnable() {
 
                 @Override
@@ -319,14 +312,12 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
 
     @Override
     public void startVideo() {
-
         runOnUiThread(new Runnable() {
 
             @Override
             public void run() {
                 GukeVideoFragment fragment = new GukeVideoFragment();
                 videoEventListener = fragment;
-                activityListener = fragment;
 
                 if (zhuboInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
                     initVideo();
@@ -344,7 +335,7 @@ public class GukeActivity extends BaseActivity implements IUserInfoHandler, IVid
 
     @Override
     public SurfaceView getLocalSurfaceView() {
-        return localSurface == null ? null : localSurface;
+        return localSurface;
     }
 
     @Override

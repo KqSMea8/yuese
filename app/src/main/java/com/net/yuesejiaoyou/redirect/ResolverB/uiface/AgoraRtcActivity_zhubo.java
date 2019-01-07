@@ -56,22 +56,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.example.translate.SpeechTranslate;
-//import com.example.vliao.R;
-//import com.example.vliao.interface3.UsersThread_01158;
-//import com.example.vliao.interface3.UsersThread_01160;
-//import com.example.vliao.interface4.LogDetect;
-//import com.example.vliao.util.AgoraVideoManager;
-//import com.example.vliao.util.Util;
-//import com.lazysellers.sellers.core.Utils;
-//import com.lazysellers.sellers.infocenter.bean.Msg;
-//import com.lazysellers.sellers.infocenter.db.Const;
-//import com.lazysellers.sellers.infocenter.hengexa1.smack.XMPPException;
-//import com.lazysellers.sellers.infocenter.hengexa1.smack.XMPPTCPConnection;
-//import com.lazysellers.sellers.infocenter.hengexa2.smack.Chat;
-//import com.lazysellers.sellers.infocenter.hengexa2.smack.ChatManager;
-//import com.lazysellers.sellers.infocenter.hengexa2.smack.SmackException;
-//import com.lazysellers.sellers.infocenter.view.DropdownListView;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
@@ -87,17 +71,16 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.Dropdo
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
-//import com.net.yuesejiaoyou.redirect.ResolverB.interface4.io.agora.propeller.preprocessing.VideoPreProcessing;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AgoraVideoManager;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ClickUtils;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterRecyclerViewAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterTypeHelper;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuBean;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ZIP;
+import com.xiaojigou.luo.activity.ClickUtils;
+import com.xiaojigou.luo.activity.MenuAdapter;
+import com.xiaojigou.luo.activity.MenuBean;
+import com.xiaojigou.luo.camfilter.FilterRecyclerViewAdapter;
+import com.xiaojigou.luo.camfilter.FilterTypeHelper;
+import com.xiaojigou.luo.camfilter.GPUCamImgOperator;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
+import com.xiaojigou.luo.xjgarsdk.ZIP;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1150,26 +1133,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
             }
         }
     };
-    /**
-     * 表情页改变时，dots效果也要跟着改变
-     * */
-    class PageChange implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-        }
 
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-        }
-
-        @Override
-        public void onPageSelected(int arg0) {
-            for (int i = 0; i < mDotsLayout.getChildCount(); i++) {
-                mDotsLayout.getChildAt(i).setSelected(false);
-            }
-            mDotsLayout.getChildAt(arg0).setSelected(true);
-        }
-    }
 
     /**
      * 发送消息
@@ -1376,7 +1340,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
 
     private RecyclerView mFilterListView;
     private FilterRecyclerViewAdapter mAdapter;
-    private com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator GPUCamImgOperator;
+    private GPUCamImgOperator gpuCamImgOperator;
     private boolean isRecording = false;
     private final int MODE_PIC = 1;
     private final int MODE_VIDEO = 2;
@@ -1387,25 +1351,25 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
 
     private ObjectAnimator animator;
 
-    private final com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NONE,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.HEALTHY,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.COOL,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EMERALD,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.CRAYON
+    private final GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
+            GPUCamImgOperator.GPUImgFilterType.NONE,
+            GPUCamImgOperator.GPUImgFilterType.HEALTHY,
+            GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
+            GPUCamImgOperator.GPUImgFilterType.COOL,
+            GPUCamImgOperator.GPUImgFilterType.EMERALD,
+            GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
+            GPUCamImgOperator.GPUImgFilterType.CRAYON
     };
 
     protected void init() {
         //super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_camera_with_filter);
-        GPUCamImgOperator =  new GPUCamImgOperator();
+        gpuCamImgOperator =  new GPUCamImgOperator();
         LuoGLCameraView luoGLCameraView = (LuoGLCameraView)AgoraVideoManager.getLocalSurfaceView();
         //mCustomizedCameraRenderer = luoGLCameraView;
 
-        GPUCamImgOperator.context = luoGLCameraView.getContext();
-        GPUCamImgOperator.luoGLBaseView = luoGLCameraView;
+        gpuCamImgOperator.context = luoGLCameraView.getContext();
+        gpuCamImgOperator.luoGLBaseView = luoGLCameraView;
         initView();
 
 
@@ -1718,7 +1682,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
     private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener(){
 
         @Override
-        public void onFilterChanged(com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType filterType) {
+        public void onFilterChanged(GPUCamImgOperator.GPUImgFilterType filterType) {
 //            GPUCamImgOperator.setFilter(filterType);
             String filterName = FilterTypeHelper.FilterType2FilterName(filterType);
             XJGArSdkApi.XJGARSDKChangeFilter(filterName);
@@ -1774,7 +1738,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
                     hideFilters();
             }
             else if (buttonId == R.id.btn_camera_switch) {
-                GPUCamImgOperator.switchCamera();
+                gpuCamImgOperator.switchCamera();
             }
             else if (buttonId == R.id.btn_camera_beauty) {
                 bShowFaceSurgery = ! bShowFaceSurgery;
@@ -1803,16 +1767,16 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
     }
 
     private void takePhoto(){
-        GPUCamImgOperator.savePicture();
+        gpuCamImgOperator.savePicture();
     }
 
     private void takeVideo(){
         if(isRecording) {
             animator.end();
-            GPUCamImgOperator.stopRecord();
+            gpuCamImgOperator.stopRecord();
         }else {
             animator.start();
-            GPUCamImgOperator.startRecord();
+            gpuCamImgOperator.startRecord();
         }
         isRecording = !isRecording;
     }

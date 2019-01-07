@@ -16,6 +16,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -67,8 +68,10 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AliVideoPlayer;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoPlayListener;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -77,10 +80,6 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -164,7 +163,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         I = Util.userid;
         msgDao = new ChatMsgDao(getActivity());
         sessionDao = new SessionDao(getActivity());
-        userid = info.getUserid();
+        userid = info.getUser_id();
         mContext = getActivity();
 
         view = inflater.inflate(R.layout.activity_video_play_layout, null);
@@ -180,11 +179,18 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
         id_call_v = (ImageView) view.findViewById(id.id_call_v);
         id_video_income = (TextView) view.findViewById(id.id_video_income);
-        if (info.getUserid().equals(Util.userid)) {
+        id_send_red_packet = (GifImageView) view.findViewById(id.id_send_red_packet);
+        id_send_red_packet.setImageResource(R.drawable.giftoff);
+
+        if (TextUtils.isEmpty(info.getUser_id()) || info.getUser_id().equals(Util.userid)) {
+            LogUtil.i("ttt",info.toString());
             id_call_v.setVisibility(View.GONE);
             id_video_income.setVisibility(View.VISIBLE);
+            id_send_red_packet.setVisibility(View.GONE);
+            info.setIspay(0);
         } else {
             id_video_income.setVisibility(View.INVISIBLE);
+            id_send_red_packet.setVisibility(View.VISIBLE);
         }
         id_call_v.setOnClickListener(new OnClickListener() {
             @Override
@@ -195,7 +201,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 }
 
                 String mode1 = "zhubo_online";
-                String[] paramsMap1 = {"", Util.userid, videoinfo1.getUserid() + ""};
+                String[] paramsMap1 = {"", Util.userid, videoinfo1.getUser_id() + ""};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B a = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B(mode1, paramsMap1, handler);
                 Thread c = new Thread(a.runnable);
                 c.start();
@@ -208,7 +214,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, UserActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("id", "" + info.getUserid());
+                bundle.putString("id", "" + info.getUser_id());
                 intent.putExtras(bundle);
 
 
@@ -229,20 +235,26 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             }
         });
 
-        id_send_red_packet = (GifImageView) view.findViewById(id.id_send_red_packet);
-        id_send_red_packet.setImageResource(R.drawable.giftoff);
-        if (info.getUserid().equals(Util.userid)) {
-            id_send_red_packet.setVisibility(View.GONE);
-        } else {
-            id_send_red_packet.setVisibility(View.VISIBLE);
-        }
+
+
         /////////////////////////////////////////////////////////////////
         id_send_red_packet.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 id_send_red_packet.setImageResource(R.drawable.gifton);
-                showPopupspWindow_sendred(id_send_red_packet);
+
+                new GiftDialog(getActivity(), userid).setLishener(new GiftDialog.OnGiftLishener() {
+                    @Override
+                    public void onSuccess(int gid, int num) {
+                        sendSongLi("[" + "☆" + Util.nickname + "给" + videoinfo1.getNickname() + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
+                    }
+
+                    @Override
+                    public void onFail() {
+                        showPopupspWindow_chongzhi();
+                    }
+                }).show();
             }
         });
 
@@ -354,9 +366,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             }
         });
 
-        if (Util.userid.equals(info.getUserid())) {
-            info.setIspay(0);
-        }
         if (info.getIspay() == 1) {
 
             ivStop.setVisibility(View.VISIBLE);
@@ -408,7 +417,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             int isguanzhu = intent.getIntExtra("isguanzhu", 0);
             ///////////////////////////////
             LogDetect.send(LogDetect.DataType.specialType, "downorup:", msgBody);
-            if (msgBody.equals(info.getUserid())) {
+            if (msgBody.equals(info.getUser_id())) {
                 if (isguanzhu == 0) {
                     handler.sendMessage(handler.obtainMessage(1000, (Object) msgBody));
                 } else {
@@ -511,7 +520,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                         isloading = false;
                         String mode = "video_info";
                         //userid，页数，男女
-                        String[] params = {mode, info.getId() + "", info.getUserid()};
+                        String[] params = {mode, info.getId() + "", info.getUser_id()};
                         UsersThread_01066B b = new UsersThread_01066B(mode, params, handler);
                         Thread thread = new Thread(b.runnable);
                         thread.start();
@@ -585,7 +594,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                         int isguanzhu = Integer.parseInt(jsonObject.getString("success"));
                         LogDetect.send(DataType.specialType, "yue_____： ", isguanzhu);
                         if (isguanzhu == 0) {
-                            showPopupspWindow_chongzhi(id_head_layout);
+                            showPopupspWindow_chongzhi();
                         } else {
                             Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
                             paysuccess();
@@ -611,7 +620,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                             id_follow_v_on.setVisibility(View.VISIBLE);
                             Intent intent = new Intent("userguanzhu");//
                             Bundle bundle = new Bundle();
-                            bundle.putString("guanzhu", info.getUserid());
+                            bundle.putString("guanzhu", info.getUser_id());
                             intent.putExtras(bundle);
                             getActivity().sendBroadcast(intent);
                         }
@@ -640,9 +649,9 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
                         if (!isdel) {
                             if (videoinfo1.getIszan() == 1) {
-                                Tools.setDrawableTop(id_like_video_quantity,R.drawable.video_like_on);
+                                Tools.setDrawableTop(id_like_video_quantity, R.drawable.video_like_on);
                             } else {
-                                Tools.setDrawableTop(id_like_video_quantity,R.drawable.video_like);
+                                Tools.setDrawableTop(id_like_video_quantity, R.drawable.video_like);
                             }
 
                             id_like_video_quantity.setText(videoinfo1.getLike_num());
@@ -703,14 +712,14 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                         int isguanzhu = Integer.parseInt(jsonObject.getString("success"));
                         LogDetect.send(DataType.specialType, "yue_____： ", isguanzhu);
                         if (isguanzhu == 0) {//取消点赞
-                            Tools.setDrawableTop(id_like_video_quantity,R.drawable.video_like);
+                            Tools.setDrawableTop(id_like_video_quantity, R.drawable.video_like);
                             likenum = likenum - 1;
                             id_like_video_quantity.setText(likenum + "");
                             //Intent intent=new Intent("111");
                             //getActivity().sendBroadcast(intent);
 
                         } else {//点赞
-                            Tools.setDrawableTop(id_like_video_quantity,R.drawable.video_like_on);
+                            Tools.setDrawableTop(id_like_video_quantity, R.drawable.video_like_on);
                             likenum = likenum + 1;
                             id_like_video_quantity.setText(likenum + "");
                         }
@@ -745,7 +754,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                                 SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 final String timestamp = new Date().getTime() + "";
 
-                                GukeActivity.startCallZhubo(getActivity(), new ZhuboInfo(videoinfo1.getUserid(), videoinfo1.getNickname(), videoinfo1.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
+                                GukeActivity.startCallZhubo(getActivity(), new ZhuboInfo(videoinfo1.getUser_id(), videoinfo1.getNickname(), videoinfo1.getPhoto(), timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
 
                             }//否则失败了
                             else if (success_ornot.equals("2")) {
@@ -781,7 +790,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                             sendSongLi("[" + "☆" + Util.nickname + "给" + info.getNickname() + "赠送了" + price + "元红包☆" + "]");
                             Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
                         } else {
-                            showPopupspWindow_chongzhi(id_head_layout);
+                            showPopupspWindow_chongzhi();
                         }
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
@@ -913,7 +922,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
      * 弹出框:是否充值
      * @
      ****************************************************/
-    public void showPopupspWindow_chongzhi(View parent) {
+    public void showPopupspWindow_chongzhi() {
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
 
@@ -959,7 +968,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
         // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 0, 0);
+        popupWindow.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
         // 监听
 
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -974,31 +983,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         });
     }
 
-    /*****************************************************
-     *
-     * @
-     *****************************************************/
-    public void saveFile(Bitmap bm, String fileName) throws IOException {
-        String path = Environment.getExternalStorageDirectory() + "/revoeye/";
-        File dirFile = new File(path);
-        if (!dirFile.exists()) {
-            dirFile.mkdir();
-        }
-        File myCaptureFile = new File(path + fileName);
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
-        bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
-        bos.flush();
-        bos.close();
-    }
 
-    /* ShareDialog shareDialog;
-    ShareButton share_btn=null;
-    CallbackManager callbackManager;*/
-
-    /*****************************************************
-     * 单击事件
-     * @param arg0
-     *****************************************************/
     @Override
     public void onClick(View arg0) {
         switch (arg0.getId()) {
@@ -1018,7 +1003,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             case id.id_follow_v:
                 String mode1 = "guanzhu";
                 //userid，页数，男女
-                String[] params = {"13", info.getUserid(), 0 + ""};
+                String[] params = {"13", info.getUser_id(), 0 + ""};
                 UsersThread_01066B b = new UsersThread_01066B(mode1, params, handler);
                 Thread thread = new Thread(b.runnable);
                 thread.start();
@@ -1026,7 +1011,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c1:
                 String mode = "report";
-                String[] paramsMap = {Util.userid, videoinfo1.getUserid() + "", c1.getText().toString()};
+                String[] paramsMap = {Util.userid, videoinfo1.getUser_id() + "", c1.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B az = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode, paramsMap, handler);
                 Thread t = new Thread(az.runnable);
                 t.start();
@@ -1035,7 +1020,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c2:
                 String mode112 = "report";
-                String[] paramsMap112 = {Util.userid, videoinfo1.getUserid() + "", c2.getText().toString()};
+                String[] paramsMap112 = {Util.userid, videoinfo1.getUser_id() + "", c2.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B a1 = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode112, paramsMap112, handler);
                 Thread t1 = new Thread(a1.runnable);
                 t1.start();
@@ -1044,7 +1029,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c3:
                 String mode2 = "report";
-                String[] paramsMap2 = {Util.userid, videoinfo1.getUserid() + "", c3.getText().toString()};
+                String[] paramsMap2 = {Util.userid, videoinfo1.getUser_id() + "", c3.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B a2 = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode2, paramsMap2, handler);
                 Thread t2 = new Thread(a2.runnable);
                 t2.start();
@@ -1053,7 +1038,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c4:
                 String mode3 = "report";
-                String[] paramsMap3 = {Util.userid, videoinfo1.getUserid() + "", c4.getText().toString()};
+                String[] paramsMap3 = {Util.userid, videoinfo1.getUser_id() + "", c4.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B a3 = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode3, paramsMap3, handler);
                 Thread t3 = new Thread(a3.runnable);
                 t3.start();
@@ -1062,7 +1047,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c5:
                 String mode4 = "report";
-                String[] paramsMap4 = {Util.userid, videoinfo1.getUserid() + "", c5.getText().toString()};
+                String[] paramsMap4 = {Util.userid, videoinfo1.getUser_id() + "", c5.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B a4 = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode4, paramsMap4, handler);
                 Thread t4 = new Thread(a4.runnable);
                 t4.start();
@@ -1071,7 +1056,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             ////////////////////////////////////////////////////////////////////////
             case id.c6:
                 String mode5 = "report";
-                String[] paramsMap5 = {Util.userid, videoinfo1.getUserid() + "", c6.getText().toString()};
+                String[] paramsMap5 = {Util.userid, videoinfo1.getUser_id() + "", c6.getText().toString()};
                 com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B a5 = new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B(mode5, paramsMap5, handler);
                 Thread t5 = new Thread(a5.runnable);
                 t5.start();
@@ -1099,50 +1084,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         super.onDestroy();
 
     }
-
-    //==========================================================================================
-    //==========================================================================================
-
-    //private SurfaceView surfaceView;
-
-    /*private Button prepareBtn;
-    private Button playBtn;
-    private Button pauseBtn;
-    /*private Button releaseBtn;
-    private Button changeQualityBtn;
-    private Button replayBtn;
-    private Button stopBtn;
-    private Button downBtn;
-    private Button downStopBtn;
-    private RadioGroup autoPlayGroup;
-    private RadioButton autoPlayOnBtn;
-    private RadioButton autoPlayOffBtn;
-
-    private RadioGroup muteGroup;
-    private RadioButton muteOnBtn;
-    private RadioButton muteOffBtn;
-
-    private RadioGroup scaleModeGroup;
-    private RadioButton scaleModeFit;
-    private RadioButton scaleModeFill;
-
-    private RadioGroup speedGroup;
-    private RadioButton speed10;
-    private RadioButton speed125;
-    private RadioButton speed15;
-    private RadioButton speed20;*/
-
-    //private LinearLayout qualityLayout;
-
-    /*private TextView positionTxt;
-    private TextView durationTxt;
-    private SeekBar progressBar;
-
-    private SeekBar brightnessBar;
-    private SeekBar volumeBar;
-
-    private TextView videoWidthTxt;
-    private TextView videoHeightTxt;*/
 
 
     /********************************************************
@@ -1383,7 +1324,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         LogDetect.send(DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
         String mode = "red_envelope";
         //userid,---用户id，“2”----主播id，coin----红包大小
-//        String[] params = {Util.userid, videoinfo1.getUserid() + "", Integer.toString(coin)};
+//        String[] params = {Util.userid, videoinfo1.getUser_id() + "", Integer.toString(coin)};
 //        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
 //        Thread thread = new Thread(b.runnable);
 //        thread.start();
@@ -1391,7 +1332,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         OkHttpUtils.post(this)
                 .url(URL.URL_HONGBAO)
                 .addParams("param1", Util.userid)
-                .addParams("param2", videoinfo1.getUserid())
+                .addParams("param2", videoinfo1.getUser_id())
                 .addParams("param3", coin)
                 .build()
                 .execute(new StringCallback() {
@@ -1408,7 +1349,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                                 sendSongLi("[" + "☆" + Util.nickname + "给" + info.getNickname() + "赠送了" + price + "元红包☆" + "]");
                                 Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
                             } else {
-                                showPopupspWindow_chongzhi(id_head_layout);
+                                showPopupspWindow_chongzhi();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -1848,7 +1789,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 String dateStr = sdf.format(now.getTimeInMillis());
 
                 //开始时间
-                String[] paramsMap = {Util.userid, videoinfo1.getUserid() + "", befortime, dateStr};
+                String[] paramsMap = {Util.userid, videoinfo1.getUser_id() + "", befortime, dateStr};
                 new Thread(new com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B("insert_reservation", paramsMap, handler).runnable).start();
 
                 popupWindow.dismiss();

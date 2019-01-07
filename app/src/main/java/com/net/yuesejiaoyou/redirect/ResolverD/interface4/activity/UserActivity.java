@@ -73,6 +73,7 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -96,20 +97,16 @@ import okhttp3.Call;
 
 public class UserActivity extends BaseActivity {
     public String yid, msgbody;
-    private int yue;//用户V币余额
     private ArrayList mListImage;
-    private boolean guanzhuable = true;
-    private int lastVisibleItem = 0, isguanzhu = 0, fannum = 0;
+    private int isguanzhu = 0, fannum = 0;
     private String nicheng, headpic, userid = "";
 
     private GridLayoutManager mLayoutManager;
     private SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private ImageView photo, fanhui, erweima, iv_zt_img, ib_focus;
     private TextView nickname, wodeqianbao, vhome_tv_status, text_view_price, tv_dv, flow_img, tv_focus_count;
-    private DisplayImageOptions options = null;
     private RatingBar ratingbar;
     private PopupWindow mPopWindow;
-    private LinearLayout send_red;
     private PopupWindow popupWindow;
     private Context mContext;
     MsgOperReciver1 msgOperReciver1;
@@ -141,8 +138,6 @@ public class UserActivity extends BaseActivity {
         sessionDao = new SessionDao(this);
         mContext = UserActivity.this;
 
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                .cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
         wodeqianbao = (TextView) findViewById(R.id.wodeqianbao);//昵称
         fanhui = (ImageView) findViewById(R.id.fanhui);//返回
         fanhui.setOnClickListener(new View.OnClickListener() {
@@ -591,37 +586,11 @@ public class UserActivity extends BaseActivity {
                         String str = jsonObject.getString("success");
                         ///////////////////////////////
                         LogDetect.send(LogDetect.DataType.specialType, "yue_____： ", str);
-                        yue = Integer.parseInt(str);
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                     break;
-                /////////////////////////////////////////////////
-                case 101://红包打赏
-                    String json2 = (String) msg.obj;
-                    if (!json2.isEmpty()) {
-                        try { //如果服务端返回1，说明个人信息修改成功了
-                            //Reward Success-----打赏成功
-                            JSONObject jsonObject = new JSONObject(json2);
-                            ///////////////////////////////
-                            LogDetect.send(LogDetect.DataType.specialType, "yue_____： ", jsonObject.getString("success"));
-                            if (jsonObject.getString("success").equals("1")) {
-                                sendSongLi("[" + "☆" + Util.nickname + "给" + nicheng + "赠送了" + price + "元红包☆" + "]");
-                                Toast.makeText(UserActivity.this, "打赏成功 ", Toast.LENGTH_SHORT).show();
-                            } else {
-                                showPopupspWindow_chongzhi(wodeqianbao);
-                            }
-                        } catch (JSONException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    } else {
-                        Toast.makeText(UserActivity.this, "打赏失败，请检查网络连接", Toast.LENGTH_SHORT).show();
-                    }
-
-                    break;
-                /////////////////////////////////////////////////
                 case 210:
                     String json_reservation = (String) (msg).obj;
                     ///////////////////////////////
@@ -689,9 +658,7 @@ public class UserActivity extends BaseActivity {
         }
     }
 
-    /*************************************
-     *
-     ************************************/
+
     public static DisplayMetrics getDisplayMetrics(Context context) {
         DisplayMetrics metric = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -701,7 +668,17 @@ public class UserActivity extends BaseActivity {
 
     @OnClick(R.id.send_red)
     public void awardClick() {
-        showPopupspWindow_sendred();
+        new GiftDialog(this, userid).setLishener(new GiftDialog.OnGiftLishener() {
+            @Override
+            public void onSuccess(int gid, int num) {
+                sendSongLi("[" + "☆" + Util.nickname + "给" + nicheng + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
+            }
+
+            @Override
+            public void onFail() {
+                showPopupspWindow_chongzhi();
+            }
+        }).show();
     }
 
     @OnClick(R.id.tv_call)
@@ -758,7 +735,7 @@ public class UserActivity extends BaseActivity {
                             showPopupspWindow_reservation(getWindow().getDecorView(), 4);
                             showToast("主播不在线");
                         } else if (success_ornot.equals("0")) {
-                            showPopupspWindow_chongzhi(wodeqianbao);
+                            showPopupspWindow_chongzhi();
                         } else if (success_ornot.equals("5")) {
                             showToast("主播被封禁");
                         } else if (success_ornot.equals("6")) {
@@ -818,153 +795,7 @@ public class UserActivity extends BaseActivity {
 
     }
 
-
-    public void showPopupspWindow_sendred() {
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.red_choose_01165, null);
-        TextView cancel = (TextView) layout.findViewById(R.id.cancel);
-        ///////////////////////////////////////
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                popupWindow.dismiss();
-
-            }
-        });
-        //开线程，添加V币
-        TextView coin1 = (TextView) layout.findViewById(R.id.coin1);
-        ///////////////////////////////////////
-        coin1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(9);
-                popupWindow.dismiss();
-
-            }
-        });
-        TextView coin2 = (TextView) layout.findViewById(R.id.coin2);
-        ///////////////////////////////////////
-        coin2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-                songhongbao(18);
-                popupWindow.dismiss();
-                //			songhongbao(18);
-            }
-        });
-        TextView coin3 = (TextView) layout.findViewById(R.id.coin3);
-        ///////////////////////////////////////
-        coin3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(66);
-                popupWindow.dismiss();
-                //			songhongbao(66);
-            }
-        });
-        TextView coin4 = (TextView) layout.findViewById(R.id.coin4);
-        ///////////////////////////////////////
-        coin4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(99);
-                popupWindow.dismiss();
-                //			songhongbao(99);
-            }
-        });
-        TextView coin5 = (TextView) layout.findViewById(R.id.coin5);
-        ///////////////////////////////////////
-        coin5.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(188);
-                popupWindow.dismiss();
-                //			songhongbao(188);
-            }
-        });
-        TextView coin6 = (TextView) layout.findViewById(R.id.coin6);
-        ///////////////////////////////////////
-        coin6.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(520);
-                popupWindow.dismiss();
-                //			songhongbao(520);
-            }
-        });
-        TextView coin7 = (TextView) layout.findViewById(R.id.coin7);
-        ///////////////////////////////////////
-        coin7.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(888);
-                popupWindow.dismiss();
-                //			songhongbao(888);
-            }
-        });
-        TextView coin8 = (TextView) layout.findViewById(R.id.coin8);
-        ///////////////////////////////////////
-        coin8.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(1314);
-                popupWindow.dismiss();
-                //		songhongbao(1314);
-            }
-        });
-        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT,
-                ViewPager.LayoutParams.WRAP_CONTENT, true);
-        // 控制键盘是否可以获得焦点
-        popupWindow.setFocusable(true);
-        // 设置popupWindow弹出窗体的背景
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.4f;
-        getWindow().setAttributes(lp);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        @SuppressWarnings("deprecation")
-        // 获取xoff
-                int xpos = manager.getDefaultDisplay().getWidth() / 2
-                - popupWindow.getWidth() / 2;
-        // xoff,yoff基于anchor的左下角进行偏移。
-        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 252, 0);
-        // 监听
-        ///////////////////////////////////////
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            // 在dismiss中恢复透明度
-            public void onDismiss() {
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.alpha = 1f;
-                getWindow()
-                        .addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                getWindow().setAttributes(lp);
-            }
-        });
-    }
-
-    /*************************************
-     *是否充值
-     ************************************/
-    public void showPopupspWindow_chongzhi(View parent) {
+    public void showPopupspWindow_chongzhi() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
 
@@ -1007,7 +838,7 @@ public class UserActivity extends BaseActivity {
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
         // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 0, 0);
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
         // 监听
         /////////////////////////////////////////////
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -1021,25 +852,6 @@ public class UserActivity extends BaseActivity {
             }
         });
     }
-
-    /*************************************
-     *开线程，添加红包
-     ************************************/
-    public void songhongbao(int coin) {
-        price = coin + "";
-        ///////////////////////////////
-        LogDetect.send(LogDetect.DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
-        String mode = "red_envelope";
-        //userid,---用户id，“2”----主播id，coin----红包大小
-        String[] params = {Util.userid, userid, Integer.toString(coin)};
-        UsersThread_01162A b = new UsersThread_01162A(mode, params, handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
-    }
-
-    /*************************************
-     *
-     ************************************/
     public void showPopupspWindow4(View parent) {
         // 加载布局
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -1143,7 +955,6 @@ public class UserActivity extends BaseActivity {
      * @param content
      */
     void sendSongLi(String content) {
-        LogDetect.send(LogDetect.DataType.specialType, "01160 openfire送礼:", "1");
         Msg msg = getChatInfoTo(content, Const.MSG_TYPE_TEXT);
         msg.setMsgId(msgDao.insert(msg));
         listMsg.add(msg);

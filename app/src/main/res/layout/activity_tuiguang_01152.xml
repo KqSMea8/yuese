@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -7,9 +7,45 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:id="@+id/RR"
+        android:layout_width="match_parent"
+        android:background="#FF5C5C"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/biaoti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="分享赚钱"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/daili"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:text="申请代理"
+            android:textColor="#ffffff"
+            android:textSize="16dip"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dip"
+            android:layout_height="25dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/back_new" />
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,44 +59,8 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/RR"
                     android:layout_width="match_parent"
-                    android:layout_height="50dip">
-
-                    <TextView
-                        android:id="@+id/biaoti"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="分享赚钱"
-                        android:textColor="#ffffff"
-                        android:textSize="20dip" />
-
-                    <TextView
-                        android:id="@+id/daili"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dip"
-                        android:text="申请代理"
-                        android:textColor="#ffffff"
-                        android:visibility="gone"
-                        android:textSize="16dip" />
-
-                    <ImageView
-                        android:id="@+id/back"
-                        android:layout_width="25dip"
-                        android:layout_height="25dip"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dip"
-                        android:background="@drawable/back_new" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dip"
-                    android:layout_below="@id/RR">
+                    android:layout_height="150dip">
 
                     <com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView
                         android:id="@+id/touxiang"
@@ -200,11 +200,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="25dip"
-                            android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:background="@drawable/shareyuanjiao"
                             android:gravity="center_vertical"
                             android:text="邀请人数"
-                            android:background="@drawable/shareyuanjiao"
                             android:textColor="#fff"
                             android:textSize="15dip" />
 
@@ -263,10 +263,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="25dip"
-                            android:layout_weight="1"
                             android:layout_gravity="center_horizontal"
-                            android:gravity="center_vertical"
+                            android:layout_weight="1"
                             android:background="@drawable/shareyuanjiao"
+                            android:gravity="center_vertical"
                             android:text="邀请奖励"
                             android:textColor="#fff"
                             android:textSize="15dip" />
@@ -325,8 +325,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dip"
-                    android:gravity="center_horizontal"
-                    android:layout_marginTop="20dip">
+                    android:layout_marginTop="20dip"
+                    android:gravity="center_horizontal">
 
                     <ImageView
                         android:layout_width="100dip"
@@ -339,8 +339,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:textColor="#696969"
                         android:text="奖励细则"
+                        android:textColor="#696969"
                         android:textSize="15dip" />
 
                     <ImageView
@@ -356,17 +356,14 @@
                     android:id="@+id/gongluetext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="3dip"
                     android:textColor="@color/black"
                     android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="3dip"></TextView>
-
-
+                    android:textStyle="bold"></TextView>
 
 
             </LinearLayout>
             <!--android:text="1.所有用户都可以参与分成计划；\n2.通过自己分享的专属推广链接下载注册的用户，才算“我”推荐的用户；\n3.推荐的用户充值即可获得充值金额32%的分成奖励；\n4.推荐的用户提现可以获得提现金额8%的分成奖励；\n\n注：活动的最终解释权归平台所有。" />-->
-
 
 
         </RelativeLayout>
@@ -377,14 +374,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dip"
         android:layout_marginLeft="18dip"
         android:layout_marginRight="18dip"
-        android:visibility="gone"
-        android:textColor="#696969"
         android:text="注：活动的最终解释权归平台所有。"
-        android:layout_marginBottom="20dip"
+        android:textColor="#696969"
         android:textSize="18dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"
+        android:visibility="gone"></TextView>
 
 
     <Button
@@ -395,10 +392,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dip"
         android:background="@drawable/queding"
-        android:visibility="gone"
         android:gravity="center"
         android:text="赚钱攻略"
         android:textColor="#ffffff"
-        android:textSize="20dip" />
+        android:textSize="20dip"
+        android:visibility="gone" />
 
-</RelativeLayout>
+</LinearLayout>

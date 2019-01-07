@@ -86,10 +86,8 @@ dependencies {
     implementation(name: 'aliyunVodPlayerView', ext: 'aar')
     implementation(name: 'alivcPlayer', ext: 'aar')
 
-    //声网相关
-//    compile 'io.agora.rtc:full-sdk:2.0.0'
     // 小吉狗美颜
-    implementation(name: 'xjgarsdklibrary', ext: 'aar')
+    implementation(name: 'xjgarsdklibrary-release-9.1.0-2018-08-16', ext: 'aar')
 
 
     implementation 'org.apache.ant:ant:1.7.1'

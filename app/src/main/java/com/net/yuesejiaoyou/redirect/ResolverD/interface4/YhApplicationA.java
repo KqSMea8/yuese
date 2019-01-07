@@ -14,6 +14,7 @@ import com.net.yuesejiaoyou.classroot.interface4.BoxingGlideLoader;
 import com.net.yuesejiaoyou.classroot.interface4.BoxingUcrop;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -167,15 +168,11 @@ public class YhApplicationA extends Application {
 
 		jpushInit();
 
-		xiaojigouInit();
-
+		//xiaojigouInit();
 	}
 
 
-	private void xiaojigouInit() {
-		String licenseText = "hMPthC0oBIbtMp515TWb9jZvrLAKWIMvA4Dhf03n51QvnJr7jZowVe86d0WwU0NK9QGRFaXQn628fRu941qyr3FtsI5R7Y6v1XEpL6YvQNWQCkFEt1SAb0hyawimOYf1tfG2lIaNE63c5e+OxXssOVUWvw8tOr2glVwWVzh79NmZMahrnS8l69SoeoXLMKCYlvAt/qJFFk4+6Aq3QvOv3o72fq5p90yty+YWg7o0HirZpMSP9P5/DHYPFqR/ud7twTJ+Yo2+ZzYvodqRQbGG0HseZn8Xpt7fZdFuZbc2HGRMVk56vNDMRlcGZZXAjENk7m2UMhi1ohhuSf4WmIgXCZFiJXvYFByaY625gXKtEI7+b7t81nWQYHP9BEbzURwL";
-		XJGArSdkApi.XJGARSDKInitialization(this,licenseText,"DoctorLuoInvitedUser:lyhz", "LuoInvitedCompany:hengzhong");
-	}
+
 
 	public Activity getCurrentActivity() {
 		int length = ActivityList.size();
@@ -195,7 +192,6 @@ public class YhApplicationA extends Application {
 			return false;
 		}
 	}
-
 
 	public boolean isCurrentP2PZhuboActivity() {
 		Activity curActivity = getCurrentActivity();

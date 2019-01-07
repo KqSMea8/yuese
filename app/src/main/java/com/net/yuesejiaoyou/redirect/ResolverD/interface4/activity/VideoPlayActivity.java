@@ -1,13 +1,11 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,16 +13,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.view.View;
+import android.support.v4.view.ViewPager;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
+import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoPlayFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import fr.castorflex.android.verticalviewpager.VerticalViewPager;
@@ -36,6 +35,7 @@ import me.dkzwm.widget.srl.RefreshingListenerAdapter;
 import me.dkzwm.widget.srl.SmoothRefreshLayout;
 import me.dkzwm.widget.srl.extra.footer.ClassicFooter;
 import me.dkzwm.widget.srl.extra.header.ClassicHeader;
+import okhttp3.Call;
 
 
 public class VideoPlayActivity extends BaseActivity {
@@ -53,6 +53,7 @@ public class VideoPlayActivity extends BaseActivity {
     private List<Videoinfo> videoinfolist;
     private List<Fragment> fragments;
     private FragAdapter adapter;
+    private String url;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +72,8 @@ public class VideoPlayActivity extends BaseActivity {
             @Override
             public void onRefreshBegin(boolean isRefresh) {
                 if (!isRefresh && canPull) {
-                    pageno++;
                     canPull = false;
-                    initdata();
+                    loadMore();
                 } else {
                     refreshLayout.refreshComplete(2000);
                 }
@@ -83,13 +83,16 @@ public class VideoPlayActivity extends BaseActivity {
         Bundle bundle = getIntent().getExtras();
         int pos = bundle.getInt("id");
         videoinfolist = (List<Videoinfo>) bundle.getSerializable("vlist");
+        url = bundle.getString("url");
 
-        pageno = videoinfolist.size() % 10 + 1;
-        maxid = videoinfolist.get(0).getId();
         //构造适配器
         fragments = new ArrayList<>();
         for (int i = 0; i < videoinfolist.size(); i++) {
-            fragments.add(new VideoPlayFragment(videoinfolist.get(i), i));
+            if(videoinfolist.get(i).getStatus() == 0){
+
+            }else {
+                fragments.add(new VideoPlayFragment(videoinfolist.get(i), i));
+            }
         }
 
 
@@ -97,9 +100,65 @@ public class VideoPlayActivity extends BaseActivity {
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(pos);
 
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                if (position == fragments.size() - 2) {
+                    loadMore();
+                }
+            }
+        });
+
         MsgOperReciver msgOperReciver = new MsgOperReciver();
         IntentFilter intentFilter = new IntentFilter("videoinfo");
         registerReceiver(msgOperReciver, intentFilter);
+    }
+
+    private void loadMore() {
+        OkHttpUtils
+                .post(this)
+                .url(url)
+                .addParams("param1", Util.userid)
+                .addParams("param2", videoinfolist.size() / 11 + 1)
+                .addParams("param3", videoinfolist.get(0).getId())
+                .build()
+                .execute(new StringCallback() {
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        refreshLayout.setEnableLoadMoreNoMoreData(false);
+                        refreshLayout.refreshComplete(2000);
+                        refreshLayout.setDisableLoadMore(true);
+                        refreshLayout.setDisableRefresh(true);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        List<Videoinfo> list1 = JSON.parseArray(response, Videoinfo.class);
+                        if (list1 == null || list1.size() == 0) {
+                            refreshLayout.setEnableLoadMoreNoMoreData(false);
+                            refreshLayout.refreshComplete(2000);
+                            refreshLayout.setDisableLoadMore(true);
+                            refreshLayout.setDisableRefresh(true);
+                            return;
+                        }
+                        for (int i = 0; i < list1.size(); i++) {
+                            if(videoinfolist.get(i).getStatus() == 0){
+
+                            }else {
+                                fragments.add(new VideoPlayFragment(list1.get(i), videoinfolist.size() + i));
+                            }
+
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        videoinfolist.addAll(list1);
+                        refreshLayout.setEnableLoadMoreNoMoreData(true);
+                        refreshLayout.refreshComplete(2000);
+                    }
+
+                });
     }
 
     @Override
@@ -117,17 +176,8 @@ public class VideoPlayActivity extends BaseActivity {
         return false;
     }
 
-    private int pageno = 1, maxid, totlepage;
     private boolean canPull = true;
 
-    public void initdata() {
-        String mode = "hotvideolist";
-        //userid，页数，男女
-        String[] params = {"13", pageno + "", maxid + ""};
-        UsersThread_01066B b = new UsersThread_01066B(mode, params, handler);
-        Thread thread = new Thread(b.runnable);
-        thread.start();
-    }
 
     private Handler handler = new Handler() {
         @Override
@@ -145,40 +195,6 @@ public class VideoPlayActivity extends BaseActivity {
                 case 230:
                     refreshLayout.setDisableLoadMore(true);
                     refreshLayout.setDisableRefresh(true);
-                    break;
-                case 201:
-                    Page list = (Page) msg.obj;
-                    if (list == null) {
-                        refreshLayout.refreshComplete();
-                        return;
-                    }
-                    pageno = list.getCurrent();
-                    totlepage = list.getTotlePage();
-                    List<Videoinfo> a = new ArrayList<Videoinfo>();
-                    a = list.getList();
-                    if (a == null) {
-                        refreshLayout.refreshComplete();
-                        return;
-                    } else {
-                        if (a.size() == 0) {
-                            refreshLayout.setEnableLoadMoreNoMoreData(true);
-                            refreshLayout.refreshComplete(2000);
-                        } else {
-                            for (int i = 0; i < a.size(); i++) {
-                                videoinfolist.add(a.get(i));
-                            }
-                            fragments.clear();
-                            for (int i = 0; i < videoinfolist.size(); i++) {
-                                fragments.add(new VideoPlayFragment(videoinfolist.get(i), i));
-                            }
-                            adapter.notifyDataSetChanged();
-                            canPull = true;
-                            refreshLayout.setEnableLoadMoreNoMoreData(false);
-                            refreshLayout.refreshComplete(2000);
-                            refreshLayout.setDisableLoadMore(true);
-                            refreshLayout.setDisableRefresh(true);
-                        }
-                    }
                     break;
             }
         }

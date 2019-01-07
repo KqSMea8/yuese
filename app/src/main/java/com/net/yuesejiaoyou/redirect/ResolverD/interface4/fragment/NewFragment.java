@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -42,19 +44,18 @@ import okhttp3.Call;
 
 
 @SuppressLint("ValidFragment")
-public class NewFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class NewFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 	private List<User_data> articles = new ArrayList<User_data>();
 	private int pageno = 1;
 
 	private RecyclerView recyclerView;
-	private View view;
 	SwipeRefreshLayout refreshLayout;
 	Find2Adapter adapter;
 
 
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_focus, null);
-
+	@Override
+	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 		refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
 		refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
 				android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -90,8 +91,11 @@ public class NewFragment extends Fragment implements SwipeRefreshLayout.OnRefres
 		});
 
 		getBanner();
+	}
 
-		return view;
+	@Override
+	protected int getContentView() {
+		return R.layout.fragment_focus;
 	}
 
 	private void getBanner() {

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Videoinfo implements Serializable{
 	private int id;
-	private String userid;
+	private String user_id;
 	private String nickname;
 	private String video_id;
 
@@ -34,12 +34,12 @@ public class Videoinfo implements Serializable{
 		this.pay_num = pay_num;
 	}
 
-	public String getUserid() {
-		return userid;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public int getIsguanzhu() {
@@ -166,7 +166,7 @@ public class Videoinfo implements Serializable{
 	public String toString() {
 		return "Videoinfo{" +
 				"id=" + id +
-				", userid='" + userid + '\'' +
+				", user_id='" + user_id + '\'' +
 				", nickname='" + nickname + '\'' +
 				", video_id='" + video_id + '\'' +
 				", video_photo='" + video_photo + '\'' +

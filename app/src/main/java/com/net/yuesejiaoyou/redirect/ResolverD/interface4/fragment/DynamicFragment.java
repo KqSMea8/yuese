@@ -24,6 +24,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.VideoPlayActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.DynamicAdapter;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.MyLoadMoreView;
 
 import com.net.yuesejiaoyou.R;
@@ -104,6 +105,7 @@ public class DynamicFragment extends BaseFragment {
                 Intent intent = new Intent(getContext(), VideoPlayActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", position);
+                bundle.putString("url", url);
                 bundle.putSerializable("vlist", (Serializable) datas);
                 intent.putExtras(bundle);
                 startActivity(intent);

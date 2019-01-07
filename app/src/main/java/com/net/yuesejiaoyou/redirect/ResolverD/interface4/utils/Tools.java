@@ -1,6 +1,7 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -67,6 +68,12 @@ public class Tools {
 
     public static void setNullDrawable(TextView textView) {
         textView.setCompoundDrawables(null, null, null, null);
+    }
+
+    public static void backgroundAlpha(Activity context, float bgAlpha) {
+        WindowManager.LayoutParams lp = context.getWindow().getAttributes();
+        lp.alpha = bgAlpha; // 0.0-1.0
+        context.getWindow().setAttributes(lp);
     }
 
 
@@ -256,5 +263,132 @@ public class Tools {
                 return time / 60 + ":" + time % 60;
             }
         }
+    }
+
+
+    public static int getGift2Drwable(int gid) {
+        switch (gid) {
+            case 1:
+                return R.drawable.present_1;
+            case 2:
+                return R.drawable.present_2;
+            case 3:
+                return R.drawable.present_3;
+            case 4:
+                return R.drawable.present_4;
+            case 5:
+                return R.drawable.present_5;
+            case 6:
+                return R.drawable.present_6;
+            case 7:
+                return R.drawable.present_7;
+            case 8:
+                return R.drawable.present_8;
+            case 9:
+                return R.drawable.present_9;
+            case 10:
+                return R.drawable.present_10;//520
+            case 11:
+                return R.drawable.present_11;//蛋糕
+            case 12:
+                return R.drawable.present_12;//钻戒
+            case 13:
+                return R.drawable.present_13;//劳力士
+            case 14:
+                return R.drawable.present_14;//保时捷
+            case 15:
+                return R.drawable.present_15;//兰博
+            case 16:
+                return R.drawable.present_16;
+            case 17:
+                return R.drawable.present_17;
+            case 18:
+                return R.drawable.present_18;
+
+
+        }
+        return R.drawable.present_1;
+    }
+
+    public static String getGiftName(int gid) {
+        switch (gid) {
+            case 1:
+                return "鲜花";
+            case 2:
+                return "黄瓜";
+            case 3:
+                return "热气球";
+            case 4:
+                return "熊抱抱";
+            case 5:
+                return "加个好友";
+            case 6:
+                return "喜欢你";
+            case 7:
+                return "飞吻";
+            case 8:
+                return "红包";
+            case 9:
+                return "巧克力";
+            case 10:
+                return "520";//520
+            case 11:
+                return "玫瑰花";//蛋糕
+            case 12:
+                return "女神钻戒";//
+            case 13:
+                return "劳力士";//玫瑰花
+            case 14:
+                return "保时捷跑车";//妖姬
+            case 15:
+                return "兰博跑车";//鞋
+            case 16:
+                return "蓝色妖姬";//飞机
+            case 17:
+                return "别墅";//
+            case 18:
+                return "私人飞机";//城堡
+            case 26:
+                return "邮轮";//城堡
+
+        }
+        return "鲜花";
+    }
+
+    public static int getGiftCount(int gid) {
+        switch (gid) {
+            case 1:
+                return 9;
+            case 6:
+                return 18;
+            case 7:
+                return 66;
+            case 8:
+                return 99;
+            case 9:
+                return 188;
+            case 10:
+                return 520;//520
+            case 11:
+                return 888;//蛋糕
+            case 12:
+                return 1314;//
+            case 13:
+                return 1888;//玫瑰花
+            case 14:
+                return 2888;//妖姬
+            case 15:
+                return 3999;//鞋
+            case 16:
+                return 8888;//飞机
+            case 17:
+                return 12000;//
+            case 18:
+                return 16000;//城堡
+            case 26:
+                return 29999;//城堡
+
+        }
+        return 1;
     }
 }

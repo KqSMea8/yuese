@@ -6,7 +6,6 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,16 +17,13 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -40,9 +36,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckedTextView;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -63,25 +57,24 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.Chat;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.DropdownListView;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.Downloader;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IActivityListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IAgoraVideoEventListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IUserInfoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ClickUtils;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterRecyclerViewAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterTypeHelper;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuBean;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ZIP;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.BaseFragment;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.xiaojigou.luo.activity.ClickUtils;
+import com.xiaojigou.luo.activity.MenuAdapter;
+import com.xiaojigou.luo.activity.MenuBean;
+import com.xiaojigou.luo.camfilter.FilterRecyclerViewAdapter;
+import com.xiaojigou.luo.camfilter.FilterTypeHelper;
+import com.xiaojigou.luo.camfilter.GPUCamImgOperator;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
+import com.xiaojigou.luo.xjgarsdk.ZIP;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -105,7 +98,7 @@ import java.util.concurrent.ScheduledExecutorService;
  * Created by Administrator on 2018\8\17 0017.
  */
 
-public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
+public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener, IAgoraVideoEventListener {
 
     private View fragmentView;
     private Activity baseActivity;
@@ -189,7 +182,6 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         roomid = userInfoHandler.getRoomid();   //getIntent().getStringExtra("roomid");
         yid_zhubo = userInfoHandler.getFromUserId();    //getIntent().getStringExtra("yid_zhubo");
         guke_name = userInfoHandler.getFromUserName();  //getIntent().getStringExtra("guke_name");
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
 
         fragmentView.findViewById(R.id.btn_endcall).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,10 +251,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         startAwake();   // 保持屏幕常亮
 
 
-        //=====================================================
-        // 美颜初始化
-        //=====================================================
-        sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
         // 获取保存在本地的美颜参数
         hongRun = sharedPreferences.getInt("hongrun", 0);
         meiBai = sharedPreferences.getInt("meibai", 0);
@@ -308,7 +297,6 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
     @Override
     public void onFirstRemoteVideoDecoded() { // Tutorial Step 5
-
         setupRemoteVideo();
         remoteSurface = videoHandler.getRemoteSurfaceView();    //AgoraVideoManager.getRemoteSurfaceView();
         if (remoteSurface != null) {
@@ -514,16 +502,14 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
         setupLocalVideo();           // Tutorial Step 3
 
-
         localSurface = videoHandler.getLocalSurfaceView();  //AgoraVideoManager.getLocalSurfaceView();
 
         if (localSurface != null) {
             localSurface.setZOrderMediaOverlay(true);
-            localContainer.addView(localSurface);
+            localContainer.addView(localSurface,-1,-1);
+        }else {
+            LogUtil.i("ttt","-----localSurface is null");
         }
-
-
-//        AgoraVideoManager.setAgoraRtcListener(mRtcEventHandler);
         videoHandler.enableAudio();
     }
 
@@ -990,13 +976,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         }
     }
 
-    //==============================================================================================
-    //==============================================================================================
-    //==============================================================================================
-    //==============================================================================================
-    //==============================================================================================
-    //==============================================================================================
-    //==============================================================================================
+
     private LinearLayout mFilterLayout;
     private LinearLayout mFaceSurgeryLayout;
     protected SeekBar mFaceSurgeryFaceShapeSeek;
@@ -1012,7 +992,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
     private RecyclerView mFilterListView;
     private FilterRecyclerViewAdapter mAdapter;
-    private com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator GPUCamImgOperator;
+    private GPUCamImgOperator gpuCamImgOperator;
     private boolean isRecording = false;
     private final int MODE_PIC = 1;
     private final int MODE_VIDEO = 2;
@@ -1023,27 +1003,27 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
     private ObjectAnimator animator;
 
-    private final com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NONE,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.HEALTHY,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.COOL,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EMERALD,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.CRAYON
+    private final GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
+            GPUCamImgOperator.GPUImgFilterType.NONE,
+            GPUCamImgOperator.GPUImgFilterType.HEALTHY,
+            GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
+            GPUCamImgOperator.GPUImgFilterType.COOL,
+            GPUCamImgOperator.GPUImgFilterType.EMERALD,
+            GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
+            GPUCamImgOperator.GPUImgFilterType.CRAYON
     };
 
     protected void init() {
         //super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_camera_with_filter);
-        GPUCamImgOperator = new GPUCamImgOperator();
+        gpuCamImgOperator = new GPUCamImgOperator();
         LuoGLCameraView luoGLCameraView = (LuoGLCameraView) videoHandler.getLocalSurfaceView(); //AgoraVideoManager.getLocalSurfaceView();
         //mCustomizedCameraRenderer = luoGLCameraView;
 
         GPUCamImgOperator.context = luoGLCameraView.getContext();
         GPUCamImgOperator.luoGLBaseView = luoGLCameraView;
-        initView();
 
+        initView();
 
         //options
 //        //optimization mode for video
@@ -1427,11 +1407,11 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener() {
 
         @Override
-        public void onFilterChanged(com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType filterType) {
-//            GPUCamImgOperator.setFilter(filterType);
+        public void onFilterChanged(GPUCamImgOperator.GPUImgFilterType filterType) {
             String filterName = FilterTypeHelper.FilterType2FilterName(filterType);
             XJGArSdkApi.XJGARSDKChangeFilter(filterName);
         }
+
     };
 
 
@@ -1464,7 +1444,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
                 else
                     hideFilters();
             } else if (buttonId == R.id.btn_camera_switch) {
-                GPUCamImgOperator.switchCamera();
+                gpuCamImgOperator.switchCamera();
             } else if (buttonId == R.id.btn_camera_beauty) {
                 bShowFaceSurgery = !bShowFaceSurgery;
                 if (bShowFaceSurgery)
@@ -1491,16 +1471,16 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     }
 
     private void takePhoto() {
-        GPUCamImgOperator.savePicture();
+        gpuCamImgOperator.savePicture();
     }
 
     private void takeVideo() {
         if (isRecording) {
             animator.end();
-            GPUCamImgOperator.stopRecord();
+            gpuCamImgOperator.stopRecord();
         } else {
             animator.start();
-            GPUCamImgOperator.startRecord();
+            gpuCamImgOperator.startRecord();
         }
         isRecording = !isRecording;
     }

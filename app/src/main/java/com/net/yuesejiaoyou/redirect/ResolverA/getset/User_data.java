@@ -24,6 +24,15 @@ public class User_data {
 	private String good_num;
 	private String recieve_percent;
 
+	String jieting;
+
+	public String getJieting() {
+		return jieting;
+	}
+
+	public void setJieting(String jieting) {
+		this.jieting = jieting;
+	}
 
 	public String getRecieve_percent() {
 		return recieve_percent;

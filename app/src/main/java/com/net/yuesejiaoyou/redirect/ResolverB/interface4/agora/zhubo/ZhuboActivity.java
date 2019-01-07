@@ -5,54 +5,40 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceView;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.XMPPException;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IActivityListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IAgoraVideoEventListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.ICmdListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IUserInfoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.CallingFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.GukeFromCallingFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 import javax.microedition.khronos.egl.EGLContext;
 
@@ -72,7 +58,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
     private GukeInfo gukeInfo;
     private ICmdListener gukeCmdListener;
-    private IActivityListener activityListener;
     private IAgoraVideoEventListener videoEventListener;
 
     @Override
@@ -88,7 +73,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
         Bundle bundle = getIntent().getExtras();
         gukeInfo = bundle.getParcelable("guke");
 
-        LogUtil.i("ttt","---"+gukeInfo.toString());
+        LogUtil.i("ttt", "---" + gukeInfo.toString());
         // 初始化IM消息
         initIM();
 
@@ -130,7 +115,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
         transaction.commit();
 
         gukeCmdListener = (ICmdListener) fragment;
-        activityListener = (IActivityListener) fragment;
         videoEventListener = (IAgoraVideoEventListener) fragment;
     }
 
@@ -145,17 +129,17 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
         }
     }
 
-    //----------------------------------------------------------------------------------------------
-    // keyup 监听时间 提供给下级fragment使用 start
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        boolean bRet;
-        if (activityListener != null) {
-            if (activityListener.onKeyUp(keyCode, event)) {
-                return true;
-            }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                showToast("正在通话中...");
+                break;
+            default:
+                break;
         }
-        return super.onKeyUp(keyCode, event);
+
+        return false;
     }
 
     private void initIM() {
@@ -220,9 +204,8 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     private volatile boolean mJoined = false;
 
     private void initVideo() {
-        //if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
+        LogUtil.i("ttt", "-----initVideo---------");
         initAgoraEngineAndJoinChannel();
-        //}
     }
 
     public boolean checkSelfPermission(String permission, int requestCode) {
@@ -248,7 +231,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     private final IRtcEngineEventHandler mRtcEventHandler = new IRtcEngineEventHandler() { // Tutorial Step 1
         @Override
         public void onFirstRemoteVideoDecoded(final int uid, int width, int height, int elapsed) { // Tutorial Step 5
-
             runOnUiThread(new Runnable() {
 
                 @Override
@@ -320,10 +302,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
     // Tutorial Step 3
     private void setupLocalVideo() {
         if (mCustomizedCameraRenderer == null) {
-            // 代码生成LuoGLCameraView控件
-            //@SuppressLint("ResourceType") XmlPullParser parser = mContext.getResources().getXml(R.layout.lay_luoglcameraview);
-            //AttributeSet attributes = Xml.asAttributeSet(parser);
-            //mCustomizedCameraRenderer = new LuoGLCameraView(mContext, attributes);
             mCustomizedCameraRenderer = new LuoGLCameraView(this);
         }
         mCustomizedCameraRenderer.setOnFrameAvailableHandler(new LuoGLCameraView.OnFrameAvailableListener() {
@@ -349,19 +327,16 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
                     result = mRtcEngine.pushExternalVideoFrame(vf);
                 }
 
-
-                Log.d("TTT", "onFrameAvailable " + eglContext + " " + rotation + " " + texture + " " + result);
-
+                LogUtil.i("ttt","---onFrameAvailable----"+result);
             }
         });
 
         mCustomizedCameraRenderer.setOnEGLContextHandler(new LuoGLCameraView.OnEGLContextListener() {
             @Override
             public void onEGLContextReady(EGLContext eglContext) {
-
                 if (!mJoined) {
                     Log.v("TTT", "before joinChannel(" + gukeInfo.getRoomid() + ")");
-                    joinChannel(); // Tutorial Step 4
+                    joinChannel();
                     mJoined = true;
                 }
             }
@@ -383,7 +358,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
             public void run() {
                 ZhuboVideoFragment fragment = new ZhuboVideoFragment();
                 videoEventListener = fragment;
-                activityListener = fragment;
 
                 if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
                     initVideo();
@@ -398,16 +372,16 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
     @Override
     public SurfaceView getLocalSurfaceView() {
-        //return mCustomizedCameraRenderer == null ? null : mCustomizedCameraRenderer;
-        if (mCustomizedCameraRenderer != null) {
-            ViewGroup parent = (ViewGroup) mCustomizedCameraRenderer.getParent();
-            if (parent != null) {
-                parent.removeView(mCustomizedCameraRenderer);
-            }
-            return mCustomizedCameraRenderer;
-        } else {
-            return null;
-        }
+        return mCustomizedCameraRenderer;
+//        if (mCustomizedCameraRenderer != null) {
+//            ViewGroup parent = (ViewGroup) mCustomizedCameraRenderer.getParent();
+//            if (parent != null) {
+//                parent.removeView(mCustomizedCameraRenderer);
+//            }
+//            return mCustomizedCameraRenderer;
+//        } else {
+//            return null;
+//        }
     }
 
     @Override
@@ -421,7 +395,7 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 //        } else {
 //            return null;
 //        }
-        return remoteSurface == null ? null : remoteSurface;
+        return remoteSurface;
     }
 
     @Override

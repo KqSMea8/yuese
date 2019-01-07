@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -41,23 +43,19 @@ import okhttp3.Call;
 
 
 @SuppressLint("ValidFragment")
-public class ActiveFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ActiveFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
     //activity_v
     private List<User_data> articles = new ArrayList<User_data>();
     private int pageno = 1;
 
-    private Context mContext;
     private RecyclerView recyclerView;
-    private View view;
     SwipeRefreshLayout refreshLayout;
     Find2Adapter adapter;
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mContext = getActivity();
-        view = inflater.inflate(R.layout.fragment_focus, null);
-
-
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
         refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
                 android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -68,7 +66,7 @@ public class ActiveFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
         recyclerView = view.findViewById(R.id.theme_grre);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        adapter = new Find2Adapter(mContext, articles);
+        adapter = new Find2Adapter(getContext(), articles);
         recyclerView.setAdapter(adapter);
         adapter.setLoadMoreView(new MyLoadMoreView());
         adapter.setPreLoadNumber(1);
@@ -93,8 +91,11 @@ public class ActiveFragment extends Fragment implements SwipeRefreshLayout.OnRef
         });
 
         getBanner();
+    }
 
-        return view;
+    @Override
+    protected int getContentView() {
+        return R.layout.fragment_focus;
     }
 
     private void getBanner() {
@@ -122,7 +123,7 @@ public class ActiveFragment extends Fragment implements SwipeRefreshLayout.OnRef
                             return;
                         }
                         ArrayList<String> mListImage = new ArrayList<String>();
-                        headview = LayoutInflater.from(mContext).inflate(R.layout.activity_banner, null);
+                        headview = LayoutInflater.from(getContext()).inflate(R.layout.activity_banner, null);
                         Banner banner = headview.findViewById(R.id.header);
                         for (int i = 0; i < list1.size(); i++) {
                             mListImage.add(list1.get(i).getPhoto());
@@ -132,7 +133,7 @@ public class ActiveFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         banner.setImageLoader(new GlideImageLaoder());
                         banner.setBannerAnimation(Transformer.Tablet);
                         banner.setDelayTime(3000);
-                        banner.setBackgroundColor(mContext.getResources().getColor(R.color.black));
+                        banner.setBackgroundColor(getContext().getResources().getColor(R.color.black));
                         banner.setIndicatorGravity(BannerConfig.CENTER);
                         banner.start();
 

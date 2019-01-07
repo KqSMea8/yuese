@@ -113,7 +113,7 @@ public class VideoPlayPrivate_01066 extends FragmentActivity {
 	public void initdata() {
 		String mode = "videolist";
 		//userid，页数，男女
-		String[] params = {"13", pageno+"",videoinfolist.get(0).getUserid()};
+		String[] params = {"13", pageno+"",videoinfolist.get(0).getUser_id()};
 		UsersThread_01066B b = new UsersThread_01066B(mode, params, handler);
 		Thread thread = new Thread(b.runnable);
 		thread.start();

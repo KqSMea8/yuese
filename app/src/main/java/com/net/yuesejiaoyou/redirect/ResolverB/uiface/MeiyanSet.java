@@ -26,15 +26,16 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ClickUtils;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterRecyclerViewAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.FilterTypeHelper;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.LuoGLCameraView;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.MenuBean;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.ZIP;
+
+import com.xiaojigou.luo.activity.ClickUtils;
+import com.xiaojigou.luo.activity.MenuAdapter;
+import com.xiaojigou.luo.activity.MenuBean;
+import com.xiaojigou.luo.camfilter.FilterRecyclerViewAdapter;
+import com.xiaojigou.luo.camfilter.FilterTypeHelper;
+import com.xiaojigou.luo.camfilter.GPUCamImgOperator;
+import com.xiaojigou.luo.camfilter.widget.LuoGLCameraView;
 import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
+import com.xiaojigou.luo.xjgarsdk.ZIP;
 
 import java.util.ArrayList;
 
@@ -68,7 +69,7 @@ public class MeiyanSet extends Activity{
 
     private RecyclerView mFilterListView;
     private FilterRecyclerViewAdapter mAdapter;
-    private GPUCamImgOperator GPUCamImgOperator;
+    private GPUCamImgOperator gpuCamImgOperator;
     private boolean isRecording = false;
     private final int MODE_PIC = 1;
     private final int MODE_VIDEO = 2;
@@ -79,14 +80,14 @@ public class MeiyanSet extends Activity{
 
     private ObjectAnimator animator;
 
-    private final com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NONE,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.HEALTHY,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.COOL,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EMERALD,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
-            com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType.CRAYON
+    private final GPUCamImgOperator.GPUImgFilterType[] types = new GPUCamImgOperator.GPUImgFilterType[]{
+            GPUCamImgOperator.GPUImgFilterType.NONE,
+            GPUCamImgOperator.GPUImgFilterType.HEALTHY,
+            GPUCamImgOperator.GPUImgFilterType.NOSTALGIA,
+            GPUCamImgOperator.GPUImgFilterType.COOL,
+            GPUCamImgOperator.GPUImgFilterType.EMERALD,
+            GPUCamImgOperator.GPUImgFilterType.EVERGREEN,
+            GPUCamImgOperator.GPUImgFilterType.CRAYON
     };
 
     // 美颜参数
@@ -104,11 +105,11 @@ public class MeiyanSet extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_with_filter);
-        GPUCamImgOperator =  new GPUCamImgOperator();
+        gpuCamImgOperator =  new GPUCamImgOperator();
         LuoGLCameraView luoGLCameraView = (LuoGLCameraView)findViewById(R.id.glsurfaceview_camera);
         mCustomizedCameraRenderer = luoGLCameraView;
-        GPUCamImgOperator.context = luoGLCameraView.getContext();
-        GPUCamImgOperator.luoGLBaseView = luoGLCameraView;
+        gpuCamImgOperator.context = luoGLCameraView.getContext();
+        gpuCamImgOperator.luoGLBaseView = luoGLCameraView;
         initView();
 
 
@@ -468,7 +469,7 @@ public class MeiyanSet extends Activity{
     private FilterRecyclerViewAdapter.onFilterChangeListener onFilterChangeListener = new FilterRecyclerViewAdapter.onFilterChangeListener(){
 
         @Override
-        public void onFilterChanged(com.net.yuesejiaoyou.redirect.ResolverB.interface4.xjg.GPUCamImgOperator.GPUImgFilterType filterType) {
+        public void onFilterChanged(GPUCamImgOperator.GPUImgFilterType filterType) {
 //            GPUCamImgOperator.setFilter(filterType);
             String filterName = FilterTypeHelper.FilterType2FilterName(filterType);
             XJGArSdkApi.XJGARSDKChangeFilter(filterName);
@@ -535,7 +536,7 @@ public class MeiyanSet extends Activity{
                     hideFilters();
             }
             else if (buttonId == R.id.btn_camera_switch) {
-                GPUCamImgOperator.switchCamera();
+                gpuCamImgOperator.switchCamera();
             }
             else if (buttonId == R.id.btn_camera_beauty) {
                 bShowFaceSurgery = ! bShowFaceSurgery;
@@ -564,16 +565,16 @@ public class MeiyanSet extends Activity{
     }
 
     private void takePhoto(){
-        GPUCamImgOperator.savePicture();
+        gpuCamImgOperator.savePicture();
     }
 
     private void takeVideo(){
         if(isRecording) {
             animator.end();
-            GPUCamImgOperator.stopRecord();
+            gpuCamImgOperator.stopRecord();
         }else {
             animator.start();
-            GPUCamImgOperator.startRecord();
+            gpuCamImgOperator.startRecord();
         }
         isRecording = !isRecording;
     }

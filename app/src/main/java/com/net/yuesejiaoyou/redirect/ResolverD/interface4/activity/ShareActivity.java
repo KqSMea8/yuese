@@ -56,7 +56,6 @@ public class ShareActivity extends BaseActivity {
         }
     }
 
-
     public void getDatas() {
         OkHttpUtils.post(this)
                 .url(URL.URL_PROMOTE)
@@ -100,6 +99,10 @@ public class ShareActivity extends BaseActivity {
         return R.layout.activity_tuiguang_01152;
     }
 
+    @Override
+    public int statusBarColor() {
+        return R.color.vhongse;
+    }
 
     @OnClick(R.id.back)
     public void backClick(){

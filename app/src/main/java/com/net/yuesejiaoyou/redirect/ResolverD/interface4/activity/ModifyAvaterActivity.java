@@ -22,6 +22,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,16 +45,23 @@ import com.example.vliao.interface4.LogDetect;
 import com.example.vliao.interface4.LogDetect.DataType;
 import com.example.vliao.interface4.RoundImageView;
 import com.example.vliao.util.Util;*/
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Member_01152;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UploadFileTask;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01152;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.RoundImageView;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,20 +73,21 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import butterknife.OnClick;
+import okhttp3.Call;
 
-public class ModifyAvaterActivity extends BaseActivity implements OnClickListener {
+
+public class ModifyAvaterActivity extends BaseActivity {
     ImageView back;
-    TextView quxiao1, nicheng, quxiao;
-    RoundImageView touxiang;
+    TextView nicheng;
+    ImageView touxiang;
 
     private static final int TAKE_PICTURE = 0x000001;
-    RelativeLayout RL, rl, t2;
+    RelativeLayout t2;
     LinearLayout xiangji, xiangce;
-    EditText newname;
-    TextView queding;
-    Button queren;
     String path = Util.url + "/img/imgheadpic/";
     //初始化相册
     private Uri photoUri;
@@ -92,20 +101,12 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogDetect.send(LogDetect.DataType.specialType, "ModifyAvaterActivity:", "布局开始");
         //初始化头像
-        touxiang = (RoundImageView) findViewById(R.id.touxiang);
+        touxiang = findViewById(R.id.touxiang);
         //初始化昵称
         nicheng = (TextView) findViewById(R.id.nicheng);
 
-        back = (ImageView) findViewById(R.id.back);
-        back.setOnClickListener(this);
 
-        queding = (TextView) findViewById(R.id.queding);
-        queding.setOnClickListener(this);
-
-        RL = (RelativeLayout) findViewById(R.id.RL);
-        RL.setOnClickListener(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             for (String permission : permissions) {
                 // 检查该权限是否已经获取
@@ -118,16 +119,42 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
                 }
             }
         }
-        rl = (RelativeLayout) findViewById(R.id.rl);
-        rl.setOnClickListener(this);
-        LogDetect.send(LogDetect.DataType.specialType, "ModifyAvaterActivity:", "布局结束");
 
-        //向服务端请求个人信息
-        String mode = "personal_information";
-        String[] paramsMap = {Util.userid};
-        UsersThread_01152 b = new UsersThread_01152(mode, paramsMap, requestHandler);
-        Thread t = new Thread(b.runnable);
-        t.start();
+        getDatas();
+    }
+
+    private void getDatas() {
+        OkHttpUtils
+                .post(this)
+                .url(URL.URL_USERDETAILE)
+                .addParams("param1", Util.userid)
+                .build()
+                .execute(new DialogCallback(this) {
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (TextUtils.isEmpty(response)) {
+                            showToast("网络异常");
+                            return;
+                        }
+
+                        List<Member_01152> list1 = JSON.parseArray(response, Member_01152.class);
+                        if (list1 == null || list1.size() <= 0) {
+                            return;
+                        }
+                        nicheng.setText(list1.get(0).getNickname());
+
+                        if (list1.get(0).getPhoto().contains("http")) {
+                            ImageUtils.loadImage(list1.get(0).getPhoto(), touxiang);
+                        }
+                    }
+
+                });
     }
 
     @Override
@@ -135,41 +162,76 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
         return R.layout.xiugaiziliao_1152;
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
 
-            case R.id.back:
-                //点击左尖号，返回到上一个页面
-                finish();
-                break;
-            case R.id.queding:
-                //点击保存，保存整个页面,在服务端将整个修改的地方重新初始化，先修改再查询
-                String mode = "save_personal_information";//输入的昵称                                                    //头像图片
-                String[] paramsMap = {Util.userid, nicheng.getText().toString(), path};
-                UsersThread_01152 b = new UsersThread_01152(mode, paramsMap, requestHandler);
-                Thread t = new Thread(b.runnable);
-                t.start();
-                break;
-            case R.id.RL:
-                //点击图片右尖号，弹出更改图片页面，更改图片。
-                int i = 1;
-                showPopupspWindow(v, i);
-                break;
-            case R.id.rl:
-                Intent intent = new Intent();
-                intent.setClass(ModifyAvaterActivity.this, NickEditActivity.class);
-                intent.putExtra("old_name", nicheng.getText());
-                startActivityForResult(intent, 162);
-                break;
-//		case R.id.xingbie1:
-//			//点击性别右尖号，更改性别
-//			int i2 = 3;
-//			showPopupspWindow1(v,i2);
-//			break;
-        }
+    @OnClick(R.id.ll_avater)
+    public void avaterClick() {
+        showPopupspWindow();
     }
+
+    @OnClick(R.id.ll_name)
+    public void nameClick() {
+        Intent intent = new Intent();
+        intent.setClass(ModifyAvaterActivity.this, NickEditActivity.class);
+        intent.putExtra("old_name", nicheng.getText());
+        startActivityForResult(intent, 162);
+    }
+
+    @OnClick(R.id.queding)
+    public void commitClick() {
+//        String mode = "save_personal_information";//输入的昵称                                                    //头像图片
+//        String[] paramsMap = {Util.userid, nicheng.getText().toString(), path};
+//        UsersThread_01152 b = new UsersThread_01152(mode, paramsMap, requestHandler);
+//        Thread t = new Thread(b.runnable);
+//        t.start();
+
+        final String nick = nicheng.getText().toString();
+        if (TextUtils.isEmpty(nick)) {
+            showToast("请输入昵称");
+            return;
+        }
+        OkHttpUtils
+                .post(this)
+                .url(URL.URL_UPDATEUSER)
+                .addParams("param1", Util.userid)
+                .addParams("param2", nick)
+                .addParams("param3", path)
+                .build()
+                .execute(new StringCallback() {
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("修改失败");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (TextUtils.isEmpty(response)) {
+                            showToast("修改失败");
+                            return;
+                        }
+
+                        try { //如果服务端返回1，说明个人信息修改成功了
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.getString("success").equals("1")) {
+                                Toast.makeText(ModifyAvaterActivity.this, "修改成功", Toast.LENGTH_SHORT).show();//Modify the success
+                                sp.edit().putString("nickname", nick).apply();
+                                finish();
+                            } else {
+                                Toast.makeText(ModifyAvaterActivity.this, "修改失败", Toast.LENGTH_SHORT).show();//Modify the failure
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                });
+    }
+
+    @OnClick(R.id.back)
+    public void backClick() {
+        finish();
+    }
+
 
     private Handler requestHandler = new Handler() {
         @Override
@@ -179,69 +241,17 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
                 case 101:
                     @SuppressWarnings("unchecked")
                     String path = (String) msg.obj;
-                    SharedPreferences share1 = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
-                    share1.edit().putString("photo", path).commit();
-
+                    sp.edit().putString("photo", path).commit();
                     touxiang.setTag(Util.url + path);
-                    /*ImgLoad.imgDL(Utils.url + path,
-                            iv_photoimage);*/
-                    String mode2 = "personal_information";
-                    String[] paramsMap2 = {Util.userid};
-                    UsersThread_01152 b2 = new UsersThread_01152(mode2, paramsMap2, requestHandler);
-                    Thread t2 = new Thread(b2.runnable);
-                    t2.start();
+                    getDatas();
                     break;
-                //将用户的信息返回显示
-                case 210:
-                    @SuppressWarnings("unchecked")
-                    ArrayList<Member_01152> list1 = (ArrayList<Member_01152>) msg.obj;
-
-                    if (list1 == null || list1.size() <= 0) {
-                        break;
-                    }
-                    LogDetect.send(LogDetect.DataType.specialType, "ModifyInformation_01152昵称:", list1.get(0).getNickname());
-                    nicheng.setText(list1.get(0).getNickname());
-
-                    if (list1.get(0).getPhoto().contains("http")) {
-                        ImageLoader.getInstance().displayImage(list1.get(0).getPhoto(), touxiang, options);
-                    }
-                    break;
-                //点击保存后先修改后展示
-                case 202:
-                    String json = (String) msg.obj;
-                    if (json.equals("")) {
-                        Toast.makeText(ModifyAvaterActivity.this, "返回的json为空", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-
-                    try { //如果服务端返回1，说明个人信息修改成功了
-                        JSONObject jsonObject = new JSONObject(json);
-                        if (jsonObject.getString("success").equals("1")) {
-                            Toast.makeText(ModifyAvaterActivity.this, "修改成功", Toast.LENGTH_SHORT).show();//Modify the success
-                            finish();
-                        } else {
-                            Toast.makeText(ModifyAvaterActivity.this, "修改失败", Toast.LENGTH_SHORT).show();//Modify the failure
-                        }
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    //向服务端请求个人信息
-                    String mode = "personal_information";
-                    String[] paramsMap = {Util.userid};
-                    UsersThread_01152 b = new UsersThread_01152(mode, paramsMap, requestHandler);
-                    Thread t = new Thread();
-                    t.start();
-
-                    SharedPreferences share = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
-                    share.edit().putString("nickname", nicheng.getText().toString()).commit();
 
             }
         }
     };
 
     //弹出的更改图片界面
-    public void showPopupspWindow(View parent, final int i) {
+    public void showPopupspWindow() {
         // 加载布局
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.modify_photo_01152, null);
@@ -300,7 +310,7 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
         // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 252, 0);
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 252, 0);
         // 监听
 
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -315,7 +325,6 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
         });
 
     }
-
 
 
     //判断图片的状态
@@ -399,8 +408,8 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
             path = data.getData().getEncodedPath();
             path = compressPic(path);
         }
-		/*try {
-			bitmap = BitmapFactory.decodeStream(new FileInputStream(new File(path)));
+        /*try {
+            bitmap = BitmapFactory.decodeStream(new FileInputStream(new File(path)));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -475,7 +484,7 @@ public class ModifyAvaterActivity extends BaseActivity implements OnClickListene
             Uri imageFileUri;
 
 			/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {//如果是7.0android系统
-				ContentValues contentValues = new ContentValues(1);
+                ContentValues contentValues = new ContentValues(1);
 				contentValues.put(MediaStore.Images.Media.DATA, imageFile.getAbsolutePath());
 				imageFileUri= getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,contentValues);
 			}else{

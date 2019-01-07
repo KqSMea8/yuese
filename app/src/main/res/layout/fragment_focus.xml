@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="#fffefefe">
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
@@ -11,7 +12,9 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/theme_grre"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
