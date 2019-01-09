@@ -51,17 +51,14 @@ public class GiftDialog extends PopupWindow {
     List<GiftBean> datas = new ArrayList<>();
     private View rootView;
     private GiftBean selectPresent;
-    private TextView songli_yd;
     RecyclerView recyclerView;
 
     private SharedPreferences sp;
 
-    private Toast toast;
     private Gift2Adapter giftAdapter;
 
     OnGiftLishener lishener;
     private TextView tvYes;
-    String key = "";
     String userid;
 
     public GiftDialog(final Activity context, String userid) {
@@ -155,7 +152,6 @@ public class GiftDialog extends PopupWindow {
 
 
     public void sendgiftHttp(final int gid) {
-        tvYes.setEnabled(false);
         OkHttpUtils
                 .post(context)
                 .url(URL.URL_SENDGIFT)

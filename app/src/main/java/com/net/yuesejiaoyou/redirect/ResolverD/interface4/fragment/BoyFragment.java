@@ -79,12 +79,13 @@ public class BoyFragment extends Fragment implements SwipeRefreshLayout.OnRefres
                     intentthis.putExtra("name", articles.get(position).getNickname());
                     intentthis.putExtra("headpic", articles.get(position).getPhoto());
                     startActivity(intentthis);
-                } else if (view.getId() == R.id.zhichi) {
-                    String roomid = System.currentTimeMillis() + "";
-                    ZhuboActivity.startCallGuke(mContext, new GukeInfo(articles.get(position).getId() + "",
-                            articles.get(position).getNickname(), articles.get(position).getPhoto(), roomid,
-                            P2PVideoConst.ZHUBO_CALL_GUKE, P2PVideoConst.HAVE_NO_YUYUE));
                 }
+//                else if (view.getId() == R.id.zhichi) {
+//                    String roomid = System.currentTimeMillis() + "";
+//                    ZhuboActivity.startCallGuke(mContext, new GukeInfo(articles.get(position).getId() + "",
+//                            articles.get(position).getNickname(), articles.get(position).getPhoto(), roomid,
+//                            P2PVideoConst.ZHUBO_CALL_GUKE, P2PVideoConst.HAVE_NO_YUYUE));
+//                }
             }
         });
 

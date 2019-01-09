@@ -31,10 +31,9 @@ import okhttp3.Call;
 public class WithdrawActivity extends BaseActivity implements OnClickListener {
     //自定义ID
 
-    private ImageView back;
     private TextView account_num,account_name,phone_num,exchange,total_asset;
     private LinearLayout account_lay;
-    private TextView details,submitp,maxmoney,maxmoneygz;
+    private TextView details,maxmoney,maxmoneygz;
     private EditText username;
     private double cash_lower=0;
     int money_tx = 0;
@@ -47,8 +46,7 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        back = (ImageView) findViewById(R.id.back);
-        back.setOnClickListener(this);
+
         account_lay = (LinearLayout) findViewById(R.id.account_lay);
         account_lay.setOnClickListener(this);
         account_num = (TextView) findViewById(R.id.account_num);
@@ -59,11 +57,9 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
 		details= (TextView) findViewById(R.id.tixian_details);
 		details.setOnClickListener(this);
         username= (EditText) findViewById(R.id.username);
-        submitp= (TextView) findViewById(R.id.submitp);
         maxmoney= (TextView) findViewById(R.id.maxmoney);
         maxmoneygz= (TextView) findViewById(R.id.maxmoneygz);
 
-        submitp.setOnClickListener(this);
         username.setFocusable(false);
         username.setFocusableInTouchMode(true);
 
@@ -159,8 +155,6 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
         }
         if (isup){
             isup=false;
-
-
             OkHttpUtils.post(this)
                     .url(URL.URL_WITHDRAWUP)
                     .addParams("param1", Util.userid)
@@ -201,11 +195,6 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
         // TODO Auto-generated method stub
         int id = v.getId();
         switch (id) {
-
-            case R.id.submitp://金额不应超过可用金额。数量不能为空或零。
-
-
-                break;
 			case R.id.tixian_details:
 				Intent intent=new Intent();
 				if(Util.iszhubo.equals("1")){
@@ -217,9 +206,6 @@ public class WithdrawActivity extends BaseActivity implements OnClickListener {
 				break;
 			case R.id.account_lay:
                    Intent intent1=new Intent();
-                /**************************
-                 * 没有申请，暂时注释
-                 *************************/
                    intent1.setClass(WithdrawActivity.this,vliao_shenqing_01152.class);
                    startActivity(intent1);
 				break;

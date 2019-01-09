@@ -1,6 +1,7 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.ActionBar.LayoutParams;
@@ -26,13 +27,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.CoustomerActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AnchorGuideActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -55,7 +59,11 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity
 ///////////////////////A区调用B区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.User_level_01165;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
 import cn.jpush.android.api.JPushInterface;
+import okhttp3.Call;
 
 
 /****************************************************************
@@ -144,18 +152,56 @@ public class MineFragment extends Fragment implements OnClickListener{
 		LogDetect.send(LogDetect.DataType.specialType, "MineFragment:", "布局结束");
 		//////////////////////////////
 		//发请求
-		String mode = "gerenzhongxin";
-		String[] paramMap = {Util.userid};
-		//////////////////////////////
-		LogDetect.send(LogDetect.DataType.specialType, "MineFragment:", "参数=======");
-		//////////////////////////////
-		UsersThread_01152A b = new UsersThread_01152A(mode, paramMap, handler);
-		Thread th= new Thread(b.runnable);
-		th.start();
+
+		getData();
 		wdarao();
 		return mBaseView;
 	}
 
+
+	public void getData(){
+//		String mode = "gerenzhongxin";
+//		String[] paramMap = {Util.userid};
+//		//////////////////////////////
+//		//////////////////////////////
+//		UsersThread_01152A b = new UsersThread_01152A(mode, paramMap, handler);
+//		Thread th= new Thread(b.runnable);
+//		th.start();
+
+		OkHttpUtils.post(this)
+				.url(URL.URL_USERDETAILE)
+				.addParams("param1", Util.userid)
+				.build()
+				.execute(new StringCallback() {
+					@Override
+					public void onError(Call call, Exception e, int id) {
+
+					}
+
+					@Override
+					public void onResponse(String response, int id) {
+						List<Member_01152> list = JSON.parseArray(response, Member_01152.class);
+						if(list==null || list.size()==0){
+							Toast.makeText(mContext, "网络出错", Toast.LENGTH_SHORT).show();
+							return;
+						}
+						if(list.get(0).getPhoto().contains("http")){
+							ImageLoader.getInstance().displayImage(list.get(0).getPhoto(),touxiang,options);
+						}else{
+							ImageLoader.getInstance().displayImage("http://120.27.98.128:9118/img/imgheadpic/"+list.get(0).getPhoto(),touxiang,options);
+						}
+						user_id.setText(list.get(0).getNickname()+"(ID:"+list.get(0).getId()+")");
+						money.setText(list.get(0).getMoney()+"");
+						dengji.setText("LV."+list.get(0).getDengji());
+						if (list.get(0).getdailishang()!=0){
+							dailishang.setVisibility(View.VISIBLE);
+							dailishang.setText("DL."+list.get(0).getdailishang());
+						}
+						my_guanzhu.setText(list.get(0).getSum()+"");
+						myrenzheng=list.get(0).getMyrenzheng();
+					}
+				});
+	}
 	/****************************************************************
 	 * 对页面进行重新刷新
 	 * @
@@ -221,28 +267,14 @@ public class MineFragment extends Fragment implements OnClickListener{
 				}else{
 				ImageLoader.getInstance().displayImage("http://120.27.98.128:9118/img/imgheadpic/"+list.get(0).getPhoto(),touxiang,options);
 				}
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"152+++++++++昵称156561",list.get(0).getNickname());
-				//////////////////////////////
 				user_id.setText(list.get(0).getNickname()+"(ID:"+list.get(0).getId()+")");
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"152+++++++++",list.get(0).getNickname());
-				//////////////////////////////
 				money.setText(list.get(0).getMoney()+"");
 				dengji.setText("LV."+list.get(0).getDengji());
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"152+++++++++",list.get(0).getDengji());
-				//////////////////////////////
 				if (list.get(0).getdailishang()!=0){
 					dailishang.setVisibility(View.VISIBLE);
 					dailishang.setText("DL."+list.get(0).getdailishang());
 				}
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"152+++++++++",list.get(0).getdailishang());
-				//////////////////////////////
 				my_guanzhu.setText(list.get(0).getSum()+"");
-				//////////////////////////////
-				LogDetect.send(LogDetect.DataType.basicType,"152+++++++++",list.get(0).getMoney());
 				myrenzheng=list.get(0).getMyrenzheng();
 				break;
 				

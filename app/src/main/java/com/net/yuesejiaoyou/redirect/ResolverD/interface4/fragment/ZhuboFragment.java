@@ -105,10 +105,14 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         adapter.setOnItemClickListener(this);
 
         wdarao();
-        getData();
         return mBaseView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData();
+    }
 
     private List<MineBean> getItems() {
         List<MineBean> list = new ArrayList<>();
@@ -117,7 +121,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         list.add(new MineBean(R.drawable.qianbao, "我的钱包"));
         list.add(new MineBean(R.drawable.fencheng, "分享赚钱"));
         list.add(new MineBean(R.drawable.qunfa, "群发私信"));
-        list.add(new MineBean(R.drawable.meiyan, "美颜设置"));
+        //list.add(new MineBean(R.drawable.meiyan, "美颜设置"));
         wuraoBean = new MineBean(R.drawable.wuraonoo, "在线");
         list.add(wuraoBean);
         list.add(new MineBean(R.drawable.heimingdan, "黑名单"));
@@ -128,7 +132,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         return list;
     }
 
-    private void getData() {
+    public void getData() {
         OkHttpUtils.post(this)
                 .url(URL.URL_ZHUBOZHONGXING)
                 .addParams("param1", Util.userid)

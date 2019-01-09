@@ -180,10 +180,8 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         id_call_v = (ImageView) view.findViewById(id.id_call_v);
         id_video_income = (TextView) view.findViewById(id.id_video_income);
         id_send_red_packet = (GifImageView) view.findViewById(id.id_send_red_packet);
-        id_send_red_packet.setImageResource(R.drawable.giftoff);
 
         if (TextUtils.isEmpty(info.getUser_id()) || info.getUser_id().equals(Util.userid)) {
-            LogUtil.i("ttt",info.toString());
             id_call_v.setVisibility(View.GONE);
             id_video_income.setVisibility(View.VISIBLE);
             id_send_red_packet.setVisibility(View.GONE);
@@ -1179,155 +1177,12 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
     }
 
-    /***********************************************************************
-     * 红包打赏
-     * @
-     ***********************************************************************/
-    public void showPopupspWindow_sendred(View parent) {
-        LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.red_choose_01165, null);
-
-        TextView cancel = (TextView) layout.findViewById(id.cancel);
-        cancel.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                popupWindow.dismiss();
-            }
-        });
-        //开线程，添加V币
-        TextView coin1 = (TextView) layout.findViewById(id.coin1);
-        coin1.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(9);
-                popupWindow.dismiss();
-
-            }
-        });
-        TextView coin2 = (TextView) layout.findViewById(id.coin2);
-        coin2.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-                songhongbao(18);
-                popupWindow.dismiss();
-                //			songhongbao(18);
-            }
-        });
-        TextView coin3 = (TextView) layout.findViewById(id.coin3);
-        coin3.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(66);
-                popupWindow.dismiss();
-                //			songhongbao(66);
-            }
-        });
-        TextView coin4 = (TextView) layout.findViewById(id.coin4);
-        coin4.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(99);
-                popupWindow.dismiss();
-                //			songhongbao(99);
-            }
-        });
-        TextView coin5 = (TextView) layout.findViewById(id.coin5);
-        coin5.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(188);
-                popupWindow.dismiss();
-                //			songhongbao(188);
-            }
-        });
-        TextView coin6 = (TextView) layout.findViewById(id.coin6);
-        coin6.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(520);
-                popupWindow.dismiss();
-                //			songhongbao(520);
-            }
-        });
-        TextView coin7 = (TextView) layout.findViewById(id.coin7);
-        coin7.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(888);
-                popupWindow.dismiss();
-                //			songhongbao(888);
-            }
-        });
-        TextView coin8 = (TextView) layout.findViewById(id.coin8);
-        coin8.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(1314);
-                popupWindow.dismiss();
-                //		songhongbao(1314);
-            }
-        });
 
 
-        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT,
-                ViewPager.LayoutParams.WRAP_CONTENT, true);
-        // 控制键盘是否可以获得焦点
-        popupWindow.setFocusable(true);
-        // 设置popupWindow弹出窗体的背景
-        // WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-        //lp.alpha = 0.4f;
-        // getActivity().getWindow().setAttributes(lp);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);
-        @SuppressWarnings("deprecation")
-        // 获取xoff
-                int xpos = manager.getDefaultDisplay().getWidth() / 2
-                - popupWindow.getWidth() / 2;
-        // xoff,yoff基于anchor的左下角进行偏移。
-        // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 252, 0);
-        // 监听
-
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            // 在dismiss中恢复透明度
-            public void onDismiss() {
-                id_send_red_packet.setImageResource(R.drawable.gifton);
-            }
-        });
-    }
-
-    /************************************************************************
-     * 开线程，添加红包
-     * @
-     ************************************************************************/
     public void songhongbao(int coin) {
         price = coin + "";
         LogDetect.send(DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
         String mode = "red_envelope";
-        //userid,---用户id，“2”----主播id，coin----红包大小
-//        String[] params = {Util.userid, videoinfo1.getUser_id() + "", Integer.toString(coin)};
-//        UsersThread_01165B b = new UsersThread_01165B(mode, params, handler);
-//        Thread thread = new Thread(b.runnable);
-//        thread.start();
 
         OkHttpUtils.post(this)
                 .url(URL.URL_HONGBAO)

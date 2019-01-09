@@ -1,7 +1,6 @@
 package com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack;
 
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -28,82 +27,79 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.XMPPConnection;
 
 
-
-
-
-
 public class XMPPTCPConnection extends XMPPConnection {
-	
 
-	public XMPPTCPConnection(ConnectionConfiguration configuration) {
-		super(configuration);
-		// TODO Auto-generated constructor stub
-	}
 
-	Socket socket;
+    public XMPPTCPConnection(ConnectionConfiguration configuration) {
+        super(configuration);
+        // TODO Auto-generated constructor stub
+    }
 
-	String connectionID = null;
-	private String user = null;
-	private boolean connected = false;
-	// socketClosed is used concurrent
-	// by XMPPTCPConnection, PacketReader, PacketWriter
-	private volatile boolean socketClosed = false;
-	protected Reader reader;
-	protected Writer writer;
-	protected boolean authenticated;
-	private boolean anonymous = false;
-	private boolean usingTLS = false;
-	private boolean serverAckdCompression = false;
-	// private ParsingExceptionCallback parsingExceptionCallback =
-	// SmackConfiguration.getDefaultParsingExceptionCallback();
+    Socket socket;
 
-	PacketWriter packetWriter;
-	PacketReader packetReader;
+    String connectionID = null;
+    private String user = null;
+    private boolean connected = false;
+    // socketClosed is used concurrent
+    // by XMPPTCPConnection, PacketReader, PacketWriter
+    private volatile boolean socketClosed = false;
+    protected Reader reader;
+    protected Writer writer;
+    protected boolean authenticated;
+    private boolean anonymous = false;
+    private boolean usingTLS = false;
+    private boolean serverAckdCompression = false;
+    // private ParsingExceptionCallback parsingExceptionCallback =
+    // SmackConfiguration.getDefaultParsingExceptionCallback();
 
-	protected XMPPInputOutputStream compressionHandler;
+    PacketWriter packetWriter;
+    PacketReader packetReader;
 
-	//ConnectionConfiguration config;
-    int  i=0;
- 	public void connectUsingConfiguration(ConnectionConfiguration config)
-			throws IOException, SmackException {
-		//this.config = config;
-		Exception exception = null;
-		////////////////////------------------>>>>>>>>
-		LogDetect.send(DataType.specialType,"xmpp连接内部:","8");
-		////////////////////------------------>>>>>>>>
-		/*
+    protected XMPPInputOutputStream compressionHandler;
+
+    //ConnectionConfiguration config;
+    int i = 0;
+
+    public void connectUsingConfiguration(ConnectionConfiguration config)
+            throws IOException, SmackException {
+        //this.config = config;
+        Exception exception = null;
+        ////////////////////------------------>>>>>>>>
+        LogDetect.send(DataType.specialType, "xmpp连接内部:", "8");
+        ////////////////////------------------>>>>>>>>
+        /*
 		 * try { maybeResolveDns(); } catch (Exception e) { throw new
 		 * SmackException(e); }
 		 */
-		Iterator<HostAddress> it = config.getHostAddresses().iterator();
-		List<HostAddress> failedAddresses = new LinkedList<HostAddress>();
-		
-		while (it.hasNext()) {
-			exception = null;
-			// 获取端口号 IP链接socket
-			HostAddress hostAddress = it.next();
-			String host = hostAddress.getFQDN();
-			int port = hostAddress.getPort();
-			Log.v("PAOPAO","connectUsingConfiguration():"+host+","+port);
-			////////////////////------------------>>>>>>>>
-			LogDetect.send(DataType.specialType,"xmpp连接内部:","1");
-			////////////////////------------------>>>>>>>>
-			try {
-				if (config.getSocketFactory() == null) {
-					this.socket = new Socket(host, port);
-					//Log.v("PAOPAO","socket-:"+this.socket+",host:"+host+",port:"+port);
-					////////////////////------------------>>>>>>>>
-					LogDetect.send(DataType.specialType,"xmpp连接内部:","2");
-					////////////////////------------------>>>>>>>>
-				} else {
-					this.socket = config.getSocketFactory().createSocket(host,
-							port);
-					//Log.v("PAOPAO","socket+:"+this.socket+",host:"+host+",port:"+port);
-				}
-			} catch (Exception e) {
-				////////////////////------------------>>>>>>>>
-				LogDetect.send(DataType.specialType,"xmpp连接内部:","3");
-				////////////////////------------------>>>>>>>>
+        Iterator<HostAddress> it = config.getHostAddresses().iterator();
+        List<HostAddress> failedAddresses = new LinkedList<HostAddress>();
+
+        while (it.hasNext()) {
+            exception = null;
+            // 获取端口号 IP链接socket
+            HostAddress hostAddress = it.next();
+            String host = hostAddress.getFQDN();
+            int port = hostAddress.getPort();
+            Log.v("PAOPAO", "connectUsingConfiguration():" + host + "," + port);
+            ////////////////////------------------>>>>>>>>
+            LogDetect.send(DataType.specialType, "xmpp连接内部:", "1");
+            ////////////////////------------------>>>>>>>>
+            try {
+                if (config.getSocketFactory() == null) {
+                    this.socket = new Socket(host, port);
+                    //Log.v("PAOPAO","socket-:"+this.socket+",host:"+host+",port:"+port);
+                    ////////////////////------------------>>>>>>>>
+                    LogDetect.send(DataType.specialType, "xmpp连接内部:", "2");
+                    ////////////////////------------------>>>>>>>>
+                } else {
+                    this.socket = config.getSocketFactory().createSocket(host,
+                            port);
+                    //Log.v("PAOPAO","socket+:"+this.socket+",host:"+host+",port:"+port);
+                }
+            } catch (Exception e) {
+                ////////////////////------------------>>>>>>>>
+                LogDetect.send(DataType.specialType, "xmpp连接内部:", "3");
+                ////////////////////------------------>>>>>>>>
 				/*socketClosed=true;
 				if(i<5){
 					try {
@@ -124,40 +120,40 @@ public class XMPPTCPConnection extends XMPPConnection {
 						e1.printStackTrace();
 					}
 			    }*/
-				exception = e;
-				Log.v("PAOPAO","exception:"+e);
-				//LogDetect.send(DataType.basicType,Utils.seller_id+"=phone="+Utils.android,exception.toString());
-			}
-			if (exception == null) {
-				//socketClosed=false;
-				// We found a host to connect to, break here
-				host = hostAddress.getFQDN();
-				port = hostAddress.getPort();
-				break;
-			}
-			hostAddress.setException(exception);
-			failedAddresses.add(hostAddress);
-			if (!it.hasNext()) {
-				// There are no more host addresses to try
-				// throw an exception and report all tried
-				// HostAddresses in the exception
-				// throw new ConnectionException(failedAddresses);
-			}
-		}
+                exception = e;
+                Log.v("PAOPAO", "exception:" + e);
+                //LogDetect.send(DataType.basicType,Utils.seller_id+"=phone="+Utils.android,exception.toString());
+            }
+            if (exception == null) {
+                //socketClosed=false;
+                // We found a host to connect to, break here
+                host = hostAddress.getFQDN();
+                port = hostAddress.getPort();
+                break;
+            }
+            hostAddress.setException(exception);
+            failedAddresses.add(hostAddress);
+            if (!it.hasNext()) {
+                // There are no more host addresses to try
+                // throw an exception and report all tried
+                // HostAddresses in the exception
+                // throw new ConnectionException(failedAddresses);
+            }
+        }
 		/*if(!socketClosed){
             i=0;*/
-			socketClosed = false;
-			initConnection();
-		//}
-		
+        socketClosed = false;
+        initConnection();
+        //}
 
-	}
 
-	 public boolean isSocketClosed() {
-	        return socketClosed;
-	 }
-	
-	 /**
+    }
+
+    public boolean isSocketClosed() {
+        return socketClosed;
+    }
+
+    /**
      * Sends out a notification that there was an error with the connection
      * and closes the connection. Also prints the stack trace of the given exception
      *
@@ -195,26 +191,24 @@ public class XMPPTCPConnection extends XMPPConnection {
 		}*/
         //}
     }
-	
-	 
-	 
-	 
-	@Override
-	protected void processPacket(Packet packet) {
-		super.processPacket(packet);
-	}
 
-	protected void sendPacketInternal(Packet packet)
-			throws NotConnectedException {
 
-		packetWriter.sendPacket(packet);
-	}
+    @Override
+    protected void processPacket(Packet packet) {
+        super.processPacket(packet);
+    }
 
-	public void sendPacket(Packet packet) throws NotConnectedException /*
+    protected void sendPacketInternal(Packet packet)
+            throws NotConnectedException {
+
+        packetWriter.sendPacket(packet);
+    }
+
+    public void sendPacket(Packet packet) throws NotConnectedException /*
 																		 * throw
 																		 * NotConnectedException
 																		 * ()
-																		 */{
+																		 */ {
 		/*
 		 * if (!isConnected()) { //throw new NotConnectedException(); } if
 		 * (packet == null) { //throw new
@@ -224,58 +218,58 @@ public class XMPPTCPConnection extends XMPPConnection {
 		 * 
 		 * break; case UNCHANGED: default: break; }
 		 */
-		//packet.setFrom("123@192.168.0.3");
-		// Invoke interceptors for the new packet that is about to be sent.
-		// Interceptors may modify
-		// the content of the packet.
-		// firePacketInterceptors(packet);
-		// 发送消息
-		sendPacketInternal(packet);
-		// Process packet writer listeners. Note that we're using the sending
-		// thread so it's
-		// expected that listeners are fast.
-		// firePacketSendingListeners(packet);
-	}
+        //packet.setFrom("123@192.168.0.3");
+        // Invoke interceptors for the new packet that is about to be sent.
+        // Interceptors may modify
+        // the content of the packet.
+        // firePacketInterceptors(packet);
+        // 发送消息
+        sendPacketInternal(packet);
+        // Process packet writer listeners. Note that we're using the sending
+        // thread so it's
+        // expected that listeners are fast.
+        // firePacketSendingListeners(packet);
+    }
 
-	// 初始化链接
-	private void initConnection() throws IOException, SmackException {
-		boolean isFirstInitialization = packetReader == null
-				|| packetWriter == null;
-		compressionHandler = null;
-		serverAckdCompression = false;
+    // 初始化链接
+    private void initConnection() throws IOException, SmackException {
+        boolean isFirstInitialization = packetReader == null
+                || packetWriter == null;
+        compressionHandler = null;
+        serverAckdCompression = false;
 
-		// Set the reader and writer instance variables
-		initReaderAndWriter();
-		// writer.write("你好");
-		 try {
-		if (isFirstInitialization) {
-			packetWriter = new PacketWriter(this);
-			packetReader = new PacketReader(this);
+        // Set the reader and writer instance variables
+        initReaderAndWriter();
+        // writer.write("你好");
+        try {
+            if (isFirstInitialization) {
+                packetWriter = new PacketWriter(this);
+                packetReader = new PacketReader(this);
 
-			// If debugging is enabled, we should start the thread that will
-			// listen for
-			// all packets and then log them.
+                // If debugging is enabled, we should start the thread that will
+                // listen for
+                // all packets and then log them.
 			/*
 			 * if (config.isDebuggerEnabled()) {
 			 * addPacketListener(debugger.getReaderListener(), null); if
 			 * (debugger.getWriterListener() != null) {
 			 * addPacketSendingListener(debugger.getWriterListener(), null); } }
 			 */
-		} else {
-			//packetWriter.init();
-			//packetReader.init();
-			packetWriter = new PacketWriter(this);
-			packetReader = new PacketReader(this);
-		}
+            } else {
+                //packetWriter.init();
+                //packetReader.init();
+                packetWriter = new PacketWriter(this);
+                packetReader = new PacketReader(this);
+            }
 
-		// Start the packet writer. This will open a XMPP stream to the server
-		packetWriter.startup();
-		// Start the packet reader. The startup() method will block until we
-		// get an opening stream packet back from server.
-		packetReader.startup();
+            // Start the packet writer. This will open a XMPP stream to the server
+            packetWriter.startup();
+            // Start the packet reader. The startup() method will block until we
+            // get an opening stream packet back from server.
+            packetReader.startup();
 
-		// Make note of the fact that we're now connected.
-		connected = true;
+            // Make note of the fact that we're now connected.
+            connected = true;
 
 		/*
 		 * if (isFirstInitialization) { // Notify listeners that a new
@@ -283,17 +277,17 @@ public class XMPPTCPConnection extends XMPPConnection {
 		 * listener : getConnectionCreationListeners()) {
 		 * listener.connectionCreated(this); } }
 		 */
-		 }catch (SmackException ex) {
+        } catch (SmackException ex) {
             // An exception occurred in setting up the connection.
             shutdown();
             // Everything stoppped. Now throw the exception.
             throw ex;
         }
-		 
-	}
 
-	public synchronized void login(String username, String password,
-			String resource) throws SmackException, IOException {
+    }
+
+    public synchronized void login(String username, String password,
+                                   String resource) throws SmackException, IOException {
 		/*if (!isConnected()) {
             throw new NotConnectedException();
         }
@@ -358,122 +352,128 @@ public class XMPPTCPConnection extends XMPPConnection {
         if (config.isSendPresence()) {
             //sendPacket(new Presence(Presence.Type.available));
         }*/
-	}
-	 public String getServiceName() {
-	        return config.getServiceName();
-	    }
-	// 初始化BufferedWriter 写 和 BufferedReader 读 writer 用于发送信息
-	private void initReaderAndWriter() throws IOException {
-		try {
-			if (compressionHandler == null) {
-				reader = new BufferedReader(new InputStreamReader(
-						socket.getInputStream(), "UTF-8"));
-				writer = new BufferedWriter(new OutputStreamWriter(
-						socket.getOutputStream(), "UTF-8"));
-			} else {
-				try {
-					OutputStream os = compressionHandler.getOutputStream(socket
-							.getOutputStream());
-					writer = new BufferedWriter(new OutputStreamWriter(os,
-							"UTF-8"));
+    }
 
-					InputStream is = compressionHandler.getInputStream(socket
-							.getInputStream());
-					reader = new BufferedReader(new InputStreamReader(is,
-							"UTF-8"));
-				} catch (Exception e) {
-					// LOGGER.log(Level.WARNING, "initReaderAndWriter()", e);
-					compressionHandler = null;
-					reader = new BufferedReader(new InputStreamReader(
-							socket.getInputStream(), "UTF-8"));
-					writer = new BufferedWriter(new OutputStreamWriter(
-							socket.getOutputStream(), "UTF-8"));
-				}
-			}
-		} catch (UnsupportedEncodingException ioe) {
-			throw new IllegalStateException(ioe);
-		}
+    public String getServiceName() {
+        return config.getServiceName();
+    }
 
-		// If debugging is enabled, we open a window and write out all network
-		// traffic.
-		// initDebugger();
-	}
+    // 初始化BufferedWriter 写 和 BufferedReader 读 writer 用于发送信息
+    private void initReaderAndWriter() throws IOException {
 
-	public Writer getWriter() {
-		// TODO Auto-generated method stub
-		return this.writer;
-	}
+        if (socket == null) {
+            return;
+        }
+        try {
+            if (compressionHandler == null) {
+                reader = new BufferedReader(new InputStreamReader(
+                        socket.getInputStream(), "UTF-8"));
+                writer = new BufferedWriter(new OutputStreamWriter(
+                        socket.getOutputStream(), "UTF-8"));
+            } else {
+                try {
+                    OutputStream os = compressionHandler.getOutputStream(socket
+                            .getOutputStream());
+                    writer = new BufferedWriter(new OutputStreamWriter(os,
+                            "UTF-8"));
 
-	public Reader getReader() {
-		// TODO Auto-generated method stub
-		return this.reader;
-	}
+                    InputStream is = compressionHandler.getInputStream(socket
+                            .getInputStream());
+                    reader = new BufferedReader(new InputStreamReader(is,
+                            "UTF-8"));
+                } catch (Exception e) {
+                    // LOGGER.log(Level.WARNING, "initReaderAndWriter()", e);
+                    compressionHandler = null;
+                    reader = new BufferedReader(new InputStreamReader(
+                            socket.getInputStream(), "UTF-8"));
+                    writer = new BufferedWriter(new OutputStreamWriter(
+                            socket.getOutputStream(), "UTF-8"));
+                }
+            }
+        } catch (UnsupportedEncodingException ioe) {
+            throw new IllegalStateException(ioe);
+        }
 
-	@Override
-	public String getUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        // If debugging is enabled, we open a window and write out all network
+        // traffic.
+        // initDebugger();
+    }
 
-	@Override
-	public String getConnectionID() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Writer getWriter() {
+        // TODO Auto-generated method stub
+        return this.writer;
+    }
 
-	@Override
-	public boolean isConnected() {
-		// TODO Auto-generated method stub
-		return connected;
-	}
+    public Reader getReader() {
+        // TODO Auto-generated method stub
+        return this.reader;
+    }
 
-	@Override
-	public boolean isAuthenticated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public String getUser() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean isAnonymous() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public String getConnectionID() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean isSecureConnection() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean isConnected() {
+        // TODO Auto-generated method stub
+        return connected;
+    }
 
-	@Override
-	public boolean isUsingCompression() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean isAuthenticated() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	protected void connectInternal() throws SmackException, IOException {
-		// TODO Auto-generated method stub
-		connectUsingConfiguration(config);
-		
-		// TODO is there a case where connectUsing.. does not throw an exception but connected is
+    @Override
+    public boolean isAnonymous() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isSecureConnection() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isUsingCompression() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    protected void connectInternal() throws SmackException, IOException {
+        // TODO Auto-generated method stub
+        connectUsingConfiguration(config);
+
+        // TODO is there a case where connectUsing.. does not throw an exception but connected is
         // still false?
         if (connected) {
             callConnectionConnectedListener();
         }
-	}
+    }
 
-	/**
+    /**
      * Shuts the current connection down. After this method returns, the connection must be ready
      * for re-use by connect.
      */
     @Override
     protected void shutdown() {
         if (packetReader != null) {
-                packetReader.shutdown();
+            packetReader.shutdown();
         }
         if (packetWriter != null) {
-                packetWriter.shutdown();
+            packetWriter.shutdown();
         }
 
         // Set socketClosed to true. This will cause the PacketReader
@@ -482,9 +482,9 @@ public class XMPPTCPConnection extends XMPPConnection {
         // It is *important* that this is done before socket.close()!
         socketClosed = true;
         try {
-                socket.close();
+            socket.close();
         } catch (Exception e) {
-                //LOGGER.log(Level.WARNING, "shutdown", e);
+            //LOGGER.log(Level.WARNING, "shutdown", e);
         }
         authenticated = false;
         connected = false;
@@ -495,13 +495,13 @@ public class XMPPTCPConnection extends XMPPConnection {
     }
 
 
-	public void checkConnection() {
-		if(socket != null) {
-			try {
-				socket.sendUrgentData(0);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    public void checkConnection() {
+        if (socket != null) {
+            try {
+                socket.sendUrgentData(0);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

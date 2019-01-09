@@ -229,6 +229,7 @@ public class MainActivity extends BaseActivity {
                         transaction.add(R.id.fl_content, f4);
                     } else {
                         transaction.show(f4);
+                        f4.getData();
                     }
                     curFragment = f4;
                 } else {
@@ -237,6 +238,7 @@ public class MainActivity extends BaseActivity {
                         transaction.add(R.id.fl_content, f5);
                     } else {
                         transaction.show(f5);
+                        f5.getData();
                     }
                     curFragment = f5;
                 }

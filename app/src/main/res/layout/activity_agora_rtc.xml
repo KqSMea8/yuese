@@ -243,8 +243,7 @@
             android:id="@+id/id_send_red_packet"
             android:layout_width="60sp"
             android:layout_height="70sp"
-
-            />
+            android:src="@mipmap/btn_gift2" />
 
         <RelativeLayout
             android:id="@+id/id_head_layout"

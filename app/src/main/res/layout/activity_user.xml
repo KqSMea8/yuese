@@ -408,7 +408,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_marginTop="2dp"
-                android:text="红包"
+                android:text="礼物"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
         </LinearLayout>

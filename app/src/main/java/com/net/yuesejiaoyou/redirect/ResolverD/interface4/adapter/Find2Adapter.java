@@ -29,6 +29,8 @@ public class Find2Adapter extends BaseQuickAdapter<User_data, com.chad.library.a
 
     @Override
     protected void convert(com.chad.library.adapter.base.BaseViewHolder helper, User_data item) {
+
+        LogUtil.i("ttt","---"+item.getNative_place()+"-------"+item.getPictures());
         helper.addOnClickListener(R.id.item_onev_list_layout);
         helper.addOnClickListener(R.id.zhichi);
 

@@ -1025,6 +1025,8 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
         initView();
 
+
+
         //options
 //        //optimization mode for video
 //        XJGArSdkApi.XJGARSDKSetOptimizationMode(0);
@@ -1043,16 +1045,18 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         mFaceSurgeryFaceShapeSeek.setProgress(20);
         mFaceSurgeryBigEyeSeek = (SeekBar) fragmentView.findViewById(R.id.bigeyeValueBar);
         mFaceSurgeryBigEyeSeek.setProgress(50);
-
         mSkinSmoothSeek = (SeekBar) fragmentView.findViewById(R.id.skinSmoothValueBar);
         mSkinSmoothSeek.setProgress(100);
         mSkinWihtenSeek = (SeekBar) fragmentView.findViewById(R.id.skinWhitenValueBar);
         mSkinWihtenSeek.setProgress(20);
         mRedFaceSeek = (SeekBar) fragmentView.findViewById(R.id.redFaceValueBar);
         mRedFaceSeek.setProgress(80);
+        XJGArSdkApi.XJGARSDKSetRedFaceParam(50);
+        XJGArSdkApi.XJGARSDKSetWhiteSkinParam(100);
         XJGArSdkApi.XJGARSDKSetSkinSmoothParam(100);
-        XJGArSdkApi.XJGARSDKSetWhiteSkinParam(20);
-        XJGArSdkApi.XJGARSDKSetRedFaceParam(80);
+
+
+
         mFaceSurgeryFaceShapeSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public int value;
 

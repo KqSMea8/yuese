@@ -147,6 +147,7 @@
             android:layout_above="@id/id_head_layout"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="21dip"
+            android:src="@mipmap/btn_gift2"
             android:layout_marginRight="6dip" />
 
         <ImageView

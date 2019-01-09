@@ -76,6 +76,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AudioRecoderUtils
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,6 +86,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import butterknife.OnClick;
 
 //import com.lazysellers.sellers.infocenter.hengexa2.smackx.filetransfer.OutgoingFileTransfer;
 
@@ -108,25 +111,10 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     private ChatAdapter mLvAdapter;
     private ChatMsgDao msgDao;
     private SessionDao sessionDao;
-/*	private float y1 = 0;
-    private float y2 = 0;
-	private int Timing;
-	private Time t;*/
-	/*private Uri photoUri;
-	private String photoFile;
-	private String cameraFile;*/
-
-	/*private TextView shuohua,tv_voc1*/;
-    /*	private Date endDate,curDate;*/
     private LinearLayout chat_face_container, /*chat_add_container,*/
             bottom, l1;
     private ImageView image_face, dv, jb;// 表情图标
-    /*private ImageView image_add;// 更多图标
-*/
-/*	private long sj = 0,jishu = 0;*/
     private TextView tv_title, /*tv_pic,// 图片
-			tv_camera,// 拍照
-*/	/*		tv_loc,// 位置
 */
             tv_voc;    // 语音
     /*	private Chat chat;*/
@@ -379,19 +367,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
         SharedPreferences sharedPreferences = getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
 		
-	/*	nav_up=getResources().getDrawable(R.drawable.r_audio_1);  
-		nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());  
-		nav_up1=getResources().getDrawable(R.drawable.r_audio_2);  
-		nav_up1.setBounds(0, 0, nav_up1.getMinimumWidth(), nav_up1.getMinimumHeight());  
-		nav_up2=getResources().getDrawable(R.drawable.yuyin);  
-		nav_up2.setBounds(0, 0, nav_up2.getMinimumWidth(), nav_up2.getMinimumHeight());  
-		
-		js_up=getResources().getDrawable(R.drawable.audio_1);  
-		js_up.setBounds(0, 0, js_up.getMinimumWidth(), js_up.getMinimumHeight());  
-		js_up1=getResources().getDrawable(R.drawable.audio_2);  
-		js_up1.setBounds(0, 0, js_up1.getMinimumWidth(), js_up1.getMinimumHeight());  
-		js_up2=getResources().getDrawable(R.drawable.audio_3);  
-		js_up2.setBounds(0, 0, js_up2.getMinimumWidth(), js_up2.getMinimumHeight());  */
+
 
 
         I = sharedPreferences.getString("userid", "");
@@ -408,15 +384,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         name = getIntent().getStringExtra("name");
 
         logo = getIntent().getStringExtra("headpic");
-		
-	/*	fanhui = (Button) findViewById(R.id.button_more_moremodify);
-		fanhui.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				Intent intent = new Intent();
-				setResult(100, intent);
-				finish();
-	        }
-		});*/
+
 
         l1 = (LinearLayout) findViewById(R.id.l1);
 
@@ -550,27 +518,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
         // 表情按钮
         image_face.setOnClickListener(this);
-		/*// 更多按钮
-		image_add.setOnClickListener(this);*/
-        // 发送
-        //	send.setTypeface(typeFace);
-        //	send_sms1.setTypeface(typeFace);
-        //	tv_title.setTypeface(typeFace);
-//		sendFile.setOnClickListener(this);
-//		sendFile.setOnTouchListener(new OnTouchListener() {
-//
-//			@Override
-//			public boolean onTouch(View view, MotionEvent motionEvent) {
-//				int action = motionEvent.getAction();
-//
-//				if(action != MotionEvent.ACTION_DOWN) {
-//					return false;
-//				}
-//				sendFile.setText("...");
-//				recorder.startRecord();
-//				return false;
-//			}
-//		});
+
 
         mListView.setOnRefreshListenerHead(this);
         mListView.setOnTouchListener(new OnTouchListener() {
@@ -591,107 +539,23 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     }
 
     public void initAdd() {
-		/*tv_pic = (TextView) findViewById(R.id.tv_pic);
-		tv_camera = (TextView) findViewById(R.id.tv_camera);*/
-		/*tv_loc = (TextView) findViewById(R.id.tv_loc);*/
         tv_voc = (TextView) findViewById(R.id.tv_voc);
-
-        //tv_voc1 = (TextView)findViewById(R.id.tv_voc1);
-        //shuohua = (TextView)findViewById(R.id.shuohua);
-		
-	/*	tv_pic.setOnClickListener(this);
-		tv_camera.setOnClickListener(this);*/
-		/*tv_loc.setOnClickListener(this);*/
         tv_voc.setOnClickListener(this);
-        //tv_voc1.setOnClickListener(this);
-		
+    }
 
+    @OnClick(R.id.btn_gift)
+    public void giftClick(){
+        new GiftDialog(this, YOU).setLishener(new GiftDialog.OnGiftLishener() {
+            @Override
+            public void onSuccess(int gid, int num) {
+                sendMsgText("[" + "☆" + com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname + "给" + username + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
+            }
 
-		/*	shuohua.setOnTouchListener(new OnTouchListener() {
-				@Override
-				public boolean onTouch(View view, MotionEvent motionEvent) {
-					int action = motionEvent.getAction();
-					if(action == MotionEvent.ACTION_DOWN) {
-
-
-
-				         y1 = motionEvent.getY();  
-						
-						shuohua.setText("松开 结束");
-						recordState = true;
-						
-						mHandler.postDelayed(a, 20000);
-						
-						curDate = new Date(System.currentTimeMillis());			
-						l1.setVisibility(View.VISIBLE);
-						
-						recorder.startRecord();
-					
-					}else if(action == MotionEvent.ACTION_UP){
-						
-
-					     y2 = motionEvent.getY();
-					    
-						shuohua.setText("按住 说话");
-						endDate = new Date(System.currentTimeMillis());
-						 if(y1 - y2 > 50) {
-							 Toast.makeText(ChatActivity.this, "取消发送", Toast.LENGTH_SHORT).show();
-							recordState = false;
-							mHandler.removeCallbacks(a);
-							l1.setVisibility(View.GONE);
-					    	 //向上滑
-							 recorder.stopRecord(); 
-						 } else	if(recordState) {
-							recordState = false;
-							AudioRecoderUtils.RecordInfo vocInfo = recorder.stopRecord();
-							sendMsgVoc(vocInfo.filePath+":"+vocInfo.time);
-						sj = endDate.getTime() - curDate.getTime();
-						Timing = (int) (sj/1000);
-						LogDetect.send(LogDetect.DataType.specialType,"01160 sj:",Timing);
-						l1.setVisibility(View.GONE);
-										if(Timing <=1){
-											Toast.makeText(ChatActivity.this, "录音时间过短", Toast.LENGTH_SHORT).show();
-										}else if(Timing >= 20){
-											RecordInfo vocInfo = recorder.stopRecord();
-											sendMsgVoc(vocInfo.filePath+":"+vocInfo.time);
-											
-										}else{
-											// 语音
-											//if(Timing <= 20){
-											
-										
-											//}else{
-												
-											//}
-										
-											
-										//}
-				
-						}
-					
-					
-					}
-					
-					return true;
-				}
-			});
-		*/
-	
-		/*tv_voc.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View view, MotionEvent motionEvent) {
-				int action = motionEvent.getAction();
-				if(action != MotionEvent.ACTION_DOWN) {
-					return false;
-				}
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-				curDate = new Date(System.currentTimeMillis());			
-				l1.setVisibility(View.VISIBLE);
-				recorder.startRecord();
-				return false;
-			}
-		});*/
+            @Override
+            public void onFail() {
+                showPopupspWindow_chongzhi(null);
+            }
+        }).show();
     }
 
     public void initData() {
@@ -717,14 +581,11 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
     }
 
-    /**
-     * 初始化表情
-     */
+
     private void initViewPager() {
         int pagesize = ExpressionUtil.getPagerCount(staticFacesList.size(),
                 columns, rows);
 
-        Log.v("PAOPAO", "pagesize=" + pagesize);
         // 获取页数
         for (int i = 0; i < pagesize; i++) {
             views.add(ExpressionUtil.viewPagerItem(this, i, staticFacesList,
@@ -734,17 +595,10 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         }
         FaceVPAdapter mVpAdapter = new FaceVPAdapter(views);
         mViewPager.setAdapter(mVpAdapter);
-        Log.v("PAOPAO", "before setSelected-" + mDotsLayout.getChildCount());
         mDotsLayout.getChildAt(0).setSelected(true);
-        Log.v("PAOPAO", "after setSelected");
     }
 
-    /**
-     * 表情页切换时，底部小圆点
-     *
-     * @param position
-     * @return
-     */
+
     private ImageView dotsItem(int position) {
         View layout = inflater.inflate(R.layout.dot_image_01160, null);
         ImageView iv = (ImageView) layout.findViewById(R.id.face_dot);

@@ -13,8 +13,8 @@ android {
         applicationId "com.net.yuesejiaoyou.redirect.ResolverD.interface4"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 5
-        versionName "1.1.2"
+        versionCode 7
+        versionName "2.0.1"
 
         multiDexEnabled true
         compileOptions {

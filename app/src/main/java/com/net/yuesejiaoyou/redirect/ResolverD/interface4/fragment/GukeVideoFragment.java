@@ -110,7 +110,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private String record_id = "";
     @BindView(R.id.ly1)
     LinearLayout ly1;
-    private boolean is_open = true;
     private boolean is_evalue = true;
     private PopupWindow mPopWindow;
     RecyclerView grview;
@@ -145,8 +144,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private SeekBar whiteLevel;
     private ImageView meiyan, meibai;
 
-    @BindView(R.id.id_send_red_packet)
-    GifImageView id_send_red_packet;
     private SurfaceView remoteSurface, localSurface;
     private FrameLayout remoteContainer, localContainer;
 
@@ -232,8 +229,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         grpChat = (TextView) fragmentView.findViewById(R.id.grpChat);
         edtInput = (EditText) fragmentView.findViewById(R.id.input_sms);
 
-
-        id_send_red_packet.setImageResource(R.drawable.giftoff);
 
         if (userInfoHandler.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE && userInfoHandler.getYuyue().equals(P2PVideoConst.HAVE_ALREADY_YUYUE)) {  //if(!TextUtils.isEmpty(baseActivity.getIntent().getStringExtra("status"))){
             showToast("预约流程");
@@ -355,7 +350,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                                             getLabelData();
                                         }
                                     });
-                        } else if (success.equals("2") || success.equals("3")) {
+                        } else if (success.equals("2")) {
                             num++;
                             int counter;
                             if (success.equals("2")) {        // 2分钟倒计时
@@ -390,6 +385,25 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
                 });
 
+//        OkHttpUtils.post(this)
+//                .url(URL.URL_ONLINE)
+//                .addParams("param1", Util.userid)
+//                .addParams("param2", userInfoHandler.getFromUserId())
+//                .addParams("param3", "1")
+//                .addParams("param4", 1)
+//                .addParams("param5", tvTime.getText().toString())
+//                .build()
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response, int id) {
+//
+//                    }
+//                });
+
     }
 
     @OnClick(R.id.btn_endcall)
@@ -421,7 +435,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
     @OnClick(R.id.id_send_red_packet)
     public void giftClick() {
-        is_open = false;
 
         new GiftDialog(getActivity(), yid_guke).setLishener(new GiftDialog.OnGiftLishener() {
             @Override
@@ -435,7 +448,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                 showPopupspWindow_chongzhi();
             }
         }).show();
-        showPopupspWindow_sendred(id_send_red_packet);
+        //showPopupspWindow_sendred(id_send_red_packet);
     }
 
     @Override
@@ -1193,9 +1206,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             // 在dismiss中恢复透明度
             public void onDismiss() {
-                if (!is_open) {
-                    id_send_red_packet.setImageResource(R.drawable.giftoff);
-                }
+
             }
         });
     }
