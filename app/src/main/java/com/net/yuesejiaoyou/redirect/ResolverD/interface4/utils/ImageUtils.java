@@ -12,9 +12,14 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 public class ImageUtils {
 
     public static void loadImage(String url, ImageView imageView) {
-        GlideApp.with(imageView).clear(imageView);
-        GlideApp.with(imageView)
-                .load(url)
-                .into(imageView);
+        try {
+            GlideApp.with(imageView).clear(imageView);
+            GlideApp.with(imageView)
+                    .load(url)
+                    .into(imageView);
+        } catch (Exception e) {
+
+        }
+
     }
 }

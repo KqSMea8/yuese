@@ -505,41 +505,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
                 });
 
-
-//        String mode2 = "pushp2pvideo";
-//        String[] paramsMap2 = {"", Util.userid, Util.nickname, Util.headpic, guke.getGukeId(),
-//                guke.getRoomid(), VideoMessageManager.VIDEO_A2U_ANCHOR_CALL, guke.getYuyue()};
-//        UsersThread_01158B a2 = new UsersThread_01158B(mode2, paramsMap2, new Handler() {
-//            // 发完推送以后再发送openfire消息，发推送的同时会更新数据库表，尽量保证数据库数据到位后再发送消息
-//            @Override
-//            public void handleMessage(Message msg) {
-//                super.handleMessage(msg);
-//                switch (msg.what) {
-//                    case 500:
-//                        new Thread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                try {
-//                                    SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                                    final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ZB_RESERVE
-//                                            + Const.SPLIT + guke.getRoomid() + Const.SPLIT + Util.nickname + Const.SPLIT + Util.headpic;
-//
-//                                    Utils.sendmessage(Utils.xmppConnection, message, guke.getGukeId());
-//                                } catch (XMPPException e) {
-//                                    e.printStackTrace();
-//                                } catch (SmackException.NotConnectedException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        }).start();
-//                        break;
-//                }
-//            }
-//        });
-//        Thread c2 = new Thread(a2.runnable);
-//        c2.start();
-
-
     }
 
     public static void callFromGuke(Context context, GukeInfo guke) {

@@ -89,8 +89,7 @@ public class MineFragment extends Fragment implements OnClickListener{
 	 *
 	 ****************************************************************/
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-							 Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mBaseView = inflater.inflate(R.layout.gerenzhongxin_1152, null);
 
 		mContext = getActivity();

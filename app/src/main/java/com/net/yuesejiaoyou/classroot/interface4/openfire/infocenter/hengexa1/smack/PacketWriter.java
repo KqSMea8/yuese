@@ -94,7 +94,7 @@ public class PacketWriter {
 			while (!done && (writerThread == thisThread)) {
 				Log.e("jj", "发送"+done);
 				Packet packet = nextPacket();
-				if (packet != null) {
+				if (packet != null && packet.toXML() != null) {
 					
 					// 发送信息
 					writer.write(packet.toXML().toString());

@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect.DataType;
@@ -67,6 +69,7 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
@@ -75,8 +78,11 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AudioRecoderUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,6 +94,7 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.OnClick;
+import okhttp3.Call;
 
 //import com.lazysellers.sellers.infocenter.hengexa2.smackx.filetransfer.OutgoingFileTransfer;
 
@@ -106,7 +113,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     private ViewPager mViewPager;
     private LinearLayout mDotsLayout;
     private EditText input;
-    private TextView send, send_sms1;        //,sendFile;
+    private TextView send;        //,sendFile;
     private DropdownListView mListView;
     private ChatAdapter mLvAdapter;
     private ChatMsgDao msgDao;
@@ -135,7 +142,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     private int offset;
     private String I, YOU, name, logo, headpicture, username, gender, is_v;// 为了好区分，I就是自己，YOU就是对方
     private Button fanhui;
-	/*private TextView yuyin,yuyin1,shuru;*/
+    /*private TextView yuyin,yuyin1,shuru;*/
 
     private Button button_more_moremodify;
 
@@ -145,10 +152,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
     private MyReceiver_Home receiver;
 
-    private RelativeLayout layBottom;
-/*	private Drawable nav_up,nav_up1,nav_up2,js_up,js_up1,js_up2;
-	*/
-    //private boolean recordState = false;
+    private LinearLayout layBottom;
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
@@ -156,7 +160,18 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1000:
-                    tv_voc.performClick();
+                    callClick();
+//                    if (!"0".equals(com.net.yuesejiaoyou.classroot.interface4.util.Util.iszhubo)) {
+//                        ZhuboActivity.startCallGuke(ChatActivity.this, new GukeInfo(YOU, name, logo, System.currentTimeMillis() + "",
+//                                P2PVideoConst.ZHUBO_CALL_GUKE, P2PVideoConst.HAVE_NO_YUYUE));
+//                        break;
+//                    }
+//
+//                    String mode1 = "zhubo_online";
+//                    String[] paramsMap1 = {"", I, YOU};
+//                    UsersThread_01158B a = new UsersThread_01158B(mode1, paramsMap1, mHandler);
+//                    Thread c = new Thread(a.runnable);
+//                    c.start();
                     break;
                 case 201:
                     String json1 = (String) msg.obj;
@@ -183,7 +198,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                             } else if (success_ornot.equals("4")) {
                                 Toast.makeText(ChatActivity.this, "您被主播拉黑了", Toast.LENGTH_SHORT).show();
                             }/*else if(success_ornot.equals("2")){
-								Toast.makeText(ChatActivity.this, "聊天失败，请查看网络连接", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ChatActivity.this, "聊天失败，请查看网络连接", Toast.LENGTH_SHORT).show();
 							}else if(success_ornot.equals("3")){
 								sendMsgText(input.getText().toString());
 							}else if(success_ornot.equals("5")){
@@ -210,59 +225,11 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
                                 SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                                 final String timestamp = new Date().getTime() + "";
-//								final String message = "邀0请1视2频" + Const.SPLIT + Const.ACTION_MSG_ONEINVITE
-//										+ Const.SPLIT + timestamp+ Const.SPLIT+com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname+Const.SPLIT+com.net.yuesejiaoyou.classroot.interface4.util.Util.headpic;
-//								new Thread(new Runnable() {
-//									@Override
-//									public void run() {
-//										try {
-//											LogDetect.send(DataType.noType,"这是什么YouId11",YOU);
 
-//											Utils.sendmessage(Utils.xmppConnection, message, YOU);
-//											//AgoraVideoManager.startVideo(getApplication(), timestamp, false);	// 发出邀请后立即进入房间
-//											Intent intent = new Intent();
-//											intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//											intent.setClass(getApplicationContext(),
-//													guke.class);
-//											Bundle bundle = new Bundle();
-//											bundle.putString("yid_guke", YOU);
-//											LogDetect.send(LogDetect.DataType.specialType, "01160 主播id跳转到顾客页面 yid:", YOU);
-//											bundle.putString("msgbody", "" + Const.SPLIT + "" + Const.SPLIT + "" + Const.SPLIT +name+Const.SPLIT+logo);
-//											bundle.putString("roomid", timestamp);
-//											intent.putExtras(bundle);
-//
-//											startActivity(intent);
-                                // 插入一对一请求记录
-//											String mode2 = "pushp2pvideo";
-//											String[] paramsMap2 = {"", com.net.yuesejiaoyou.classroot.interface4.util.Util.userid, com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname, com.net.yuesejiaoyou.classroot.interface4.util.Util.headpic,YOU,timestamp};
-//											UsersThread_01158B a2 = new UsersThread_01158B(mode2,paramsMap2,mHandler);
-//											Thread c2 = new Thread(a2.runnable);
-//											c2.start();
-
-                                GukeActivity.startCallZhubo(ChatActivity.this, new ZhuboInfo(YOU, name, logo, timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE));
-//										} catch (XMPPException | NotConnectedException e) {
-//											e.printStackTrace();
-//											//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-//											Looper.prepare();
-//											// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-//											Looper.loop();
-//										}
-//									}
-//								}).start();
-                            }//否则失败了
-							/*else if(success_ornot.equals("0")){
-								showPopupspWindow_cz(chat_main);
-							}else if(success_ornot.equals("3")){
-								Toast.makeText(ChatActivity.this, "Big V is busy。", Toast.LENGTH_SHORT).show();
-							}else if(success_ornot.equals("4")){
-								Toast.makeText(ChatActivity.this, "Big V is not online。", Toast.LENGTH_SHORT).show();
-							}*/
-                            else if (success_ornot.equals("2")) {
+                            } else if (success_ornot.equals("2")) {
                                 showPopupspWindow_reservation(mListView, 2);
                                 Toast.makeText(ChatActivity.this, "主播忙碌，请稍后再试", Toast.LENGTH_SHORT).show();
-                            }/*else if(success_ornot.equals("0")){
-
-							}*/ else if (success_ornot.equals("3")) {
+                            } else if (success_ornot.equals("3")) {
                                 showPopupspWindow_reservation(mListView, 3);
                                 Toast.makeText(ChatActivity.this, "主播设置勿打扰，请稍后再试", Toast.LENGTH_SHORT).show();
                             } else if (success_ornot.equals("4")) {
@@ -363,11 +330,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        layBottom = (RelativeLayout) findViewById(R.id.lay_bottom);
+        layBottom = findViewById(R.id.lay_bottom);
 
         SharedPreferences sharedPreferences = getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
-		
-
 
 
         I = sharedPreferences.getString("userid", "");
@@ -393,7 +358,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_title.setText(name);
         sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		/*sdName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");*/
+        /*sdName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");*/
         msgDao = new ChatMsgDao(this);
         sessionDao = new SessionDao(this);
         msgOperReciver = new MsgOperReciver();
@@ -403,7 +368,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         receiver = new MyReceiver_Home();
         IntentFilter homeFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(receiver, homeFilter);
-		/*msgOperReciver1 = new MsgOperReciver1();
+        /*msgOperReciver1 = new MsgOperReciver1();
 		IntentFilter intentFilter1 = new IntentFilter(Const.ACTION_INPUT);
 		registerReceiver(msgOperReciver1, intentFilter1);*/
 
@@ -429,12 +394,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         Util.currentfrom = YOU;
         //Intent intent = new Intent();
 
-        // 如果打开了“系统消息”页面则隐藏回复输入框
-        // 和举报按钮
-        if ("80".equals(YOU)) {
-            layBottom.setVisibility(View.GONE);
-            jb.setVisibility(View.GONE);
-        }
+
     }
 
     @Override
@@ -449,6 +409,59 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         sendBroadcast(intent);
     }
 
+    public void callClick() {
+        if (!"0".equals(com.net.yuesejiaoyou.classroot.interface4.util.Util.iszhubo)) {
+            Toast.makeText(this, "主播不能跟主播通话", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        OkHttpUtils.post(this)
+                .url(URL.URL_CALL)
+                .addParams("param1", "")
+                .addParams("param2", com.net.yuesejiaoyou.classroot.interface4.util.Util.userid)
+                .addParams("param3", YOU)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        super.onResponse(response, id);
+                        if (TextUtils.isEmpty(response)) {
+                            showToast("拨打失败");
+                            return;
+                        }
+                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
+                        String success_ornot = jsonObject.getString("success");
+                        if (success_ornot.equals("1")) {
+                            final String timestamp = new Date().getTime() + "";
+                            ZhuboInfo zhuboInfo = new ZhuboInfo(YOU, username, headpicture, timestamp, P2PVideoConst.GUKE_CALL_ZHUBO, P2PVideoConst.NONE_YUYUE);
+                            GukeActivity.startCallZhubo(ChatActivity.this, zhuboInfo);
+                        } else if (success_ornot.equals("2")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 2);
+                            showToast("主播忙碌，请稍后再试");
+
+                        } else if (success_ornot.equals("3")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 3);
+                            showToast("主播设置勿打扰，请稍后再试");
+                        } else if (success_ornot.equals("4")) {
+                            showPopupspWindow_reservation(getWindow().getDecorView(), 4);
+                            showToast("主播不在线");
+                        } else if (success_ornot.equals("0")) {
+                            showPopupspWindow_chongzhi(null);
+                        } else if (success_ornot.equals("5")) {
+                            showToast("主播被封禁");
+                        } else if (success_ornot.equals("6")) {
+                            showToast("您已被对方拉黑");
+                        }
+
+                    }
+                });
+    }
 
     /**
      * 初始化控件
@@ -510,8 +523,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
         //Typeface typeFace =Typeface.createFromAsset(getAssets(),"fonts/arialbd.ttf");
 
-        send_sms1 = (TextView) findViewById(R.id.send_sms1);
-        //sendFile = (TextView) findViewById(R.id.send_file);
         input.setOnClickListener(this);
 
         input.addTextChangedListener(watcher);
@@ -544,7 +555,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     }
 
     @OnClick(R.id.btn_gift)
-    public void giftClick(){
+    public void giftClick() {
         new GiftDialog(this, YOU).setLishener(new GiftDialog.OnGiftLishener() {
             @Override
             public void onSuccess(int gid, int num) {
@@ -622,9 +633,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 if (TextUtils.isEmpty(content)) {
                     return;
                 }
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "发送消息", "情况5");
-                ////////////////////------------------>>>>>>>>
                 if (YOU.equals("40")) {
                     sendMsgText(content);
                 } else if (!com.net.yuesejiaoyou.classroot.interface4.util.Util.iszhubo.equals("0")) {
@@ -647,7 +655,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 break;
             case R.id.image_face:
                 hideSoftInputView();
-                tv_voc.setVisibility(View.VISIBLE);
                 input.setVisibility(View.VISIBLE);
                 //tv_voc1.setVisibility(View.GONE);
                 //shuohua.setVisibility(View.GONE);
@@ -714,9 +721,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B az = new UsersThread_01160B(mode, paramsMap, mHandler);
                 Thread t = new Thread(az.runnable);
                 t.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "1");
-                ////////////////////------------------>>>>>>>>
                 break;
             case R.id.c2:
                 String mode112 = "report";
@@ -724,9 +728,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B a1 = new UsersThread_01160B(mode112, paramsMap112, mHandler);
                 Thread t1 = new Thread(a1.runnable);
                 t1.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "2");
-                ////////////////////------------------>>>>>>>>
                 break;
             case R.id.c3:
                 String mode2 = "report";
@@ -734,9 +735,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B a2 = new UsersThread_01160B(mode2, paramsMap2, mHandler);
                 Thread t2 = new Thread(a2.runnable);
                 t2.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "3");
-                ////////////////////------------------>>>>>>>>
                 break;
             case R.id.c4:
                 String mode3 = "report";
@@ -744,9 +742,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B a3 = new UsersThread_01160B(mode3, paramsMap3, mHandler);
                 Thread t3 = new Thread(a3.runnable);
                 t3.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "4");
-                ////////////////////------------------>>>>>>>>
                 break;
             case R.id.c5:
                 String mode4 = "report";
@@ -754,9 +749,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B a4 = new UsersThread_01160B(mode4, paramsMap4, mHandler);
                 Thread t4 = new Thread(a4.runnable);
                 t4.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "5");
-                ////////////////////------------------>>>>>>>>
                 break;
             case R.id.c6:
                 String mode5 = "report";
@@ -764,230 +756,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 UsersThread_01160B a5 = new UsersThread_01160B(mode5, paramsMap5, mHandler);
                 Thread t5 = new Thread(a5.runnable);
                 t5.start();
-                ////////////////////------------------>>>>>>>>
-                LogDetect.send(DataType.specialType, "01160 开线程举报:", "6");
-                ////////////////////------------------>>>>>>>>
                 break;
         }
     }
-
-
-    /**
-     * 执行发送消息 图片类型
-     *
-     * @param content
-     */
-	/*void sendMsgImg(String photoPath) {
-		Msg msg = getChatInfoTo(photoPath, Const.MSG_TYPE_IMG);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-		String[] sep = photoPath.split("\\.");
-		String imgpath = Base64.encodeBytes(FileInOut.readFile(new File(
-				photoPath)));
-
-		final String message = imgpath + Const.SPLIT + Const.MSG_TYPE_IMG
-				+ Const.SPLIT + sd.format(new Date()) + Const.SPLIT + sep[1];
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		updateSession(Const.MSG_TYPE_TEXT, "[图片]");
-	}*/
-
-    /**
-     * 执行发送消息 图片类型
-     */
-    void sendMsgImg(String photoPath) {/*
-		//01107m add start
-		// 判断要发送的图片容量是否过大，如果太大就进行1/4按比例缩小
-		
-		boolean needcompress=true;
-		while(needcompress){
-			File fileTemp = new File(photoPath);
-			//String name = fileTemp.getName();
-			long length = fileTemp.length();
-			if(length > 1024*200) {	//文件大于1MB就把图片长宽各压缩1/4，图片质量降低为原来的80%
-				FileOutputStream fos;
-				BitmapFactory.Options newOpts = new BitmapFactory.Options();
-				newOpts.inJustDecodeBounds = true;
-				Bitmap bitmap = BitmapFactory.decodeFile(photoPath,newOpts);
-
-				newOpts.inJustDecodeBounds = false;
-
-		        newOpts.inSampleSize = 2;
-		        bitmap = BitmapFactory.decodeFile(photoPath, newOpts);
-
-		        try {
-		        	File newFile = new File(Environment.getExternalStorageDirectory()+"/"+fileTemp.getName());
-		        	if(newFile.exists()) {
-		        		fos = new FileOutputStream(fileTemp);
-		        	} else {	//如果是从相册发送的图片且体积过大，压缩后存放入SD根目录
-		        		photoPath = Environment.getExternalStorageDirectory()+"/"+fileTemp.getName();
-		        		fos = new FileOutputStream(new File(photoPath));
-		        	}
-
-					bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
-					try {
-						fos.flush();
-						fos.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}else{
-				needcompress=false;
-			}
-		}
-		
-		//01107m add end
-		Msg msg = getChatInfoTo(photoPath, Const.MSG_TYPE_IMG);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-
-		String[] sep = photoPath.split("\\.");
-		String imgpath = Base64.encodeBytes(FileInOut.readFile(new File(
-				photoPath)));
-		//String imgpath=GetImageStr(photoPath);
-
-		final String message = imgpath + Const.SPLIT + Const.MSG_TYPE_IMG
-				+ Const.SPLIT + sd.format(new Date()) + Const.SPLIT + sdName.format(new Date()) + "." + sep[1]+ Const.SPLIT+username+Const.SPLIT+headpicture;
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		//updateSession(Const.MSG_TYPE_TEXT, "[图片]");
-		updateSession1(Const.MSG_TYPE_TEXT, "[图片]",name,logo);
-	*/
-    }
-
-    /**
-     * 执行发送消息 语音类型
-     */
-    void sendMsgVoc(String vocPath) {/*
-		//01107m add start
-		// 判断要发送的图片容量是否过大，如果太大就进行1/4按比例缩小
-
-//		boolean needcompress=true;
-//		while(needcompress){
-//			File fileTemp = new File(photoPath);
-//			//String name = fileTemp.getName();
-//			long length = fileTemp.length();
-//			if(length > 1024*200) {	//文件大于1MB就把图片长宽各压缩1/4，图片质量降低为原来的80%
-//				FileOutputStream fos;
-//				BitmapFactory.Options newOpts = new BitmapFactory.Options();
-//				newOpts.inJustDecodeBounds = true;
-//				Bitmap bitmap = BitmapFactory.decodeFile(photoPath,newOpts);
-//
-//				newOpts.inJustDecodeBounds = false;
-//
-//				newOpts.inSampleSize = 2;
-//				bitmap = BitmapFactory.decodeFile(photoPath, newOpts);
-//
-//				try {
-//					File newFile = new File(Environment.getExternalStorageDirectory()+"/"+fileTemp.getName());
-//					if(newFile.exists()) {
-//						fos = new FileOutputStream(fileTemp);
-//					} else {	//如果是从相册发送的图片且体积过大，压缩后存放入SD根目录
-//						photoPath = Environment.getExternalStorageDirectory()+"/"+fileTemp.getName();
-//						fos = new FileOutputStream(new File(photoPath));
-//					}
-//
-//					bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
-//					try {
-//						fos.flush();
-//						fos.close();
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
-//				} catch (FileNotFoundException e) {
-//					e.printStackTrace();
-//				}
-//			}else{
-//				needcompress=false;
-//			}
-//		}
-
-		//01107m add end
-		Msg msg = getChatInfoTo(vocPath, Const.MSG_TYPE_VOICE);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-
-		//--------------
-		String[] subStrs = vocPath.split(":");
-		//--------------
-
-		String[] sep = subStrs[0].split("\\.");
-		String imgpath = Base64.encodeBytes(FileInOut.readFile(new File(subStrs[0])));
-		//String imgpath=GetImageStr(photoPath);
-
-		final String message = imgpath + Const.SPLIT + Const.MSG_TYPE_VOICE
-				+ Const.SPLIT + sd.format(new Date()) + Const.SPLIT + new File(subStrs[0]).getName()+":"+subStrs[1]+ Const.SPLIT+username+Const.SPLIT+headpicture;
-
-		LogDetect.send(LogDetect.DataType.basicType,"orignal msg:",message);
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		//updateSession(Const.MSG_TYPE_TEXT, "[图片]");
-		updateSession1(Const.MSG_TYPE_TEXT, "[语音]",name,logo);
-	*/
-    }
-	
-	/*public static String GetImageStr(String imgFilePath) {// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
-	    byte[] data = null;
-	     
-	    // 读取图片字节数组
-	    try {
-	      InputStream in = new FileInputStream(imgFilePath);
-	      data = new byte[in.available()];
-	      in.read(data);
-	      in.close();
-	    } catch (IOException e) {
-	      e.printStackTrace();
-	    }
-	    return Base64.encode(data); 
-	    // 对字节数组Base64编码
-	    //BASE64Encoder encoder = new BASE64Encoder();
-	    //return encoder.encode(data);// 返回Base64编码过的字节数组字符串
-	  }*/
 
     /**
      * 执行发送消息 文本类型
@@ -1003,23 +774,13 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         input.setText("");
         final String message = content + Const.SPLIT + Const.MSG_TYPE_TEXT
                 + Const.SPLIT + sd.format(new Date()) + Const.SPLIT + username + Const.SPLIT + headpicture;
-        ////////////////////------------------>>>>>>>>
-        LogDetect.send(DataType.specialType, "发送消息", "情况6");
-        ////////////////////------------------>>>>>>>>
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    ////////////////////------------------>>>>>>>>
-                    LogDetect.send(DataType.specialType, "发送消息", "情况7");
-                    ////////////////////------------------>>>>>>>>
                     sendMessage(Utils.xmppConnection, message, YOU);
-                    ////////////////////------------------>>>>>>>>
-                    LogDetect.send(DataType.specialType, "发送消息", "情况");
-                    ////////////////////------------------>>>>>>>>
                 } catch (XMPPException | NotConnectedException e) {
                     e.printStackTrace();
-                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
                     Looper.prepare();
                     // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
@@ -1029,37 +790,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         updateSession1(Const.MSG_TYPE_TEXT, content, name, logo);
     }
 
-    /**
-     * 执行发送消息 文本类型
-     *
-     * @param content
-     */
-    void sendMsgLocation(String content) {/*
-		Msg msg = getChatInfoTo(content, Const.MSG_TYPE_LOCATION);
-		msg.setMsgId(msgDao.insert(msg));
-		listMsg.add(msg);
-		offset = listMsg.size();
-		mLvAdapter.notifyDataSetChanged();
-		final String message = content + Const.SPLIT + Const.MSG_TYPE_LOCATION
-				+ Const.SPLIT + sd.format(new Date())+ Const.SPLIT+username+Const.SPLIT+headpicture;
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					sendMessage(Utils.xmppConnection, message, YOU);
-				} catch (XMPPException | NotConnectedException e) {
-					e.printStackTrace();
-					//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
-					Looper.prepare();
-					// ToastUtil.showShortToast(ChatActivity.this, "发送失败");
-					Looper.loop();
-				}
-			}
-		}).start();
-		//updateSession(Const.MSG_TYPE_TEXT, "[位置]");
-		updateSession1(Const.MSG_TYPE_TEXT, "[位置]",name,logo);
-	*/
-    }
 
     /**
      * 发送的信息 from为收到的消息，to为自己发送的消息
@@ -1076,7 +806,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         msg.setIsComing(1);
         msg.setContent(message);
         msg.setDate(time);
-        LogDetect.send(DataType.nonbasicType, "01160 time:", time);
         return msg;
     }
 
@@ -1181,26 +910,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         }
     }
 
-/*	*/
 
-    /**
-     * 接收消息记录操作广播：删除复制
-     *
-     * @author baiyuliang
-     *//*
-	private class MsgOperReciver1 extends BroadcastReceiver {
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			String status = intent.getStringExtra("shuru");
-			LogDetect.send(LogDetect.DataType.specialType,"01160 广播", status);
-			if(status.equals("1")){
-				mHandler.sendMessage(mHandler.obtainMessage(20, (Object)status));
-			}else if(status.equals("0")){
-				mHandler.sendMessage(mHandler.obtainMessage(30, (Object)status));
-			}
-
-		}
-	}*/
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -1292,17 +1002,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         if (mXMPPConnection == null || !mXMPPConnection.isConnected()) {
             // throw new XMPPException();
         }
-        // ChatManager chatmanager = mXMPPConnection.getChatManager();
-        // hatManager chatmanager = new ChatManager(mXMPPConnection);
-        ////////////////////------------------>>>>>>>>
-        LogDetect.send(DataType.specialType, "xmpp表面:", "1");
-        ////////////////////------------------>>>>>>>>
+
         ChatManager chatmanager = Utils.xmppchatmanager;
-        //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+chatmanager);
-        // Chat chat =chatmanager.createChat(touser + "@" + Const.XMPP_HOST,
-        // null);
-        ////////////////////------------------>>>>>>>>
-        LogDetect.send(DataType.specialType, "xmpp表面:", "2");
+
         ////////////////////------------------>>>>>>>>
         Chat chat = chatmanager.createChat(YOU + "@" + Const.XMPP_HOST, null);
         ////////////////////------------------>>>>>>>>
@@ -1324,84 +1026,11 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         }
     }
 
-    // 打开相机{
-    protected void xiangji() {
-        Intent intent = new Intent();
-        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-			/*cameraFile = Environment.getExternalStorageDirectory() + "/"
-					+ sdName.format(new Date()) + ".jpg";
-			photoUri = Uri.fromFile(new File(cameraFile));// 得到一个File
-			intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);*/
-        startActivityForResult(intent, 1);
-    }
 
-    // 打开相册
-    protected void xiangce() {/*
-		Intent intent = new Intent();
-		intent.setType("image/*");
-		intent.setAction(Intent.ACTION_PICK);
-		intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);// 使用以上这种模式，并添加以上两句
-		startActivityForResult(intent, 0);
-
-	*/
-    }
-
-    // 得到相册返回data
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {/*
-
-		if (resultCode == -1) {
-			if (requestCode == 0) {
-				photoFile = upimg(data);
-				sendMsgImg(photoFile);
-				//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"sendPic: "+photoFile);
-			} else {
-				//xiangce();
-				Bitmap bm = (Bitmap) data.getExtras().get("data");
-				cameraFile = Environment.getExternalStorageDirectory() + "/"+ sdName.format(new Date()) + ".jpg";
-				File myCaptureFile = new File(cameraFile);
-				try {
-					BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
-					bm.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-					bos.flush();
-					bos.close();
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				sendMsgImg(cameraFile);
-				//LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"sendCamer: "+cameraFile);
-			}
-		}
-		super.onActivityResult(requestCode, resultCode, data);
-	*/
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 
-    // 取得相册图片地址
-	/*protected String upimg(Intent data) {
-		if (data == null) {
-			Toast.makeText(this, "未选择图片", Toast.LENGTH_LONG).show();
-			return "";
-		}
-		photoUri = data.getData();
-		if (photoUri == null) {
-			Toast.makeText(this, "选择图片文件出错", Toast.LENGTH_LONG).show();
-			return "";
-		}
-		String[] pojo = { MediaStore.Images.Media.DATA };
-		@SuppressWarnings("deprecation")
-		String[] proj = { MediaStore.Images.Media.DATA };
-		CursorLoader loader = new CursorLoader(this, photoUri, proj, null,
-				null, null);
-		Cursor cursor = loader.loadInBackground();
-		int column_index = cursor
-				.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-		cursor.moveToFirst();
-		return cursor.getString(column_index);
-
-	}*/
 
     public void showPopupspWindow(View parent) {
         // 加载布局
@@ -1634,70 +1263,15 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
             if (s.length() != 0) {
-        	/*	sendshuru("1");*/
-                send.setVisibility(View.VISIBLE);
-                send_sms1.setVisibility(View.GONE);
+                send.setEnabled(true);
             } else {
-    		/*	sendshuru("0");*/
-                send.setVisibility(View.GONE);
-                send_sms1.setVisibility(View.VISIBLE);
-
+                send.setEnabled(false);
             }
 
         }
     };
 
 
-    //钱不够弹窗
-	/*@SuppressLint({ "RtlHardcoded", "NewApi" })
-	public void showPopupspWindow_cz(View parent) {
-		// 加载布局
-		LayoutInflater inflater = LayoutInflater.from(ChatActivity.this);  
-		View layout = inflater.inflate(R.layout.pop_recharge_01160, null);
-				//取消      
-		TextView quxiao,queding;
-		
-		quxiao = (TextView)layout.findViewById(R.id.quxiao);
-		quxiao.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				popupWindow.dismiss();
-			}
-		});
-		
-		queding = (TextView)layout.findViewById(R.id.queding);
-		queding.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				//点击确定，跳转到充币页面
-				Intent intent = new Intent();
-				intent.setClass(ChatActivity.this,RechargeActivity.class);
-				startActivity(intent);
-				
-				LogDetect.send(DataType.specialType,"01160 跳转到充币页面:",intent);
-			}
-		});
-		
-		popupWindow = new PopupWindow(layout, LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT, true);
-		// 控制键盘是否可以获得焦点
-		popupWindow.setFocusable(true);
-		WindowManager.LayoutParams lp = ChatActivity.this.getWindow().getAttributes();
-		lp.alpha = 0.5f;
-		ChatActivity.this.getWindow().setAttributes(lp);
-		popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-		//popupWindow.showAsDropDown(parent, 0, 0,Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
-		popupWindow.showAtLocation(parent, Gravity.CENTER_VERTICAL|Gravity.BOTTOM, 0, 0);
-		popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-			public void onDismiss() {
-				WindowManager.LayoutParams lp = ChatActivity.this.getWindow().getAttributes();
-				lp.alpha = 1f;
-				ChatActivity.this.getWindow().setAttributes(lp);
-			}
-		});
-	}*/
     public void showPopupspWindow_chongzhi(View parent) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);

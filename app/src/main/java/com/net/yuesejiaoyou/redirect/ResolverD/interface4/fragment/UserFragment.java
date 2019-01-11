@@ -68,8 +68,6 @@ public class UserFragment extends Fragment {
             }
         });
 
-        //构造适配器
-        LogUtil.d("ttt", "---" + Util.iszhubo);
         List<Fragment> fragments = new ArrayList<Fragment>();
         if ("0".equals(Util.iszhubo)) {
             fragments.add(new ActiveFragment());

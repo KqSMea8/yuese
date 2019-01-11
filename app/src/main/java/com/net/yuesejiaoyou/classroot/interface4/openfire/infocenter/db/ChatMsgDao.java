@@ -44,14 +44,12 @@ public class ChatMsgDao {
         values.put(DBcolumns.MSG_BAK5, msg.getBak5());
         values.put(DBcolumns.MSG_BAK6, msg.getBak6());
         db.insert(DBcolumns.TABLE_MSG, null, values);
-        db.close();
         try {
             int msgid = queryTheLastMsgId();//返回新插入记录的id
             return msgid;
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
-
         return 0;
     }
 
@@ -60,13 +58,13 @@ public class ChatMsgDao {
         ContentValues values = new ContentValues();
         values.put(DBcolumns.MSG_ISREADED, "1");
         db.update(DBcolumns.TABLE_MSG, values, null, null);
-        db.close();
     }
 
     public int hasnoread(String user_id) {
         SQLiteDatabase db = helper.getWritableDatabase();
         int unreadCount = 0;
-        Cursor countcursor = db.rawQuery("select count(*) from " + DBcolumns.TABLE_MSG + " where " + DBcolumns.MSG_ISREADED + " = 0" + " AND " + DBcolumns.MSG_TO + " = ?", new String[]{user_id});
+        String sql = "select count(*) from " + DBcolumns.TABLE_MSG + " where " + DBcolumns.MSG_ISREADED + " = 0" + " AND " + DBcolumns.MSG_TO + " =?";
+        Cursor countcursor = db.rawQuery(sql, new String[]{user_id});
         if (countcursor.moveToFirst()) {
             unreadCount = countcursor.getInt(0);
         }
@@ -89,7 +87,6 @@ public class ChatMsgDao {
             db.update(DBcolumns.TABLE_MSG, values, DBcolumns.MSG_ID + " = ? ", new String[]{String.valueOf(id)});
         }
         cursor.close();
-        db.close();
     }
 
 
@@ -99,7 +96,6 @@ public class ChatMsgDao {
     public void deleteTableData() {
         SQLiteDatabase db = helper.getWritableDatabase();
         db.delete(DBcolumns.TABLE_MSG, null, null);
-        db.close();
     }
 
 
@@ -111,7 +107,6 @@ public class ChatMsgDao {
     public long deleteMsgById(int msgid) {
         SQLiteDatabase db = helper.getWritableDatabase();
         long row = db.delete(DBcolumns.TABLE_MSG, DBcolumns.MSG_ID + " = ?", new String[]{"" + msgid});
-        db.close();
         return row;
     }
 
@@ -154,7 +149,6 @@ public class ChatMsgDao {
             list.add(0, msg);
         }
         cursor.close();
-        db.close();
         return list;
     }
 
@@ -184,7 +178,6 @@ public class ChatMsgDao {
             list.add(0, msg);
         }
         cursor.close();
-        db.close();
         return list;
     }
 
@@ -219,7 +212,6 @@ public class ChatMsgDao {
             msg.setBak6(cursor.getString(cursor.getColumnIndex(DBcolumns.MSG_BAK6)));
         }
         cursor.close();
-        db.close();
         return msg;
     }
 
@@ -238,7 +230,6 @@ public class ChatMsgDao {
             id = cursor.getInt(cursor.getColumnIndex(DBcolumns.MSG_ID));
         }
         cursor.close();
-        db.close();
         return id;
     }
 

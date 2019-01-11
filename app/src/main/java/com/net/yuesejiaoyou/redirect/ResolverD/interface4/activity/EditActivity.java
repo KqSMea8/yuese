@@ -327,6 +327,7 @@ public class EditActivity extends BaseActivity implements OnClickListener {
         private boolean shape;
         DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
                 .cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+
         public boolean isShape() {
             return shape;
         }
@@ -358,60 +359,37 @@ public class EditActivity extends BaseActivity implements OnClickListener {
             return 0;
         }
 
-        public void setSelectedPosition(int position) {
-            selectedPosition = position;
-        }
-
-        public int getSelectedPosition() {
-            return selectedPosition;
-        }
-
         public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder holder = null;
-            //if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_published_grida,
-                    parent, false);
+            convertView = inflater.inflate(R.layout.item_published_grida, parent, false);
             holder = new ViewHolder();
-            holder.image = (ImageView) convertView
-                    .findViewById(R.id.item_grida_image);
+            holder.image = (ImageView) convertView.findViewById(R.id.item_grida_image);
 
-            holder.item_del_image = (TextView) convertView
-                    .findViewById(R.id.item_del_image);
+            holder.item_del_image = (TextView) convertView.findViewById(R.id.item_del_image);
             convertView.setTag(holder);
-            //} else {
-            //	holder = (ViewHolder) convertView.getTag();
-            //}
-//			if(((MyGridview) parent).isOnMeasure){
-//	            //如果是onMeasure调用的就立即返回
-//	            return convertView;
-//	        }
+
 
             if (position == imglist.size()) {
-                holder.image.setImageBitmap(BitmapFactory.decodeResource(
-                        getResources(), R.drawable.icon_addpic_unfocused));
+                holder.image.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_addpic_unfocused));
                 holder.item_del_image.setVisibility(View.GONE);
-//				if (position == 8) {
-//					holder.image.setVisibility(View.GONE);
-//				}
             } else {
-                if (position==0){
+                if (position == 0) {
                     holder.item_del_image.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     holder.item_del_image.setVisibility(View.GONE);
                 }
+                if (imglist.get(position).contains("http")) {
+                    //ImageLoader.getInstance().displayImage(imglist.get(position), holder.image, options);
 
-
-                if (imglist.get(position).contains("http")){
-                    //Glide.with(edit_info_01150.this).load(imglist.get(position)).into(holder.image);
-                    ImageLoader.getInstance().displayImage(imglist.get(position),holder.image,options);
-                    //ImageUtils.loadImage(imglist.get(position),holder.image);
-                }else{
+                    ImageUtils.loadImage(imglist.get(position), holder.image);
+                } else {
                     holder.image.setImageBitmap(m_imageWork.processBitmapNet(imglist.get(position), 200, 200));
                 }
             }
 
             return convertView;
         }
+
         public class ViewHolder {
             public ImageView image;
             public TextView item_del_image;
@@ -535,7 +513,7 @@ public class EditActivity extends BaseActivity implements OnClickListener {
                     if (changed == false && !ylimgpic.equals(image)) {
                         changed = true;
                     }
-                    LogUtil.i("ttt","---"+image);
+                    LogUtil.i("ttt", "---" + image);
                     //if (ylimgpic.equals(image)){
                     if (changed == false) {
                         String[] paramsMap2 = {Util.userid, image, nickname_text.getText().toString(), phonenum_text.getText().toString(), height_text.getText().toString(),
@@ -1178,16 +1156,12 @@ public class EditActivity extends BaseActivity implements OnClickListener {
             final ArrayList<BaseMedia> medias = Boxing.getResult(data);
             BaseMedia baseMedia = medias.get(0);
             if (requestCode == REQUEST_CODE) {
-                //mAdapter.setList(medias);
                 String path;
                 if (baseMedia instanceof ImageMedia) {
                     path = ((ImageMedia) baseMedia).getThumbnailPath();
                 } else {
                     path = baseMedia.getPath();
                 }
-                Log.e("ggggg", path);
-                LogDetect.send(LogDetect.DataType.specialType, "--path--a:--", path);
-                //Toast.makeText(Authentication_01150.this,path,Toast.LENGTH_SHORT).show();
                 imglist.add(path);
                 adapter.notifyDataSetChanged();
             } else if (requestCode == COMPRESS_REQUEST_CODE) {

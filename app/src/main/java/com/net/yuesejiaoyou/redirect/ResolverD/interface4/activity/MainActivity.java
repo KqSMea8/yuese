@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -25,6 +28,8 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Sessio
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
+import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.AutoMessage;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.DynamicFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.MessageFragment;
@@ -77,7 +82,11 @@ public class MainActivity extends BaseActivity {
     ImageView ivNew;
     @BindView(R.id.fl_content)
     FrameLayout flContent;
+
+
     private PopupWindow popupWindow;
+
+    private Handler handler = new Handler();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +100,35 @@ public class MainActivity extends BaseActivity {
         IntentFilter intentFilter1 = new IntentFilter(Const.ACTION_MSG_OPER);
         registerReceiver(msgOperReciver, intentFilter1);
 
-        changeSelect(0);
+
         new UpdateManager(this).checkUpdate();
+
+        if (Util.userid.equals("0") || TextUtils.isEmpty(Util.userid)) {
+            String username = sp.getString("username", "");
+            String password = sp.getString("password", "");
+            String openid = sp.getString("openid", "1");
+            if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+                login(username, password);
+            } else if (!TextUtils.isEmpty(openid) && !openid.equals("1")) {
+                weixinLogin(openid, "", "", "");
+            }
+        } else {
+            changeSelect(0);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         IMManager.clientHeartbeat();
-        showPopupspWindowEveryday();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showPopupspWindowEveryday();
+            }
+        }, 1000);
+
     }
 
     @Override
@@ -247,7 +276,120 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    private void login(String usernem, String password) {
+        OkHttpUtils.post(this)
+                .url(URL.URL_LOGIN)
+                .addParams("param1", 1)
+                .addParams("param2", usernem)
+                .addParams("param3", password)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常,请重试！");
+                        finish();
+                    }
 
+                    @Override
+                    public void onResponse(String resultBean, int id) {
+                        dealResult(resultBean);
+                    }
+                });
+    }
+
+    private void weixinLogin(String openid, String nickname, String head, String gender) {
+        OkHttpUtils.post(this)
+                .url(URL.URL_WXLOGIN)
+                .addParams("param1", "")
+                .addParams("param2", openid)
+                .addParams("param3", nickname)
+                .addParams("param4", head)
+                .addParams("param5", gender)
+                .addParams("param6", "")
+                .addParams("param7", "")
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常");
+                        finish();
+                    }
+
+                    @Override
+                    public void onResponse(String resultBean, int id) {
+                        dealResult(resultBean);
+                    }
+                });
+    }
+
+    private void dealResult(String result) {
+        if (TextUtils.isEmpty(result)) {
+            finish();
+            return;
+        }
+        try {
+            JSONObject jsonObject = new JSONObject(result);
+            if (jsonObject.getString("0").equals("已封号")) {
+                JPushInterface.setAlias(getApplicationContext(), 1, "0");    // 设置极光别名
+                showToast("您的账号出现违规操作已被冻结，有问题请联系客服");
+                finish();
+                return;
+            }
+        } catch (JSONException e) {
+            finish();
+            e.printStackTrace();
+        }
+        try {
+            JSONArray jsonArray = new JSONArray(result);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            String a = jsonObject.getString("id");
+            if (!a.equals("")) {
+                String name = jsonObject.getString("nickname");
+                String headpic = jsonObject.getString("photo");
+                String gender = jsonObject.getString("gender");
+                String zhubo = jsonObject.getString("is_v");
+                String zh = jsonObject.getString("username");
+                String pwd = jsonObject.getString("password");
+                String wxopenid = jsonObject.getString("openid");
+                String invite_num = jsonObject.getString("invite_num");
+                Util.invite_num = invite_num;
+                //share = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
+                sp.edit()
+                        .putString("logintype", "phonenum")
+                        .putString("username", zh)
+                        .putString("password", pwd)
+                        .putString("userid", a)
+                        .putString("nickname", name)
+                        .putString("headpic", headpic)
+                        .putString("sex", gender)
+                        .putString("zhubo_bk", zhubo)
+                        .putString("openid", wxopenid)
+                        .putBoolean("FIRST", false).apply();
+                Util.userid = a;
+                Util.headpic = headpic;
+                Util.nickname = name;
+                Util.is_agent = jsonObject.getString("is_agent");
+                Util.iszhubo = zhubo.equals("0") ? "0" : "1";
+
+                if (Util.imManager == null) {
+                    Util.imManager = new com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager();
+                    Util.imManager.initIMManager(jsonObject, getApplicationContext());
+                }
+
+                JPushInterface.setAlias(getApplicationContext(), 1, Util.userid);    // 设置极光别名
+
+                changeSelect(0);
+            } else {
+                showToast("请检查手机号或密码");
+                finish();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            showToast("请检查手机号或密码");
+            finish();
+        }
+
+    }
 
     @OnClick(R.id.shipinimg)
     public void firstClick() {

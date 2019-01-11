@@ -38,7 +38,7 @@
         android:gravity="center"
         android:padding="3dp"
         android:background="@drawable/bg_grey"
-        android:text="拨打视频"
+        android:text="打招呼"
         android:textColor="#ffffff"
         android:textSize="14dp" />
 

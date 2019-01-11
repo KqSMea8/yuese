@@ -129,10 +129,6 @@ public class ChatAdapter extends BaseAdapter {
 			 this.logo = logo;
 			 //	LogDetect.send(LogDetect.DataType.noType,"微信头像 logo:",logo);
 		 }
-			
-			
-		/* headpicture= "http://120.27.98.128:9110/img/imgheadpic/"+share.getString("headpic", "");
-		this.logo = "http://120.27.98.128:9110/img/imgheadpic/"+this.logo;*/
 	}
 
 	public void setList(List<Msg> list) {
@@ -160,8 +156,7 @@ public class ChatAdapter extends BaseAdapter {
 		Bitmap tmpBmp;
 		if (convertView == null) {
 			hodler = new ViewHodler();
-			convertView = LayoutInflater.from(mContext).inflate(
-					R.layout.chat_lv_item_01160, null);
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_lv_item_01160, null);
 			hodler.rl_chat = (RelativeLayout) convertView
 					.findViewById(R.id.rl_chat);// 聊天布局
 			// 接收的消息

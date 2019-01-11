@@ -119,7 +119,7 @@
                 android:layout_height="60sp"
                 android:layout_weight="1"
                 android:src="@drawable/beautyon"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/btn_endcall"

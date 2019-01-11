@@ -121,7 +121,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
         list.add(new MineBean(R.drawable.qianbao, "我的钱包"));
         list.add(new MineBean(R.drawable.fencheng, "分享赚钱"));
         list.add(new MineBean(R.drawable.qunfa, "群发私信"));
-        //list.add(new MineBean(R.drawable.meiyan, "美颜设置"));
+        list.add(new MineBean(R.drawable.meiyan, "美颜设置"));
         wuraoBean = new MineBean(R.drawable.wuraonoo, "在线");
         list.add(wuraoBean);
         list.add(new MineBean(R.drawable.heimingdan, "黑名单"));

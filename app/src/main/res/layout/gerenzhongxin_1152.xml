@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECECEC"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -70,8 +70,8 @@
                         android:id="@+id/dengji"
                         android:layout_width="50dip"
                         android:layout_height="25dip"
-                        android:background="@drawable/shape_search_quan_01152"
                         android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_search_quan_01152"
                         android:gravity="center"
                         android:text="LV.0"
                         android:textColor="#FFFFFF"
@@ -85,9 +85,9 @@
                         android:background="@drawable/shape_search_dailishang_01152"
                         android:gravity="center"
                         android:text="DL.0"
-                        android:visibility="gone"
                         android:textColor="#FFFFFF"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -283,6 +283,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dip"
+                android:visibility="visible"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -290,6 +291,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="110dip"
                     android:layout_weight="1"
+                    android:visibility="gone"
                     android:background="#ffffff"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -310,10 +312,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="1dip"
-                    android:layout_height="100dip">
-
-                </LinearLayout>
+                    android:layout_width="1dp"
+                    android:layout_height="100dp"/>
 
 
                 <LinearLayout
@@ -369,14 +369,12 @@
                         android:textColor="#000000"
                         android:textSize="14dip" />
                 </LinearLayout>
-            </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="1dip"
+                    android:layout_height="100dip">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dip"
-                android:orientation="horizontal">
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/fankui"
@@ -401,6 +399,16 @@
                         android:textColor="#000000"
                         android:textSize="14dip" />
                 </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dip"
+                android:orientation="horizontal">
+
+
 
                 <LinearLayout
                     android:layout_width="1dip"
@@ -464,15 +472,11 @@
                         android:textColor="#000000"
                         android:textSize="14dip" />
                 </LinearLayout>
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dip"
+                    android:layout_height="110dip">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dip"
-                android:orientation="horizontal">
-
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/tuichu"
                     android:layout_width="match_parent"
@@ -497,66 +501,86 @@
                         android:textSize="14dip" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="1dip"
-                    android:layout_height="110dip">
 
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="110dip"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="30dip"
-                        android:layout_height="30dip"
-                        android:background="#ffffff" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dip"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="18dip" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="1dip"
-                    android:layout_height="110dip">
-
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="110dip"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="30dip"
-                        android:layout_height="30dip"
-                        android:background="#ffffff" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dip"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="18dip" />
-                </LinearLayout>
             </LinearLayout>
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="1dip"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/tuichu"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="110dip"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="30dip"-->
+                        <!--android:layout_height="30dip"-->
+                        <!--android:background="@drawable/tuichu" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="10dip"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="安全退出"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="14dip" />-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="1dip"-->
+                    <!--android:layout_height="110dip">-->
+
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="110dip"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="30dip"-->
+                        <!--android:layout_height="30dip"-->
+                        <!--android:background="#ffffff" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="10dip"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text=""-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="18dip" />-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="1dip"-->
+                    <!--android:layout_height="110dip">-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="110dip"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="#ffffff"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!---->
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
 
         </LinearLayout>
