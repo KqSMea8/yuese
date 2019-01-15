@@ -371,8 +371,7 @@ public class AgoraVideoManager_back {
                         } else {
                             Intent intent = new Intent();
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                            intent.setClass(mContext.getApplicationContext(),
-                                    guke_01160.class);
+                            intent.setClass(mContext.getApplicationContext(), guke_01160.class);
 
                             Bundle bundle = new Bundle();
                             bundle.putString("yid_zhubo", userid);

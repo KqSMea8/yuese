@@ -193,7 +193,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         id_call_v.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!"0".equals(Util.iszhubo)) {
+                if (TextUtils.isEmpty(info.getUser_id()) || !"0".equals(Util.iszhubo)) {
                     Toast.makeText(getActivity(), "主播不能跟主播通话", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -210,6 +210,10 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         id_head_layout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (TextUtils.isEmpty(info.getUser_id())) {
+                    return;
+                }
+
                 Intent intent = new Intent(mContext, UserActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("id", "" + info.getUser_id());
@@ -248,10 +252,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                         sendSongLi("[" + "☆" + Util.nickname + "给" + videoinfo1.getNickname() + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
                     }
 
-                    @Override
-                    public void onFail() {
-                        showPopupspWindow_chongzhi();
-                    }
+
                 }).show();
             }
         });
@@ -550,9 +551,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         }
     }
 
-    /*******************************************************
-     * @
-     *******************************************************/
+
     public void setLike() {
         if (likeable) {
             likeable = false;
@@ -567,10 +566,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
     }
 
 
-    /********************************************************
-     * 返回数据,进行操作
-     * @
-     *******************************************************/
+
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
@@ -1099,22 +1095,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 Log.d(TAG, "surfaceCreated");
 
                 aliyunVodPlayer.setDisplay(holder);
-
-//				if (!bPlayed) {
-//					Canvas canvas = holder.lockCanvas();
-//					if (canvas != null && !isDestroy) {
-//						bitmap = ImageLoader.getInstance().loadImageSync(info.getVideo_photo());
-//						RectF rectF = new RectF(0, 0, videoView.getWidth(), videoView.getHeight());
-//
-//						if (bitmap.isRecycled()) {
-//						} else {
-//							canvas.drawBitmap(bitmap, null, rectF, null);
-//							holder.unlockCanvasAndPost(canvas);
-//						}
-//
-//					}
-//
-//				}
             }
 
             ///////////////////////////////////////////////////////////////////
@@ -1213,10 +1193,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 });
     }
 
-    /************************************************************************
-     *
-     * @
-     ***********************************************************************/
     private void initVodPlayer() {
         aliyunVodPlayer = new AliyunVodPlayer(getActivity());
         String sdDir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test_save_cache";
@@ -1249,46 +1225,8 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 if (mLocalSource == null) {
                     qualityIds.clear();
                     String current = aliyunVodPlayer.getCurrentQuality();
-                    /*update quality buttons
-                    for (String quality : mQualities) {
-                        Button btn = new Button(getBaseContext());
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                        layoutParams.weight = 1;
-                        layoutParams.setMargins(10, 0, 10, 0);
-                        btn.setText(qualityList.get(quality));
-                        btn.setTextSize(14);
-                        btn.setTag(quality);
-                        btn.setTextColor(Color.rgb(49, 50, 51));
-                        btn.setBackgroundColor(Color.rgb(207, 207, 207));
-                        btn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                changeQuality((Button) v);
-                            }
-                        });
-                        if (current.equals(quality)) {
-                            btn.setTextColor(Color.rgb(255, 255, 255));
-                            btn.setBackgroundColor(Color.rgb(3, 106, 150));
-                        }
-                        qualityIds.add(btn);
-                        qualityLayout.addView(btn, layoutParams);
 
-                    }*/
                 }
-
-
-                /*if(sAutoPlay || mAutoPlay) {
-                    aliyunVodPlayer.start();
-                    pauseBtn.setText("pause_button");
-                    //logStrs.add(format.format(new Date()) + getString(R.string.log_strart_play));
-                    if(mMute) {
-                        aliyunVodPlayer.setMuteMode(mMute);
-                    }
-                    brightnessBar.setProgress(aliyunVodPlayer.getScreenBrightness());
-                    volumeBar.setProgress(aliyunVodPlayer.getVolume());
-                }
-                mAutoPlay = false;*/
             }
         });
         aliyunVodPlayer.setOnFirstFrameStartListener(new IAliyunVodPlayer.OnFirstFrameStartListener() {

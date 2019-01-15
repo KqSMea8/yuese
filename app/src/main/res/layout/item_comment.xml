@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/line_oncli"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -8,16 +8,19 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="50.0dip">
 
-        <com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView
+        <com.github.siyamed.shapeimageview.RoundedImageView
             android:id="@+id/image_view_comment"
-            android:layout_width="34.0dip"
-            android:layout_height="34.0dip"
-            android:layout_alignParentLeft="true"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="16.0dip" />
+            android:layout_marginLeft="16dp"
+            android:scaleType="centerCrop"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="0dp"
+            app:siRadius="25dp" />
 
         <TextView
             android:id="@+id/tv_nick"
@@ -36,9 +39,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/tv_nick"
-            >
-
+            android:layout_toRightOf="@id/tv_nick">
 
             <TextView
                 android:id="@+id/pj1"
@@ -51,9 +52,8 @@
                 android:padding="5dip"
                 android:text=""
                 android:textColor="@color/white"
-                android:visibility="gone"
-                android:textSize="13dip" />
-
+                android:textSize="13dip"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/pj2"
@@ -61,13 +61,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5.0dip"
-                android:background="@drawable/bg_tag1"
                 android:layout_toLeftOf="@id/pj1"
+                android:background="@drawable/bg_tag1"
                 android:padding="5dip"
                 android:text="会聊天"
-                android:visibility="gone"
                 android:textColor="@color/white"
-                android:textSize="13dip" />
+                android:textSize="13dip"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/pj3"
@@ -75,22 +75,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5.0dip"
-                android:background="@drawable/bg_tag2"
                 android:layout_toLeftOf="@id/pj2"
+                android:background="@drawable/bg_tag2"
                 android:padding="5dip"
                 android:text="柔美妩媚"
-                android:visibility="gone"
                 android:textColor="@color/white"
-                android:textSize="13dip" />
-
-            <!--<FlowLayout-->
-                <!--android:id="@+id/flow"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="fill_parent"-->
-                <!--android:layout_alignParentRight="true"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_marginLeft="14.0dip"-->
-                <!--android:layout_marginRight="16.0dip" />-->
+                android:textSize="13dip"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <TextView
@@ -101,12 +92,7 @@
             android:layout_marginLeft="45.0dip"
             android:layout_toRightOf="@id/tv_nick"
             android:text="TA没有做任何评价"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
     </RelativeLayout>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/v_infromation_new" />
 </LinearLayout>

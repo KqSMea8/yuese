@@ -355,26 +355,17 @@ public class ShareHelp {
 
     // 微信登录
     public void wx_login(final Handler handler, final String flag) {
-        LogDetect.send(LogDetect.DataType.specialType, "wx_login: ", "wx_login");
-        Log.v("TTT", "wx_login");
         Platform wechat = ShareSDK.getPlatform(Wechat.NAME);
-        //回调信息，可以在这里获取基本的授权返回的信息，但是注意如果做提示和UI操作要传到主线程handler里去执行
         wechat.setPlatformActionListener(new PlatformActionListener() {
             @Override
             public void onError(Platform arg0, int arg1, Throwable arg2) {
-                // TODO Auto-generated method stub
                 arg2.printStackTrace();
                 LogDetect.send(LogDetect.DataType.specialType, "onError: ", arg2);
             }
 
             @Override
             public void onComplete(Platform arg0, int arg1, HashMap<String, Object> arg2) {
-                // TODO Auto-generated method stub
-                //输出所有授权信息
-                LogDetect.send(LogDetect.DataType.specialType, "onSuccess: ", arg2);
-                Log.v("TTT", "WXLOGIN: " + arg2);
                 arg0.getDb().exportData();
-                //LogDetect.send(Utils.android, arg0.getDb().exportData());
                 Map<Object, Object> maps = new HashMap<Object, Object>();
                 Iterator ite = arg2.entrySet().iterator();
                 while (ite.hasNext()) {
@@ -382,9 +373,7 @@ public class ShareHelp {
                     Object key = entry.getKey();
                     Object value = entry.getValue();
                     maps.put(key, value);
-                    Log.v("TTT", "WXLOGIN: key=" + key + ",value=" + value);
                 }
-                LogDetect.send("数据存入maps", maps);
                 Message message = new Message();
                 if (flag.equals("0")) {
                     // 登录页面
@@ -403,13 +392,9 @@ public class ShareHelp {
                 LogDetect.send("onCancel", "取消");
             }
         });
-        //authorize与showUser单独调用一个即可
         wechat.authorize();//单独授权,OnComplete返回的hashmap是空的
-        LogDetect.send(LogDetect.DataType.specialType, "showUser: ", "showUser");
         wechat.showUser(null);//授权并获取用户信息
-        //移除授权
         //wechat.removeAccount(true);
-        LogDetect.send(LogDetect.DataType.specialType, "showUser: ", "showUser2");
     }
 
     // 删除授权

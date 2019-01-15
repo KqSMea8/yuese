@@ -51,12 +51,13 @@ import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Idle;
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Stopped;
 
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.Formatter;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 /***********************************************
  * 定义视频播放页面的基本控件
  * @
  **********************************************/
-public class NoSkinActivity extends Activity {
+public class NoSkinActivity extends BaseActivity {
 
     private Map<String,String> qualityList = new HashMap<>();
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SS");
@@ -122,18 +123,9 @@ public class NoSkinActivity extends Activity {
     private TextView videoHeightTxt;
 
 
-    /* prepareBtn.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View v) {
-           aliyunVodPlayer.prepareAsync();
-       }
-     });*/
 
-    /************************************************
-     *
-     * @param item
-     * @return
-     ************************************************/
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -177,7 +169,6 @@ public class NoSkinActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_noskin);
 
         rl = (RelativeLayout) findViewById(R.id.rl);
         rl.setOnClickListener(new View.OnClickListener() {
@@ -369,19 +360,7 @@ public class NoSkinActivity extends Activity {
                 }
             }
         });
-        /*releaseBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aliyunVodPlayer.stop();
-                aliyunVodPlayer.release();
-            }
-        });
-        changeQualityBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aliyunVodPlayer.changeQuality(IAliyunVodPlayer.QualityValue.QUALITY_FLUENT);
-            }
-        });*/
+
         replayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -562,6 +541,11 @@ public class NoSkinActivity extends Activity {
         qualityList.put(IAliyunVodPlayer.QualityValue.QUALITY_ORIGINAL, getString(R.string.alivc_od_definition));
 
 
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_noskin;
     }
 
     /********************************

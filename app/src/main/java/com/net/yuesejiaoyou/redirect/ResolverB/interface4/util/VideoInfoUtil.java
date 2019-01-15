@@ -1,10 +1,7 @@
 package com.net.yuesejiaoyou.redirect.ResolverB.interface4.util;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.NoSkinActivity;
 
 import net.sf.json.JSONObject;
 

@@ -43,9 +43,10 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException.NotConnectedException;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Member_01160;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 @SuppressLint("SimpleDateFormat")
-public class GroupMessageActivity extends Activity  implements OnClickListener{
+public class GroupMessageActivity extends BaseActivity implements OnClickListener{
     
 	private View mBaseView;
 	private Context mContext;
@@ -60,7 +61,6 @@ public class GroupMessageActivity extends Activity  implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.mass_chat_01160);
 		init();
 
 		SharedPreferences sharedPreferences = getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
@@ -71,6 +71,11 @@ public class GroupMessageActivity extends Activity  implements OnClickListener{
 
 		initData();
 
+	}
+
+	@Override
+	protected int getContentView() {
+		return R.layout.mass_chat_01160;
 	}
 
 	private void initData() {

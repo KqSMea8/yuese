@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -59,27 +58,24 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.VMyAdapterqm_01066;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserInfoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoFragment;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -167,7 +163,7 @@ public class UserActivity extends BaseActivity {
                 LogDetect.send(LogDetect.DataType.specialType, "UserActivity:A区 转2调 C区", "他的亲密榜");
                 //////////////////////////////
                 Intent intent = new Intent();
-                intent.setClass(mContext, Vliao_hisqinmibang_01178.class);
+                intent.setClass(mContext, IntimateActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("id", userid);
                 intent.putExtras(bundle);
@@ -674,10 +670,7 @@ public class UserActivity extends BaseActivity {
                 sendSongLi("[" + "☆" + Util.nickname + "给" + nicheng + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
             }
 
-            @Override
-            public void onFail() {
-                showPopupspWindow_chongzhi();
-            }
+
         }).show();
     }
 
@@ -800,58 +793,35 @@ public class UserActivity extends BaseActivity {
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
 
         TextView cancel = (TextView) layout.findViewById(R.id.cancel);
-        //////////////////////////////////////
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 popupWindow.dismiss();
             }
         });
-
 
         TextView confirm = (TextView) layout.findViewById(R.id.confirm);//获取小窗口上的TextView，以便显示现在操作的功能。
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent1 = new Intent();
-                intent1.setClass(UserActivity.this, RechargeActivity.class);//充值页面
-                startActivity(intent1);
+                Intent intent = new Intent(UserActivity.this, RechargeActivity.class);
+                startActivity(intent);
                 popupWindow.dismiss();
             }
         });
 
-
-        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT,//？？？？？？？？？？？？？？
-                ViewPager.LayoutParams.WRAP_CONTENT, true);
-        // 控制键盘是否可以获得焦点
+        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.WRAP_CONTENT, true);
         popupWindow.setFocusable(true);
-        // 设置popupWindow弹出窗体的背景
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.4f;
-        getWindow().setAttributes(lp);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        @SuppressWarnings("deprecation")
-        // 获取xoff
-                int xpos = manager.getDefaultDisplay().getWidth() / 2
-                - popupWindow.getWidth() / 2;
-        // xoff,yoff基于anchor的左下角进行偏移。
-        // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
-        // 监听
-        /////////////////////////////////////////////
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+        Tools.backgroundAlpha(UserActivity.this, 0.4f);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             // 在dismiss中恢复透明度
             public void onDismiss() {
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.alpha = 1f;
-                getWindow()
-                        .addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                getWindow().setAttributes(lp);
+                Tools.backgroundAlpha(UserActivity.this, 1f);
             }
         });
     }
+
     public void showPopupspWindow4(View parent) {
         // 加载布局
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -922,8 +892,45 @@ public class UserActivity extends BaseActivity {
                 String dateStr = sdf.format(now.getTimeInMillis());
 
                 //开始时间
-                String[] paramsMap = {Util.userid, userid, befortime, dateStr};
-                new Thread(new UsersThread_01160A("insert_reservation", paramsMap, handler).runnable).start();
+//                String[] paramsMap = {Util.userid, userid, befortime, dateStr};
+//                new Thread(new UsersThread_01160A("insert_reservation", paramsMap, handler).runnable).start();
+
+                OkHttpUtils.post(this)
+                        .url(URL.URL_INSERT)
+                        .addParams("param1", Util.userid)
+                        .addParams("param2", userid)
+                        .addParams("param3", befortime)
+                        .addParams("param4", dateStr)
+                        .build()
+                        .execute(new DialogCallback(UserActivity.this) {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                showToast("网络异常");
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                if (TextUtils.isEmpty(response)) {
+                                    showToast("预约失败，请检查网络连接");
+                                } else {
+                                    try {
+                                        JSONObject jsonObject1 = new JSONObject(response);
+                                        //预约
+                                        String success_ornot = jsonObject1.getString("success");
+                                        if (success_ornot.equals("-2")) {
+                                            Toast.makeText(mContext, "余额不足，无法预约", Toast.LENGTH_SHORT).show();
+                                        } else if (success_ornot.equals("-1")) {
+                                            Toast.makeText(mContext, "已预约成功，无法再次预约", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Util.sendMsgText("『" + Util.nickname + "』 Appointment is successful", userid);
+                                            Toast.makeText(mContext, "预约成功,消费" + success_ornot + "悦币", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        });
 
                 popupWindow.dismiss();
             }

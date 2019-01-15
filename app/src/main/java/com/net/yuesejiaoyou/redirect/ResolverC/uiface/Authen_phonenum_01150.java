@@ -28,11 +28,12 @@ import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01066;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01150;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.CountDownTimerUtils;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Authen_phonenum_01150 extends Activity implements OnClickListener {
+public class Authen_phonenum_01150 extends BaseActivity implements OnClickListener {
 
 	private ImageView back;
 	private EditText phnum, pwd, code;
@@ -46,9 +47,7 @@ public class Authen_phonenum_01150 extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.renzheng_phone_01150);
 		back = (ImageView) findViewById(R.id.back);
 		back.setOnClickListener(this);
 		phnum = (EditText) findViewById(R.id.phnum);
@@ -58,6 +57,11 @@ public class Authen_phonenum_01150 extends Activity implements OnClickListener {
 		huoqu.setOnClickListener(this);
 		ascertain = (TextView) findViewById(R.id.ascertain);
 		ascertain.setOnClickListener(this);
+	}
+
+	@Override
+	protected int getContentView() {
+		return R.layout.renzheng_phone_01150;
 	}
 
 	@Override

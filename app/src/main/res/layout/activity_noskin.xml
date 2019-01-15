@@ -3,6 +3,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -22,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-
             android:text="视频"
             android:textColor="#000000"
             android:textSize="18sp" />

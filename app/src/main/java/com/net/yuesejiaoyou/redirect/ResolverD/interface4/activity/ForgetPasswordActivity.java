@@ -18,10 +18,17 @@ import android.widget.Toast;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CountDownTimerUtils;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+import butterknife.OnClick;
+import okhttp3.Call;
 
 import static com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RegisterActivity.isMobileNO;
 
@@ -30,113 +37,99 @@ import static com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.Regist
  * Created by Administrator on 2018/3/22.
  */
 
-public class ForgetPasswordActivity extends Activity implements View.OnClickListener {
-	private TextView get_code, xieyi, sign;
-	private EditText code2, edit1, edit2/* guojianum*/;
-	private ImageView back1;
-	private PopupWindow mPopWindow;
+public class ForgetPasswordActivity extends BaseActivity {
+    private TextView get_code;
+    private EditText code2, edit1;
 
-	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.vchat_forgetpassword);
-		get_code = (TextView) findViewById(R.id.get_code);
-		code2 = (EditText) findViewById(R.id.code);
-	//	guojianum = (EditText) findViewById(R.id.area_num);
-		back1 = (ImageView) findViewById(R.id.back1);
-		back1.setOnClickListener(this);
-		edit1 = (EditText) findViewById(R.id.phonenum);
-		sign = (TextView) findViewById(R.id.sign);
-		sign.setOnClickListener(this);
-		get_code.setOnClickListener(this);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        get_code = (TextView) findViewById(R.id.get_code);
+        code2 = (EditText) findViewById(R.id.code);
+        edit1 = (EditText) findViewById(R.id.phonenum);
+    }
 
+    @Override
+    protected int getContentView() {
+        return R.layout.vchat_forgetpassword;
+    }
 
-	}
+    @OnClick(R.id.get_code)
+    public void codeClick() {
+        String phoneStr = edit1.getText().toString().trim();
+        if (TextUtils.isEmpty(phoneStr) || phoneStr.length() != 11 || !phoneStr.startsWith("1")) {
+            showToast("请输入有效的手机号码");
+            return;
+        }
 
-	@Override
-	public void onClick(View view) {
-		int id = view.getId();
-		switch (id) {
-			case R.id.get_code:
-				boolean isPhoneNum = isMobileNO(edit1.getText().toString());
-				/*if (guojianum.getText().toString().equals("")) {  //country code
-					Toast.makeText(ForgetPasswordActivity.this, "please enter your country code", Toast.LENGTH_LONG).show();
-				} else*/ if (TextUtils.isEmpty(edit1.getText().toString()) || !isPhoneNum) {
-					edit1.setText("");
-					Toast.makeText(ForgetPasswordActivity.this, "请输入有效的手机号码", Toast.LENGTH_LONG).show();
-				}else {
-				String[] paramsMap = {"1",edit1.getText().toString()};
-				UsersThread_01066A b = new UsersThread_01066A("getcode", paramsMap, requestHandler);
-				Thread thread = new Thread(b.runnable);
-				thread.start();
-					}
-				break;
-			case R.id.sign:
-				if (code.equals("0")) {
-					return;
-				}
-				if (!code.equals(code2.getText().toString())) {
-					Toast.makeText(ForgetPasswordActivity.this, "请输入验证码", Toast.LENGTH_LONG).show();
-					return;
-				}
-				Intent intent = new Intent();
-				intent.setClass(ForgetPasswordActivity.this, ModifyPasswordActivity.class);
-				intent.putExtra("zhanghao", /*guojianum.getText().toString().substring(1) +*/ edit1.getText().toString());
-				startActivity(intent);
-				finish();
-				break;
-			case R.id.back1:
-				finish();
-				break;
-			/*case R.id.area_num:
+        OkHttpUtils.post(this)
+                .url(URL.URL_GETCODE)
+                .addParams("param1", "1")
+                .addParams("param2", phoneStr)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常,请重试！");
+                        code2.setClickable(true);
+                    }
 
-				showPopupspWindow4(guojianum);
-				LogDetect.send(LogDetect.DataType.basicType,"01162--","点了一下");
+                    @Override
+                    public void onResponse(String resultBean, int id) {
+                        if (TextUtils.isEmpty(resultBean)) {
+                            code2.setClickable(true);
+                            return;
+                        }
+                        try {
+                            JSONObject jsonObject1 = new JSONObject(resultBean);
+                            code = jsonObject1.getString("random");
+                            if (TextUtils.isEmpty(code)) {
+                                showToast("获取验证码失败");
+                            } else if (code.equals("-1")) {
+                                showToast("此手机号码尚未注册");
+                            } else {
+                                showToast("发送成功");
+                                CountDownTimerUtils countDownTimer = new CountDownTimerUtils(get_code, 60000, 1000);
+                                countDownTimer.start();
+                            }
 
-				break;*/
-		}
+                        } catch (JSONException e) {
+                            showToast("获取验证码失败");
+                            code2.setClickable(true);
+                        }
+                    }
+                });
 
+        code2.setClickable(false);
+    }
 
-	}
+    @OnClick(R.id.back1)
+    public void backClick(){
+        finish();
+    }
 
-	String code = "0";
-	/**
-	 * 返回json字符串，并转化为JSONObject对象
-	 * 解析JSONObject对象，获取相应的数据，保存到后台服务器。
-	 */
-	@SuppressLint("HandlerLeak")
-	private Handler requestHandler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case 201:
-					String json1 = (String) msg.obj;
-					if(!json1.isEmpty()){
-						try {
-							JSONObject jsonObject1 = new JSONObject(json1);
-							code = jsonObject1.getString("random");
-							if (TextUtils.isEmpty(code)) {
-								Toast.makeText(ForgetPasswordActivity.this, "获取验证码失败！", Toast.LENGTH_SHORT).show();
-							} else if (code.equals("-1")) {
-								Toast.makeText(ForgetPasswordActivity.this, "此手机号码尚未注册!", Toast.LENGTH_SHORT).show();
-							} else {
-								Toast.makeText(ForgetPasswordActivity.this, "发送成功,请稍后!", Toast.LENGTH_SHORT).show();
-								CountDownTimerUtils countDownTimer = new CountDownTimerUtils(get_code, 60000, 1000);
-								countDownTimer.start();
-							}
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}else{
-						Toast.makeText(ForgetPasswordActivity.this, "请检查网络连接！", Toast.LENGTH_SHORT).show();
-					}
+    @OnClick(R.id.sign)
+    public void commitClick(){
+        String phoneStr = edit1.getText().toString().trim();
+        if (TextUtils.isEmpty(phoneStr) || phoneStr.length() != 11 || !phoneStr.startsWith("1")) {
+            showToast("请输入有效的手机号码");
+            return;
+        }
 
-					break;
+        if (code.equals("0")) {
+            return;
+        }
+        if (!code.equals(code2.getText().toString())) {
+            showToast("请输入验证码");
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setClass(ForgetPasswordActivity.this, ModifyPasswordActivity.class);
+        intent.putExtra("zhanghao", phoneStr);
+        startActivity(intent);
+        finish();
+    }
 
-			}
-		}
-	};
-
-
+    String code = "0";
 
 }

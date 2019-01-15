@@ -302,16 +302,7 @@ public class LogDetect {
 		append(tag,obj);
 		flush();
 	}
-	
-	public static String getClientInfo() {
 
-//		PackageManager manager = context.getPackageManager();
-//		PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
-		
-		return "Product Model: " + android.os.Build.MODEL + ","
-		+ android.os.Build.VERSION.SDK + ","
-		+ android.os.Build.VERSION.RELEASE+"--apk"+APKVERSION;
-	}
 	/**
 	 * 发送探针数据,将所有累加的探针数据和当前要打印的内容一起提交到网络探针数据
 	 * 并做好颜色的设置和恢复
@@ -324,11 +315,7 @@ public class LogDetect {
 //       send(tag,obj);
 //       setDataType(oldType);
 	}
-	public synchronized static void sendto(DataType type, String tag, Object obj) {
-		DataType oldType = setDataType(type);
-		send(tag,obj);
-		setDataType(oldType);
-	}
+
 	/**
 	 * 通过httpclient发送totalString里面的字符串
 	 * 发送完成后清空totalString
@@ -463,10 +450,6 @@ public class LogDetect {
 //	        }    
 	    }
 	    return "0";
-	}  
-	
-	public static DataType getDataType() {
-		return enumDataType;
 	}
 	
 	public static DataType setDataType(DataType type) {
@@ -509,14 +492,6 @@ public class LogDetect {
 		}
 		flush();
 		setDataType(oldType);
-	}
-	
-	public static void addKeyWord(String word) {
-		keyWords.add(word);
-	}
-	
-	public static void removeKeyWord(String word) {
-		keyWords.remove(word);
 	}
 	
 	public enum DataType{

@@ -83,11 +83,16 @@ public class BoyFragment extends Fragment implements SwipeRefreshLayout.OnRefres
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.userinfo) {
-                    Intent intent = new Intent(getContext(), UserActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("id", "" + articles.get(position).getId());
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+//                    Intent intent = new Intent(getContext(), UserActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("id", "" + articles.get(position).getId());
+//                    intent.putExtras(bundle);
+//                    startActivity(intent);
+                    Intent intentthis = new Intent(getContext(), ChatActivity.class);
+                    intentthis.putExtra("id", articles.get(position).getId()+"");
+                    intentthis.putExtra("name", articles.get(position).getNickname());
+                    intentthis.putExtra("headpic", articles.get(position).getPhoto());
+                    startActivity(intentthis);
                 } else if (view.getId() == R.id.zhichi) {
 
                     if(Util.iszhubo.equals("0")){

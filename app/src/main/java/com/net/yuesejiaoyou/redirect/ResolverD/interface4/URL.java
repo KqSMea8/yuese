@@ -7,9 +7,13 @@ package com.net.yuesejiaoyou.redirect.ResolverD.interface4;
 public class URL {
 
     public static final String BASE_URL = "http://116.62.220.67:8090/uiface";
-    //public static final String BASE_URL = "http://116.62.220.67:8095/uiface";
+    //public static final String BASE_URL = "http://116.62.220.67:8095/yuesejiaoyou/uiface";
 
     public static final String URL_LOGIN = BASE_URL + "/ar?mode=A-user-search&mode2=login";
+    public static final String URL_GETCODE = BASE_URL + "/ar?mode=A-user-search&mode2=getcode";
+    public static final String URL_RESETPSD = BASE_URL + "/ar?mode=A-user-mod&mode2=resetpassword";
+    public static final String URL_REGISTER = BASE_URL + "/ar?mode=A-user-search&mode2=register";
+    public static final String URL_UPDATEPLATFORM = BASE_URL + "/ar?mode=A-user-mod&mode2=update_platform";
     public static final String URL_WXLOGIN = BASE_URL + "/ar?mode=A-user-search&mode2=wxlogin";
     public static final String URL_WXLOGIN1 = BASE_URL + "/ar?mode=A-user-search&mode2=wxlogin_1";
     public static final String URL_UPDATE = BASE_URL + "/ar?mode0=A-user-search&mode2=check_update";
@@ -28,7 +32,9 @@ public class URL {
     public static final String URL_GUANZHU = BASE_URL + "/ar?mode=A-user-mod&mode2=guanzhu";
     public static final String URL_USERINFO = BASE_URL + "/ar?mode=A-user-search&mode2=userinfo";
     public static final String URL_FANS = BASE_URL + "/memberC01178?mode=A-user-search&mode2=wodefensi";
+    public static final String URL_INSERT = BASE_URL + "/ memberB?mode=A-user-add&mode2=insert_reservation";
     public static final String URL_FOCUS = BASE_URL + "/memberC01178?mode=A-user-search&mode2=getfocusdetail";
+    public static final String URL_INTIMATE = BASE_URL + "/memberC01178?mode=A-user-search&mode2=wodeqimibang";
 
     public static final String URL_CALL = BASE_URL + "/memberB?mode=A-user-search&mode2=zhubo_online";
     public static final String URL_PUSHCMD = BASE_URL + "/memberB?mode=A-user-add&mode2=pushcmdmsg";
@@ -60,6 +66,7 @@ public class URL {
     public static final String URL_INCOME = BASE_URL + "/memberC01178?mode=A-user-search&mode2=shourumingxi";
     public static final String URL_OUTCOME = BASE_URL + "/memberC01178?mode=A-user-search&mode2=zhichumingxi";
     public static final String URL_TIXIAN = BASE_URL + "/memberC01178?mode=A-user-search&mode2=tixianmingxi";
+    public static final String URL_TIXIAN_TJ = BASE_URL + "/memberC01178?mode=A-user-search&mode2=tixianzhubo_tjr";
     public static final String URL_ZHUBOZHONGXING = BASE_URL + "/ar?mode=A-user-search&mode2=zhubozhongxin";
     public static final String URL_ALIPAY = BASE_URL + "/rp?mode=A-user-add&mode2=zfbpay";
     public static final String URL_XIUGAI = BASE_URL + "/ar?mode=A-user-search&mode2=xiugai";

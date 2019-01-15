@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -20,16 +19,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Session;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils.AutoMessage;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.DynamicFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.MessageFragment;
@@ -122,12 +117,12 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         IMManager.clientHeartbeat();
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showPopupspWindowEveryday();
-            }
-        }, 1000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                showPopupspWindowEveryday();
+//            }
+//        }, 1000);
 
     }
 

@@ -56,6 +56,7 @@ import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01150;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.HelpManager_01066;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.MyGridview;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.PickView;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,63 +68,43 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/*import com.net.yuesejiaoyou.R;
-import com.example.vliao.cache.ImageResizer;
-import com.example.vliao.interface3.UploadFileTask_v_01150;
-import com.example.vliao.interface3.UsersThread_01150;
-import com.example.vliao.interface4.HelpManager_01066;
-import com.example.vliao.interface4.LogDetect;
-import com.example.vliao.interface4.MyGridview;
-import com.example.vliao.interface4.PickView;
-import com.example.vliao.util.Util;*/
 
 
 /**
  * Created by Administrator on 2018/1/27.
  */
 
-public class Authentication_01150 extends Activity implements OnClickListener {
+public class Authentication_01150 extends BaseActivity implements OnClickListener {
 
     private Context mContext;
     private static final int REQUEST_CODE = 1024;
     private static final int COMPRESS_REQUEST_CODE = 2048;
     private ImageView back,xczhaipianup;
-    private Uri photoUri;
 
-    private String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
-    };
+
     private int tt = 0;
     private static final int TAKE_PICTURE = 0x000001;
-    private String[] pics;
-    private String items[] = {"昵称", "生日", "身高", "体重", "居住地", "籍贯", "民族", "血型", "学历", "毕业学校", "职业", "月收入", "婚姻状况", "住房情况", "情感状态", "他的年龄", "他的身高", "他的居住地", "他的籍贯", "他的身份认证", "他的最低收入", "他的住房条件", "他的婚姻状况", "他的最低学历"};
-    private String share_1 = "女", share_2 = "不限", share_3 = "170cm", share_4 = "双子座", share_5 = "2000元以下", share_6 = "恋爱中", share_7 = "未婚", share_8 = "50 KG", share_9 = "计算机/互联网/通信", share_10 = "汉族", share_11 = "不限", share_12 = "不限", share_13 = "不限", share_14 = "不限", share_15 = "不限";
-    private String age1 = "", age2 = "";
-    private String address;
-    private String height1 = "", height2 = "";
-    private TextView user_info_submit;
+   private String share_1 = "女", share_2 = "不限", share_3 = "170cm", share_4 = "双子座", share_5 = "2000元以下", share_6 = "恋爱中", share_7 = "未婚", share_8 = "50 KG", share_9 = "计算机/互联网/通信", share_10 = "汉族", share_11 = "不限", share_12 = "不限", share_13 = "不限", share_14 = "不限", share_15 = "不限";
+
 
     private int c;
 
 
-    private LinearLayout upload1, upload2, upload3, upload4, upload5, upload6, upload7, upload8, ll_sexname,ll_nickname, ll_phonenum,ll_wxnum, ll_height, ll_weight, ll_zhiye, ll_xingzuo, ll_city, ll_intro,
+    private LinearLayout  ll_sexname,ll_nickname, ll_phonenum,ll_wxnum, ll_height, ll_weight, ll_zhiye, ll_xingzuo, ll_city, ll_intro,
             ll_label, ll_personality;
     private TextView nickname, sexname_text,nickname_text, phonenum, phonenum_text,wxnum_text, height, height_text, weight, weight_text, xingzuo, xingzuo_text, zhiye_text, city, city_text, intro, intro_text,
             label, label_text, personality, personality_text, submit;
     private PopupWindow popupWindow;
     Intent intent = new Intent();
     String nicheng_1, phonenum_1, intro_1, signature_1, label_1, label_2;
-    private String tu;
-    private ImageView tu1, l13, tu2, l22, tu3, l32, tu4, l42, tu5, tu6, l62, tu7, l72, tu8;
 
 
     private ImageResizer m_imageWork = null;
 
-    private String tupian1 = "", tupian2 = "", tupian3 = "", tupian4 = "", tupian5 = "", tupian6 = "", tupian7 = "", tupian8 = "";
     private int num = 0;
     private int cishu = 0;
     private String image = "";
     private String xcimage = "";
-    private String jobimage = "";
     private MyGridview noScrollgridview;
     private GridAdapter adapter;
     private ArrayList<String> imglist = new ArrayList<String>();
@@ -135,50 +116,10 @@ public class Authentication_01150 extends Activity implements OnClickListener {
 
         m_imageWork = new ImageResizer(this, 200, 200);
 
-        setContentView(R.layout.renzheng_v1_01150);
         mContext = Authentication_01150.this;
 
         back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(this);
-
-//		upload1 = (LinearLayout) findViewById(R.id.upload1);
-//		upload1.setOnClickListener(this);
-//		tu1 = (ImageView) findViewById(R.id.tu1);
-//
-//
-//		upload2 = (LinearLayout) findViewById(R.id.upload2);
-//		upload2.setOnClickListener(this);
-//		tu2 = (ImageView) findViewById(R.id.tu2);
-//
-//
-//		upload3 = (LinearLayout) findViewById(R.id.upload3);
-//		upload3.setOnClickListener(this);
-//		tu3 = (ImageView) findViewById(R.id.tu3);
-//
-//
-//		upload4 = (LinearLayout) findViewById(R.id.upload4);
-//		upload4.setOnClickListener(this);
-//		tu4 = (ImageView) findViewById(R.id.tu4);
-//
-//
-//		upload5 = (LinearLayout) findViewById(R.id.upload5);
-//		upload5.setOnClickListener(this);
-//		tu5 = (ImageView) findViewById(R.id.tu5);
-//
-//
-//		upload6 = (LinearLayout) findViewById(R.id.upload6);
-//		upload6.setOnClickListener(this);
-//		tu6 = (ImageView) findViewById(R.id.tu6);
-//
-//
-//		upload7 = (LinearLayout) findViewById(R.id.upload7);
-//		upload7.setOnClickListener(this);
-//		tu7 = (ImageView) findViewById(R.id.tu7);
-//
-//
-//		upload8 = (LinearLayout) findViewById(R.id.upload8);
-//		upload8.setOnClickListener(this);
-//		tu8 = (ImageView) findViewById(R.id.tu8);
 
 
         noScrollgridview = (MyGridview) findViewById(R.id.noScrollgridview);
@@ -272,6 +213,11 @@ public class Authentication_01150 extends Activity implements OnClickListener {
         submit.setOnClickListener(this);
 
 
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.renzheng_v1_01150;
     }
 
     public void showPopupspWindow_rp(final int pos, View parent) {
@@ -469,38 +415,6 @@ public class Authentication_01150 extends Activity implements OnClickListener {
             case R.id.back:
                 finish();
                 break;
-//			case R.id.upload1:
-//				tu = "1";
-//				xiangce();
-//				break;
-//			case R.id.upload2:
-//				tu = "2";
-//				xiangce();
-//				break;
-//			case R.id.upload3:
-//				tu = "3";
-//				xiangce();
-//				break;
-//			case R.id.upload4:
-//				tu = "4";
-//				xiangce();
-//				break;
-//			case R.id.upload5:
-//				tu = "5";
-//				xiangce();
-//				break;
-//			case R.id.upload6:
-//				tu = "6";
-//				xiangce();
-//				break;
-//			case R.id.upload7:
-//				tu = "7";
-//				xiangce();
-//				break;
-//			case R.id.upload8:
-//				tu = "8";
-//				xiangce();
-//				break;
             case R.id.ll_nickname://昵称
                 intent = new Intent();
                 intent.setClass(this, Authen_nicheng_01150.class);
@@ -602,9 +516,6 @@ public class Authentication_01150 extends Activity implements OnClickListener {
                     Toast.makeText(Authentication_01150.this, "不完整的认证信息", Toast.LENGTH_SHORT).show();
                 }  else {
                     pdialog = ProgressDialog.show(Authentication_01150.this, "上传中...", "系统正在处理您的请求！");
-                    joboic = jobp.split(",");
-//                    UploadFileTask_v_01150 uploadFileTask = new UploadFileTask_v_01150(Authentication_01150.this, handler);
-//                    uploadFileTask.execute(imglist.get(0), Util.userid);
 
                     for (int i = 0; i < imglist.size(); i++) {
                         if (!imglist.get(i).equals("")) {
@@ -619,8 +530,6 @@ public class Authentication_01150 extends Activity implements OnClickListener {
         }
     }
     private ProgressDialog pdialog;
-    private String[] joboic;
-    private int jobpnum = 0;
     private Handler handler = new Handler() {
 
         @Override
@@ -746,50 +655,7 @@ public class Authentication_01150 extends Activity implements OnClickListener {
         final PickView minute_pv1 = (PickView) layout.findViewById(R.id.minute_pv1);
         final PickView minute_pv2 = (PickView) layout.findViewById(R.id.minute_pv2);
 
-//        Log.v("TT", "---- 国家 ----");
-//        List<String> data = new ArrayList<String>();
-//        data = HelpManager_01066.getNation(this);    //HelpManager_01066.getsheng();
-//        //data.add(0, "默认");
-//        minute_pv.setData(data);
-//        minute_pv.setSelected(0);
-//        minute_pv.setOnSelectListener(new PickView.onSelectListener() {
-//
-//            @Override
-//            public void onSelect(String text) {
-//
-//                Log.v("TT", "nation: " + text);
-//                if (!text.toString().equals("默认")) {
-//                    sh1 = text.toString();
-//                    sh2 = "默认";
-//                    List<String> data1 = new ArrayList<String>();
-//                    data1 = HelpManager_01066.getsheng(Authentication_01150.this, text);
-//                    Log.v("TT", "province(" + text + "): (" + data1.size() + ")");
-//                    for (String item : data1) {
-//                        Log.v("TT", item);
-//                    }
-//                    data1.add(0, "默认");
-//                    minute_pv1.setData(data1);
-//                    minute_pv1.setSelected(0);
-//
-//                    // 切换国家城市修改为 不限
-//                    Log.v("TT", "data1.size(): " + data1.size());
-//                    if (data1.size() <= 1) {
-//
-//                        List<String> data2 = HelpManager_01066.getCity(Authentication_01150.this, text);
-//                        data2.add(0, "默认");
-//                        minute_pv2.setData(data2);
-//                        minute_pv2.setSelected(0);
-//                    } else {
-//                        List<String> data2 = new ArrayList<String>();
-//                        data2.add(0, "默认");
-//                        minute_pv2.setData(data2);
-//                        minute_pv2.setSelected(0);
-//                    }
-//                } else {
-//                    sh1 = "默认";
-//                }
-//            }
-//        });
+
 
         Log.v("TT", "---- 省 ----");
         List<String> data1 = HelpManager_01066.getsheng(Authentication_01150.this, "中国");   //new ArrayList<String>();
@@ -853,7 +719,7 @@ public class Authentication_01150 extends Activity implements OnClickListener {
             @Override
             public void onClick(View v) {
                 if (!sh2.equals("默认")) {
-                    address = sh2 + sh3;
+
                     if (ab == 1) {
                         city_text.setText(sh2 + " " + sh3);
                     } else if (ab == 2) {
@@ -864,11 +730,7 @@ public class Authentication_01150 extends Activity implements OnClickListener {
                         city_text.setText(sh2 + " " + sh3);
                     }
                 } else {
-                    if (!sh1.equals("默认")) {
-                        address = sh1;
-                    } else {
-                        address = "";
-                    }
+
                     if (ab == 1) {
                         city_text.setText(sh1);
                     } else if (ab == 2) {
@@ -1024,14 +886,6 @@ public class Authentication_01150 extends Activity implements OnClickListener {
     }
 
 
-    private void xiangce() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 3);
-    }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -1109,55 +963,9 @@ public class Authentication_01150 extends Activity implements OnClickListener {
                     adapter.notifyDataSetChanged();
                 }
 
-//                final List<BaseMedia> imageMedias = new ArrayList<>(1);
-//                //BaseMedia baseMedia = medias.get(0);
-//                if (!(baseMedia instanceof ImageMedia)) {
-//                    return;
-//                }
-
-//				final ImageMedia imageMedia = (ImageMedia) baseMedia;
-//				// the compress task may need time
-//				if (imageMedia.compress(new ImageCompressor(this))) {
-//					imageMedia.removeExif();
-//					imageMedias.add(imageMedia);
-//					mAdapter.setList(imageMedias);
-//				}
 
             }
         }
-
-//		}
-
-//		if (requestCode == 3) {
-//			upimg(data);
-//		}
-//		switch (requestCode) {
-//
-//			case TAKE_PICTURE:
-//				String imagePath = "";
-//				if (data != null && data.getData() != null) {// 有数据返回直接使用返回的图片地址
-//			/*uri = data.getData();
-//            Cursor cursor = ((FragmentActivity) mContext).getContentResolver().query(uri, proj, null,
-//                    null, null);
-//            if (cursor == null) {//出现如小米等手机返回的绝对路径错误时,自己拼出路径
-//                uri = getUri(mContext, data);
-//            }*/
-//					LogDetect.send(LogDetect.DataType.specialType, "mImagePath: ", mImagePath);
-//					imagePath = data.getData().getEncodedPath();
-//
-//				} else {// 无数据使用指定的图片路径
-//					imagePath = mImagePath;
-//					LogDetect.send(LogDetect.DataType.specialType, "mImagePath: ", mImagePath);
-//				}
-//				String a = compressPic(imagePath);
-//
-////				UploadFileTask_v_01150 uploadFileTask2 = new UploadFileTask_v_01150(Authentication_01150.this, handler);
-////				uploadFileTask2.execute(a, Util.userid);
-//
-//				break;
-//
-//		}
-//
 
         if (resultCode == 201 || resultCode == 202 || resultCode == 203 || resultCode == 204 || resultCode == 205 || resultCode == 206 || resultCode == 251) {
             switch (resultCode) {
@@ -1244,148 +1052,9 @@ public class Authentication_01150 extends Activity implements OnClickListener {
         }
     }
 
-    protected void upimg(Intent data) {
-        int colunm_index = 0;
-        String path;
-        LogDetect.send(LogDetect.DataType.basicType, "01162", "进入相册上传图片方法");
-        if (data == null) {
-            Toast.makeText(Authentication_01150.this, "Unselected picture", Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        photoUri = data.getData();
-        if (photoUri == null) {
-            Toast.makeText(Authentication_01150.this, "Choose a picture file to make a mistake", Toast.LENGTH_LONG).show();
-            return;
-        }
-        String[] pojo = {MediaStore.Images.Media.DATA};
-        @SuppressWarnings("deprecation")
-        Cursor cursor = managedQuery(photoUri, pojo, null, null, null);
-        if (cursor != null) {
-            colunm_index = cursor
-                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            path = cursor.getString(colunm_index);
-
-            // 华为手机方案
-            if (path == null) {
-                final String docId = DocumentsContract.getDocumentId(photoUri);
-                final String[] split = docId.split(":");
-                final String[] selectionArgs = new String[]{split[1]};
-                cursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, pojo, "_id=?", selectionArgs, null);
-                cursor.moveToFirst();
-                final int index = cursor.getColumnIndexOrThrow("_data");
-                path = cursor.getString(index);
-            }
 
 
-            path = compressPic(path);    //压缩图片并保存，返回小图片path
 
-
-            //ContentResolver cr = getContentResolver();
-        } else {
-            // 小米手机方案
-            path = data.getData().getEncodedPath();
-            path = compressPic(path);
-        }
-
-        if (tu.equals("1")) {
-            tupian1 = path;
-            tu1.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-        } else if (tu.equals("2")) {
-            tupian2 = path;
-            tu2.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("3")) {
-            tupian3 = path;
-            tu3.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("4")) {
-            tupian4 = path;
-            tu4.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("5")) {
-            tupian5 = path;
-            tu5.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("6")) {
-            tupian6 = path;
-            tu6.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("7")) {
-            tupian7 = path;
-            tu7.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-
-        } else if (tu.equals("8")) {
-            tupian8 = path;
-            tu8.setImageBitmap(m_imageWork.processBitmapNet(path, 200, 200));
-
-        }
-
-		/*try {
-			bitmap = BitmapFactory.decodeStream(new FileInputStream(new File(path)));
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-//		LogDetect.send(LogDetect.DataType.basicType, "01150", "相册选择准备上传");
-//		UploadFileTask_v_01150 uploadFileTask2 = new UploadFileTask_v_01150(Authentication_01150.this, handler);
-//		uploadFileTask2.execute(path, Util.userid);
-    }
-
-    //压缩图片的方法
-    private String compressPic(String path) {
-        //01107m add start
-        File fileTemp = new File(path);
-        long length = fileTemp.length();
-        if (length > 1024 * 200) {    //文件大于1MB就把图片长宽各压缩1/4，图片质量降低为原来的80%
-            FileOutputStream fos;
-            BitmapFactory.Options newOpts = new BitmapFactory.Options();
-            newOpts.inJustDecodeBounds = true;
-            Bitmap bitmap = BitmapFactory.decodeFile(path, newOpts);
-            newOpts.inJustDecodeBounds = false;
-            newOpts.inSampleSize = 4;
-            bitmap = BitmapFactory.decodeFile(path, newOpts);
-
-            try {
-                File newFile = new File(Environment.getExternalStorageDirectory() + "/" + fileTemp.getName());
-                if (newFile.exists()) {
-                    fos = new FileOutputStream(fileTemp);
-                } else {    //如果是从相册发送的图片且体积过大，压缩后存放入SD根目录
-                    path = Environment.getExternalStorageDirectory() + "/" + fileTemp.getName();
-                    fos = new FileOutputStream(new File(path));
-                }
-
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
-                try {
-                    fos.flush();
-                    fos.close();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } finally {
-                // 释放局部变量bitmap资源,防止OOM异常
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    bitmap.recycle();
-                    bitmap = null;
-                    System.gc();
-                }
-            }
-        }
-        return path;
-    }
 
     String mImagePath = "";
 
@@ -1424,65 +1093,5 @@ public class Authentication_01150 extends Activity implements OnClickListener {
             //Toast.makeText(this, "内存卡不存在！", Toast.LENGTH_LONG).show();
         }
     }
-
-    //@Override
-//	protected void onActivityResult(int resultCode, Intent data) {//int requestCode,
-//		if (resultCode == 201 || resultCode == 202 || resultCode == 203 || resultCode == 204 || resultCode == 205) {
-//			switch (resultCode) {
-//
-//				case 201:
-//					LogDetect.send(LogDetect.DataType.specialType, "昵称部分===01150====", "回到编辑资料页面201");
-//					Bundle bundle = data.getExtras();
-//					nicheng_1 = bundle.getString("nicheng");
-//					LogDetect.send(LogDetect.DataType.specialType, "昵称：", nicheng_1);
-//					if (!(nicheng_1.equals(""))) {
-//						nickname_text.setText(nicheng_1);
-//					}
-//					break;
-//				case 202:
-//					LogDetect.send(LogDetect.DataType.specialType, "绑定手机号部分===01150====", "回到编辑资料页面202");
-//					phonenum_1 = data.getStringExtra("phonenum");
-//					LogDetect.send(LogDetect.DataType.specialType, "绑定手机号——01150()", phonenum_1);
-//					if (!(phonenum_1.equals(""))) {
-//						phonenum_text.setText(phonenum_1);
-//					}
-//					break;
-//				case 203:
-//					LogDetect.send(LogDetect.DataType.specialType, "个人介绍部分===01150====", "回到编辑资料页面203");
-//					intro_1 = data.getStringExtra("introduction");
-//					LogDetect.send(LogDetect.DataType.specialType, "个人介绍部分——01150()", intro_1);
-//					if (!(intro_1.equals(""))) {
-//						intro_text.setText(intro_1);
-//					}
-//					break;
-//				case 204:
-//					LogDetect.send(LogDetect.DataType.specialType, "形象标签部分===01150====", "回到编辑资料页面203");
-//					label_1 = data.getStringExtra("biaoqian1");
-//					label_2 = data.getStringExtra("biaoqian2");
-//					LogDetect.send(LogDetect.DataType.specialType, "形象标签部分——01150()", intro_1);
-//					if (!label_1.equals("") && !label_2.equals("")) {
-//						label_text.setText(label_1 + "," + label_2);
-//					}else if(!label_1.equals("") && label_2.equals("")){
-//						label_text.setText(label_1 );
-//					}else if(label_1.equals("") && !label_2.equals("")){
-//						label_text.setText(label_2 );
-//					}
-////					if(!(label_2.equals(""))){
-////						label_text.setText(label_2);
-////					}
-//					break;
-//				case 205:
-//					LogDetect.send(LogDetect.DataType.specialType, "个性签名部分===01150====", "回到编辑资料页面203");
-//					signature_1 = data.getStringExtra("signature");
-//					LogDetect.send(LogDetect.DataType.specialType, "个性签名部分——01150()", signature_1);
-//					if (!(signature_1.equals(""))) {
-//						personality_text.setText(signature_1);
-//					}
-//					break;
-//			}
-//
-//		} else {
-//
-//		}
 
 }

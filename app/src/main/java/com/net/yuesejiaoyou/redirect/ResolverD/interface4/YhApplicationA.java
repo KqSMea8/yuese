@@ -12,9 +12,7 @@ import com.fm.openinstall.OpenInstall;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.BoxingGlideLoader;
 import com.net.yuesejiaoyou.classroot.interface4.BoxingUcrop;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MusicUtil;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,23 +27,19 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.xiaojigou.luo.xjgarsdk.XJGArSdkApi;
 
 
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
-import android.app.Service;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 import cn.jpush.android.api.JPushInterface;
@@ -170,9 +164,6 @@ public class YhApplicationA extends Application {
 
 		//xiaojigouInit();
 	}
-
-
-
 
 	public Activity getCurrentActivity() {
 		int length = ActivityList.size();

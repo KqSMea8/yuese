@@ -65,7 +65,6 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.ChatAdapter
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.ExpressionUtil;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.FaceVPAdapter;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01160A;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
@@ -78,7 +77,6 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AudioRecoderUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -369,7 +367,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
         IntentFilter homeFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(receiver, homeFilter);
         /*msgOperReciver1 = new MsgOperReciver1();
-		IntentFilter intentFilter1 = new IntentFilter(Const.ACTION_INPUT);
+        IntentFilter intentFilter1 = new IntentFilter(Const.ACTION_INPUT);
 		registerReceiver(msgOperReciver1, intentFilter1);*/
 
         if (logo.equals("000000")) {
@@ -452,7 +450,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                             showPopupspWindow_reservation(getWindow().getDecorView(), 4);
                             showToast("主播不在线");
                         } else if (success_ornot.equals("0")) {
-                            showPopupspWindow_chongzhi(null);
+                            showPopupspWindow_chongzhi();
                         } else if (success_ornot.equals("5")) {
                             showToast("主播被封禁");
                         } else if (success_ornot.equals("6")) {
@@ -560,11 +558,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
             @Override
             public void onSuccess(int gid, int num) {
                 sendMsgText("[" + "☆" + com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname + "给" + username + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
-            }
-
-            @Override
-            public void onFail() {
-                showPopupspWindow_chongzhi(null);
             }
         }).show();
     }
@@ -779,10 +772,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
             public void run() {
                 try {
                     sendMessage(Utils.xmppConnection, message, YOU);
-                } catch (XMPPException | NotConnectedException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     Looper.prepare();
-                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
                 }
             }
@@ -1215,13 +1207,47 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 now.add(Calendar.HOUR, 12);
                 String dateStr = sdf.format(now.getTimeInMillis());
 
-                //开始时间
-                //String[] paramsMap = {com.net.yuesejiaoyou.classroot.interface4.util.Util.userid,YOU,befortime,dateStr};
-                //new Thread(new UsersThread_01160B("insert_reservation",paramsMap,mHandler).runnable).start();
 
-                String[] paramsMap = {com.net.yuesejiaoyou.classroot.interface4.util.Util.userid, YOU, befortime, dateStr};
-                new Thread(new UsersThread_01160A("insert_reservation", paramsMap, mHandler).runnable).start();
 
+//                String[] paramsMap = {com.net.yuesejiaoyou.classroot.interface4.util.Util.userid, YOU, befortime, dateStr};
+//                new Thread(new UsersThread_01160A("insert_reservation", paramsMap, mHandler).runnable).start();
+
+                OkHttpUtils.post(this)
+                        .url(URL.URL_INSERT)
+                        .addParams("param1", com.net.yuesejiaoyou.classroot.interface4.util.Util.userid)
+                        .addParams("param2", YOU)
+                        .addParams("param3", befortime)
+                        .addParams("param4", dateStr)
+                        .build()
+                        .execute(new DialogCallback(ChatActivity.this) {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                showToast("网络异常");
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                if (TextUtils.isEmpty(response)) {
+                                    showToast("预约失败，请检查网络连接");
+                                } else {
+                                    try {
+                                        JSONObject jsonObject1 = new JSONObject(response);
+                                        //预约
+                                        String success_ornot = jsonObject1.getString("success");
+                                        if (success_ornot.equals("-2")) {
+                                            showToast("余额不足，无法预约");
+                                        } else if (success_ornot.equals("-1")) {
+                                            showToast("已预约成功，无法再次预约");
+                                        } else {
+                                            com.net.yuesejiaoyou.classroot.interface4.util.Util.sendMsgText("『" + com.net.yuesejiaoyou.classroot.interface4.util.Util.nickname + "』 Appointment is successful", YOU);
+                                            showToast("预约成功,消费");
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        });
 
                 popupWindow.dismiss();
             }
@@ -1272,7 +1298,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     };
 
 
-    public void showPopupspWindow_chongzhi(View parent) {
+    public void showPopupspWindow_chongzhi() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
 
@@ -1281,7 +1307,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 popupWindow.dismiss();
             }
         });
@@ -1315,7 +1340,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
                 - popupWindow.getWidth() / 2;
         // xoff,yoff基于anchor的左下角进行偏移。
         // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 252, 0);
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 252, 0);
         // 监听
 
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {

@@ -1,6 +1,7 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,7 +38,12 @@ public class MessageAdapter extends BaseQuickAdapter<Session, com.chad.library.a
     @Override
     protected void convert(com.chad.library.adapter.base.BaseViewHolder helper, Session item) {
 
-        ImageUtils.loadImage(item.getHeadpic().trim(), (ImageView) helper.getView(R.id.user_head));
+        if (TextUtils.isEmpty(item.getHeadpic())) {
+            helper.setImageResource(R.id.user_head, R.mipmap.ic_launcher11);
+        } else {
+            ImageUtils.loadImage(item.getHeadpic(), (ImageView) helper.getView(R.id.user_head));
+        }
+
 
         if (!item.getNotReadCount().equals("0")) {
             helper.setVisible(R.id.tv_noread, true);

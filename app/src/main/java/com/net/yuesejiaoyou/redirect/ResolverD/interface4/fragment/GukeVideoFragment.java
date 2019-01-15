@@ -443,10 +443,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                         userInfoHandler.getFromUserName() + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
             }
 
-            @Override
-            public void onFail() {
-                showPopupspWindow_chongzhi();
-            }
+
         }).show();
         //showPopupspWindow_sendred(id_send_red_packet);
     }

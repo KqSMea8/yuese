@@ -39,6 +39,7 @@ import android.widget.Toast;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UploadVideoActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.Common;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity;
@@ -59,21 +60,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//import com.aliyun.demo.importer.MediaActivity;
-//import com.aliyun.demo.importer.MediaActivity_FF;
-//import com.aliyun.demo.recorder.AliyunVideoRecorder;
-//import com.aliyun.demo.recorder.AliyunVideoRecorder_FF;
-//import com.aliyun.demo.recorder.util.Common;
-//import com.example.vliao.videoimport.MediaActivity;
-//import com.example.vliao.videoimport.MediaActivity_FF;
-//import com.example.vliao.videorecorder.AliyunVideoRecorder;
-//import com.example.vliao.videorecorder.AliyunVideoRecorder_FF;
 
 /**
  * Created by Administrator on 2018/3/13.
  */
 
-public class UploadVideo_01158 extends Activity implements View.OnClickListener {
+public class UploadVideo_01158 extends BaseActivity implements View.OnClickListener {
     private ImageView back;
     private ImageView freevideo;
     private ImageView rewardvideo;
@@ -86,7 +78,6 @@ public class UploadVideo_01158 extends Activity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.uploadvideo);
         back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(this);
         freevideo = (ImageView)findViewById(R.id.freevideo);
@@ -108,6 +99,11 @@ public class UploadVideo_01158 extends Activity implements View.OnClickListener 
         IntentFilter filter2 = new IntentFilter("rewardvideoNumber");
         registerReceiver(reviever2, filter2);
 
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.uploadvideo;
     }
 
     //获取免费视频数量

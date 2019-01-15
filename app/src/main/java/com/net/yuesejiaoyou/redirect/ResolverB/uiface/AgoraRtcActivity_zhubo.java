@@ -101,7 +101,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeListener, View.OnTouchListener,View.OnClickListener{
 
-    private static final String LOG_TAG = VideoChatViewActivity_zhubo.class.getSimpleName();
+    private static final String LOG_TAG = AgoraRtcActivity_zhubo.class.getSimpleName();
 
     private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
     private static final int PERMISSION_REQ_ID_CAMERA = PERMISSION_REQ_ID_RECORD_AUDIO + 1;

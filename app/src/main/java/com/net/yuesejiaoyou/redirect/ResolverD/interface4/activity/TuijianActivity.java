@@ -19,8 +19,6 @@ import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01156;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01168C;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.vliao_shenqing_01152;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
@@ -114,6 +112,17 @@ public class TuijianActivity extends BaseActivity implements OnClickListener {
         return R.layout.activity_tuijian;
     }
 
+
+    @Override
+    public int statusBarColor() {
+        return R.color.vhongse;
+    }
+
+    @Override
+    public boolean statusBarFont() {
+        return false;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -144,19 +153,22 @@ public class TuijianActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.allshouru:
                 intent = new Intent();
-                intent.setClass(this, Vliao_shourumingxizhubo_tjr_01168.class);
+                intent.setClass(this, ZhuboIncomeActivity.class);
+                intent.putExtra("type",1);
                 startActivity(intent);
                 break;
 
             case R.id.mingxi:
                 intent = new Intent();
-                intent.setClass(this, Vliao_shourumingxizhubo_tjr_01168.class);
+                intent.setClass(this, ZhuboIncomeActivity.class);
+                intent.putExtra("type",1);
                 startActivity(intent);
                 break;
 
             case R.id.ketixian:
                 intent = new Intent();
-                intent.setClass(this, Vliao_tixianmingxizhubo_tjr_01168.class);
+                intent.setClass(this, TixianDetailActivity.class);
+                intent.putExtra("type",1);
                 startActivity(intent);
                 break;
 

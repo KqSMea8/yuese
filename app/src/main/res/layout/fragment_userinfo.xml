@@ -5,12 +5,10 @@
     android:background="#fffefefe">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/theme_grre"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:numColumns="1">
-
-    </android.support.v7.widget.RecyclerView>
+        android:numColumns="1"
+        android:overScrollMode="never" />
 
 </RelativeLayout>

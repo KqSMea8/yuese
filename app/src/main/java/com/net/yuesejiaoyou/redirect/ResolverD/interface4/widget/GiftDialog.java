@@ -1,36 +1,29 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONObject;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01162A;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
@@ -60,6 +53,7 @@ public class GiftDialog extends PopupWindow {
     OnGiftLishener lishener;
     private TextView tvYes;
     String userid;
+    private PopupWindow popupWindow;
 
     public GiftDialog(final Activity context, String userid) {
         super(context);
@@ -179,11 +173,10 @@ public class GiftDialog extends PopupWindow {
                                 Toast.makeText(context, "打赏成功 ", Toast.LENGTH_SHORT).show();
                                 if (lishener != null) {
                                     lishener.onSuccess(gid, 1);
-                                } else {
-                                    lishener.onFail();
                                 }
                             } else {
                                 Toast.makeText(context, "余额不足 ", Toast.LENGTH_SHORT).show();
+                                showRecharge();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -191,6 +184,40 @@ public class GiftDialog extends PopupWindow {
 
                     }
                 });
+    }
+
+    public void showRecharge() {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
+
+        TextView cancel = (TextView) layout.findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                popupWindow.dismiss();
+            }
+        });
+
+        TextView confirm = (TextView) layout.findViewById(R.id.confirm);//获取小窗口上的TextView，以便显示现在操作的功能。
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, RechargeActivity.class);
+                context.startActivity(intent);
+                popupWindow.dismiss();
+            }
+        });
+
+        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setFocusable(true);
+        popupWindow.showAtLocation(context.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+        Tools.backgroundAlpha(context, 0.4f);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            // 在dismiss中恢复透明度
+            public void onDismiss() {
+                Tools.backgroundAlpha(context, 1f);
+            }
+        });
     }
 
     public GiftDialog setLishener(OnGiftLishener lishener) {
@@ -205,8 +232,6 @@ public class GiftDialog extends PopupWindow {
 
     public interface OnGiftLishener {
         void onSuccess(int gid, int num);
-
-        void onFail();
     }
 
     public class GiftBean {

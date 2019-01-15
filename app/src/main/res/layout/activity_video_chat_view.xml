@@ -31,21 +31,20 @@
         android:id="@+id/qiehuan"
         android:layout_width="45sp"
         android:layout_height="45sp"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/qiehuan"/>
+        android:layout_marginRight="30dp"
+        android:src="@drawable/qiehuan" />
 
     <ImageView
         android:id="@+id/guanbi"
         android:layout_width="45sp"
         android:layout_height="45sp"
-        android:src="@drawable/guanbi"
-        android:layout_centerInParent="true"
         android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
         android:layout_marginRight="20dp"
-        />
+        android:src="@drawable/guanbi" />
 
     <LinearLayout
         android:id="@+id/ly1"
@@ -119,8 +118,7 @@
                 android:layout_height="55sp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ch1"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/en"
@@ -128,8 +126,7 @@
                 android:layout_height="55sp"
                 android:layout_marginTop="10sp"
                 android:src="@drawable/en1"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -202,8 +199,6 @@
     </RelativeLayout>
 
 
-
-
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
@@ -264,8 +259,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:src="@drawable/meibai" />
+            android:src="@drawable/meibai"
+            android:visibility="gone" />
 
         <SeekBar
             android:id="@+id/seek_smooth"
@@ -276,11 +271,11 @@
             android:layout_toRightOf="@+id/meiyan"
             android:max="600"
 
-            android:thumbOffset="0dp"
             android:maxHeight="27dp"
             android:minHeight="27dp"
             android:progressDrawable="@drawable/seekbar_style_1"
             android:thumb="@drawable/seekbar_thum"
+            android:thumbOffset="0dp"
             android:visibility="gone" />
     </RelativeLayout>
 
@@ -288,12 +283,11 @@
         android:id="@+id/cafont"
         android:layout_width="45sp"
         android:layout_height="45sp"
-        android:src="@drawable/cafont"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="120dp"
         android:layout_marginRight="20dp"
-        />
+        android:src="@drawable/cafont" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -317,8 +311,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:src="@drawable/mopi" />
+            android:src="@drawable/mopi"
+            android:visibility="gone" />
 
         <SeekBar
             android:id="@+id/seek_white"
@@ -327,12 +321,12 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/meibai"
             android:max="100"
-            android:thumbOffset="0dp"
-
             android:maxHeight="27dp"
+
             android:minHeight="27dp"
             android:progressDrawable="@drawable/seekbar_style_2"
             android:thumb="@drawable/seekbar_thum"
+            android:thumbOffset="0dp"
             android:visibility="gone" />
     </RelativeLayout>
 
@@ -375,9 +369,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
             android:layout_marginBottom="20dp"
-        >
+            android:layout_marginLeft="30dp">
 
             <ImageView
                 android:id="@+id/imageView6"

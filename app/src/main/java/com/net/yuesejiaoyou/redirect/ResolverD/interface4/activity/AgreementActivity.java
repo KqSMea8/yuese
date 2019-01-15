@@ -1,31 +1,28 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/6/8.
  */
 
-public class AgreementActivity extends Activity implements View.OnClickListener {
-    private ImageView back;
+public class AgreementActivity extends BaseActivity {
     private TextView xieyi;
-    private String text = "";
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agree);
-        back = (ImageView) findViewById(R.id.back);
-        text = "特别提示\n" +
+        String text = "特别提示\n" +
                 "\n" +
                 "请认真阅读本《用户协议》（以下简称“协议”），确保您充分理解本协议中各条款。请您审慎阅读并选择接受或不接受本协议。除非您接受本协议所有条款，否则您无权注册、登录或使用本协议所涉服务。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。 本协议约定承轴科技与用户之间关于“悦色交友”软件服务（以下简称“服务”）的权利义务。“用户”是指注册、登录、使用本服务的个人。本协议可由承轴科技随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知，用户可在官网查阅最新版协议条款。在承轴科技修改协议条款后，如果用户不接受修改后的条款，请立即停止使用承轴科技提供的服务，用户继续使用承轴科技提供的服务将被视为接受修改后的协议。\n" +
                 "\n" +
@@ -141,22 +138,19 @@ public class AgreementActivity extends Activity implements View.OnClickListener 
                 "\n" +
                 "1、承轴科技郑重提醒用户注意本协议中免除承轴科技责任和限制用户权利的条款，请用户仔细阅读，自主考虑风险。未成年人应在法定监护人的陪同下阅读本协议。 2、本协议的效力、解释及纠纷的解决，适用于中华人民共和国法律。若用户和承轴科技之间发生任何纠纷或争议，首先应友好协商解决，协商不成的，用户同意将纠纷或争议提交承轴科技住所地有管辖权的人民法院管辖。 3、本协议的任何条款无论因何种原因无效或不具可执行性，其余条款仍有效，对双方具有约束力。\n";
         xieyi = (TextView) findViewById(R.id.xieyi);
-        back.setOnClickListener(this);
         xieyi.setText(text);
 
     }
 
     @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
-            case R.id.back:
-                finish();
-                break;
-
-
-        }
-
-
+    protected int getContentView() {
+        return R.layout.activity_agree;
     }
+
+
+    @OnClick(R.id.back)
+    public void backClick(){
+        finish();
+    }
+
 }

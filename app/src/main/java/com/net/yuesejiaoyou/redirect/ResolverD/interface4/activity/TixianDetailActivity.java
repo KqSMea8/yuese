@@ -28,23 +28,14 @@ public class TixianDetailActivity extends BaseActivity {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     BillAdapter adapter;
+    private int type;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        context = this;
-//        setContentView();
-//
-//        fanhui = (ImageView) findViewById(R.id.fanhui);
-//        fanhui.setOnClickListener(this);
-//        tixian = (ListView) findViewById(R.id.tixian);
-//        String mode = "tixianmingxi";
-//        String[] params = {Util.userid};
-//        //实例化线程b,传递参数mode，params,handler
-//        UsersThread_01168C b = new UsersThread_01168C(mode, params, handler);
-//        Thread thread = new Thread(b.runnable);
-//        thread.start();
+
+        type = getIntent().getIntExtra("type", 0);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
@@ -58,7 +49,7 @@ public class TixianDetailActivity extends BaseActivity {
 
     private void getData() {
         OkHttpUtils.post(this)
-                .url(URL.URL_TIXIAN)
+                .url(type == 0 ? URL.URL_TIXIAN : URL.URL_TIXIAN_TJ)
                 .addParams("param1", Util.userid)
                 .build()
                 .execute(new StringCallback() {

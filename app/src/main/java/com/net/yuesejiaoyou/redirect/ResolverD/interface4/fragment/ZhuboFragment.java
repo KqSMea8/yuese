@@ -29,7 +29,8 @@ import com.net.yuesejiaoyou.redirect.ResolverA.getset.Member_01152;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CleanCacheManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.BlackNameActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.IntimateActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ModifyAvaterActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.PriceActivity;
@@ -47,7 +48,6 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActiv
 ///////////////////////A区调用C区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.EditActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodeqinmibang_01178;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity;
 ///////////////////////A区调用B区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MyVideoActivity;
@@ -282,12 +282,19 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
     @Override
     public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
         MineBean mineBean = adapter.getData().get(position);
+        Intent intent;
         switch (mineBean.getName()) {
             case "小视频":
                 startActivity(MyVideoActivity.class);
                 break;
             case "与我亲密的":
-                startActivity(Vliao_wodeqinmibang_01178.class);
+                //startActivity(Vliao_wodeqinmibang_01178.class);
+                intent = new Intent();
+                intent.setClass(getContext(), IntimateActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", Util.userid);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
             case "我的钱包":
                 startActivity(WalletActivity.class);
@@ -309,7 +316,7 @@ public class ZhuboFragment extends Fragment implements BaseQuickAdapter.OnItemCl
                 startActivity(BlackNameActivity.class);
                 break;
             case "在线客服":
-                Intent intent = new Intent();
+                intent = new Intent();
                 intent.setClass(getContext(), CoustomerActivity.class);//客服
                 intent.putExtra("id", "40");
                 intent.putExtra("name", "小客服");

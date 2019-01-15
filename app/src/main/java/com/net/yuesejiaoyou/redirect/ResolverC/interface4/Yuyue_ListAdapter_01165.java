@@ -64,13 +64,11 @@ public class Yuyue_ListAdapter_01165 extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		if(convertView==null){
 			//在listView内初始化
 			holderView = new HolderView();

@@ -1,113 +1,88 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.DialogCallback;
+
+import butterknife.OnClick;
+import okhttp3.Call;
 
 
 /**
  * Created by Administrator on 2018/3/22.
  */
 
-public class ModifyPasswordActivity extends BaseActivity implements View.OnClickListener {
-	private TextView  get_code,xieyi,sign;
-	private EditText new_phonenum,edit1,edit2,guojianum;
-	private ImageView back1;
-	String zhanghao="";
-	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+public class ModifyPasswordActivity extends BaseActivity {
+    private EditText new_phonenum, edit1;
+    String zhanghao = "";
 
-		back1= (ImageView) findViewById(R.id.back1);
-		back1.setOnClickListener(this);
-		edit1= (EditText) findViewById(R.id.phonenum);
-		new_phonenum= (EditText) findViewById(R.id.new_phonenum);
-		sign= (TextView) findViewById(R.id.sign);
-		sign.setOnClickListener(this);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		zhanghao=getIntent().getStringExtra("zhanghao");
+        edit1 = (EditText) findViewById(R.id.phonenum);
+        new_phonenum = (EditText) findViewById(R.id.new_phonenum);
 
-	}
+        zhanghao = getIntent().getStringExtra("zhanghao");
 
-	@Override
-	protected int getContentView() {
-		return R.layout.activity_modifypassword;
-	}
+    }
 
-	@Override
-	public void onClick(View view) {
-		int id = view.getId();
-		switch (id) {
-
-			case R.id.sign:
-				if (TextUtils.isEmpty(new_phonenum.getText().toString()) || TextUtils.isEmpty(edit1.getText().toString())){
-					Toast.makeText(ModifyPasswordActivity.this,"密码不能为空",Toast.LENGTH_LONG).show();
-					return;
-				}
-				if (!new_phonenum.getText().toString().trim().equals(edit1.getText().toString().trim())){
-					Toast.makeText(ModifyPasswordActivity.this,"两个密码不一致",Toast.LENGTH_LONG).show();
-					return;
-				}else{
-					String[] paramsMap = {"1", new_phonenum.getText().toString(),zhanghao};
-					UsersThread_01066A b = new UsersThread_01066A("resetpassword", paramsMap, requestHandler);
-					Thread thread = new Thread(b.runnable);
-					thread.start();
-
-				}
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_modifypassword;
+    }
 
 
-				break;
-			case R.id.back1:
-				finish();
-				break;
+    @OnClick(R.id.back1)
+    public void backClick() {
+        finish();
+    }
 
-		}
+    @OnClick(R.id.sign)
+    public void commitClick() {
+        String str = new_phonenum.getText().toString();
+        String str1 = edit1.getText().toString();
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str1)) {
+            Toast.makeText(ModifyPasswordActivity.this, "密码不能为空", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!str.equals(str1)) {
+            Toast.makeText(ModifyPasswordActivity.this, "两个密码不一致", Toast.LENGTH_LONG).show();
+            return;
+        }
 
 
+        OkHttpUtils.post(this)
+                .url(URL.URL_RESETPSD)
+                .addParams("param1", "1")
+                .addParams("param2", str)
+                .addParams("param3", zhanghao)
+                .build()
+                .execute(new DialogCallback(this) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        showToast("网络异常,请重试！");
+                    }
 
-
-	}
-
-	String code="0";
-	/**
-	 * 返回json字符串，并转化为JSONObject对象
-	 * 解析JSONObject对象，获取相应的数据，保存到后台服务器。
-	 */
-	private Handler requestHandler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case 201:
-					break;
-				case 200:
-					String json1 = (String) msg.obj;
-					if(json1.contains("success")){
-						Toast.makeText(ModifyPasswordActivity.this,"更改密码成功",Toast.LENGTH_LONG).show();
-
-						SharedPreferences share = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
-						share.edit().putString("password", new_phonenum.getText().toString().trim()).commit();
-
-						finish();
-					}else{
-						Toast.makeText(ModifyPasswordActivity.this,"更改密码失败",Toast.LENGTH_LONG).show();
-					}
-					break;
-			}
-		}
-	};
-
+                    @Override
+                    public void onResponse(String resultBean, int id) {
+                        if (resultBean.contains("success")) {
+                            showToast("更改密码成功");
+                            sp.edit().putString("password", new_phonenum.getText().toString().trim()).apply();
+                            finish();
+                        } else {
+                            showToast("更改密码失败");
+                        }
+                    }
+                });
+    }
 
 }

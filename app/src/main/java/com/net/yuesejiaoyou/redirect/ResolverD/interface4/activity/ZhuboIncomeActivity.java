@@ -1,34 +1,20 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.BillBean;
-import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01168C;
-import com.net.yuesejiaoyou.redirect.ResolverC.interface4.Vliao_shouruAdapter_01168;
-import com.net.yuesejiaoyou.redirect.ResolverC.interface4.Vliao_shouruzhuboAdapter_01168;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.BillAdapter;
@@ -44,19 +30,21 @@ import okhttp3.Call;
 /**********************
  * 本类是查询主播收益明细
  *********************/
-public class ZhuboIncomeActivity extends BaseActivity  {
+public class ZhuboIncomeActivity extends BaseActivity {
     @BindView(R.id.shourujine)
     TextView shourujine;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     BillAdapter adapter;
+    private int type;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        type = getIntent().getIntExtra("type", 0);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
@@ -75,7 +63,7 @@ public class ZhuboIncomeActivity extends BaseActivity  {
 
     private void getData() {
         OkHttpUtils.post(this)
-                .url(URL.URL_INCOME_ZHUBO)
+                .url(type == 0 ? URL.URL_INCOME_ZHUBO : URL.URL_INCOME_TUIJIAN_ZHUBO)
                 .addParams("param1", Util.userid)
                 .build()
                 .execute(new StringCallback() {

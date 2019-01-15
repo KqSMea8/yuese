@@ -29,15 +29,7 @@ public class UsersThread_01162A {
 				 case "my_impression":
 				 	usersManageInOut.my_impression(params,handler);
 				 	break;
-		/*		 case "evalue_search":
-				 	usersManageInOut.evalue_search(params,handler);
-				 	break;
-				 case "evalue_search2":
-					 usersManageInOut.evalue_search2(params,handler);
-					 break;*/
-			/*	 case "save_evalue":
-				 	usersManageInOut.save_evalue(params,handler);
-				 	break;*/
+
 				 case "wxlogin":
 				 	usersManageInOut.wxlogin(params,handler);
 					 LogDetect.send(LogDetect.DataType.basicType,"01162","发送请求");

@@ -36,7 +36,6 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -52,13 +51,13 @@ import com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView;
 ///////////////////////A区调用C区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ModifyAvaterActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.FocusActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.CollectActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.WalletActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.DailiActivity;
 ///////////////////////A区调用B区的相关文件类引入
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet;
-import com.net.yuesejiaoyou.redirect.ResolverB.uiface.User_level_01165;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LevelActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -337,7 +336,7 @@ public class MineFragment extends Fragment implements OnClickListener{
 			////////////////////////////////
 			case R.id.dengji://跳转到等级页面
 				intent = new Intent();
-				intent.setClass(mContext, User_level_01165.class);
+				intent.setClass(mContext, LevelActivity.class);
 				startActivity(intent);
 				break;
 			////////////////////////////////
@@ -389,7 +388,7 @@ public class MineFragment extends Fragment implements OnClickListener{
 			////////////////////////////////
 			case R.id.sicang://我的私藏
 		    	intent = new Intent();
-				intent.setClass(mContext, MyTreasure_01160.class);
+				intent.setClass(mContext, CollectActivity.class);
 				startActivity(intent);
 				break;
 			////////////////////////////////

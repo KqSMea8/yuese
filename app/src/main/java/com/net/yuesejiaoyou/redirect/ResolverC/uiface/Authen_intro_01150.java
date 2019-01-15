@@ -16,11 +16,12 @@ import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 /*import com.net.yuesejiaoyou.R;
 import com.example.vliao.interface4.LogDetect;*/
 
-public class Authen_intro_01150 extends Activity implements OnClickListener {
+public class Authen_intro_01150 extends BaseActivity implements OnClickListener {
 
 	private ImageView back;
 	private EditText intro;
@@ -31,9 +32,7 @@ public class Authen_intro_01150 extends Activity implements OnClickListener {
 	private int start,end;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.renzheng_intro_01150);
 		back = (ImageView) findViewById(R.id.back);
 		back.setOnClickListener(this);
 		intro = (EditText)findViewById(R.id.intro);
@@ -65,8 +64,13 @@ public class Authen_intro_01150 extends Activity implements OnClickListener {
 			}
 		});
 	}
-	
-	
+
+	@Override
+	protected int getContentView() {
+		return R.layout.renzheng_intro_01150;
+	}
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

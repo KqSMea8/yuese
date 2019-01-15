@@ -20,7 +20,7 @@ public class FansAdapter extends BaseQuickAdapter<FansBean, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, FansBean item) {
         helper.setText(R.id.name, item.getNickname());
-        helper.setText(R.id.qinmivalue, item.getQinmvalue().equals("-1") ? "" : item.getQinmvalue());
+        helper.setText(R.id.qinmivalue, TextUtils.isEmpty(item.getQinmvalue()) ? "" : item.getQinmvalue().equals("-1") ? "" : item.getQinmvalue());
         ImageUtils.loadImage(item.getPhoto(), (ImageView) helper.getView(R.id.touxiang));
 
         if (TextUtils.isEmpty(item.getUser_state())) {
@@ -36,8 +36,6 @@ public class FansAdapter extends BaseQuickAdapter<FansBean, BaseViewHolder> {
                 helper.setImageResource(R.id.userstatus, R.drawable.offline);
             }
         }
-
-
     }
 
 }

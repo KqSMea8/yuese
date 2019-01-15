@@ -15,11 +15,12 @@ import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 /*import com.net.yuesejiaoyou.R;
 import com.example.vliao.interface4.LogDetect;*/
 
-public class Authen_nicheng_01150 extends Activity implements OnClickListener {
+public class Authen_nicheng_01150 extends BaseActivity implements OnClickListener {
 
 	private ImageView back;
 	private EditText xinnicheng;
@@ -30,15 +31,19 @@ public class Authen_nicheng_01150 extends Activity implements OnClickListener {
 	String a = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.renzheng_nicheng_01150);
 		back = (ImageView) findViewById(R.id.back);
 		back.setOnClickListener(this);
 		xinnicheng = (EditText)findViewById(R.id.xinnicheng);
 		ascertain = (TextView) findViewById(R.id.ascertain);
 		ascertain.setOnClickListener(this);
 	}
+
+	@Override
+	protected int getContentView() {
+		return R.layout.renzheng_nicheng_01150;
+	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

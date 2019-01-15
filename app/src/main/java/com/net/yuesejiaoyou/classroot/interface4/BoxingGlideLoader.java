@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import com.bilibili.boxing.loader.IBoxingCallback;
 import com.bilibili.boxing.loader.IBoxingMediaLoader;
 import com.bumptech.glide.Glide;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 
 /**
  * use https://github.com/bumptech/glide as media loader.
@@ -35,47 +36,16 @@ public class BoxingGlideLoader implements IBoxingMediaLoader {
     @Override
     public void displayThumbnail(@NonNull ImageView img, @NonNull String absPath, int width, int height) {
         String path = "file://" + absPath;
-        try {
-            // https://github.com/bumptech/glide/issues/1531
-            Glide.with(img.getContext()).load(path).into(img);
-        } catch(IllegalArgumentException ignore) {
-        }
-
+        ImageUtils.loadImage(path, img);
     }
 
     @Override
     public void displayRaw(@NonNull final ImageView img, @NonNull String absPath, int width, int height, final IBoxingCallback callback) {
         String path = "file://" + absPath;
-//        BitmapTypeRequest<String> request = Glide.with(img.getContext())
-//                .load(path)
-//                .asBitmap();
-        Glide.with(img.getContext())
-                .asBitmap()
-                .load(path)
-                .into(img);
-//        if (width > 0 && height > 0) {
-//            request.override(width, height);
-//        }
-//        request.listener(new RequestListener<String, Bitmap>() {
-//            @Override
-//            public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
-//                if (callback != null) {
-//                    callback.onFail(e);
-//                    return true;
-//                }
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
-//                if (resource != null && callback != null) {
-//                    img.setImageBitmap(resource);
-//                    callback.onSuccess();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        }).into(img);
+
+
+        ImageUtils.loadImage(path, img);
+
 
     }
 

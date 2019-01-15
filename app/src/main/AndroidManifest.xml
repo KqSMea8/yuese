@@ -222,7 +222,7 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoPlayPrivate_01066"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.User_level_01165"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LevelActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanSet"
@@ -232,9 +232,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.MyVideoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.guke"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.zhubo"
@@ -248,14 +245,6 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoChatViewActivity_zhubo"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.VideoChatViewActivity"
-            android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.AgoraRtcActivity_zhubo"
@@ -283,9 +272,6 @@
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_FF"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverB.uiface.ActivityUploadVideo_01160"
-            android:screenOrientation="portrait"/>
 
         <!--<activity-->
         <!--android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoomActivity"-->
@@ -305,10 +291,7 @@
             android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Mytag_01162"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_wodeqinmibang_01178"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_hisqinmibang_01178"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.IntimateActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.IncomeActivity"
@@ -339,7 +322,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AppariseActivity"
             android:screenOrientation="portrait"/>
 
         <activity
@@ -361,10 +344,10 @@
 
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.MyTreasure_01160"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.CollectActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.BlackNameActivity"
+            android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.BlackNameActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.EditActivity"
@@ -416,13 +399,7 @@
 
 
         <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_shourumingxizhubo_tjr_01168"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.net.yuesejiaoyou.redirect.ResolverC.uiface.Vliao_tixianmingxizhubo_tjr_01168"
             android:screenOrientation="portrait"/>
 
         <activity
@@ -558,7 +535,7 @@
                 <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="com.net.yuesejiaoyou.redirect.ResolverA.interface4.receiver.OnePixelReceiver" />
+
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -588,37 +565,6 @@
 
 
         <!--接收系统广播接收器-->
-        <receiver android:name="com.net.yuesejiaoyou.redirect.ResolverA.interface4.receiver.KeepAliveReceiver">
-            <!--设备重启广播-->
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <!--安装或卸载广播-->
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-            <!--解锁广播-->
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_USER_PRESENT" />
-            </intent-filter>
-            <!--存储卡挂载广播-->
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
-
-                <data android:scheme="file"/>
-            </intent-filter>
-            <!--网络状态广播-->
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-                <action android:name="android.net.wifi.STATE_CHANGE" />
-            </intent-filter>
-        </receiver>
 
 
         <activity

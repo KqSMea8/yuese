@@ -30,6 +30,7 @@ import com.example.vliao.interface4.LogDetect;*/
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.cache.ImageResizer;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,14 +42,9 @@ import java.util.Locale;
 
 //import com.example.vliao.cache.ImageResizer;
 
-public class Vliao_job_01168 extends Activity implements OnClickListener {
+public class Vliao_job_01168 extends BaseActivity implements OnClickListener {
 	
-	/*private ImageView fanhui;
-	private EditText wenben,shoujihao;
-	private TextView queren;
-	private String neirong="";
-	private String phonenum="";
-	String wenbenneirong = "";*/
+
 	//明星、主播、律师、M理咨询师、确认
 	private TextView mingxing,zhubo,lvshi,xinli,queren,wenben1,wenben2;
 	private ImageView tu1,tu2,tu3,tu4,back;
@@ -68,25 +64,6 @@ public class Vliao_job_01168 extends Activity implements OnClickListener {
 		
 		m_imageWork = new ImageResizer(this, 200, 200);
 		
-		setContentView(R.layout.zhiye_01168);
-		//改变字体
-		//Typeface typeFace =Typeface.createFromAsset(getAssets(),"fonts/Arial_0.ttf");
-		
-		/*fanhui = (ImageView)findViewById(R.id.fanhui);
-		fanhui.setOnClickListener(this);
-		//确认
-		queren = (TextView)findViewById(R.id.queren);
-		queren.setOnClickListener(this);
-		*//**
-		 * 改变字体？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-		 *//*
-		//queren.setTypeface(typeFace);
-		
-		//内容
-		wenben = (EditText)findViewById(R.id.wenben);
-		//手机号
-		shoujihao = (EditText)findViewById(R.id.shoujihao);
-		*/
 		back = (ImageView)findViewById(R.id.back);
 		back.setOnClickListener(this);
 		tu1 = (ImageView)findViewById(R.id.tu1);
@@ -114,8 +91,13 @@ public class Vliao_job_01168 extends Activity implements OnClickListener {
 		yincang2 = (LinearLayout)findViewById(R.id.yincang2);
 		mingxing.performClick();
 	}
-	
-	
+
+	@Override
+	protected int getContentView() {
+		return R.layout.zhiye_01168;
+	}
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

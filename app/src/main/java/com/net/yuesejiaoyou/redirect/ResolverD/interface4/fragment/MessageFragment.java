@@ -34,7 +34,6 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.CoustomerActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Session;
@@ -44,13 +43,12 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 
 //////////////////A区对接C区
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.CallHistoryActivity;
-import com.net.yuesejiaoyou.redirect.ResolverC.uiface.AppariseActivity;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.AppariseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RecomeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.MessageAdapter;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
@@ -210,21 +208,16 @@ public class MessageFragment extends Fragment implements OnClickListener {
                         try {
 
                             JSONObject jsonObject1 = new JSONObject(resultBean);
-                            LogDetect.send(LogDetect.DataType.specialType, "01160:", jsonObject1);
 
                             String success_ornot = jsonObject1.getString("success");
-                            LogDetect.send(LogDetect.DataType.specialType, "01160 通话记录:", success_ornot);
 
                             String name = jsonObject1.getString("name");
 
                             String vb = jsonObject1.getString("vb");
-                            LogDetect.send(LogDetect.DataType.specialType, "01160 我的V币:", vb);
 
                             String pj = jsonObject1.getString("pj");
-                            LogDetect.send(LogDetect.DataType.specialType, "01160 我的评价:", pj);
 
                             String yuyue = jsonObject1.getString("yuyue");
-                            LogDetect.send(LogDetect.DataType.specialType, "01160 我的预约:", yuyue);
 
                             if (!TextUtils.isEmpty(success_ornot)) {
                                 th_note.setText(success_ornot + ":" + name);
@@ -296,12 +289,27 @@ public class MessageFragment extends Fragment implements OnClickListener {
 
     private void initData(String shopid) {
         sessionList = sessionDao.queryAllSessions(shopid);
-        for (int i = 0; i < sessionList.size(); i++) {
-            LogUtil.i("ttt", "message---" + sessionList.get(i).getTime()+"----"+sessionList.get(i).getName());
-        }
-        LogUtil.i("ttt","---initdata--"+sessionList.size());
-        adapter.setNewData(sessionList);
+
+        adapter.setNewData(removeDuplicate(sessionList));
     }
+
+    public List<Session> removeDuplicate(List<Session> list) {
+        List<Session> datas = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            boolean flag = true;
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j).getTo().equals(list.get(i).getTo())) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                datas.add(list.get(i));
+            }
+        }
+        return datas;
+    }
+
 
     //点击拒绝此条邀请
     public void showPopupspWindow2(View parent, final int position) {
@@ -309,12 +317,9 @@ public class MessageFragment extends Fragment implements OnClickListener {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View layout = inflater.inflate(R.layout.pop_del_01160, null);
 
-        LogDetect.send(LogDetect.DataType.specialType, "01160 加载弹窗:", layout);
 
         TextView eat = (TextView) layout.findViewById(R.id.eat);
         eat.setText(sessionList.get(position).getName());
-
-        LogDetect.send(LogDetect.DataType.specialType, "01160 用户名:", eat);
 
 
         TextView quxiao = (TextView) layout.findViewById(R.id.quxiao);
@@ -324,7 +329,6 @@ public class MessageFragment extends Fragment implements OnClickListener {
             public void onClick(View v) {
                 Session s = new Session();
                 s = sessionList.get(position);
-                LogDetect.send(LogDetect.DataType.specialType, "01160 删除item:", s);
                 sessionList.remove(position);
                 sessionDao.deleteSession(s);
                 sessionDao.queryAllSessions(id);

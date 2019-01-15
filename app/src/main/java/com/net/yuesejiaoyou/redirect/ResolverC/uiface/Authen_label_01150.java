@@ -32,6 +32,7 @@ import com.net.yuesejiaoyou.redirect.ResolverC.interface4.MyAdapter_01162_1;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.MyGridview;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.MyLayoutmanager;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface4.Recycle_item;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,7 +41,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Authen_label_01150 extends Activity implements OnClickListener {
+public class Authen_label_01150 extends BaseActivity implements OnClickListener {
 
 	private ImageView back;
 	private EditText xinnicheng;
@@ -56,10 +57,7 @@ public class Authen_label_01150 extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.renzheng_label_01150);
 		grview = (RecyclerView) findViewById(R.id.grview);
 		back= (ImageView) findViewById(R.id.back);
 		back.setOnClickListener(this);
@@ -71,8 +69,13 @@ public class Authen_label_01150 extends Activity implements OnClickListener {
 		Thread thread=new Thread(b.runnable);
 		thread.start();
 	}
-	
-	
+
+	@Override
+	protected int getContentView() {
+		return R.layout.renzheng_label_01150;
+	}
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
