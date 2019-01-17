@@ -19,6 +19,7 @@ import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.UrlUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.SearchAdapter;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -32,8 +33,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 
-
-public class SearchActivity extends BaseActivity implements TextWatcher{
+public class SearchActivity extends BaseActivity implements TextWatcher {
 
     @BindView(R.id.edittext)
     EditText editText;
@@ -79,9 +79,9 @@ public class SearchActivity extends BaseActivity implements TextWatcher{
     private void getData(final String key) {
         OkHttpUtils
                 .post(this)
-                .url(URL.URL_SEARCHUSER)
-                .addParams("param1", Util.userid)
-                .addParams("param2", key)
+                .url(UrlUtils.URL_SEARCH)
+                .addParams("user_id", Util.userid)
+                .addParams("name", key)
                 .build()
                 .execute(new StringCallback() {
 
@@ -92,12 +92,17 @@ public class SearchActivity extends BaseActivity implements TextWatcher{
 
                     @Override
                     public void onResponse(String response, int id) {
-                        List<UserBean> list = JSON.parseArray(response, UserBean.class);
-                        if (list != null && list.size() != 0) {
-                            adapter.setDatas(list, key);
-                        }else {
-                            showToast("搜索失败");
+                        try {
+                            List<UserBean> list = JSON.parseArray(response, UserBean.class);
+                            if (list != null && list.size() != 0) {
+                                adapter.setDatas(list, key);
+                            } else {
+                                showToast("搜索失败");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
+
                     }
                 });
     }

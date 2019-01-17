@@ -180,13 +180,6 @@ public class VideoFragment extends Fragment implements OnClickListener, SwipeRef
                                 super.onScrollStateChanged(recyclerView, newState);
                                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                                     if (lastVisibleItem + 1 == adapter.getItemCount()) {
-//									mHandler.postDelayed(new Runnable() {
-//										@Override
-//										public void run() {
-//											//updateRecyclerView(adapter.getRealLastPosition(), adapter.getRealLastPosition() + PAGE_COUNT);
-//										}
-//									}, 500);
-
                                         if (pageno == totlepage) {
 
                                         } else {

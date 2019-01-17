@@ -554,9 +554,7 @@ public class AgoraVideoManager {
                         } else {
                             Intent intent = new Intent();
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                            intent.setClass(mContext.getApplicationContext(),
-                                    guke_01160.class);
-
+                            intent.setClass(mContext.getApplicationContext(), guke_01160.class);
                             Bundle bundle = new Bundle();
                             bundle.putString("yid_zhubo", userid);
                             //LogDetect.send(LogDetect.DataType.specialType,"01160 顾客id跳转到主播页

@@ -45,7 +45,7 @@ import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.Member_01152;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01152A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CleanCacheManager;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.CleanCacheManager;
 import com.net.yuesejiaoyou.redirect.ResolverA.interface4.RoundImageView;
 
 ///////////////////////A区调用C区的相关文件类引入

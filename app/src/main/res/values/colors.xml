@@ -6,6 +6,7 @@
     <!-- 浅灰色 -->
 
 	<color name="qgray">#7F7F7F</color>
+	<color name="text_color">#333333</color>
 
 	<color name="transparent1">#80000000</color>
      <color name="pink">#ffFF89AB</color>

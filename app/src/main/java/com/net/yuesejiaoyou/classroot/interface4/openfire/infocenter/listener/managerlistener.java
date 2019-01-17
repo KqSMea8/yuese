@@ -30,7 +30,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
@@ -780,11 +780,7 @@ public class managerlistener implements MessageListener {
             Intent intent = new Intent(Const.ACTION_MSG_OPER);// 发送广播，通知消息界面更新
             mContext.sendBroadcast(intent);
             KeyguardManager km = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
-//	        if (km.inKeyguardRestrictedInputMode()) {  
-//	            Intent alarmIntent = new Intent(mContext, KeyguardActivity.class);  
-//	            alarmIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
-//	            mContext.startActivity(alarmIntent);  
-//	        }  
+
         }
         if (msgtype.equals(Const.REWARD_ANCHOR)) {
             String[] tp1 = msgBody.split(Const.SPLIT);

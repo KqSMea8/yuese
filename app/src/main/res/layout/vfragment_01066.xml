@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/lr_id"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -18,44 +18,38 @@
             android:id="@+id/search_lr"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="12dp"
             android:padding="5dp"
             android:src="@drawable/sreach" />
 
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/search"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:src="@drawable/sreach"
-            android:visibility="gone" />
-
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
             app:tabBackground="@drawable/tab_backgroud"
-            app:tabGravity="fill"
+            app:tabGravity="center"
             app:tabIndicatorColor="#FF5C5C"
-            app:tabIndicatorHeight="3.0dip"
-            app:tabMode="scrollable"
-            app:tabPaddingBottom="-1dp"
-            app:tabPaddingEnd="-1dp"
-            app:tabPaddingStart="-1dp"
-            app:tabPaddingTop="-1dp"
+            app:tabIndicatorHeight="3dp"
+            app:tabMaxWidth="60dp"
             app:tabSelectedTextColor="@color/vhongse"
             app:tabTextAppearance="@style/TabLayoutTextStyle"
             app:tabTextColor="@color/video_pay" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/tv_rank"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_rank" />
+
+    </FrameLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager1"
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="3dp" />

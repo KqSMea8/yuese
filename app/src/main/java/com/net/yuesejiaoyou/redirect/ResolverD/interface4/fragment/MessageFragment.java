@@ -49,6 +49,7 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.YuyueActivity
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RecomeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.MessageAdapter;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.DialogCallback;
@@ -95,8 +96,9 @@ public class MessageFragment extends Fragment implements OnClickListener {
         });
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                final Session session = sessionList.get(position);
+            public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
+                final Session session = adapter.getData().get(position);
+                LogUtil.i("ttt", session.toString());
                 if (session.getTo().equals("40")) {
                     Intent intent = new Intent(getContext(), CoustomerActivity.class);
                     intent.putExtra("id", session.getFrom());
@@ -208,15 +210,10 @@ public class MessageFragment extends Fragment implements OnClickListener {
                         try {
 
                             JSONObject jsonObject1 = new JSONObject(resultBean);
-
                             String success_ornot = jsonObject1.getString("success");
-
                             String name = jsonObject1.getString("name");
-
                             String vb = jsonObject1.getString("vb");
-
                             String pj = jsonObject1.getString("pj");
-
                             String yuyue = jsonObject1.getString("yuyue");
 
                             if (!TextUtils.isEmpty(success_ornot)) {
@@ -289,8 +286,9 @@ public class MessageFragment extends Fragment implements OnClickListener {
 
     private void initData(String shopid) {
         sessionList = sessionDao.queryAllSessions(shopid);
-
-        adapter.setNewData(removeDuplicate(sessionList));
+        sessionList = removeDuplicate(sessionList);
+        adapter.setNewData(sessionList);
+        LogUtil.i("tttt", "-------" + sessionList.size());
     }
 
     public List<Session> removeDuplicate(List<Session> list) {
@@ -298,7 +296,7 @@ public class MessageFragment extends Fragment implements OnClickListener {
         for (int i = 0; i < list.size(); i++) {
             boolean flag = true;
             for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(j).getTo().equals(list.get(i).getTo())) {
+                if (list.get(j).getTo().equals(list.get(i).getTo()) && list.get(j).getFrom().equals(list.get(i).getFrom())) {
                     flag = false;
                     break;
                 }

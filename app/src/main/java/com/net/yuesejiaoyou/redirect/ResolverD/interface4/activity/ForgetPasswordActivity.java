@@ -1,23 +1,14 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface3.UsersThread_01066A;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CountDownTimerUtils;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.CountDownTimerUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -29,8 +20,6 @@ import org.json.JSONObject;
 
 import butterknife.OnClick;
 import okhttp3.Call;
-
-import static com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RegisterActivity.isMobileNO;
 
 
 /**

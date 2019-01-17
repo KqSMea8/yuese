@@ -67,7 +67,6 @@ public class LuoGLCameraView extends LuoGLBaseView {
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         super.onSurfaceCreated(gl, config);//基类关于Opengl初始化的一些设置
-        LogUtil.i("ttt", "---onSurfaceCreated");
         if (cameraInputFilter == null)
             cameraInputFilter = new LuoGPUCameraInputFilter();
         cameraInputFilter.init();
@@ -104,7 +103,6 @@ public class LuoGLCameraView extends LuoGLBaseView {
     @Override
     public void onDrawFrame(GL10 gl) {
         super.onDrawFrame(gl);//调用基类清除屏幕内容，glClear
-        Log.v("TTT", "LuoGLCameraView-onDrawFrame()");
         if (surfaceTexture == null)
             return;
         surfaceTexture.updateTexImage();//从相机中更新纹理内容，
@@ -138,7 +136,6 @@ public class LuoGLCameraView extends LuoGLBaseView {
             start = 0;
         }
 
-        Log.i("ttt", "fsp:=========" + String.valueOf(fps));
 
         int targetFPS = 20;
         if (fps > targetFPS) {

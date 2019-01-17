@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.GuideViewPagerAdapter;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GuideViewPagerAdapter;
 
 
 import java.util.ArrayList;

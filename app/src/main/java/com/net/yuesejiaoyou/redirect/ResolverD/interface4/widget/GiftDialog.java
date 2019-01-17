@@ -157,25 +157,25 @@ public class GiftDialog extends PopupWindow {
 
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(context, "赠送失败请重试", Toast.LENGTH_SHORT).show();
+                        showToast("赠送失败请重试");
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         super.onResponse(response, id);
                         if (TextUtils.isEmpty(response)) {
-                            Toast.makeText(context, "赠送失败请重试", Toast.LENGTH_SHORT).show();
+                            showToast("赠送失败请重试");
                             return;
                         }
                         try {
                             org.json.JSONObject jsonObject = new org.json.JSONObject(response);
                             if (jsonObject.getString("success").equals("1")) {
-                                Toast.makeText(context, "打赏成功 ", Toast.LENGTH_SHORT).show();
+                                showToast("打赏成功");
                                 if (lishener != null) {
                                     lishener.onSuccess(gid, 1);
                                 }
                             } else {
-                                Toast.makeText(context, "余额不足 ", Toast.LENGTH_SHORT).show();
+                                showToast("余额不足");
                                 showRecharge();
                             }
                         } catch (JSONException e) {
@@ -184,6 +184,15 @@ public class GiftDialog extends PopupWindow {
 
                     }
                 });
+    }
+
+    protected void showToast(String msg) {
+        if (TextUtils.isEmpty(msg)) {
+            return;
+        }
+        Toast toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 
     public void showRecharge() {

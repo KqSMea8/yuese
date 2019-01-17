@@ -209,7 +209,7 @@
     </style>
 
     <style name="TabLayoutTextStyle">
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <!--  腾讯云style start  -->

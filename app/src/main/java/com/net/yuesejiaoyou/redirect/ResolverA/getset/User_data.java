@@ -23,8 +23,17 @@ public class User_data {
 	private String bad_num;
 	private String good_num;
 	private String recieve_percent;
+	String money;
 
 	String jieting;
+
+	public String getMoney() {
+		return money;
+	}
+
+	public void setMoney(String money) {
+		this.money = money;
+	}
 
 	public String getJieting() {
 		return jieting;

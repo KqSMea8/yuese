@@ -16,14 +16,7 @@ public class GukeInfo implements Parcelable {
     private int direct; // 1:顾客主动打给主播    2:主播打给顾客
     private String yuyue;    // 是否已经预约: 0:没有预约  1:已经预约
 
-//    public GukeInfo(String userid, String username, String headpic, String roomid, int direct) {
-//        this.gukeId = userid;
-//        this.gukeName = username;
-//        this.gukeHeadpic = headpic;
-//        this.roomid = roomid;
-//        this.direct = direct;
-//
-//    }
+
 
     public GukeInfo(String userid, String username, String headpic, String roomid, int direct, String yuyue) {
 //        this(userid, username, headpic,roomid,direct);

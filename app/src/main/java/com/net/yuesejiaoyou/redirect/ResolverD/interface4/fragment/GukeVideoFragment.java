@@ -10,7 +10,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -42,7 +40,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,11 +85,6 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Call;
-import pl.droidsonroids.gif.GifImageView;
-
-/**
- * Created by Administrator on 2018\8\17 0017.
- */
 
 public class GukeVideoFragment extends BaseFragment implements View.OnTouchListener, View.OnClickListener, IActivityListener, IAgoraVideoEventListener {
 
@@ -139,10 +131,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private int sWidth;
     private boolean can_go = true;
 
-    // 美颜
-    private SeekBar smoothLevel;
-    private SeekBar whiteLevel;
-    private ImageView meiyan, meibai;
 
     private SurfaceView remoteSurface, localSurface;
     private FrameLayout remoteContainer, localContainer;
@@ -163,7 +151,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     @BindView(R.id.time)
     TextView tvTime;
 
-    private redpkTimer showRedpkThread;
 
     int timeCount = 0;
 
@@ -264,13 +251,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
             initAgoraEngineAndJoinChannel();
         }
-
-
-        smoothLevel = (SeekBar) fragmentView.findViewById(R.id.seek_smooth);
-        whiteLevel = (SeekBar) fragmentView.findViewById(R.id.seek_white);
-
-        meibai = (ImageView) fragmentView.findViewById(R.id.meibai);
-        meiyan = (ImageView) fragmentView.findViewById(R.id.meiyan);
 
 
         OkHttpUtils.post(this)
@@ -418,7 +398,19 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
     @OnClick(R.id.guanbi)
     public void closeVideo(View view) {
-        onLocalVideoMuteClicked(view);
+
+        ImageView iv = (ImageView) view;
+        if (iv.isSelected()) {
+            iv.setSelected(false);
+            iv.clearColorFilter();
+        } else {
+            iv.setSelected(true);
+        }
+        videoHandler.muteLocalVideoStream(iv.isSelected());    //mRtcEngine.muteLocalVideoStream(iv.isSelected());
+        FrameLayout container = (FrameLayout) fragmentView.findViewById(R.id.local_video_view_container);
+        SurfaceView surfaceView = (SurfaceView) container.getChildAt(0);
+        surfaceView.setZOrderMediaOverlay(!iv.isSelected());
+        surfaceView.setVisibility(iv.isSelected() ? View.GONE : View.VISIBLE);
     }
 
 
@@ -435,17 +427,16 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
 
     @OnClick(R.id.id_send_red_packet)
     public void giftClick() {
-
         new GiftDialog(getActivity(), yid_guke).setLishener(new GiftDialog.OnGiftLishener() {
             @Override
             public void onSuccess(int gid, int num) {
                 sendMsgText1("[" + "☆" + Util.nickname + "给" +
                         userInfoHandler.getFromUserName() + "赠送了" + num + "个" + Tools.getGiftName(gid) + "☆" + "]");
+                sendMsgText2(Tools.getGiftCount(gid)+"");
             }
 
 
         }).show();
-        //showPopupspWindow_sendred(id_send_red_packet);
     }
 
     @Override
@@ -531,31 +522,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         return false;
     }
 
-    public void onMeiyanClicked(View view) {
-
-        ImageView iv = (ImageView) view;
-        Object showing = view.getTag();
-        if (showing != null && (Boolean) showing) {
-            //mVideoPreProcessing.enablePreProcessing(false);
-            iv.setTag(null);
-            iv.clearColorFilter();
-            ((ImageView) view).setImageResource(R.drawable.beautyon);
-            smoothLevel.setVisibility(View.GONE);
-            whiteLevel.setVisibility(View.GONE);
-            meibai.setVisibility(View.GONE);
-            meiyan.setVisibility(View.GONE);
-        } else {
-            //mVideoPreProcessing.enablePreProcessing(true);
-            iv.setTag(true);
-            iv.setColorFilter(getResources().getColor(R.color.agora_blue), PorterDuff.Mode.MULTIPLY);
-            ((ImageView) view).setImageResource(R.drawable.meiyan);
-            smoothLevel.setVisibility(View.VISIBLE);
-            whiteLevel.setVisibility(View.VISIBLE);
-            meibai.setVisibility(View.VISIBLE);
-            meiyan.setVisibility(View.VISIBLE);
-        }
-    }
-
     @Override
     public void onClick(View v) {
         report(((TextView) v).getText().toString());
@@ -633,8 +599,7 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         //Log.i(LOG_TAG, "onRequestPermissionsResult " + grantResults[0] + " " + requestCode);
 
         switch (requestCode) {
@@ -686,36 +651,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         }
 
         baseActivity.unregisterReceiver(msgOperReciver);
-    }
-
-
-    // Tutorial Step 10
-    public void onLocalVideoMuteClicked(View view) {
-        ImageView iv = (ImageView) view;
-        if (iv.isSelected()) {
-            iv.setSelected(false);
-            iv.clearColorFilter();
-        } else {
-            iv.setSelected(true);
-        }
-        videoHandler.muteLocalVideoStream(iv.isSelected());    //mRtcEngine.muteLocalVideoStream(iv.isSelected());
-        FrameLayout container = (FrameLayout) fragmentView.findViewById(R.id.local_video_view_container);
-        SurfaceView surfaceView = (SurfaceView) container.getChildAt(0);
-        surfaceView.setZOrderMediaOverlay(!iv.isSelected());
-        surfaceView.setVisibility(iv.isSelected() ? View.GONE : View.VISIBLE);
-    }
-
-    // Tutorial Step 9
-    public void onLocalAudioMuteClicked(View view) {
-        ImageView iv = (ImageView) view;
-        if (iv.isSelected()) {
-            iv.setSelected(false);
-            iv.clearColorFilter();
-        } else {
-            iv.setSelected(true);
-            //iv.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
-        }
-        videoHandler.muteLocalAudioStream(iv.isSelected());   //mRtcEngine.muteLocalAudioStream(iv.isSelected());
     }
 
 
@@ -821,8 +756,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
     private void onRemoteUserLeft() {
         FrameLayout container = (FrameLayout) fragmentView.findViewById(R.id.remote_video_view_container);
         container.removeAllViews();
-        View tipMsg = fragmentView.findViewById(R.id.quick_tips_when_use_agora_sdk); // optional UI
-        tipMsg.setVisibility(View.VISIBLE);
         zhuboStopVideoCall();
     }
 
@@ -995,14 +928,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         }
     }
 
-    /**
-     * 发送消息
-     *
-     * @param content
-     * @param touser
-     * @throws XMPPException
-     * @throws SmackException.NotConnectedException
-     */
     public void sendMessage(XMPPTCPConnection mXMPPConnection, String content,
                             String touser) throws XMPPException, SmackException.NotConnectedException {
         if (mXMPPConnection == null || !mXMPPConnection.isConnected()) {
@@ -1042,10 +967,13 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
             @Override
             public void run() {
                 try {
+                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"before sendMessage()");
                     sendMessage(Utils.xmppConnection, message, yid_guke);
                 } catch (XMPPException | SmackException.NotConnectedException e) {
                     e.printStackTrace();
+                    //LogDetect.send(DataType.noType,Utils.seller_id+"=phone="+Utils.android,"chatmanager: "+e.toString());
                     Looper.prepare();
+                    // ToastUtil.showShortToast(ChatActivity.this, "发送失败");
                     Looper.loop();
                 }
             }
@@ -1076,165 +1004,6 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
                 return true;
         }
         return false;
-    }
-
-    //红包打赏
-    public void showPopupspWindow_sendred(View parent) {
-        LayoutInflater inflater = (LayoutInflater) baseActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.red_choose_01165, null);
-
-        TextView cancel = (TextView) layout.findViewById(R.id.cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                popupWindow.dismiss();
-            }
-        });
-        //开线程，添加V币
-        TextView coin1 = (TextView) layout.findViewById(R.id.coin1);
-        coin1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(9);
-                popupWindow.dismiss();
-
-            }
-        });
-        TextView coin2 = (TextView) layout.findViewById(R.id.coin2);
-        coin2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-                songhongbao(18);
-                popupWindow.dismiss();
-                //			songhongbao(18);
-            }
-        });
-        TextView coin3 = (TextView) layout.findViewById(R.id.coin3);
-        coin3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(66);
-                popupWindow.dismiss();
-                //			songhongbao(66);
-            }
-        });
-        TextView coin4 = (TextView) layout.findViewById(R.id.coin4);
-        coin4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(99);
-                popupWindow.dismiss();
-                //			songhongbao(99);
-            }
-        });
-        TextView coin5 = (TextView) layout.findViewById(R.id.coin5);
-        coin5.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(188);
-                popupWindow.dismiss();
-                //			songhongbao(188);
-            }
-        });
-        TextView coin6 = (TextView) layout.findViewById(R.id.coin6);
-        coin6.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(520);
-                popupWindow.dismiss();
-                //			songhongbao(520);
-            }
-        });
-        TextView coin7 = (TextView) layout.findViewById(R.id.coin7);
-        coin7.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(888);
-                popupWindow.dismiss();
-                //			songhongbao(888);
-            }
-        });
-        TextView coin8 = (TextView) layout.findViewById(R.id.coin8);
-        coin8.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                songhongbao(1314);
-                popupWindow.dismiss();
-                //		songhongbao(1314);
-            }
-        });
-        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT,
-                ViewPager.LayoutParams.WRAP_CONTENT, true);
-        // 控制键盘是否可以获得焦点
-        popupWindow.setFocusable(true);
-        // 设置popupWindow弹出窗体的背景
-        //WindowManager.LayoutParams lp = getWindow().getAttributes();
-        //lp.alpha = 0.4f;
-        //getWindow().setAttributes(lp);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) baseActivity.getSystemService(Context.WINDOW_SERVICE);
-        @SuppressWarnings("deprecation")
-        // 获取xoff
-                int xpos = manager.getDefaultDisplay().getWidth() / 2
-                - popupWindow.getWidth() / 2;
-        // xoff,yoff基于anchor的左下角进行偏移。
-        // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 252, 0);
-        // 监听
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            // 在dismiss中恢复透明度
-            public void onDismiss() {
-
-            }
-        });
-    }
-
-    //开线程，添加红包
-    public void songhongbao(int coin) {
-        OkHttpUtils.post(this)
-                .url(URL.URL_HONGBAO)
-                .addParams("param1", Util.userid)
-                .addParams("param2", yid_guke)
-                .addParams("param3", coin)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        JSONObject jsonObject = JSON.parseObject(response);
-                        if ("1".equals(jsonObject.getString("success"))) {
-                            String value = jsonObject.getString("value");
-                            sendMsgText2(value);
-                            showRedpkLayout(Util.nickname, value);
-                        } else if ("0".equals(jsonObject.getString("success"))) {
-                            Toast.makeText(getContext(), "余额不足", Toast.LENGTH_LONG).show();
-                            showPopupspWindow_chongzhi();
-                        }
-                    }
-                });
     }
 
     public void showPopupspWindow4() {
@@ -1487,118 +1256,4 @@ public class GukeVideoFragment extends BaseFragment implements View.OnTouchListe
         }
     }
 
-    /////////////////////////////////////////////////////////////////////////
-    //是否充值，
-    public void showPopupspWindow_chongzhi() {
-        LayoutInflater inflater = (LayoutInflater) baseActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.is_chongzhi_01165, null);
-
-        TextView cancel = (TextView) layout.findViewById(R.id.cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                popupWindow.dismiss();
-            }
-        });
-
-
-        TextView confirm = (TextView) layout.findViewById(R.id.confirm);//获取小窗口上的TextView，以便显示现在操作的功能。
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent intent1 = new Intent();
-                intent1.setClass(baseActivity, RechargeActivity.class);//充值页面
-//				startActivity(intent1);
-                startActivityForResult(intent1, 100);
-                popupWindow.dismiss();
-            }
-        });
-
-
-        popupWindow = new PopupWindow(layout, ViewPager.LayoutParams.MATCH_PARENT,//？？？？？？？？？？？？？？
-                ViewPager.LayoutParams.WRAP_CONTENT, true);
-        // 控制键盘是否可以获得焦点
-        popupWindow.setFocusable(true);
-        // 设置popupWindow弹出窗体的背景
-        WindowManager.LayoutParams lp = baseActivity.getWindow().getAttributes();
-        lp.alpha = 0.4f;
-        baseActivity.getWindow().setAttributes(lp);
-        popupWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
-        WindowManager manager = (WindowManager) baseActivity.getSystemService(Context.WINDOW_SERVICE);
-        @SuppressWarnings("deprecation")
-        // 获取xoff
-                int xpos = manager.getDefaultDisplay().getWidth() / 2
-                - popupWindow.getWidth() / 2;
-        // xoff,yoff基于anchor的左下角进行偏移。
-        // popupWindow.showAsDropDown(parent, 0, 0);
-        popupWindow.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
-        // 监听
-
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            // 在dismiss中恢复透明度
-            public void onDismiss() {
-                WindowManager.LayoutParams lp = baseActivity.getWindow().getAttributes();
-                lp.alpha = 1f;
-                baseActivity.getWindow()
-                        .addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                baseActivity.getWindow().setAttributes(lp);
-            }
-        });
-    }
-
-    //--------------------------------------------------------------------
-//  送红包
-    abstract class redpkTimer implements Runnable {
-        protected int curCnt = 0;
-        protected int maxCnt = 3;
-
-        public void clearCnt() {
-            curCnt = 0;
-        }
-    }
-
-    private void showRedpkLayout(String username, String value) {
-
-        redpkUsername.setText(username + "用户");
-        redpkValue.setText(value);
-
-        if (layRedpk.getVisibility() == View.GONE) {
-
-            layRedpk.setVisibility(View.VISIBLE);
-
-            showRedpkThread = new redpkTimer() {
-
-                @Override
-                public void run() {
-
-                    while (curCnt < maxCnt) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e1) {
-                            e1.printStackTrace();
-                        }
-                        curCnt++;
-                    }
-                    // 3秒后隐藏红包图片
-                    baseActivity.runOnUiThread(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            layRedpk.setVisibility(View.GONE);
-                        }
-                    });
-                }
-
-                public void clearCnt() {
-                    curCnt = 0;
-                }
-            };
-
-            new Thread(showRedpkThread).start();
-        } else {
-            if (showRedpkThread != null) {
-                showRedpkThread.clearCnt();
-            }
-        }
-    }
 }

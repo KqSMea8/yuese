@@ -21,7 +21,7 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo_bk;

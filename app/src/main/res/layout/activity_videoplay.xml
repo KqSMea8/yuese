@@ -3,15 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff000000"
-    android:fitsSystemWindows="true"
-    android:clipToPadding="true"
+    android:background="#000000"
     android:orientation="vertical">
 
     <me.dkzwm.widget.srl.SmoothRefreshLayout
         android:id="@+id/refresh_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:sr_footer_background_color="@color/pink"
         app:sr_header_background_color="@color/pink">
 
@@ -36,21 +34,4 @@
 
     </me.dkzwm.widget.srl.SmoothRefreshLayout>
 
-    <ProgressBar
-        android:id="@+id/pb_loading"
-        style="@style/myProgressbarStyle"
-        android:layout_width="fill_parent"
-        android:layout_height="4.0dip"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/my_progressbar"
-        android:visibility="gone" />
-
-    <ImageView
-        android:id="@+id/iv_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="2.0dip"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/loadingbanner"
-        android:visibility="invisible" />
 </RelativeLayout>

@@ -39,7 +39,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Phone_01162;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01162C;

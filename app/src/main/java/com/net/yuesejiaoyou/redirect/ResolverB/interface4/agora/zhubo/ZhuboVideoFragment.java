@@ -66,6 +66,7 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IUserInfoHandler
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.BaseFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.xiaojigou.luo.activity.ClickUtils;
 import com.xiaojigou.luo.activity.MenuAdapter;
 import com.xiaojigou.luo.activity.MenuBean;
@@ -109,7 +110,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     private String guke_name;
 
     // 群聊
-    TextView grpChat, btn_chat;
+    TextView grpChat;
     RelativeLayout layGrpChat;
     ArrayList<String> grpChatArray = new ArrayList<String>();
 
@@ -120,14 +121,13 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     Reciever reciever;
 
     private int num = 1;
-    private String roomid, yid_zhubo, yid_guke;
+    private String roomid, yid_zhubo;
 
 
     private int xDelta;
     private int yDelta;
     private int sWidth;
 
-    private boolean ks = false;
     MsgOperReciver_zhubo msgOperReciver;
     private SurfaceView remoteSurface, localSurface;
     private FrameLayout remoteContainer, localContainer;
@@ -136,7 +136,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
 
     private PopupWindow popupWindow;
 
-    private CountDownTimer c;   // 一对一视频余额不足倒计时
+    private CountDownTimer c;
 
     private RelativeLayout layMuteRemoteVideo;
 
@@ -486,6 +486,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         @Override
         public void onReceive(Context context, final Intent intent) {
             //Toast.makeText(AgoraRtcActivity_zhubo.this,"得到红包 "+intent.getStringExtra("reward_num")+" 悦币",Toast.LENGTH_LONG).show();
+            LogUtil.i("ttt","------"+intent.getStringExtra("reward_num"));
             getActivity().runOnUiThread(new Runnable() {
 
                 @Override
@@ -528,8 +529,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
 
     }
 
@@ -565,18 +565,6 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         surfaceView.setVisibility(iv.isSelected() ? View.GONE : View.VISIBLE);
     }
 
-    // Tutorial Step 9
-    public void onLocalAudioMuteClicked(View view) {
-        ImageView iv = (ImageView) view;
-        if (iv.isSelected()) {
-            iv.setSelected(false);
-            iv.clearColorFilter();
-        } else {
-            iv.setSelected(true);
-            //iv.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY);
-        }
-        videoHandler.muteLocalAudioStream(iv.isSelected());   //mRtcEngine.muteLocalAudioStream(iv.isSelected());
-    }
 
     // Tutorial Step 6
     public void onEncCallClicked() {
@@ -932,12 +920,10 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     }
 
     private void showRedpkLayout(String username, String value) {
-
         redpkUsername.setText(username + "用户");
-        redpkValue.setText(value);
+        redpkValue.setText(Tools.getGiftNameByPrice(Integer.parseInt(value)));
 
         if (layRedpk.getVisibility() == View.GONE) {
-
             layRedpk.setVisibility(View.VISIBLE);
 
             showRedpkThread = new redpkTimer() {
@@ -954,7 +940,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
                         curCnt++;
                     }
                     // 3秒后隐藏红包图片
-                    baseActivity.runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
@@ -984,7 +970,6 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     protected SeekBar mSkinSmoothSeek;
     protected SeekBar mSkinWihtenSeek;
     protected SeekBar mRedFaceSeek;
-
 
     private ArrayList<MenuBean> mStickerData;
     private RecyclerView mMenuView;
@@ -1177,13 +1162,7 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
         animator.setRepeatCount(ValueAnimator.INFINITE);
         Point screenSize = new Point();
         baseActivity.getWindowManager().getDefaultDisplay().getSize(screenSize);
-//        LuoGLCameraView cameraView = (LuoGLCameraView)findViewById(R.id.glsurfaceview_camera);
-        //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) cameraView.getLayoutParams();
-        //01107
-//        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) cameraView.getLayoutParams();
-//        params.width = screenSize.x;
-//        params.height = screenSize.y;//screenSize.x * 4 / 3;
-//        cameraView.setLayoutParams(params);
+
 
 
         mMenuView = (RecyclerView) fragmentView.findViewById(R.id.mMenuView);
@@ -1618,12 +1597,6 @@ public class ZhuboVideoFragment extends BaseFragment implements View.OnTouchList
     }
 
     private File getStickPaperDir() {
-//        File stickPaperDir = new File(Environment.getExternalStorageDirectory(), "yuesejiaoyou/StickerPapers");
-//        if(stickPaperDir.exists() == false) {
-//            stickPaperDir.mkdirs();
-//        }
-//
-//        return stickPaperDir;
         File rootDir = baseActivity.getDir("Resource", 0);
         return rootDir;
     }

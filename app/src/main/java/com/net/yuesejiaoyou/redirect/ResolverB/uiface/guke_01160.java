@@ -248,11 +248,6 @@ public class guke_01160 extends Activity {
 
 
 
-//					MusicUtil.stopPlay();
-//					Toast.makeText(guke_01160.this, "对方已挂断", Toast.LENGTH_SHORT).show();
-//
-//					sendBroadcast(new Intent("hang up"));
-
 					LogDetect.send(LogDetect.DataType.specialType,"01160 改为在线:","");
 					String mode1 = "mod_online";
 					String[] paramsMap1 = {Util.userid, Util.userid,"0","1"};
@@ -276,16 +271,7 @@ public class guke_01160 extends Activity {
 						intent.putExtra("zhubo_pic",headpic);
 						intent.putExtra("status","yuyue");
 						startActivity(intent);
-						//--------------------------------------------------------
-//						Intent intent = new Intent(guke_01160.this, LiveRoomActivity.class);
-//						intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//						intent.putExtra("roomid", Util.zhuboRoomId);	// managerlistener.java中399行已经保存	//roid[2]);
-//						intent.putExtra("yid_zhubo",yid);
-//						intent.putExtra("guke_name",nickname.getText().toString());
-//						intent.putExtra("headpic", headpic);
-//						intent.putExtra("type","guke_bk");
-//						intent.putExtra("status","yuyue");
-//						startActivity(intent);
+
 
 						finish();
 						//--------------------158---------------------

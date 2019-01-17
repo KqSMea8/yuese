@@ -1,72 +1,40 @@
 package com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment;
-/**
- * 发现首页
- */
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RankActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.SearchActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.droidsonroids.gif.GifImageView;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 
 @SuppressLint("ResourceAsColor")
-public class UserFragment extends Fragment {
-    private Context mContext;
-    private View mBaseView;
-    private GifImageView search;
+public class UserFragment extends BaseFragment {
 
-    private ImageView search_lr;
+    @BindView(R.id.viewpager)
+    ViewPager viewPager;
+    @BindView(R.id.tabs)
+    TabLayout tabLayout;
 
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        mContext = getActivity();
-
-        mBaseView = inflater.inflate(R.layout.vfragment_01066, null);
-        //得到AssetManager
-        AssetManager mgr = mContext.getAssets();
-
-        search = mBaseView.findViewById(R.id.search);
-        search.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(mContext, SearchActivity.class);//编辑资料
-                startActivity(intent);
-            }
-        });
-
-        search_lr = mBaseView.findViewById(R.id.search_lr);
-        search_lr.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(mContext, SearchActivity.class);//编辑资料
-                startActivity(intent);
-            }
-        });
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
         if ("0".equals(Util.iszhubo)) {
@@ -81,15 +49,27 @@ public class UserFragment extends Fragment {
             fragments.add(new ActiveFragment());
         }
 
-        ViewPager viewpager = mBaseView.findViewById(R.id.viewpager1);
         FragAdapter adapter = new FragAdapter(getActivity().getSupportFragmentManager(), fragments);
-        viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(4);
-        TabLayout mTabLayout = mBaseView.findViewById(R.id.tabs);
-        mTabLayout.setupWithViewPager(viewpager);
-        viewpager.setCurrentItem(0);
+        viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(4);
+        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setCurrentItem(0);
+    }
 
-        return mBaseView;
+    @Override
+    protected int getContentView() {
+        return R.layout.vfragment_01066;
+    }
+
+    @OnClick(R.id.search_lr)
+    public void searchClick() {
+        startActivity(SearchActivity.class);
+    }
+
+
+    @OnClick(R.id.tv_rank)
+    public void rankClick() {
+        startActivity(RankActivity.class);
     }
 
     public class FragAdapter extends FragmentPagerAdapter {

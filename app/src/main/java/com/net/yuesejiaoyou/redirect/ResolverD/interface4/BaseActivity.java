@@ -12,6 +12,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -44,7 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         //强制竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        sp = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);;
+        sp = getSharedPreferences("Acitivity", Activity.MODE_PRIVATE);
+        ;
         app = (YhApplicationA) getApplication();
 
 
@@ -55,11 +57,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @ColorRes
-    public int statusBarColor(){
+    public int statusBarColor() {
         return R.color.white;
     }
 
-    public boolean statusBarFont(){
+    public boolean statusBarFont() {
         return true;
     }
 
@@ -98,7 +100,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(msg)) {
             return;
         }
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 
     protected void showToast(int msg) {

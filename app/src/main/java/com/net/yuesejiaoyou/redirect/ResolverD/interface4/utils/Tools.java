@@ -355,6 +355,37 @@ public class Tools {
         return "鲜花";
     }
 
+    public static String getGiftNameByPrice(int price) {
+        switch (price) {
+            case 9:
+                return "鲜花";
+            case 18:
+                return "喜欢你";
+            case 66:
+                return "飞吻";
+            case 99:
+                return "红包";
+            case 188:
+                return "巧克力";
+            case 520:
+                return "520";//520
+            case 888:
+                return "玫瑰花";//蛋糕
+            case 1314:
+                return "女神钻戒";//
+            case 1888:
+                return "劳力士";//玫瑰花
+            case 2888:
+                return "保时捷跑车";//妖姬
+            case 3999:
+                return "兰博跑车";//鞋
+            case 8888:
+                return "蓝色妖姬";//飞机
+
+        }
+        return String.valueOf(price);
+    }
+
     public static int getGiftCount(int gid) {
         switch (gid) {
             case 1:

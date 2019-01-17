@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -57,25 +56,21 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.guke.ZhuboInfo;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.AliVideoPlayer;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.VideoPlayListener;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.GlideApp;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.ShareHelp;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.RechargeActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.widget.GiftDialog;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -89,7 +84,6 @@ import java.util.List;
 import java.util.Map;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
-import okhttp3.Call;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -116,9 +110,9 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
     private View view;
     private Videoinfo info;
-    private ImageView viderimg, id_head_icon, id_follow_v, id_follow_v_on, id_call_v, mohuimg;  //, surimg;
+    private ImageView viderimg, id_head_icon, id_follow_v, id_call_v, mohuimg;  //, surimg;
     private SurfaceView videoView;
-    private TextView id_like_video_quantity, id_video_income, id_play_video_quantity, id_share_video_quantity, v_name, v_status, id_video_description;
+    private TextView id_like_video_quantity, id_video_income, id_play_video_quantity, id_share_video_quantity, v_name, id_video_description;
     Videoinfo videoinfo1;
     private RelativeLayout id_head_layout;
     private PopupWindow popupWindow;
@@ -221,7 +215,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
 
                 if (bPlayed) {
-
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -237,15 +230,10 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             }
         });
 
-
-
-        /////////////////////////////////////////////////////////////////
         id_send_red_packet.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 id_send_red_packet.setImageResource(R.drawable.gifton);
-
                 new GiftDialog(getActivity(), userid).setLishener(new GiftDialog.OnGiftLishener() {
                     @Override
                     public void onSuccess(int gid, int num) {
@@ -261,7 +249,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         id_head_icon = (ImageView) view.findViewById(id.id_head_icon);
         id_follow_v = (ImageView) view.findViewById(id.id_follow_v);
         id_follow_v.setOnClickListener(this);
-        id_follow_v_on = (ImageView) view.findViewById(id.id_follow_v_on);
         id_like_video_quantity = (TextView) view.findViewById(id.id_like_video_quantity);
         id_play_video_quantity = (TextView) view.findViewById(id.id_play_video_quantity);
         id_share_video_quantity = (TextView) view.findViewById(id.id_share_video_quantity);
@@ -298,7 +285,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             }
         });
         v_name = (TextView) view.findViewById(id.v_name);
-        v_status = (TextView) view.findViewById(id.v_status);
         id_video_description = (TextView) view.findViewById(id.id_video_description);
         id_call_v = (ImageView) view.findViewById(id.id_call_v);
 
@@ -386,7 +372,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                     .into(viderimg);
 
         } else {
-
             container1.setVisibility(View.VISIBLE);
             videoView = new SurfaceView(mContext);
             videoView.setZOrderMediaOverlay(true);
@@ -427,10 +412,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
         }
     }
 
-    /*****************************************************************
-     *
-     *@
-     *****************************************************************/
+
     private void paysuccess() {
         container1.setVisibility(View.VISIBLE);
         videoView = new SurfaceView(mContext);
@@ -457,25 +439,16 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
 
     }
 
-
-    //boolean isinitview = false;
-
-    /***************************************************************
-     *
-     * @param isVisibleToUser
-     ***************************************************************/
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-            //Log.v("TT","setUserVisibleHint-isVisibleToUser=true "+info.getId()+","+this);
             LogDetect.send(DataType.nonbasicType, "视频id", info.getId() + "111111");
             bSelected = true;
             if (bCreated) {
                 ivStop.setVisibility(View.GONE);
                 if (info.getIspay() == 0 || info.getIspay() == 2) {
                     if (bPlayed) {
-                        Log.v("TTTTTTT", "setUserVisibleHint-isVisibleToUser=true 重播," + info.getId() + "," + this);
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -485,7 +458,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                             }
                         });
                     } else {
-                        Log.v("TTTTTTT", "setUserVisibleHint-isVisibleToUser=true 首播," + info.getId() + "," + this);
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -515,7 +487,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        LogDetect.send(DataType.nonbasicType, "视频id", info.getId() + "++++2222222");
                         isloading = false;
                         String mode = "video_info";
                         //userid，页数，男女
@@ -574,12 +545,10 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1000:
-                    id_follow_v.setVisibility(View.VISIBLE);
-                    id_follow_v_on.setVisibility(View.GONE);
+                    id_follow_v.setImageResource(R.drawable.video_guanzhu);
                     break;
                 case 1001:
-                    id_follow_v.setVisibility(View.GONE);
-                    id_follow_v_on.setVisibility(View.VISIBLE);
+                    id_follow_v.setImageResource(R.drawable.video_guanzhu_on);
                     break;
                 case 550:
                     String json121 = (String) msg.obj;
@@ -609,9 +578,8 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                         if (isguanzhu == 0) {
                             //ib_focus.setBackgroundResource(R.drawable.guanzhu);
                         } else {
+                            id_follow_v.setImageResource(R.drawable.video_guanzhu_on);
 
-                            id_follow_v.setVisibility(View.GONE);
-                            id_follow_v_on.setVisibility(View.VISIBLE);
                             Intent intent = new Intent("userguanzhu");//
                             Bundle bundle = new Bundle();
                             bundle.putString("guanzhu", info.getUser_id());
@@ -636,9 +604,9 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                                 videoinfo1.getPhoto(), id_head_icon,
                                 options);
                         if (videoinfo1.getIsguanzhu() == 1) {
-                            id_follow_v_on.setVisibility(View.VISIBLE);
+                            id_follow_v.setImageResource(R.drawable.video_guanzhu_on);
                         } else {
-                            id_follow_v.setVisibility(View.VISIBLE);
+                            id_follow_v.setImageResource(R.drawable.video_guanzhu);
                         }
 
                         if (!isdel) {
@@ -663,27 +631,18 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
                             id_share_video_quantity.setText(videoinfo1.getShare_num() + "");
                             v_name.setText(videoinfo1.getNickname() + "");
                             id_video_description.setText(videoinfo1.getExplain() + "");
-                            v_status = (TextView) view.findViewById(id.v_status);
                             if (videoinfo1.getOnline() == 1) {
-                                Drawable drawable = getResources().getDrawable(R.drawable.zt_zaixian);// 找到资源图片// 这一步必须要做，否则不会显示。
-                                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());// 设置图片宽高
-                                v_status.setCompoundDrawables(drawable, null, null, null);// 设置到控件中
-                                v_status.setText("在线");
+                                Tools.setDrawableRight(v_name,R.mipmap.icon_ckzl_zx);
+
                             } else if (videoinfo1.getOnline() == 2) {
-                                Drawable drawable = getResources().getDrawable(R.drawable.zt_huoyue);// 找到资源图片// 这一步必须要做，否则不会显示。
-                                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());// 设置图片宽高
-                                v_status.setCompoundDrawables(drawable, null, null, null);// 设置到控件中
-                                v_status.setText("忙碌");
+                                Tools.setDrawableRight(v_name,R.mipmap.icon_ckzl_ml);
+
                             } else if (videoinfo1.getOnline() == 3) {
-                                Drawable drawable = getResources().getDrawable(R.drawable.zt_wurao);// 找到资源图片// 这一步必须要做，否则不会显示。
-                                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());// 设置图片宽高
-                                v_status.setCompoundDrawables(drawable, null, null, null);// 设置到控件中
-                                v_status.setText("勿打扰");
+                                Tools.setDrawableRight(v_name,R.mipmap.icon_ckzl_wr);
+
                             } else {
-                                Drawable drawable = getResources().getDrawable(R.drawable.zt_lixian);// 找到资源图片// 这一步必须要做，否则不会显示。
-                                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());// 设置图片宽高
-                                v_status.setCompoundDrawables(drawable, null, null, null);// 设置到控件中
-                                v_status.setText("离线");
+                                Tools.setDrawableRight(v_name,R.mipmap.icon_ckzl_lx);
+
                             }
                         }
                         //viderimg.setVisibility(View.GONE);
@@ -1068,6 +1027,7 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
     public void onDestroy() {
         Log.v("TT", "VideoPlayFragment-onDestroy: " + info.getId());
         isDestroy = true;
+        getActivity().unregisterReceiver(msgOperReciver1);
         handler.removeCallbacksAndMessages(null);
         if (info.getIspay() == 0 || info.getIspay() == 2) {
             // 阿里短视频销毁
@@ -1158,40 +1118,6 @@ public class VideoPlayFragment extends Fragment implements OnClickListener {
     }
 
 
-
-    public void songhongbao(int coin) {
-        price = coin + "";
-        LogDetect.send(DataType.specialType, "奖赏红包，开启线程_coin： ", coin);
-        String mode = "red_envelope";
-
-        OkHttpUtils.post(this)
-                .url(URL.URL_HONGBAO)
-                .addParams("param1", Util.userid)
-                .addParams("param2", videoinfo1.getUser_id())
-                .addParams("param3", coin)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        try { //如果服务端返回1，说明个人信息修改成功了
-                            JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject.getString("success").equals("1")) {
-                                sendSongLi("[" + "☆" + Util.nickname + "给" + info.getNickname() + "赠送了" + price + "元红包☆" + "]");
-                                Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
-                            } else {
-                                showPopupspWindow_chongzhi();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-    }
 
     private void initVodPlayer() {
         aliyunVodPlayer = new AliyunVodPlayer(getActivity());

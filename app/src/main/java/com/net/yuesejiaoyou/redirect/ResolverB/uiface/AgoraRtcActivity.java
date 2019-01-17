@@ -129,25 +129,12 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private boolean serviceRunning = false;
     private String I, YOU, name, logo, headpicture, username;
     // 表情图标每页6列4行
-    private int columns = 6;
-    private int rows = 4;
     private String record_id = "";
-    private EditText send_sms;
     private SimpleDateFormat sd;
-    // 每页显示的表情view
-    private List<View> views = new ArrayList<View>();
     // 表情列表
-    private List<String> staticFacesList;
-    private LinearLayout chat_face_container, chat_add_container, bottom, ly1;
-    private ImageView image_face;// 表情图标
-    private ViewPager mViewPager;
-    private LinearLayout mDotsLayout;
-    private EditText input;
-    private String duifang = "";
+    private LinearLayout  ly1;
     private boolean is_open = true;
-    private boolean is_back = true;
     private boolean is_evalue = true;
-    private boolean camera_on = true;
     private PopupWindow mPopWindow;
     RecyclerView grview;
     TextView like, disilike, txt1, txt2, txt3, txt4;
@@ -161,7 +148,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     String pp = "";
     int t1 = 0;
     private String zhubo_name;
-    private RelativeLayout xufeiliaotian, zengsongliwu;
     // 群聊
     TextView grpChat, btn_chat, t2;
     TextView sendMsg;
@@ -175,12 +161,10 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private int num = 0;
 
     private String roomid, yid_guke;
-    private RelativeLayout relativeLayout;
     //计时器相关
     private TextView time;
     private Timer timer;
     private String strtime;
-    private String b1;
     MsgOperReciver_shouzhubo msgOperReciver;
     private int xDelta;
     private int yDelta;
@@ -190,28 +174,11 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private int screenHeight = 0;
     //软件盘弹起后所占高度阀值
     private int keyHeight = 0;
-    private ImageView translate;
-    private boolean ks = false;
-    private RelativeLayout gbsp, xz, relativeLayout2, moshubang;
-    private LinearLayout ly2;
 
-    // 美颜
-//    private VideoPreProcessing mVideoPreProcessing;
-    private SeekBar smoothLevel;
-    private SeekBar whiteLevel;
-    private ImageView meiyan, meibai;
-    private int mopiLevel;
-    private int meibaiLevel;
 
-    // private ImageView id_send_red_packet;
     private GifImageView id_send_red_packet;
-    private RelativeLayout id_head_layout;
-    private LinearLayout translate_select;
-    private LinearLayout id_like_video_layout, id_share_video_layout;
     private SurfaceView remoteSurface, localSurface;
     private FrameLayout remoteContainer, localContainer;
-    //    private SpeechTranslate spchTranslate;
-    private ImageView cn, en;
 
     private CheckedTextView c1, c2, c3, c4, c5, c6;
 
@@ -219,10 +186,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
 
     private Runnable e;
 
-    private boolean switchCameraCtrl = false;
-    private int switchCameraCnt = 10;
-
-    private boolean isGukeGuaduan = false;
     private boolean isHuibo = false;
 
     private RelativeLayout layMuteRemoteVideo;
@@ -305,13 +268,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         zhubo_name = getIntent().getStringExtra("zhubo_name");
         YOU = yid_guke;
 
-        id_head_layout = (RelativeLayout) findViewById(R.id.id_head_layout);
-        id_head_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
         findViewById(R.id.cafont).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -323,10 +279,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         I = sharedPreferences.getString("id", "");
         username = sharedPreferences.getString("name", "");
         headpicture = sharedPreferences.getString("headpic", "");
-
-        // 读取美颜设置
-        mopiLevel = sharedPreferences.getInt("mopi", 1);
-        meibaiLevel = sharedPreferences.getInt("meibai", 1);
 
         activity_video_chat_view = (RelativeLayout) findViewById(R.id.activity_video_chat_view);
 
@@ -388,25 +340,11 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         qiehuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//				if(switchCameraCtrl == false) {
-//					switchCameraCtrl = true;
                 onSwitchCameraClicked(qiehuan);
-//					startSwitchCameraCtrl();
-//				} else {
-//					Toast.makeText(VideoChatViewActivity.this, "请 "+switchCameraCnt+" 秒后再切换摄像头", Toast.LENGTH_SHORT).show();
-//				}
             }
         });
 
-        cn = (ImageView) findViewById(R.id.cn);
-        en = (ImageView) findViewById(R.id.en);
-
-
-//        spchTranslate = SpeechTranslate.getInstance();
-        //ImageView daxiao = (ImageView)findViewById(R.id.daxiao1);
-
         id_send_red_packet = (GifImageView) findViewById(R.id.id_send_red_packet);
-
 
         id_send_red_packet.setImageResource(R.drawable.giftoff);
         id_send_red_packet.setOnClickListener(new View.OnClickListener() {
@@ -462,23 +400,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
             }
         }, 0, 1000);
 
-//        time.setFormat("%s");
-//        time.setBase(SystemClock.elapsedRealtime());
-//        time.start();
 
-/*        giftView = (GiftItemView) findViewById(R.id.gift_item_first);*/
-
-        gbsp = (RelativeLayout) findViewById(R.id.gbsp);
-        //xz = (RelativeLayout)findViewById(R.id.xz);
-        relativeLayout2 = (RelativeLayout) findViewById(R.id.relativeLayout2);
-        ly2 = (LinearLayout) findViewById(R.id.ly2);
-
-        smoothLevel = (SeekBar) findViewById(R.id.seek_smooth);
-        whiteLevel = (SeekBar) findViewById(R.id.seek_white);
-
-        moshubang = (RelativeLayout) findViewById(R.id.moshubang);
-        meibai = (ImageView) findViewById(R.id.meibai);
-        meiyan = (ImageView) findViewById(R.id.meiyan);
 
 
         if (isHuibo) {
@@ -572,31 +494,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         }
         //localView.invalidate();
         return false;
-    }
-
-    public void onMeiyanClicked(View view) {
-
-        ImageView iv = (ImageView) view;
-        Object showing = view.getTag();
-        if (showing != null && (Boolean) showing) {
-            //mVideoPreProcessing.enablePreProcessing(false);
-            iv.setTag(null);
-            iv.clearColorFilter();
-            ((ImageView) view).setImageResource(R.drawable.beautyon);
-            smoothLevel.setVisibility(View.GONE);
-            whiteLevel.setVisibility(View.GONE);
-            meibai.setVisibility(View.GONE);
-            meiyan.setVisibility(View.GONE);
-        } else {
-            //mVideoPreProcessing.enablePreProcessing(true);
-            iv.setTag(true);
-            iv.setColorFilter(getResources().getColor(R.color.agora_blue), PorterDuff.Mode.MULTIPLY);
-            ((ImageView) view).setImageResource(R.drawable.meiyan);
-            smoothLevel.setVisibility(View.VISIBLE);
-            whiteLevel.setVisibility(View.VISIBLE);
-            meibai.setVisibility(View.VISIBLE);
-            meiyan.setVisibility(View.VISIBLE);
-        }
     }
 
 
@@ -865,7 +762,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         if (can_go) {
             can_go = false;
 
-            isGukeGuaduan = true;
 
             stopVideoCall();
 
@@ -936,15 +832,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
     private void onRemoteUserLeft() {
         FrameLayout container = (FrameLayout) findViewById(R.id.remote_video_view_container);
         container.removeAllViews();
-        View tipMsg = findViewById(R.id.quick_tips_when_use_agora_sdk); // optional UI
-        tipMsg.setVisibility(View.VISIBLE);
-        //finish();
-//		String mode1 = "mod_online";
-//		String[] paramsMap1 = {Util.userid, yid_guke, "1", num + ""};
-//		UsersThread_01158 a = new UsersThread_01158(mode1, paramsMap1, handler);
-//		LogDetect.send(LogDetect.DataType.specialType, "01160 用户挂断 video:", yid_guke);
-//		Thread c = new Thread(a.runnable);
-//		c.start();
 
         zhuboStopVideoCall();
     }
@@ -1089,7 +976,6 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                   /*  m.setContent(msgs[0]);
                     m.setType(msgs[1]);
                     m.setDate(msgs[2]);*/
-                    duifang = msgs[3]; //发送人
                     addGrpChat(msgs[0]);
                     LogDetect.send(LogDetect.DataType.specialType, "01160 主播发guke:", zhubo_name + ":" + msgs[0]);
                     //freshGrpChat();
@@ -1173,7 +1059,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                 }
                 break;
                 case 202:
-                    showPopupspWindow4(cn);
+                    showPopupspWindow4();
                     String json5 = (String) msg.obj;
                     //LogDetect.send(LogDetect.DataType.basicType, "01162---json返回", json);
                     try {
@@ -1625,7 +1511,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
                 });
     }
 
-    public void showPopupspWindow4(View parent) {
+    public void showPopupspWindow4() {
         // 加载布局
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.evaluate_01162, null);
@@ -1758,7 +1644,7 @@ public class AgoraRtcActivity extends Activity implements OnLayoutChangeListener
         mPopWindow.setBackgroundDrawable(new BitmapDrawable(null, ""));
         mPopWindow.setOutsideTouchable(true);
 
-        mPopWindow.showAtLocation(parent, Gravity.CENTER | Gravity.CENTER, 0, 0);
+        mPopWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
         // 监听
 
         mPopWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.KeywordUtil;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.KeywordUtil;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
 
 import java.util.List;

@@ -26,7 +26,7 @@ import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.CoustomerActivity;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.Member_01152;
-import com.net.yuesejiaoyou.redirect.ResolverA.interface4.CleanCacheManager;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.CleanCacheManager;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.HelpActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.uiface.MeiyanActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.BlackNameActivity;

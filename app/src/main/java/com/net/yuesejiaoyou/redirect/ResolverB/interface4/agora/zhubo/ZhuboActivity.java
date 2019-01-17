@@ -327,7 +327,6 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
                     result = mRtcEngine.pushExternalVideoFrame(vf);
                 }
 
-                LogUtil.i("ttt","---onFrameAvailable----"+result);
             }
         });
 

@@ -67,7 +67,6 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.Chat;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.DropdownListView;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01160B;
@@ -84,20 +83,14 @@ import com.xiaojigou.luo.xjgarsdk.ZIP;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ScheduledExecutorService;
-
-//import io.agora.propeller.preprocessing.JHResultListener;
-//import io.agora.propeller.preprocessing.VideoPreProcessing;
 
 public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeListener, View.OnTouchListener,View.OnClickListener{
 
@@ -105,45 +98,15 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
 
     private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
     private static final int PERMISSION_REQ_ID_CAMERA = PERMISSION_REQ_ID_RECORD_AUDIO + 1;
-    // 表情图标每页6列4行
-    private int columns = 6;
-    //private VideoPreProcessing mvideoPreProcessing;
-    private int rows = 4;
-    private EditText send_sms;
     private SimpleDateFormat sd;
-    private LayoutInflater inflater;
-    // 每页显示的表情view
-    private List<View> views = new ArrayList<View>();
-    // 表情列表
-    private List<String> staticFacesList;
-    private LinearLayout chat_face_container, chat_add_container,bottom;
-    private ImageView image_face;// 表情图标
-    private ViewPager mViewPager;
-    private LinearLayout mDotsLayout;
-    private EditText input;
-    private TextView send;
-    private DropdownListView mListView;
-    private String I, YOU,name,logo,headpicture,username,duifang="";
-    private ScheduledExecutorService service;
+    private String username,duifang="";
     private LinearLayout ly1;
     private TextView t2;
-    // private GiftItemView giftView ;
-    // 美颜
-    //private VideoPreProcessing mVideoPreProcessing;
-    private boolean bJHThread = true;
-    private SeekBar smoothLevel;
-    private SeekBar whiteLevel;
-    private ImageView meiyan,meibai;
     private String guke_name;
 
-    private int mopiLevel;
-    private int meibaiLevel;
     // 群聊
     TextView grpChat,btn_chat;
-    TextView sendMsg;
-    EditText edtInput;
     RelativeLayout layChat;
-    RelativeLayout another1;
     RelativeLayout layGrpChat;
     ArrayList<String> grpChatArray = new ArrayList<String>();
 
@@ -152,12 +115,10 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
     private Timer timer;
     private String strtime;
     Reciever reciever;
-    //private List<Shang_01160> shangList;
 
     private int num =1;
-    private String roomid,yid_zhubo,yid_guke;
+    private String yid_zhubo;
 
-    private RelativeLayout relativeLayout;
     private RelativeLayout activity_video_chat_view;
     //屏幕高度
     private int screenHeight = 0;
@@ -169,9 +130,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
     private int sWidth;
 
     private boolean ks =  false;
-    private RelativeLayout gbsp,xz,moshubang,xx;
-    private ImageView imageView7;
-    private LinearLayout ly2;
     MsgOperReciver_zhubo msgOperReciver;
     private SurfaceView remoteSurface,localSurface;
     private FrameLayout remoteContainer,localContainer;
@@ -180,11 +138,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
 
     private PopupWindow popupWindow;
 
-    private ImageView translate;
-    private LinearLayout translate_select;
-    private ImageView cn,en;
-//    private SpeechTranslate spchTranslate;
-    private boolean switchCameraCtrl = false;
     private int switchCameraCnt = 10;
 
     private CountDownTimer c;   // 一对一视频余额不足倒计时
@@ -257,20 +210,12 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         sWidth = metric.widthPixels;
         time = (TextView) findViewById(R.id.time);
-        roomid = getIntent().getStringExtra("roomid");
         yid_zhubo = getIntent().getStringExtra("yid_zhubo");
         guke_name = getIntent().getStringExtra("guke_name");
         SharedPreferences sharedPreferences = getSharedPreferences("Acitivity", Context.MODE_PRIVATE); //私有数据
-        I = sharedPreferences.getString("id","");
         sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         username = sharedPreferences.getString("name","");
 
-        // 读取美颜设置
-        mopiLevel = sharedPreferences.getInt("mopi",1);
-        meibaiLevel = sharedPreferences.getInt("meibai",1);
-
-/*      headpicture= sharedPreferences.getString("headpic","");
-*/
 
 
         activity_video_chat_view = (RelativeLayout) findViewById(R.id.activity_video_chat_view);
@@ -298,19 +243,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
                 onLocalVideoMuteClicked(guanbi);
             }
         });
-//        final ImageView qiehuan = (ImageView)this.findViewById(R.id.qiehuan);
-//        qiehuan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                if(switchCameraCtrl == false) {
-////                    switchCameraCtrl = true;
-//                onSwitchCameraClicked(qiehuan);
-////                    startSwitchCameraCtrl();
-////                } else {
-////                    Toast.makeText(VideoChatViewActivity_zhubo.this, "请 "+switchCameraCnt+" 秒后再切换摄像头", Toast.LENGTH_SHORT).show();
-////                }
-//            }
-//        });
+
 
 
         ly1 = (LinearLayout)findViewById(R.id.ly1);
@@ -322,13 +255,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         IntentFilter intentFilter1 = new IntentFilter(Const.REWARD_ANCHOR);
         registerReceiver(reciever, intentFilter1);
 
-
-/*
-        String mode1 = "kan_qian";
-        String[] paramsMap1 = {Util.userid,yid_zhubo};
-        UsersThread_01160 a = new UsersThread_01160(mode1,paramsMap1,handler);
-        Thread t = new Thread(a.runnable);
-        t.start();*/
 
         msgOperReciver = new MsgOperReciver_zhubo();
         IntentFilter intentFilter = new IntentFilter(Const.ACTION_MSG_ONECHAT);
@@ -376,20 +302,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         }
         startAwake();   // 保持屏幕常亮
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                @SuppressLint("ResourceType") XmlPullParser parser = getResources().getXml(R.layout.lay_luoglcameraview);
-//                AttributeSet attributes = Xml.asAttributeSet(parser);
-//                LuoGLCameraView subView = new LuoGLCameraView(AgoraRtcActivity_zhubo.this, attributes);
-//                remoteContainer.addView(subView);
-//            }
-//        }).start();
-//        @SuppressLint("ResourceType") XmlPullParser parser = getResources().getXml(R.layout.lay_luoglcameraview);
-//                AttributeSet attributes = Xml.asAttributeSet(parser);
-//        cameraView = new LuoGLCameraView(getApplicationContext());
-//        cameraView.setVisibility(View.VISIBLE);
-//        remoteContainer.addView(cameraView);
 
         //=====================================================
         // 美颜初始化
@@ -461,7 +373,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
                     }
                 }
 
-                switchCameraCtrl = false;
             }
         }).start();
     }
@@ -1484,13 +1395,11 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         mFilterListView = (RecyclerView) findViewById(R.id.filter_listView);
 
         btn_shutter = (ImageView)findViewById(R.id.btn_camera_shutter);
-        btn_mode = (ImageView)findViewById(R.id.btn_camera_mode);
 
         findViewById(R.id.btn_camera_filter).setOnClickListener(btn_listener);
         findViewById(R.id.btn_camera_closefilter).setOnClickListener(btn_listener);
         findViewById(R.id.btn_camera_shutter).setOnClickListener(btn_listener);
         findViewById(R.id.btn_camera_switch).setOnClickListener(btn_listener);
-        findViewById(R.id.btn_camera_mode).setOnClickListener(btn_listener);
         findViewById(R.id.btn_camera_beauty).setOnClickListener(btn_listener);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -1506,13 +1415,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         animator.setRepeatCount(ValueAnimator.INFINITE);
         Point screenSize = new Point();
         getWindowManager().getDefaultDisplay().getSize(screenSize);
-//        LuoGLCameraView cameraView = (LuoGLCameraView)findViewById(R.id.glsurfaceview_camera);
-        //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) cameraView.getLayoutParams();
-        //01107
-//        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) cameraView.getLayoutParams();
-//        params.width = screenSize.x;
-//        params.height = screenSize.y;//screenSize.x * 4 / 3;
-//        cameraView.setLayoutParams(params);
+
 
 
 
@@ -1713,10 +1616,7 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
         @Override
         public void onClick(View v) {
             int buttonId = v.getId();
-            if( buttonId == R.id.btn_camera_mode) {
-                switchMode();
-            }
-            else if (buttonId == R.id.btn_camera_shutter) {
+           if (buttonId == R.id.btn_camera_shutter) {
                 if (PermissionChecker.checkSelfPermission(AgoraRtcActivity_zhubo.this,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         == PackageManager.PERMISSION_DENIED) {
@@ -1755,16 +1655,6 @@ public class AgoraRtcActivity_zhubo extends Activity implements OnLayoutChangeLi
             }
         }
     };
-
-    private void switchMode(){
-        if(mode == MODE_PIC){
-            mode = MODE_VIDEO;
-            btn_mode.setImageResource(R.drawable.icon_camera);
-        }else{
-            mode = MODE_PIC;
-            btn_mode.setImageResource(R.drawable.icon_video);
-        }
-    }
 
     private void takePhoto(){
         gpuCamImgOperator.savePicture();

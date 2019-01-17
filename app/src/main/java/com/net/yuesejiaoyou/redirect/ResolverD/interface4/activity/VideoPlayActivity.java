@@ -149,7 +149,6 @@ public class VideoPlayActivity extends BaseActivity {
                             }else {
                                 fragments.add(new VideoPlayFragment(list1.get(i), videoinfolist.size() + i));
                             }
-
                         }
 
                         adapter.notifyDataSetChanged();

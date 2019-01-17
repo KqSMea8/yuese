@@ -115,6 +115,11 @@ public class PhoneLoginActivity extends BaseActivity {
     }
 
 
+    @OnClick(R.id.back1)
+    public void backClick(){
+        finish();
+    }
+
     @OnClick(R.id.xieyi)
     public void xieyiClick() {
         Intent intent2 = new Intent();
