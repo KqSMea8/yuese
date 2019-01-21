@@ -476,7 +476,7 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
         button_more_moremodify = (Button) findViewById(R.id.button_more_moremodify);
         button_more_moremodify.setOnClickListener(this);
-		
+
 /*		shuru = (TextView)findViewById(R.id.shuru);*/
 
         // 表情图标
@@ -548,6 +548,11 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
     public void initAdd() {
         tv_voc = (TextView) findViewById(R.id.tv_voc);
         tv_voc.setOnClickListener(this);
+        if (com.net.yuesejiaoyou.classroot.interface4.util.Util.iszhubo.equals("0")) {
+            tv_voc.setVisibility(View.VISIBLE);
+        } else {
+            tv_voc.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.btn_gift)
@@ -1204,7 +1209,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener,
 
                 now.add(Calendar.HOUR, 12);
                 String dateStr = sdf.format(now.getTimeInMillis());
-
 
 
 //                String[] paramsMap = {com.net.yuesejiaoyou.classroot.interface4.util.Util.userid, YOU, befortime, dateStr};

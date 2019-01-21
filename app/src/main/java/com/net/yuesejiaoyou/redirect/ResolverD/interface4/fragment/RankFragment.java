@@ -77,18 +77,34 @@ public class RankFragment extends BaseFragment {
         adapter = new RankAdapter();
         recyclerView.setAdapter(adapter);
 
-
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
                 Intent intent = new Intent(getContext(), UserActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("id", "" + adapter.getData().get(position).getId());
+                bundle.putString("id", "" + adapter.getData().get(position).getUser_id());
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+//                User_data user_data = adapter.getData().get(position);
+//                Intent intentthis = new Intent(getContext(), ChatActivity.class);
+//                intentthis.putExtra("id", user_data.getUser_id()+"");
+//                intentthis.putExtra("name", user_data.getNickname());
+//                intentthis.putExtra("headpic", user_data.getPhoto());
+//                startActivity(intentthis);
+            }
+        });
+
+        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter1, View view, int position) {
+                Intent intent = new Intent(getContext(), UserActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", "" + adapter.getData().get(position).getUser_id());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
-
 
         getDatas();
     }

@@ -25,7 +25,17 @@ public class User_data {
 	private String recieve_percent;
 	String money;
 
+	int user_id;
+
 	String jieting;
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	public String getMoney() {
 		return money;

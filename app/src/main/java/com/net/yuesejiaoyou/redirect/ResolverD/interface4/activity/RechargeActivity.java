@@ -26,6 +26,7 @@ import com.alipay.sdk.app.PayTask;
 
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.net.yuesejiaoyou.BuildConfig;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
@@ -33,7 +34,6 @@ import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.adapter.RechargeAdapter;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.RechargeBean;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.wxapi.Constants;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.wxapi.PayResult;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -72,7 +72,7 @@ public class RechargeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
+        api = WXAPIFactory.createWXAPI(this, BuildConfig.WX_APPID);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -88,9 +88,6 @@ public class RechargeActivity extends BaseActivity {
 
 
         getData();
-//		reciever reviever = new reciever();
-//		IntentFilter filter1 = new IntentFilter("2");
-//		registerReceiver(reviever, filter1);
     }
 
     private void getData() {

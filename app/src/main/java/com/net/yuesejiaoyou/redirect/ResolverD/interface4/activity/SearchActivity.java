@@ -15,8 +15,10 @@ import android.widget.EditText;
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
+import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ChatActivity;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.UserBean;
+import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.UrlUtils;
@@ -58,9 +60,18 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
-                Intent intent = new Intent(SearchActivity.this, UserActivity.class);
-                intent.putExtra("id", adapter.getData().get(position).getId());
-                startActivity(intent);
+                if(Util.iszhubo.equals("0")){
+                    Intent intent = new Intent(SearchActivity.this, UserActivity.class);
+                    intent.putExtra("id", adapter.getData().get(position).getId());
+                    startActivity(intent);
+                }else {
+                    UserBean user_data = adapter.getData().get(position);
+                    Intent intentthis = new Intent(SearchActivity.this, ChatActivity.class);
+                    intentthis.putExtra("id", user_data.getId()+"");
+                    intentthis.putExtra("name", user_data.getNickname());
+                    intentthis.putExtra("headpic", user_data.getPhoto());
+                    startActivity(intentthis);
+                }
             }
         });
     }

@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:background="@drawable/bg_search"
             android:gravity="center_vertical"
-            android:hint="查询主播名字"
+            android:hint="请输入昵称或者id搜索"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textSize="12sp" />

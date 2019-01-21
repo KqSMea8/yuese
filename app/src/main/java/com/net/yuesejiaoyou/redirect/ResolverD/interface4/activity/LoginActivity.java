@@ -93,9 +93,8 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     }
 
     private void init() {
-        LogUtil.i("ttt", "--xiaojigouInit--");
         String licenseText = "hMPthC0oBIbtMp515TWb9jZvrLAKWIMvA4Dhf03n51QvnJr7jZowVe86d0WwU0NK9QGRFaXQn628fRu941qyr3FtsI5R7Y6v1XEpL6YvQNWQCkFEt1SAb0hyawimOYf1tfG2lIaNE63c5e+OxXssOVUWvw8tOr2glVwWVzh79NmZMahrnS8l69SoeoXLMKCYlvAt/qJFFk4+6Aq3QvOv3o72fq5p90yty+YWg7o0HirZpMSP9P5/DHYPFqR/ud7twTJ+Yo2+ZzYvodqRQbGG0HseZn8Xpt7fZdFuZbc2HGRMVk56vNDMRlcGZZXAjENk7m2UMhi1ohhuSf4WmIgXCZFiJXvYFByaY625gXKtEI7+b7t81nWQYHP9BEbzURwL";
-        XJGArSdkApi.XJGARSDKInitialization(this, licenseText, "DoctorLuoInvitedUser:teacherluo", "LuoInvitedCompany:www.xiaojigou.cn");
+        XJGArSdkApi.XJGARSDKInitialization(this, licenseText, "DoctorLuoInvitedUser:51yuese", "LuoInvitedCompany:ZiRanWangLuo");
 
 
         String username = sp.getString("username", "");

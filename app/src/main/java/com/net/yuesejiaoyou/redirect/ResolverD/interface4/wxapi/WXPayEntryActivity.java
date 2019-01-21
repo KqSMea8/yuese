@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 /*import com.net.yuesejiaoyou.R;
 import com.example.vliao.interface4.LogDetect;*/
+import com.net.yuesejiaoyou.BuildConfig;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
@@ -27,7 +28,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pay_result);
-    	api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
+    	api = WXAPIFactory.createWXAPI(this, BuildConfig.WX_APPID);
         api.handleIntent(getIntent(), this);
     }
 

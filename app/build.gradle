@@ -28,8 +28,27 @@ android {
         ndk {
             abiFilters "armeabi-v7a"
         }
+
+        
+
+        buildConfigField 'String', 'WX_APPID', '"wx727afd7d1e8a4ca2"'
     }
 
+
+    productFlavors {
+
+        p {
+           
+        }
+
+        u {
+            applicationId "com.net.yuesejiaoyou"
+
+            buildConfigField 'String', 'WX_APPID', '"wx727afd7d1e8a4ca2"'
+        }
+    }
+
+    flavorDimensions 'api'
 
     buildTypes {
         debug {

@@ -43,6 +43,8 @@ public class RankAdapter extends BaseQuickAdapter<User_data, BaseViewHolder> {
         helper.setText(R.id.tv_count, "魅力值："+item.getMoney());
         ImageUtils.loadImage(item.getPhoto(), (ImageView) helper.getView(R.id.touxiang));
 
+        helper.addOnClickListener(R.id.touxiang);
+
     }
 
 }

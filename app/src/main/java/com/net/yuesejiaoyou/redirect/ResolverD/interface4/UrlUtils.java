@@ -11,4 +11,5 @@ public class UrlUtils {
 
     public static final String URL_SEARCH = BASE_URL + "ar?mode=A-user-mod&mode2=search_dv";
     public static final String URL_RANK = BASE_URL + "ar?mode=A-user-mod&mode2=search_census";
+    public static final String URL_FOCUS = BASE_URL + "ar?mode=A-user-search&mode2=attend";
 }

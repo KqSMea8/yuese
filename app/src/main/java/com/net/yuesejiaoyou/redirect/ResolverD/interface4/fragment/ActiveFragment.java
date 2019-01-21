@@ -189,10 +189,14 @@ public class ActiveFragment extends BaseFragment implements SwipeRefreshLayout.O
                             adapter.loadMoreFail();
                             return;
                         }
+                        if (list1.size() <= 1) {
+                            adapter.loadMoreEnd();
+                            return;
+                        }
                         if (pageno == 1) {
                             articles.clear();
                         }
-                        articles.addAll(list1);
+                        articles.addAll(list1.subList(0, list1.size() - 1));
                         adapter.notifyDataSetChanged();
                         if (list1.size() == 0) {
                             adapter.loadMoreEnd();

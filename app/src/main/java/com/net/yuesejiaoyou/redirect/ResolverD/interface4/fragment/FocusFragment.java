@@ -18,8 +18,10 @@ import android.widget.ImageView;
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.net.yuesejiaoyou.R;
+import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.photo_01162;
+import com.net.yuesejiaoyou.redirect.ResolverD.interface4.UrlUtils;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.ShareActivity;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.URL;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
@@ -40,7 +42,7 @@ import java.util.List;
 import okhttp3.Call;
 
 
-public class FocusFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class FocusFragment extends BaseFragment {
 
     private List<User_data> articles = new ArrayList<User_data>();
     private int pageno = 1;
@@ -50,14 +52,19 @@ public class FocusFragment extends BaseFragment implements SwipeRefreshLayout.On
     Find2Adapter adapter;
 
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
         refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light,
                 android.R.color.holo_orange_light, android.R.color.holo_green_light);
-        refreshLayout.setOnRefreshListener(this);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pageno = 1;
+                getDatas();
+            }
+        });
         recyclerView = (RecyclerView) view.findViewById(R.id.theme_grre);
         pageno = 1;
 
@@ -187,10 +194,14 @@ public class FocusFragment extends BaseFragment implements SwipeRefreshLayout.On
                             adapter.loadMoreFail();
                             return;
                         }
+                        if (list1.size() <= 1) {
+                            adapter.loadMoreEnd();
+                            return;
+                        }
                         if (pageno == 1) {
                             articles.clear();
                         }
-                        articles.addAll(list1);
+                        articles.addAll(list1.subList(0, list1.size() - 1));
                         adapter.notifyDataSetChanged();
                         if (list1.size() == 0) {
                             adapter.loadMoreEnd();
@@ -204,15 +215,6 @@ public class FocusFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     String gender = "女";
-
-
-    @Override
-    public void onRefresh() {
-        // 设置可见
-        refreshLayout.setRefreshing(true);
-        pageno = 1;
-        getDatas();
-    }
 
 
     private View headview = null;

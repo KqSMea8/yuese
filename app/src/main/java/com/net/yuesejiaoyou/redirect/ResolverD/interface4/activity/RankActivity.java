@@ -5,19 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.net.yuesejiaoyou.R;
-import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.ActiveFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.BoyFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.FocusFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.NewFragment;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.RankFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.RecommendFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.UserFragment;
 
 import java.util.ArrayList;
 import java.util.List;

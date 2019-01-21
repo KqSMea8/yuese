@@ -84,9 +84,9 @@ public class ZhuboActivity extends BaseActivity implements IUserInfoHandler, IVi
 
         // 显示默认fragment
         if (gukeInfo.getDirect() == P2PVideoConst.GUKE_CALL_ZHUBO) {
-            startFragment(new GukeFromCallingFragment());
+            startFragment(new FromCallingFragment());
         } else if (gukeInfo.getDirect() == P2PVideoConst.ZHUBO_CALL_GUKE) {
-            startFragment(new CallingFragment());//被叫
+            startFragment(new ZhuboCallingFragment());//被叫
         } else {
             Toast.makeText(this, "没有适合的接听页面类型", Toast.LENGTH_SHORT).show();
         }
