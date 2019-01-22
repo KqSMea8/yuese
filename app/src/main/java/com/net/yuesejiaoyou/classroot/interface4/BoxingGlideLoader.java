@@ -22,8 +22,7 @@ import android.widget.ImageView;
 
 import com.bilibili.boxing.loader.IBoxingCallback;
 import com.bilibili.boxing.loader.IBoxingMediaLoader;
-import com.bumptech.glide.Glide;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
+import com.net.yuesejiaoyou.utils.ImageUtils;
 
 /**
  * use https://github.com/bumptech/glide as media loader.

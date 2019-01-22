@@ -1,4 +1,4 @@
-package com.net.yuesejiaoyou.redirect.ResolverB.interface4.util;
+package com.net.yuesejiaoyou.classroot.interface4.util;
 
 /**
  * @Author: lifujun@alibaba-inc.com

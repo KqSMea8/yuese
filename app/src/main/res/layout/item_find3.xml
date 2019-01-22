@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/touxiang"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher"
+        app:siBorderColor="@color/white"
+        app:siBorderWidth="0dp"
+        app:siRadius="70dp"
+        app:siSquare="true" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="5dp"
+            android:drawableRight="@mipmap/icon_ckzl_zx"
+            android:gravity="center_vertical"
+            android:text="昵称"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RatingBar
+            android:id="@+id/rb_home_leave"
+            style="@style/roomRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/leave_ratingbar_bg"
+            android:numStars="5"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp" />
+
+        <TextView
+            android:id="@+id/item_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:text="接通率：100%"
+            android:textColor="#BBBBBB"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -38,7 +38,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Msg;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.view.CircleImageView;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.uiface.ImgPageActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UserActivity;
+import com.net.yuesejiaoyou.activity.UserActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

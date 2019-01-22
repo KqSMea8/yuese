@@ -27,6 +27,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.umeng.commonsdk.UMConfigure;
 
 
 import android.app.Activity;
@@ -155,14 +156,14 @@ public class YhApplicationA extends Application {
 		BoxingMediaLoader.getInstance().init(loader);
 		BoxingCrop.getInstance().init(new BoxingUcrop());
 
-		// 极光推送
+
 		if (isMainProcess()) {
 			OpenInstall.init(this);
 		}
 
+		UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "");
+		// 极光推送
 		jpushInit();
-
-		//xiaojigouInit();
 	}
 
 	public Activity getCurrentActivity() {
@@ -222,19 +223,17 @@ public class YhApplicationA extends Application {
 		ImageLoader.getInstance().init(config);
 	}
 
-
-
 	// 关闭视频录制编辑相关activity
 	public void closeManageActivity() {
 		for(Activity act : ActivityList) {
-			String className = act.getClass().getName();
-			if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videorecorder.AliyunVideoRecorder".equals(className)) {
+			String className = act.getClass().getSimpleName();
+			if("AliyunVideoRecorder".equals(className)) {
 				Log.e("YB","close AliyunVideoRecorder");
 				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.EditorActivity".equals(className)) {
+			} else if("EditorActivity".equals(className)) {
 				Log.e("YB","close EditorActivity");
 				act.finish();
-			} else if("com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity".equals(className)) {
+			} else if("MediaActivity".equals(className)) {
 				Log.e("YB","close MediaActivity");
 				act.finish();
 			}

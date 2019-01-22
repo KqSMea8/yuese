@@ -23,11 +23,7 @@ import cn.jpush.android.api.JPushInterface;
 
 
 public class ExampleUtil {
-    public static final String PREFS_NAME = "JPUSH_EXAMPLE";
-    public static final String PREFS_DAYS = "JPUSH_EXAMPLE_DAYS";
-    public static final String PREFS_START_TIME = "PREFS_START_TIME";
-    public static final String PREFS_END_TIME = "PREFS_END_TIME";
-    public static final String KEY_APP_KEY = "JPUSH_APPKEY";
+
 
     public static boolean isEmpty(String s) {
         if (null == s)
@@ -39,56 +35,10 @@ public class ExampleUtil {
         return false;
     }
 
-    /**
-     * 只能以 “+” 或者 数字开头；后面的内容只能包含 “-” 和 数字。
-     * */
-    private final static String MOBILE_NUMBER_CHARS = "^[+0-9][-0-9]{1,}$";
 
-    public static boolean isValidMobileNumber(String s) {
-        if (TextUtils.isEmpty(s)) return true;
-        Pattern p = Pattern.compile(MOBILE_NUMBER_CHARS);
-        Matcher m = p.matcher(s);
-        return m.matches();
-    }
 
-    // 校验Tag Alias 只能是数字,英文字母和中文
-    public static boolean isValidTagAndAlias(String s) {
-        Pattern p = Pattern.compile("^[\u4E00-\u9FA50-9a-zA-Z_!@#$&*+=.|]+$");
-        Matcher m = p.matcher(s);
-        return m.matches();
-    }
 
-    // 取得AppKey
-    public static String getAppKey(Context context) {
-        Bundle metaData = null;
-        String appKey = null;
-        try {
-            ApplicationInfo ai = context.getPackageManager().getApplicationInfo(
-                    context.getPackageName(), PackageManager.GET_META_DATA);
-            if (null != ai)
-                metaData = ai.metaData;
-            if (null != metaData) {
-                appKey = metaData.getString(KEY_APP_KEY);
-                if ((null == appKey) || appKey.length() != 24) {
-                    appKey = null;
-                }
-            }
-        } catch (NameNotFoundException e) {
 
-        }
-        return appKey;
-    }
-
-    // 取得版本号
-    public static String GetVersion(Context context) {
-        try {
-            PackageInfo manager = context.getPackageManager().getPackageInfo(
-                    context.getPackageName(), 0);
-            return manager.versionName;
-        } catch (NameNotFoundException e) {
-            return "Unknown";
-        }
-    }
 
     public static void showToast(final String toast, final Context context) {
 //        new Thread(new Runnable() {
@@ -108,42 +58,6 @@ public class ExampleUtil {
         return (info != null && info.isConnected());
     }
 
-    public static String getImei(Context context, String imei) {
-        String ret = null;
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return ret;
-            }
-            ret = telephonyManager.getDeviceId();
-        } catch (Exception e) {
-			Log.e(ExampleUtil.class.getSimpleName(), e.getMessage());
-		}
-		if (isReadableASCII(ret)){
-            return ret;
-        } else {
-            return imei;
-        }
-	}
 
-    private static boolean isReadableASCII(CharSequence string){
-        if (TextUtils.isEmpty(string)) return false;
-        try {
-            Pattern p = Pattern.compile("[\\x20-\\x7E]+");
-            return p.matcher(string).matches();
-        } catch (Throwable e){
-            return true;
-        }
-    }
 
-    public static String getDeviceId(Context context) {
-        return JPushInterface.getUdid(context);
-    }
 }

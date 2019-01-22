@@ -1,7 +1,7 @@
 package com.zhy.http.okhttp;
 
 
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.LogUtil;
 import com.zhy.http.okhttp.builder.DeteleBuilder;
 import com.zhy.http.okhttp.builder.GetBuilder;
 import com.zhy.http.okhttp.builder.HeadBuilder;

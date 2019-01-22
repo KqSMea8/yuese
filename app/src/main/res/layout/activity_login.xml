@@ -1,140 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="70dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="10dp"
+        android:text="悦色交友"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_gravity="center|top"
-            android:layout_marginTop="70dp"
-            android:src="@drawable/ic_launcher" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginTop="10dp"
-            android:text="悦色交友"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="180dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="2dp"
-                    android:background="#DEDEDE" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:gravity="center"
-                    android:text="想你所想 聊你所聊"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
-
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="2dp"
-                    android:background="#DEDEDE" />
-
-            </LinearLayout>
+            <View
+                android:layout_width="20dp"
+                android:layout_height="2dp"
+                android:background="#DEDEDE" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="视频社交"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="想你所想 聊你所聊"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:id="@+id/wc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:drawableTop="@drawable/wx"
-                    android:gravity="center"
-                    android:text="微信"
-                    android:textColor="#D2D2D2" />
-
-                <TextView
-                    android:id="@+id/qq"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:drawableTop="@drawable/qqquick"
-                    android:gravity="center"
-                    android:text="QQ"
-                    android:textColor="#D2D2D2"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/phonelogin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:drawableTop="@drawable/phone"
-                    android:gravity="center"
-                    android:text="手机"
-                    android:textColor="#D2D2D2" />
-            </LinearLayout>
+            <View
+                android:layout_width="20dp"
+                android:layout_height="2dp"
+                android:background="#DEDEDE" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/xieyi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="60dip"
-            android:gravity="center"
-            android:text="注册或登陆即代表你同意《悦色交友用户协议》"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:layout_gravity="center"
+            android:text="视频社交"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
-        <TextView
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="20dp"
-
+            android:layout_height="100dp"
             android:gravity="center"
-            android:text="2018 AllRights Reserved 769 Network Technology Co, Ltd."
-            android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:orientation="horizontal"
+            android:weightSum="3">
 
+            <TextView
+                android:id="@+id/wc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableTop="@drawable/wx"
+                android:gravity="center"
+                android:text="微信"
+                android:textColor="#D2D2D2" />
+
+            <TextView
+                android:id="@+id/qq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableTop="@drawable/qqquick"
+                android:gravity="center"
+                android:text="QQ"
+                android:textColor="#D2D2D2"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/phonelogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableTop="@drawable/phone"
+                android:gravity="center"
+                android:text="手机"
+                android:textColor="#D2D2D2" />
+        </LinearLayout>
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/xieyi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="60dip"
+        android:gravity="center"
+        android:text="注册或登陆即代表你同意《悦色交友用户协议》"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="20dp"
+
+        android:gravity="center"
+        android:text="2018 AllRights Reserved 769 Network Technology Co, Ltd."
+        android:textColor="@color/black"
+        android:textSize="8sp" />
+
+
+</LinearLayout>

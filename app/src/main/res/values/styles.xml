@@ -211,6 +211,10 @@
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">14sp</item>
     </style>
+    <style name="Tab2LayoutTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <!--  腾讯云style start  -->
     <style name="RtmproomActivityTheme" parent="Theme.AppCompat.NoActionBar" />

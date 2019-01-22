@@ -6,18 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-/*import com.net.yuesejiaoyou.R;
-import com.example.vliao.interface4.LogDetect;*/
 import com.net.yuesejiaoyou.BuildConfig;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.wxapi.*;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler{
 	

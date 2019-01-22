@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.VideoPlayActivity;
+import com.net.yuesejiaoyou.activity.VideoPlayActivity;
 import com.net.yuesejiaoyou.redirect.ResolverC.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverC.interface3.UsersThread_01160;

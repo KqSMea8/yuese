@@ -23,7 +23,6 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.ConnectionConfiguration;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.ConnectionListener;
-import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.XMPPException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa1.smack.XMPPTCPConnection;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.Chat;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
@@ -35,7 +34,7 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException.NotConnectedException;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.listener.managerlistener;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.utils.Tools;
 
 public class IMManager {
 

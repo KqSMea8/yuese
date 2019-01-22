@@ -2,7 +2,6 @@ package com.net.yuesejiaoyou.redirect.ResolverA.interface4.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Msg;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Session;
@@ -10,14 +9,12 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.ChatMsgD
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.Const;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.db.SessionDao;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.utils.Tools;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Random;
 
 import okhttp3.Call;

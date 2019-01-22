@@ -1,7 +1,6 @@
 package com.net.yuesejiaoyou.redirect.ResolverB.uiface;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -40,7 +39,7 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01158B;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.UploadVideoActivity;
+import com.net.yuesejiaoyou.activity.UploadVideoActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoeditor.Common;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity;
 //import com.net.yuesejiaoyou.redirect.ResolverB.interface4.videoimport.MediaActivity_FF;

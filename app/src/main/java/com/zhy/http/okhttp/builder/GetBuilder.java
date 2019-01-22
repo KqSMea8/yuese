@@ -2,7 +2,7 @@ package com.zhy.http.okhttp.builder;
 
 import android.net.Uri;
 
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.LogUtil;
 import com.zhy.http.okhttp.request.GetRequest;
 import com.zhy.http.okhttp.request.RequestCall;
 

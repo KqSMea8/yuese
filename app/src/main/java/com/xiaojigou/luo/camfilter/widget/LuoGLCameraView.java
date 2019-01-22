@@ -8,10 +8,9 @@ import android.hardware.Camera;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.LogUtil;
 import com.xiaojigou.luo.camfilter.CameraEngine;
 import com.xiaojigou.luo.camfilter.LuoGPUCameraInputFilter;
 import com.xiaojigou.luo.camfilter.LuoGPUImgBaseFilter;

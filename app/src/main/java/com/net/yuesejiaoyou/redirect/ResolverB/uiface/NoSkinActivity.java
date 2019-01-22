@@ -50,7 +50,7 @@ import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Completed;
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Idle;
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Stopped;
 
-import com.net.yuesejiaoyou.redirect.ResolverB.interface4.util.Formatter;
+import com.net.yuesejiaoyou.classroot.interface4.util.Formatter;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.BaseActivity;
 
 /***********************************************
@@ -864,18 +864,13 @@ public class NoSkinActivity extends BaseActivity {
         }
     }
 
-    /******************************
-     *设置视频的宽度和高度
-     ******************************/
+
     private void showVideoSizeInfo() {
         videoWidthTxt.setText(getString(R.string.video_width) + aliyunVodPlayer.getVideoWidth() + " , ");
         videoHeightTxt.setText(getString(R.string.video_height) + aliyunVodPlayer.getVideoHeight() + "   ");
     }
 
-    /*******************************
-     *更新加载进度
-     * @param percent
-     ********************************/
+
     private void updateBufferingProgress(int percent) {
         int duration = (int) aliyunVodPlayer.getDuration();
         int secondaryProgress = (int) (duration * percent * 1.0f / 100);
@@ -883,9 +878,7 @@ public class NoSkinActivity extends BaseActivity {
         progressBar.setSecondaryProgress(secondaryProgress);
     }
 
-    /*********************************
-     *
-     **********************************/
+
     private void showVideoProgressInfo() {
         if((aliyunVodPlayer.getPlayerState().equals(AliyunVodPlayer.PlayerState.Started)
                 || aliyunVodPlayer.getPlayerState().equals(AliyunVodPlayer.PlayerState.Replay) ||
@@ -903,9 +896,7 @@ public class NoSkinActivity extends BaseActivity {
         startUpdateTimer();
     }
 
-    /*******************************
-     *
-     ********************************/
+
     private void startUpdateTimer() {
         Log.d(TAG, "startUpdateTimer--- ");
         progressUpdateTimer.removeMessages(0);

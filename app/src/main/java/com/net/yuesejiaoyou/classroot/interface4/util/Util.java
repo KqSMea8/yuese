@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
@@ -22,9 +21,8 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.ChatManager;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.smack.SmackException;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.MyCallBack;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
-import com.zhy.http.okhttp.callback.StringCallback;
+import com.net.yuesejiaoyou.utils.MyCallBack;
+import com.net.yuesejiaoyou.utils.Tools;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -9,8 +9,8 @@ import android.util.Log;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.cn.sharesdk.onekeyshare.OnekeyShare;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 
 import java.io.IOException;
 import java.io.PrintWriter;

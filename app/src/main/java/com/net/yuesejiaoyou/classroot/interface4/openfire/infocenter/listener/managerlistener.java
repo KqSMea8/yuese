@@ -29,8 +29,8 @@ import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.hengexa2.sm
 import com.net.yuesejiaoyou.classroot.interface4.openfire.interface4.Util;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
+import com.net.yuesejiaoyou.activity.GukeActivity;
+import com.net.yuesejiaoyou.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.im.IMManager;

@@ -17,14 +17,13 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverD.interface4.YhApplicationA;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
+import com.net.yuesejiaoyou.activity.LoginActivity;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.P2PVideoConst;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.VideoMessageManager;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.GukeActivity;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.bean.ZhuboInfo;
+import com.net.yuesejiaoyou.activity.GukeActivity;
+import com.net.yuesejiaoyou.bean.ZhuboInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.GukeInfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo.ZhuboActivity;
-//import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.zhubo_bk;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,11 +123,9 @@ public class MyReceiver extends BroadcastReceiver {
 					Log.v(TAG,"command="+command);
 					switch(command) {
 						case VideoMessageManager.VIDEO_U2A_USER_CALL:
-//							ZhuboActivity.callFromGuke(context, new GukeInfo(fromId, fromNickname, fromHeadpic, roomid, P2PVideoConst.GUKE_CALL_ZHUBO));
 							ZhuboActivity.callFromGuke(curActivity, new GukeInfo(fromId, fromNickname, fromHeadpic, roomid, P2PVideoConst.GUKE_CALL_ZHUBO, yuyue));
 							break;
 						case VideoMessageManager.VIDEO_A2U_ANCHOR_CALL:
-//							GukeActivity.callFromZhubo(context, new ZhuboInfo(fromId, fromNickname, fromHeadpic, roomid, P2PVideoConst.ZHUBO_CALL_GUKE));
 							GukeActivity.callFromZhubo(curActivity, new ZhuboInfo(fromId, fromNickname, fromHeadpic, roomid, P2PVideoConst.ZHUBO_CALL_GUKE, yuyue));
 							break;
 						case "200":

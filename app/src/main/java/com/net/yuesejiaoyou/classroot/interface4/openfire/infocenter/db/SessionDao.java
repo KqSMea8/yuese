@@ -6,7 +6,7 @@ import java.util.List;
 
 
 import com.net.yuesejiaoyou.classroot.interface4.openfire.infocenter.bean.Session;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.LogUtil;
 
 import android.content.ContentValues;
 import android.content.Context;

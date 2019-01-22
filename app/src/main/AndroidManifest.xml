@@ -4,8 +4,9 @@
     package="com.net.yuesejiaoyou">
 
     <permission
-        android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.permission.JPUSH_MESSAGE"
+        android:name="${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
+    <uses-permission android:name="${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE" />
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
@@ -35,7 +36,6 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <!-- Required  一些系统要求的权限，如访问网络等 -->
-    <uses-permission android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -51,15 +51,34 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:screenOrientation="portrait"
-        android:theme="@style/AppTheme"
-        tools:replace="theme,icon">
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="and-0" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5c46928df1f55661e900029f" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <!--适配小米（xiaomi）刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
         <service
             android:name=".classroot.interface4.util.PlayerMusicService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -77,11 +96,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="hyh2jp" />
+                <data android:scheme="${OPEN_INSTALL}" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
@@ -90,10 +109,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/Boxing.AppTheme.NoActionBar" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.WelcomeGuideActivity"
+            android:name=".activity.WelcomeGuideActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.Answer1Activity"
+            android:name=".activity.Answer1Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.tuichu"
@@ -102,45 +121,45 @@
             android:name=".redirect.ResolverB.uiface.tuichu1"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.UserActivity"
+            android:name=".activity.UserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.PhoneLoginActivity"
+            android:name=".activity.PhoneLoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ForgetPasswordActivity"
+            android:name=".activity.ForgetPasswordActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ModifyPasswordActivity"
+            android:name=".activity.ModifyPasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.AgreementActivity"
+            android:name=".activity.AgreementActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.AgreeActivity"
+            android:name=".activity.AgreeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.XieyiActivity"
+            android:name=".activity.XieyiActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.OtherActivity"
+            android:name=".activity.OtherActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".classroot.interface4.openfire.uiface.ChatActivity"
+            android:name=".activity.ChatActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".classroot.interface4.openfire.uiface.CoustomerActivity"
+            android:name=".activity.CoustomerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
@@ -183,6 +202,15 @@
             android:name=".redirect.ResolverD.interface4.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
@@ -196,28 +224,28 @@
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.AnchorGuideActivity"
+            android:name=".activity.AnchorGuideActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".classroot.interface4.openfire.uiface.ImgPageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.RechargeActivity"
+            android:name=".activity.RechargeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.WebActivity"
+            android:name=".activity.WebActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.InvateActivity"
+            android:name=".activity.InvateActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.HelpActivity"
+            android:name=".activity.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.Answer2Activity"
+            android:name=".activity.Answer2Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.DownloadActivity"
+            android:name=".activity.DownloadActivity"
             android:screenOrientation="portrait" />
 
         <!-- B区界面 -->
@@ -225,13 +253,13 @@
             android:name=".redirect.ResolverB.uiface.UploadVideo_01158"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.VideoPlayActivity"
+            android:name=".activity.VideoPlayActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.VideoPlayPrivate_01066"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.LevelActivity"
+            android:name=".activity.LevelActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.MeiyanSet"
@@ -240,7 +268,7 @@
             android:name=".redirect.ResolverB.uiface.GroupMessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.MyVideoActivity"
+            android:name=".activity.MyVideoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.zhubo"
@@ -251,7 +279,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.GukeActivity"
+            android:name=".activity.GukeActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -267,94 +295,80 @@
             android:name=".redirect.ResolverB.uiface.NoSkinActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.SearchActivity"
+            android:name=".activity.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.guke_01160"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.UploadVideoActivity"
+            android:name=".activity.UploadVideoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverB.uiface.ActivityUploadVideo_FF"
             android:screenOrientation="portrait" />
 
-        <!-- <activity -->
-        <!-- android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoomActivity" -->
-        <!-- android:label="RtmpRoomDemoActivity" -->
-        <!-- android:screenOrientation="portrait" -->
-        <!-- android:theme="@style/RtmproomActivityTheme" -->
-        <!-- android:windowSoftInputMode="adjustNothing"></activity> -->
-        <!-- <activity -->
-        <!-- android:name="com.net.yuesejiaoyou.redirect.ResolverB.interface4.tencent.liveroom.LiveRoomActivity_zhubo" -->
-        <!-- android:label="RtmpRoomDemoActivity" -->
-        <!-- android:screenOrientation="portrait" -->
-        <!-- android:theme="@style/RtmproomActivityTheme" -->
-        <!-- android:windowSoftInputMode="adjustNothing"></activity> -->
-        <!-- B区界面 -->
-        <!-- C 区界面 -->
         <activity
             android:name=".redirect.ResolverC.uiface.Mytag_01162"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.IntimateActivity"
+            android:name=".activity.IntimateActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.IncomeActivity"
+            android:name=".activity.IncomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ZhuboBillActivity"
+            android:name=".activity.ZhuboBillActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.TixianDetailActivity"
+            android:name=".activity.TixianDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ZhuboIncomeActivity"
+            android:name=".activity.ZhuboIncomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.BillActivity"
+            android:name=".activity.BillActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ZhuboTixianActivity"
+            android:name=".activity.ZhuboTixianActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverC.uiface.vliao_shenqing_01152"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.FansActivity"
+            android:name=".activity.FansActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.AppariseActivity"
+            android:name=".activity.AppariseActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.RecomeActivity"
+            android:name=".activity.RecomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.CallHistoryActivity"
+            android:name=".activity.CallHistoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.WalletActivity"
+            android:name=".activity.WalletActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.NickEditActivity"
+            android:name=".activity.NickEditActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.CollectActivity"
+            android:name=".activity.CollectActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.BlackNameActivity"
+            android:name=".activity.BlackNameActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.EditActivity"
+            android:name=".activity.EditActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.YuyueActivity"
+            android:name=".activity.YuyueActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ModifyAvaterActivity"
+            android:name=".activity.ModifyAvaterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.FocusActivity"
+            android:name=".activity.FocusActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".redirect.ResolverC.uiface.Authen_nicheng_01150"
@@ -381,32 +395,32 @@
             android:name=".redirect.ResolverC.uiface.Authentication_01150"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.PriceActivity"
+            android:name=".activity.PriceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.WithdrawActivity"
+            android:name=".activity.WithdrawActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.ShareActivity"
+            android:name=".activity.ShareActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.DailiActivity"
+            android:name=".activity.DailiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.TuijianActivity"
+            android:name=".activity.TuijianActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".redirect.ResolverD.interface4.activity.TuiguangActivity"
+            android:name=".activity.TuiguangActivity"
             android:screenOrientation="portrait" />
         <!-- C 区界面 -->
 
         <meta-data
             android:name="com.openinstall.APP_KEY"
-            android:value="hyh2jp" />
+            android:value="${OPEN_INSTALL}" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.file.provider"
+            android:authorities="${JPUSH_PKGNAME}.file.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -430,7 +444,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
+                <category android:name="${JPUSH_PKGNAME}" />
             </intent-filter>
         </activity>
 
@@ -439,7 +453,7 @@
         <service
             android:name="cn.jpush.android.service.PushService"
             android:exported="false"
-            android:process=":mult">
+            android:process=":multiprocess">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTER" />
                 <action android:name="cn.jpush.android.intent.REPORT" />
@@ -450,7 +464,7 @@
         <!-- since 3.0.9 Required SDK 核心功能 -->
         <provider
             android:name="cn.jpush.android.service.DataProvider"
-            android:authorities="com.net.yuesejiaoyou.redirect.ResolverD.interface4.DataProvider"
+            android:authorities="${JPUSH_PKGNAME}.DataProvider"
             android:exported="false" />
 
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
@@ -462,13 +476,13 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
 
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
+                <category android:name="${JPUSH_PKGNAME}" />
             </intent-filter>
         </service>
         <!-- since 3.1.0 Required SDK 核心功能 -->
         <provider
             android:name="cn.jpush.android.service.DownloadProvider"
-            android:authorities="com.net.yuesejiaoyou.redirect.ResolverD.interface4.DownloadProvider"
+            android:authorities="${JPUSH_PKGNAME}.DownloadProvider"
             android:exported="true" />
         <!-- Required SDK核心功能 -->
         <receiver
@@ -477,7 +491,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
+                <category android:name="${JPUSH_PKGNAME}" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -508,7 +522,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
+                <category android:name="${JPUSH_PKGNAME}" />
             </intent-filter>
         </receiver>
 
@@ -517,7 +531,7 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
 
-                <category android:name="com.net.yuesejiaoyou.redirect.ResolverD.interface4" />
+                <category android:name="${JPUSH_PKGNAME}" />
             </intent-filter>
         </receiver>
 
@@ -535,17 +549,17 @@
 
         <!-- 注册Service -->
         <service
-            android:name=".redirect.ResolverA.interface4.service.DaemonService"
+            android:name=".service.DaemonService"
             android:enabled="true"
             android:exported="true"
             android:process=":daemon_service" />
         <service
-            android:name=".redirect.ResolverA.interface4.service.CancelNoticeService"
+            android:name=".service.CancelNoticeService"
             android:enabled="true"
             android:exported="true"
             android:process=":service" />
         <service
-            android:name=".redirect.ResolverA.interface4.service.AliveJobService"
+            android:name=".service.AliveJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- 接收系统广播接收器 -->
@@ -554,17 +568,12 @@
             android:name=".redirect.ResolverB.uiface.MeiyanActivity"
             android:screenOrientation="portrait" />
 
-        <!-- 网易云信 start -->
-        <!--
-             APP key, 可以在这里设置，也可以在 SDKOptions 中提供。
-            如果 SDKOptions 中提供了，取 SDKOptions 中的值。
-        -->
+
         <meta-data
             android:name="com.netease.nim.appKey"
             android:value="8821845f0a963bfbc9792084ad0ce59c" />
 
-        <!-- 网易云信 end -->
-        <activity android:name=".redirect.ResolverD.interface4.activity.RankActivity"></activity>
+        <activity android:name=".activity.RankActivity"/>
     </application>
 
 </manifest>

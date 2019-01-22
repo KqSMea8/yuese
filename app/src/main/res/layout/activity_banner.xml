@@ -8,11 +8,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        app:indicator_height="5dip"
-        app:indicator_margin="3dip"
-        app:indicator_width="3dip" />
+        app:indicator_height="5dp"
+        app:indicator_margin="3dp"
+        app:indicator_width="3dp" />
 
 </LinearLayout>

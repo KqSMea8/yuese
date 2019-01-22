@@ -2,7 +2,7 @@ package com.zhy.http.okhttp.request;
 
 
 
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.LogUtil;
 
 import org.json.JSONObject;
 

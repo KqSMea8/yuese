@@ -6,6 +6,8 @@ import android.os.Message;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.net.yuesejiaoyou.utils.Tools;
+
 import java.util.Locale;
 import java.util.Set;
 
@@ -163,7 +165,7 @@ public class TagAliasOperatorHelper {
         }
     }
     private boolean RetryActionIfNeeded(int errorCode,TagAliasBean tagAliasBean){
-        if(!ExampleUtil.isConnected(context)){
+        if(!Tools.isConnected(context)){
             Log.w(TAG,"no network");
             return false;
         }
@@ -183,7 +185,7 @@ public class TagAliasOperatorHelper {
         return false;
     }
     private boolean RetrySetMObileNumberActionIfNeeded(int errorCode,String mobileNumber){
-        if(!ExampleUtil.isConnected(context)){
+        if(!Tools.isConnected(context)){
             Log.w(TAG,"no network");
             return false;
         }

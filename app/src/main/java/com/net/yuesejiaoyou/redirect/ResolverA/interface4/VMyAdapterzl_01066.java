@@ -4,36 +4,26 @@ package com.net.yuesejiaoyou.redirect.ResolverA.interface4;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.net.yuesejiaoyou.R;
 
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
-import com.net.yuesejiaoyou.classroot.interface4.util.Util;
-import com.net.yuesejiaoyou.redirect.ResolverA.core.UsersManage_01066A;
 import com.net.yuesejiaoyou.redirect.ResolverA.getset.User_data;
 import com.net.yuesejiaoyou.redirect.ResolverC.uiface.Mytag_01162;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.ImageUtils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.net.yuesejiaoyou.utils.ImageUtils;
 
-import java.util.Date;
 import java.util.List;
 
 

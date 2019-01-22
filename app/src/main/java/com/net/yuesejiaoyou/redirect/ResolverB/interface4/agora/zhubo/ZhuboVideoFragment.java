@@ -64,9 +64,9 @@ import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.Downloader;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IAgoraVideoEventListener;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IUserInfoHandler;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface4.agora.IVideoHandler;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.BaseFragment;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.LogUtil;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.utils.Tools;
+import com.net.yuesejiaoyou.fragment.BaseFragment;
+import com.net.yuesejiaoyou.utils.LogUtil;
+import com.net.yuesejiaoyou.utils.Tools;
 import com.xiaojigou.luo.activity.ClickUtils;
 import com.xiaojigou.luo.activity.MenuAdapter;
 import com.xiaojigou.luo.activity.MenuBean;
@@ -88,12 +88,9 @@ import java.io.Writer;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by Administrator on 2018\8\17 0017.

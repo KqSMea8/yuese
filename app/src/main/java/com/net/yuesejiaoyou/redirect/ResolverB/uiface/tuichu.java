@@ -16,7 +16,7 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.classroot.interface4.LogDetect;
 import com.net.yuesejiaoyou.classroot.interface4.util.Util;
 import com.net.yuesejiaoyou.classroot.interface4.openfire.core.Utils;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.activity.LoginActivity;
+import com.net.yuesejiaoyou.activity.LoginActivity;
 
 import cn.jpush.android.api.JPushInterface;
 

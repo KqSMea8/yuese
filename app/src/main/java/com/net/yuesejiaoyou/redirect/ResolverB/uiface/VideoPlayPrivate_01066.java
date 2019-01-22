@@ -33,7 +33,7 @@ import com.net.yuesejiaoyou.R;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Page;
 import com.net.yuesejiaoyou.redirect.ResolverB.getset.Videoinfo;
 import com.net.yuesejiaoyou.redirect.ResolverB.interface3.UsersThread_01066B;
-import com.net.yuesejiaoyou.redirect.ResolverD.interface4.fragment.VideoPlayFragment;
+import com.net.yuesejiaoyou.fragment.VideoPlayFragment;
 
 
 public class VideoPlayPrivate_01066 extends FragmentActivity {
